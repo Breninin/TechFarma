@@ -1,4 +1,4 @@
-# TechFarma
+# TechPharma
 Sistema TechFarma para farmácias.
 
 Tarefas da equipe:
