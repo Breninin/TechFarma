@@ -13,6 +13,13 @@ Tarefas da equipe:
 
 Sendo todas as telas seguindo o padrão do documento TechPharma.
 
+REGRA GERAL
+
+- Todas as telas de cadastro perderão o botão Alterar. Os botões serão: Salvar e Cancelar;
+- Título (se houver): Arial, tamanho 14 e negrito;
+- Textos (labels, textbox, etc): Arial, tamanho 12;
+- Cor de fundo e de letra padrão.
+
 OBS: A tela de Cadastrar Serviço só tem no arquivo do Fabulos Farma e está incompleta. Quem escolher adicione os seguintes campos além dos que já estão lá:
 
 - Fabricante;
