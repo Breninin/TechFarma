@@ -7,24 +7,24 @@
         mc:Ignorable="d"
         Title="Cadastrar Cliente" Height="450" Width="800">
     <Grid>
-        <Label Content="Nome Completo" HorizontalAlignment="Left" Margin="38,35,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
-        <Label Content="Data de Nascimento" HorizontalAlignment="Left" Margin="17,276,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
-        <Label Content="Celular" HorizontalAlignment="Left" Margin="578,96,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
-        <Label Content="CPF" HorizontalAlignment="Left" Margin="101,96,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
-        <Label Content="RG" HorizontalAlignment="Left" Margin="353,96,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial" RenderTransformOrigin="1.536,0.968"/>
-        <Label Content="Endereço" HorizontalAlignment="Left" Margin="74,161,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
-        <Label Content="Cidade" HorizontalAlignment="Left" Margin="87,221,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
-        <Label Content="UF" HorizontalAlignment="Left" Margin="600,219,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
-        <Label Content="CEP" HorizontalAlignment="Left" Margin="346,219,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
-        <Label Content="Sexo" HorizontalAlignment="Left" Margin="344,274,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
-        <DatePicker HorizontalAlignment="Left" Margin="174,276,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
-        <TextBox HorizontalAlignment="Left" Margin="174,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontFamily="Arial"/>
-        <TextBox HorizontalAlignment="Left" Margin="654,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial" TextChanged="TextBox_TextChanged"/>
-        <TextBox HorizontalAlignment="Left" Margin="174,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
-        <TextBox HorizontalAlignment="Left" Margin="414,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
-        <TextBox HorizontalAlignment="Left" Margin="174,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="600" FontFamily="Arial" RenderTransformOrigin="0.075,-2.213"/>
-        <TextBox HorizontalAlignment="Left" Margin="174,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
-        <TextBox HorizontalAlignment="Left" Margin="414,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
+        <Label x:Name="lbNomeCompleto" Content="Nome Completo" HorizontalAlignment="Left" Margin="38,35,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
+        <Label x:Name="lbDataNascimento" Content="Data de Nascimento" HorizontalAlignment="Left" Margin="17,276,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
+        <Label x:Name="lbCelular" Content="Celular" HorizontalAlignment="Left" Margin="578,96,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
+        <Label x:Name="lbCPF" Content="CPF" HorizontalAlignment="Left" Margin="101,96,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
+        <Label x:Name="lbRG" Content="RG" HorizontalAlignment="Left" Margin="353,96,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial" RenderTransformOrigin="1.536,0.968"/>
+        <Label x:Name="lbEndereco" Content="Endereço" HorizontalAlignment="Left" Margin="74,161,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
+        <Label x:Name="lbCidade" Content="Cidade" HorizontalAlignment="Left" Margin="87,221,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
+        <Label x:Name="lbUF" Content="UF" HorizontalAlignment="Left" Margin="600,219,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
+        <Label x:Name="lbCEP" Content="CEP" HorizontalAlignment="Left" Margin="346,219,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
+        <Label x:Name="lbSexo" Content="Sexo" HorizontalAlignment="Left" Margin="344,274,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
+        <DatePicker x:Name="dpDataNascimento" HorizontalAlignment="Left" Margin="174,276,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <TextBox x:Name="edNome" HorizontalAlignment="Left" Margin="174,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontFamily="Arial"/>
+        <TextBox x:Name="edCelular" HorizontalAlignment="Left" Margin="654,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="edCPF" HorizontalAlignment="Left" Margin="174,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
+        <TextBox x:Name="edRG" HorizontalAlignment="Left" Margin="414,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
+        <TextBox x:Name="edEndereco" HorizontalAlignment="Left" Margin="174,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="600" FontFamily="Arial" RenderTransformOrigin="0.075,-2.213"/>
+        <TextBox x:Name="edCidade" HorizontalAlignment="Left" Margin="174,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
+        <TextBox x:Name="edCEP" HorizontalAlignment="Left" Margin="414,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
 
         <ComboBox x:Name="cbUF" SelectionChanged="cbUF_SelectionChanged" HorizontalAlignment="Left" Margin="654,217,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial">
         <ComboBoxItem>AC</ComboBoxItem>
@@ -63,8 +63,8 @@
         <ComboBoxItem>Não informado</ComboBoxItem>
         </ComboBox>
 
-        <Button Content="CANCELAR" HorizontalAlignment="Left" Margin="174,366,0,0" Width="120" Height="30" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold"/>
-        <Button Content="SALVAR" HorizontalAlignment="Left" Margin="550,366,0,0" Width="120" Height="30" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold"/>
+        <Button x:Name="btCancelar" Content="CANCELAR" HorizontalAlignment="Left" Margin="174,366,0,0" Width="120" Height="30" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold"/>
+        <Button x:Name="btSalvar" Content="SALVAR" HorizontalAlignment="Left" Margin="550,366,0,0" Width="120" Height="30" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold"/>
 
     </Grid>
 </Window>
