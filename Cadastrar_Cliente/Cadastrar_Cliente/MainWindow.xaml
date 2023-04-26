@@ -7,21 +7,6 @@
         mc:Ignorable="d"
         Title="Cadastrar Cliente" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        
         <Label Content="Nome Completo" HorizontalAlignment="Left" Margin="38,35,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
         <Label Content="Data de Nascimento" HorizontalAlignment="Left" Margin="17,276,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
         <Label Content="Celular" HorizontalAlignment="Left" Margin="578,96,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="Arial"/>
@@ -40,11 +25,44 @@
         <TextBox HorizontalAlignment="Left" Margin="174,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="600" FontFamily="Arial" RenderTransformOrigin="0.075,-2.213"/>
         <TextBox HorizontalAlignment="Left" Margin="174,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
         <TextBox HorizontalAlignment="Left" Margin="414,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
-        <ComboBox x:Name="cbUF" SelectionChanged="cbUF_SelectionChanged" HorizontalAlignment="Left" Margin="654,217,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
-        
-        
-        
-        <ComboBox HorizontalAlignment="Left" Margin="414,276,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial"/>
+
+        <ComboBox x:Name="cbUF" SelectionChanged="cbUF_SelectionChanged" HorizontalAlignment="Left" Margin="654,217,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial">
+        <ComboBoxItem>AC</ComboBoxItem>
+        <ComboBoxItem>AL</ComboBoxItem>
+        <ComboBoxItem>AP</ComboBoxItem>
+        <ComboBoxItem>AM</ComboBoxItem>
+        <ComboBoxItem>BA</ComboBoxItem>
+        <ComboBoxItem>CE</ComboBoxItem>
+        <ComboBoxItem>DF</ComboBoxItem>
+        <ComboBoxItem>ES</ComboBoxItem>
+        <ComboBoxItem>GO</ComboBoxItem>
+        <ComboBoxItem>MA</ComboBoxItem>
+        <ComboBoxItem>MT</ComboBoxItem>
+        <ComboBoxItem>MS</ComboBoxItem>
+        <ComboBoxItem>MG</ComboBoxItem>
+        <ComboBoxItem>PA</ComboBoxItem>
+        <ComboBoxItem>PB</ComboBoxItem>
+        <ComboBoxItem>PR</ComboBoxItem>
+        <ComboBoxItem>PE</ComboBoxItem>
+        <ComboBoxItem>PI</ComboBoxItem>
+        <ComboBoxItem>RJ</ComboBoxItem>
+        <ComboBoxItem>RN</ComboBoxItem>
+        <ComboBoxItem>RS</ComboBoxItem>
+        <ComboBoxItem>RO</ComboBoxItem>
+        <ComboBoxItem>RR</ComboBoxItem>
+        <ComboBoxItem>SC</ComboBoxItem>
+        <ComboBoxItem>SP</ComboBoxItem>
+        <ComboBoxItem>SE</ComboBoxItem>
+        <ComboBoxItem>TO</ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox x:Name="cbSexo" SelectionChanged="cbSexo_SelectionChanged" HorizontalAlignment="Left" Margin="414,276,0,0" VerticalAlignment="Top" Width="120" FontFamily="Arial">
+        <ComboBoxItem>Feminino</ComboBoxItem>
+        <ComboBoxItem>Masculino</ComboBoxItem>
+        <ComboBoxItem>Intersexo</ComboBoxItem>
+        <ComboBoxItem>Não informado</ComboBoxItem>
+        </ComboBox>
+
         <Button Content="CANCELAR" HorizontalAlignment="Left" Margin="174,366,0,0" Width="120" Height="30" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold"/>
         <Button Content="SALVAR" HorizontalAlignment="Left" Margin="550,366,0,0" Width="120" Height="30" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold"/>
 

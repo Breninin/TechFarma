@@ -24,5 +24,15 @@ namespace Cadastrar_Cliente
         {
             InitializeComponent();
         }
+
+        private void cbUF_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cbSexo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
