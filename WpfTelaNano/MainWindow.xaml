@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTelaNano"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Cadastrar Produtos" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Nome:" HorizontalAlignment="Left" Margin="23,76,0,0" VerticalAlignment="Top" Height="28" Width="114" FontFamily="Arial" RenderTransformOrigin="0.698,0.519"/>
+        <TextBox HorizontalAlignment="Left" Margin="142,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" Height="28"/>
+        <Label Content="Código de barras:" HorizontalAlignment="Left" Margin="23,122,0,0" VerticalAlignment="Top" Height="28" Width="114" FontFamily="Arial"/>
+        <TextBox HorizontalAlignment="Left" Margin="142,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="28"/>
+        <Label Content="Fornecedor:" HorizontalAlignment="Left" Margin="23,169,0,0" VerticalAlignment="Top" Height="28" Width="114" FontFamily="Arial" RenderTransformOrigin="0.698,0.519"/>
+        <TextBox HorizontalAlignment="Left" Margin="142,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" Height="28"/>
+        <Label Content="Data de validade:" HorizontalAlignment="Left" Margin="23,215,0,0" VerticalAlignment="Top" Height="28" Width="114" FontFamily="Arial"/>
+        <TextBox HorizontalAlignment="Left" Margin="142,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="129" Height="28"/>
+        <Label Content="Tipo:" HorizontalAlignment="Left" Margin="370,76,0,0" VerticalAlignment="Top" Height="28" Width="114" FontFamily="Arial" RenderTransformOrigin="0.698,0.519"/>
+        <TextBox HorizontalAlignment="Left" Margin="488,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" Height="28"/>
+        <Label Content="Peso/Volume:" HorizontalAlignment="Left" Margin="370,122,0,0" VerticalAlignment="Top" Height="28" Width="114" FontFamily="Arial"/>
+        <TextBox HorizontalAlignment="Left" Margin="488,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" Height="28"/>
+        <Button Content="Salvar" HorizontalAlignment="Left" Margin="527,376,0,0" VerticalAlignment="Top" FontFamily="Arial" Height="26" Width="71"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="680,376,0,0" VerticalAlignment="Top" FontFamily="Arial" Height="26" Width="70"/>
+
     </Grid>
 </Window>
