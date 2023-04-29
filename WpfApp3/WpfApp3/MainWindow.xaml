@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Funcionário" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Height="35" Background="#FF1C328E" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Arial Rounded MT Bold" Foreground="#FFF8F2F2"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Foto" VerticalAlignment="Top" Width="185" Height="197" BorderBrush="#FF08090C"/>
+        <TextBox HorizontalAlignment="Left" Margin="25,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="30" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="273,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Height="27" FontSize="16" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.884"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label Content="Função" HorizontalAlignment="Left" Margin="25,242,0,0" VerticalAlignment="Top" Height="29" Width="148" FontSize="14"/>
+        <Label Content="Estado Civil" HorizontalAlignment="Left" Margin="28,336,0,0" VerticalAlignment="Top" Height="29" Width="148" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="271,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" Height="33" FontSize="16"/>
+        <Label Content="Nome completo" HorizontalAlignment="Left" Margin="271,51,0,0" VerticalAlignment="Top" Height="29" Width="148" FontSize="14"/>
+        <Label Content="Endereço" HorizontalAlignment="Left" Margin="271,138,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="271,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" Height="33" FontSize="16"/>
+        <Label Content="Nacionalidade" HorizontalAlignment="Left" Margin="609,138,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="609,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="33" FontSize="16"/>
+        <Label Content="Gênero" HorizontalAlignment="Left" Margin="609,51,0,0" VerticalAlignment="Top" Height="29" Width="148" FontSize="14"/>
+        <RadioButton Content="Masculino" HorizontalAlignment="Left" Margin="609,82,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Feminino" HorizontalAlignment="Left" Margin="692,82,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Outro" HorizontalAlignment="Left" Margin="658,102,0,0" VerticalAlignment="Top"/>
+        <Label Content="CPF" HorizontalAlignment="Left" Margin="282,242,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="273,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" Height="33" FontSize="16"/>
+        <Label Content="Data de Nascimento" HorizontalAlignment="Left" Margin="609,237,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="609,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="33" FontSize="16"/>
+        <RadioButton Content="Casado" HorizontalAlignment="Left" Margin="25,362,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Solteiro" HorizontalAlignment="Left" Margin="113,362,0,0" VerticalAlignment="Top"/>
+        <Label Content="Contato" HorizontalAlignment="Left" Margin="273,321,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
+        <Label Content="Nº de filhos" HorizontalAlignment="Left" Margin="609,326,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="609,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="33" FontSize="16"/>
+
+    </Grid>
+</Window>
