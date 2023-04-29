@@ -5,43 +5,72 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title ="Cadastrar Funcionário" Height="450" Width="1000" MinHeight="450" MinWidth="800">
     <Grid>
-        <Label Content="Funcionário" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Height="35" Background="#FF1C328E" HorizontalContentAlignment="Center" FontSize="20" FontFamily="Arial Rounded MT Bold" Foreground="#FFF8F2F2"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Foto" VerticalAlignment="Top" Width="185" Height="197" BorderBrush="#FF08090C"/>
-        <TextBox HorizontalAlignment="Left" Margin="25,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="30" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Margin="273,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Height="27" FontSize="16" RenderTransformOrigin="0.5,0.5">
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.884"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        <Label Content="Função" HorizontalAlignment="Left" Margin="25,242,0,0" VerticalAlignment="Top" Height="29" Width="148" FontSize="14"/>
-        <Label Content="Estado Civil" HorizontalAlignment="Left" Margin="28,336,0,0" VerticalAlignment="Top" Height="29" Width="148" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Margin="271,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" Height="33" FontSize="16"/>
-        <Label Content="Nome completo" HorizontalAlignment="Left" Margin="271,51,0,0" VerticalAlignment="Top" Height="29" Width="148" FontSize="14"/>
-        <Label Content="Endereço" HorizontalAlignment="Left" Margin="271,138,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Margin="271,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" Height="33" FontSize="16"/>
-        <Label Content="Nacionalidade" HorizontalAlignment="Left" Margin="609,138,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Margin="609,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="33" FontSize="16"/>
-        <Label Content="Gênero" HorizontalAlignment="Left" Margin="609,51,0,0" VerticalAlignment="Top" Height="29" Width="148" FontSize="14"/>
-        <RadioButton Content="Masculino" HorizontalAlignment="Left" Margin="609,82,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Feminino" HorizontalAlignment="Left" Margin="692,82,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Outro" HorizontalAlignment="Left" Margin="658,102,0,0" VerticalAlignment="Top"/>
-        <Label Content="CPF" HorizontalAlignment="Left" Margin="282,242,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Margin="273,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" Height="33" FontSize="16"/>
-        <Label Content="Data de Nascimento" HorizontalAlignment="Left" Margin="609,237,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Margin="609,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="33" FontSize="16"/>
-        <RadioButton Content="Casado" HorizontalAlignment="Left" Margin="25,362,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Solteiro" HorizontalAlignment="Left" Margin="113,362,0,0" VerticalAlignment="Top"/>
-        <Label Content="Contato" HorizontalAlignment="Left" Margin="273,321,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
-        <Label Content="Nº de filhos" HorizontalAlignment="Left" Margin="609,326,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
-        <TextBox HorizontalAlignment="Left" Margin="609,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="33" FontSize="16"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="230,138,0,0" VerticalAlignment="Top"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+
+
+        <WrapPanel Width="900" Grid.Row="0">
+            <Label Content="NOME COMPLETO" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="29" Width="161" FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="310" Height="25" FontSize="16" FontFamily="Arial" VerticalContentAlignment="Bottom"/>
+            <Label Content="GÊNERO" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="29"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <ComboBox HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="149" FontFamily="Arial" FontSize="16" Height="25" VerticalContentAlignment="Bottom">
+                
+                    <ComboBoxItem>Feminino</ComboBoxItem>
+                    <ComboBoxItem>Masculino</ComboBoxItem>
+                    <ComboBoxItem>Intersexo</ComboBoxItem>
+                    <ComboBoxItem>Não informado</ComboBoxItem>
+                         
+                
+            </ComboBox>
+
+        </WrapPanel>
+
+        <WrapPanel Width="900" Grid.Row="1">
+            <Label Content="ENDEREÇO" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="60,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="319" Height="25" FontSize="16" FontFamily="Arial" VerticalContentAlignment="Bottom"/>
+            <Label Content="NACIONALIDADE" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="25" FontSize="16" FontFamily="Arial" VerticalContentAlignment="Bottom"/>
+
+        </WrapPanel>
+
+        <WrapPanel Width="900" Grid.Row="2">
+
+
+            <Label Content="SESSÃO" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="29"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="80,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" Height="25" FontSize="16" FontFamily="Arial" VerticalContentAlignment="Bottom"/>
+            <Label Content="CPF" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Height="30"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="25" FontSize="16" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Bottom"/>
+
+
+        </WrapPanel>
+
+        <WrapPanel Width="900" Grid.Row="3">
+            <Label Content="NASCIMENTO" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <DatePicker HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Height="25" Width="317" VerticalContentAlignment="Bottom"/>
+            <Label Content="CONTATO" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Height="30"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="25" FontSize="16" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Bottom"/>
+
+        </WrapPanel>
+
+        <WrapPanel Width="900" Grid.Row="4">
+            <Button Content="CANCELAR" HorizontalAlignment="Center" FontFamily="Arial" Height="30"  Width="120" Margin ="220,10,0,10" FontSize="16" FontWeight="Bold" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2"/>
+
+            <Button Content="SALVAR" HorizontalAlignment="Center" FontFamily="Arial" Height="30" Width="120" Margin ="220,10,0,10" FontSize="16" FontWeight="Bold" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2"/>
+            
+         </WrapPanel>
+
+
+
+
 
     </Grid>
 </Window>
