@@ -15,38 +15,36 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+
         </Grid.RowDefinitions>
 
 
 
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontFamily="Arial" FontWeight="Bold">
-            CADASTRO DE PRODUTOS
-        </TextBlock>
-        <WrapPanel Grid.Row="1" VerticalAlignment="Center">
+     
+        <WrapPanel Grid.Row="0" VerticalAlignment="Center">
             <Label Content="NOME:" Height="30" FontFamily="Arial" HorizontalAlignment="Right" Margin ="5,5,5,5" FontSize="16" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left"  TextWrapping="Wrap" Text=""  Width="400" Height="30" Margin ="5,5,5,5"  FontFamily="Arial" FontSize="16"/>
-            <Label Content="CÓDIGO DE BARRAS:" FontFamily="Arial" HorizontalAlignment="Right" Margin ="5,5,5,5" FontSize="16" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Right"  TextWrapping="Wrap" Text=""  Width="306" Height="30" Margin ="5,5,5,5"  FontFamily="Arial" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left"  TextWrapping="Wrap" Text=""  Width="400" Height="25" Margin ="70,5,5,5"  FontFamily="Arial" FontSize="16" VerticalContentAlignment="Bottom"/>
+            <Label Content="CÓDIGO DE BARRAS:" FontFamily="Arial" HorizontalAlignment="Right" Margin ="50,5,5,5" FontSize="16" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Right"  TextWrapping="Wrap" Text=""  Width="306" Height="25" Margin ="5,5,5,5"  FontFamily="Arial" FontSize="16"/>
         </WrapPanel>
 
 
+
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center">
+            <Label Content="FORNECEDOR:" HorizontalAlignment="Right" Height="30"  FontFamily="Arial" Margin ="5,5,5,5" FontSize="16" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left"  TextWrapping="Wrap" Text=""  Width="306" Height="25" Margin ="5,5,5,5" FontFamily="Arial" FontSize="16" VerticalContentAlignment="Bottom"/>
+            <Label Content="DATA DE VALIDADE:" HorizontalAlignment="Right"  Height="30" FontFamily="Arial" Margin ="150,5,5,5" FontSize="16" FontWeight="Bold"/>
+            <DatePicker HorizontalAlignment="Left" Width="306" Height="25" Margin ="10,5,5,5" FontSize="16" FontFamily="Arial" VerticalContentAlignment="Bottom"></DatePicker>
+        </WrapPanel>
 
         <WrapPanel Grid.Row="2" VerticalAlignment="Center">
-            <Label Content="FORNECEDOR:" HorizontalAlignment="Right" Height="30"  FontFamily="Arial" Margin ="5,5,5,5" FontSize="16" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left"  TextWrapping="Wrap" Text=""  Width="306" Height="30" Margin ="5,5,5,5" FontFamily="Arial" FontSize="16"/>
-            <Label Content="DATA DE VALIDADE:" HorizontalAlignment="Right"  Height="30" FontFamily="Arial" Margin ="5,5,5,5" FontSize="16" FontWeight="Bold"/>
-            <DatePicker HorizontalAlignment="Left" Width="306" Height="30" Margin ="5,5,5,5" FontSize="16" FontFamily="Arial"></DatePicker>
-        </WrapPanel>
-
-        <WrapPanel Grid.Row="3" VerticalAlignment="Center">
             <Label Content="TIPO:" HorizontalAlignment="Right"   Height="30"  FontFamily="Arial" Margin ="5,5,5,5" FontSize="16" FontWeight="Bold" />
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="306" Height="30" Margin ="5,5,5,5" FontFamily="Arial" FontSize="16"/>
-            <Label Content="PESO/VOLUME:" HorizontalAlignment="Right"   Height="30" FontFamily="Arial" Margin ="5,5,5,5" FontSize="16" FontWeight="Bold"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="306" Height="30" Margin ="5,5,5,5" FontFamily="Arial" FontSize="16"/>
+            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="306" Height="25" Margin ="80,5,5,5" FontFamily="Arial" FontSize="16" VerticalContentAlignment="Bottom"/>
+            <Label Content="PESO/VOLUME:" HorizontalAlignment="Right"   Height="30" FontFamily="Arial" Margin ="15,5,5,5" FontSize="16" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="306" Height="25" Margin ="130,5,5,5" FontFamily="Arial" FontSize="16" VerticalContentAlignment="Bottom"/>
         </WrapPanel>
 
-        <WrapPanel  Grid.Row="4" Width="900">
+        <WrapPanel  Grid.Row="3" Width="900" VerticalAlignment="Center">
             <Button Content="SALVAR" HorizontalAlignment="Center" FontFamily="Arial" Height="30" Width="120" Margin ="220,10,0,10" FontSize="16" FontWeight="Bold" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2"/>
             <Button Content="CANCELAR" HorizontalAlignment="Center" FontFamily="Arial" Height="30"  Width="120" Margin ="220,10,0,10" FontSize="16" FontWeight="Bold" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2"/>
         </WrapPanel>
