@@ -41,6 +41,7 @@
         <Label Content="Contato" HorizontalAlignment="Left" Margin="273,321,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
         <Label Content="Nº de filhos" HorizontalAlignment="Left" Margin="609,326,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="14"/>
         <TextBox HorizontalAlignment="Left" Margin="609,353,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="33" FontSize="16"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="230,138,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
