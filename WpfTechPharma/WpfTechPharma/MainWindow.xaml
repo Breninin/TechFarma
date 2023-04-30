@@ -9,6 +9,7 @@
         Title="TechPharma v0.1.0"
         WindowStartupLocation="CenterScreen"
         Height="450" Width="800"
+        MinHeight="400" MinWidth="300"
         FontFamily="Arial"
         FontSize="16">
     <!--Tela de menu temporária-->
