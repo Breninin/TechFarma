@@ -1,0 +1,72 @@
+﻿<Window x:Class="WpfTechPharma.Janelas.JanCadastrarFuncionario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        mc:Ignorable="d"
+        Title ="Cadastrar Funcionários"
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="800" 
+        MinHeight="450" MinWidth="800"
+        FontFamily="Arial"
+        FontSize="16">
+    <!--Tela Giulia-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="NOME" Margin="50,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edNome" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="320"/>
+            
+            <Label Content="SEXO" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <ComboBox x:Name="cbSexo" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Width="150">
+                <ComboBoxItem>Feminino</ComboBoxItem>
+                <ComboBoxItem>Masculino</ComboBoxItem>
+                <ComboBoxItem>Intersexo</ComboBoxItem>
+                <ComboBoxItem>Não informado</ComboBoxItem>
+            </ComboBox>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="ENDEREÇO" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" Height="30"  FontSize="16" FontWeight="Bold"/>
+            <TextBox x:Name="edEndereco" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+            
+            <Label Content="NACIONALIDADE" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edNacionalidade" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="SESSÃO" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edSessao" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+            
+            <Label Content="CPF" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edCPF" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="250"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="NASCIMENTO" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <DatePicker x:Name="dpNascimento" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center"/>
+            
+            <Label Content="CONTATO" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edContato" HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="220"/>
+        </WrapPanel>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btCancelar" Grid.Column="0" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CANCELAR"/>
+
+            <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
+        </Grid>
+    </Grid>
+</Window>
