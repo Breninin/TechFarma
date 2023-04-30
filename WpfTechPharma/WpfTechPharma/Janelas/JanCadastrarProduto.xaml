@@ -1,0 +1,58 @@
+﻿<Window x:Class="WpfTechPharma.Janelas.JanCadastrarProduto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        mc:Ignorable="d"
+        Title="Cadastrar Produtos" 
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="800" 
+        MinHeight="450" MinWidth="800"
+        FontFamily="Arial"
+        FontSize="16">
+    <!--Tela Vinicius-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="NOME" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="50,0,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="edNome" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Width="225" Margin ="20,0,0,0"/>
+            
+            <Label Content="CÓDIGO DE BARRAS" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="20,0,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="edCodigoBarras" VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Width="175" Margin ="20,0,0,0"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="FORNECEDOR" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="50,0,0,0" FontWeight="Bold"/>
+            <ComboBox x:Name="cbFornecedor" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" Margin ="20,0,0,0"/>
+
+            <Label Content="VALIDADE" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="20,0,0,0" FontWeight="Bold"/>
+            <DatePicker x:Name="dpValidade" VerticalAlignment="Center" HorizontalAlignment="Left" Margin ="20,0,0,0"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="TIPO" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="50,0,0,0" FontWeight="Bold" />
+            <TextBox x:Name="edTipo" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Width="200" Margin ="20,0,0,0"/>
+
+            <Label Content="PESO/VOLUME" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="20,0,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="edPesoVolume" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Width="200" Margin ="20,0,0,0"/>
+        </WrapPanel>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btCancelar" Grid.Column="0" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CANCELAR"/>
+
+            <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
+        </Grid>
+    </Grid>
+</Window>
