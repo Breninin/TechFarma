@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Cadastrar Serviços" 
         WindowStartupLocation="CenterScreen"
-        Height="300" Width="400"
-        MinHeight="250" MinWidth="300"
+        Height="450" Width="800"
+        MinHeight="350" MinWidth="450"
         FontFamily="Arial"
         FontSize="16">
     <!--Tela Andrey-->
@@ -20,29 +20,43 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="5,5,200,5">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Nome"/>
-            <TextBox x:Name="tbNome" VerticalAlignment="Center" Margin="10, 20, 10, 5" FontWeight="Bold"/>
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Nome"/>
+                <TextBox x:Name="tbNome" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Valor"/>
+                <TextBox x:Name="tbValor" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
+            </Grid>
         </Grid>
 
-        <Grid Grid.Row="0" Margin="200,5,5,5">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Valor"/>
-            <TextBox x:Name="tbValor" VerticalAlignment="Center" Margin="10, 20, 10, 5" FontWeight="Bold"/>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Tipo"/>
+                <TextBox x:Name="tbTipo" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Fabricante "/>
+                <TextBox x:Name="tbFabricante" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
+            </Grid>
         </Grid>
 
-        <Grid Grid.Row="1" Margin="5,5,200,5">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Tipo"/>
-            <TextBox x:Name="tbTipo" VerticalAlignment="Center" Margin="10, 20, 10, 5" FontWeight="Bold"/>
-        </Grid>
-
-        <Grid Grid.Row="1" Margin="200,5,5,5">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Fabricante "/>
-            <TextBox x:Name="tbFabricante" VerticalAlignment="Center" Margin="10, 20, 10, 5" FontWeight="Bold"/>
-        </Grid>
-
-        <Grid Grid.Row="2" Margin="100,5,100,5">
+        <Grid Grid.Row="2" Margin="150,5,150,5">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Duração"/>
-            <TextBox x:Name="tbDuracao" VerticalAlignment="Center" Margin="10, 20, 10, 5" FontWeight="Bold"/>
+            <TextBox x:Name="tbDuracao" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
         </Grid>
 
         <Grid Grid.Row="3">
@@ -51,9 +65,9 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="btCancelar" Grid.Column="0" Margin="20, 20" FontWeight="Bold" Content="Cancelar" Foreground="Black" Background="#FFFFF0F0" BorderBrush="#bd0f0f" BorderThickness="2"/>
+            <Button x:Name="btCancelar" Grid.Column="0" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CANCELAR"/>
 
-            <Button x:Name="btSalvar" Grid.Column="1" Margin="20, 20" FontWeight="Bold" Content="Salvar" Foreground="Black" Background="#FFFFF0F0" BorderBrush="#bd0f0f" BorderThickness="2"/>
+            <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
         </Grid>
     </Grid>
 </Window>
