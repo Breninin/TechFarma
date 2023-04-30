@@ -1,0 +1,82 @@
+﻿<Window x:Class="WpfTechPharma.Janelas.JanCadastrarFuncionario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        mc:Ignorable="d"
+        Title ="Cadastrar Funcionários"
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="1000" 
+        MinHeight="450" MinWidth="800"
+        FontFamily="Arial"
+        FontSize="16">
+    <!--Tela Giulia-->
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+
+
+        <WrapPanel Width="900" Grid.Row="0">
+            <Label Content="NOME COMPLETO" HorizontalAlignment="Left"  VerticalAlignment="Center" Height="29" Width="161" FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="310" Height="25" FontSize="16" FontFamily="Arial" VerticalContentAlignment="Bottom"/>
+            <Label Content="GÊNERO" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="29"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <ComboBox HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="149" FontFamily="Arial" FontSize="16" Height="25" VerticalContentAlignment="Bottom">
+
+                <ComboBoxItem>Feminino</ComboBoxItem>
+                <ComboBoxItem>Masculino</ComboBoxItem>
+                <ComboBoxItem>Intersexo</ComboBoxItem>
+                <ComboBoxItem>Não informado</ComboBoxItem>
+                     
+
+            </ComboBox>
+
+        </WrapPanel>
+
+        <WrapPanel Width="900" Grid.Row="1">
+            <Label Content="ENDEREÇO" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="60,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="319" Height="25" FontSize="16" FontFamily="Arial" VerticalContentAlignment="Bottom"/>
+            <Label Content="NACIONALIDADE" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Height="30" Width="148" FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Height="25" FontSize="16" FontFamily="Arial" VerticalContentAlignment="Bottom"/>
+
+        </WrapPanel>
+
+        <WrapPanel Width="900" Grid.Row="2">
+
+
+            <Label Content="SESSÃO" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="29"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="80,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317" Height="25" FontSize="16" FontFamily="Arial" VerticalContentAlignment="Bottom"/>
+            <Label Content="CPF" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Height="30"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="25" FontSize="16" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Bottom"/>
+
+
+        </WrapPanel>
+
+        <WrapPanel Width="900" Grid.Row="3">
+            <Label Content="NASCIMENTO" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <DatePicker HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top" Height="25" Width="317" VerticalContentAlignment="Bottom"/>
+            <Label Content="CONTATO" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Height="30"  FontSize="16" FontWeight="Bold" FontFamily="Arial" />
+            <TextBox HorizontalAlignment="Left" Margin="20,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="25" FontSize="16" VerticalContentAlignment="Bottom"/>
+
+        </WrapPanel>
+
+        <WrapPanel Width="900" Grid.Row="4">
+            <Button Content="CANCELAR" HorizontalAlignment="Center" FontFamily="Arial" Height="30"  Width="120" Margin ="220,10,0,10" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2"/>
+
+            <Button Content="SALVAR" HorizontalAlignment="Center" FontFamily="Arial" Height="30" Width="120" Margin ="220,10,0,10" FontSize="16" FontWeight="Bold" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2"/>
+
+        </WrapPanel>
+
+
+
+
+
+    </Grid>
+</Window>

@@ -6,8 +6,21 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfTechPharma"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="TechPharma v0.1.0"
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="800"
+        FontFamily="Arial"
+        FontSize="16">
+    <!--Tela de menu temporária-->
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btCadastrarCliente" MaxHeight="60" MaxWidth="250" Margin="10" Foreground="Black" Background="#FFFFF0F0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CADASTRAR CLIENTE" Click="btCadastrarCliente_Click"/>
+            <Button x:Name="btCadastrarFuncionario" MaxHeight="60" MaxWidth="250" Margin="10" Foreground="Black" Background="#FFFFF0F0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CADASTRAR FUNCIONÁRIO" Click="btCadastrarFuncionario_Click"/>
+            <Button x:Name="btCadastrarFornecedor" MaxHeight="60" MaxWidth="250" Margin="10" Foreground="Black" Background="#FFFFF0F0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CADASTRAR FORNECEDOR" Click="btCadastrarFornecedor_Click"/>
+            <Button x:Name="btCadastrarMedicamento" MaxHeight="60" MaxWidth="250" Margin="10" Foreground="Black" Background="#FFFFF0F0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CADASTRAR MEDICAMENTO" Click="btCadastrarMedicamento_Click"/>
+            <Button x:Name="btCadastrarProduto" MaxHeight="60" MaxWidth="250" Margin="10" Foreground="Black" Background="#FFFFF0F0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CADASTRAR PRODUTO" Click="btCadastrarProduto_Click"/>
+            <Button x:Name="btCadastrarServiço" MaxHeight="60" MaxWidth="250" Margin="10" Foreground="Black" Background="#FFFFF0F0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CADASTRAR SERVIÇO" Click="btCadastrarServiço_Click"/>
+            <Button x:Name="btCadastrarLogin" MaxHeight="60" MaxWidth="250" Margin="10" Foreground="Black" Background="#FFFFF0F0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CADASTRAR LOGIN" Click="btCadastrarLogin_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

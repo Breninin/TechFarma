@@ -1,0 +1,102 @@
+﻿<Window x:Class="WpfTechPharma.Janelas.JanCadastrarCliente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        mc:Ignorable="d"
+        Title="Cadastrar Clientes" 
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="1000" 
+        MinHeight="450" MinWidth="800">
+    <!--Tela Thayna-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
+            <Label x:Name="lbNomeCompleto" Grid.Row="0" Content="NOME COMPLETO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0, 0, 0, 0" FontWeight="Bold" FontFamily="Arial" FontSize="16"/>
+            <TextBox x:Name="edNome" Grid.Row="0" TextWrapping="Wrap" Margin="10, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="600" Height="25" FontWeight="Normal" FontFamily="Arial" FontSize="16"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label x:Name="lbCPF" Grid.Row="1" Content="CPF" Margin="110, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial" FontSize="16"/>
+            <TextBox x:Name="edCPF" Grid.Row="1" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="120" Height="25" FontWeight="Normal" FontFamily="Arial" FontSize="16"/>
+
+            <Label x:Name="lbRG" Grid.Row="1" Content="RG" Margin="85, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial" FontSize="16"/>
+            <TextBox x:Name="edRG" Grid.Row="1" Margin="0, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="25" FontWeight="Normal" FontFamily="Arial" FontSize="16"/>
+
+            <Label x:Name="lbCelular" Grid.Row="1" Content="CELULAR" Margin="20, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial" FontSize="16"/>
+            <TextBox x:Name="edCelular" Grid.Row="1" Margin="0, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Height="25" FontWeight="Normal" FontFamily="Arial" FontSize="16"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label x:Name="lbEndereco" Grid.Row="2" Margin="50, 0, 0, 0" Content="ENDEREÇO" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial" FontSize="16"/>
+            <TextBox x:Name="edEndereco" Margin="10, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="600" Height="25" FontWeight="Normal" FontFamily="Arial" FontSize="16"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+
+            <Label x:Name="lbCidade" Grid.Row="3" Content="CIDADE" Margin="80, 0, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial" FontSize="16"/>
+            <TextBox x:Name="edCidade" Margin="10, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="25" FontWeight="Normal" FontFamily="Arial" FontSize="16"/>
+
+            <Label x:Name="lbCEP" Grid.Row="3" Content="CEP" Margin="75, 0, 10, 0" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial" FontSize="16"/>
+            <TextBox x:Name="edCEP" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="25" FontWeight="Normal" FontFamily="Arial" FontSize="16"/>
+
+            <Label x:Name="lbUF" Grid.Row="3" Content="UF" Margin="75, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial" FontSize="16"/>
+            <ComboBox x:Name="cbUF" HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Height="30" FontWeight="Normal" FontFamily="Arial" FontSize="16">
+                <ComboBoxItem>AC</ComboBoxItem>
+                <ComboBoxItem>AL</ComboBoxItem>
+                <ComboBoxItem>AP</ComboBoxItem>
+                <ComboBoxItem>AM</ComboBoxItem>
+                <ComboBoxItem>BA</ComboBoxItem>
+                <ComboBoxItem>CE</ComboBoxItem>
+                <ComboBoxItem>DF</ComboBoxItem>
+                <ComboBoxItem>ES</ComboBoxItem>
+                <ComboBoxItem>GO</ComboBoxItem>
+                <ComboBoxItem>MA</ComboBoxItem>
+                <ComboBoxItem>MT</ComboBoxItem>
+                <ComboBoxItem>MS</ComboBoxItem>
+                <ComboBoxItem>MG</ComboBoxItem>
+                <ComboBoxItem>PA</ComboBoxItem>
+                <ComboBoxItem>PB</ComboBoxItem>
+                <ComboBoxItem>PR</ComboBoxItem>
+                <ComboBoxItem>PE</ComboBoxItem>
+                <ComboBoxItem>PI</ComboBoxItem>
+                <ComboBoxItem>RJ</ComboBoxItem>
+                <ComboBoxItem>RN</ComboBoxItem>
+                <ComboBoxItem>RS</ComboBoxItem>
+                <ComboBoxItem>RO</ComboBoxItem>
+                <ComboBoxItem>RR</ComboBoxItem>
+                <ComboBoxItem>SC</ComboBoxItem>
+                <ComboBoxItem>SP</ComboBoxItem>
+                <ComboBoxItem>SE</ComboBoxItem>
+                <ComboBoxItem>TO</ComboBoxItem>
+            </ComboBox>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
+            <Label x:Name="lbDataNascimento" Grid.Row="4" Content="NASCIMENTO" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="35, 0, 0, 0" FontWeight="Bold" FontFamily="Arial" FontSize="16" VerticalContentAlignment="Top" Width="120"/>
+            <DatePicker x:Name="dpDataNascimento" Margin="10, 0, 40, 0" VerticalAlignment="Top"/>
+            
+            <Label x:Name="lbSexo" Grid.Row="4" Content="SEXO" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial" FontSize="16"/>
+            <ComboBox x:Name="cbSexo" Margin="10, 0, 0, 0" VerticalAlignment="Top" Width="120" Height="30" FontFamily="Arial" FontSize="16">
+                <ComboBoxItem>Feminino</ComboBoxItem>
+                <ComboBoxItem>Masculino</ComboBoxItem>
+                <ComboBoxItem>Intersexo</ComboBoxItem>
+                <ComboBoxItem>Não informado</ComboBoxItem>
+            </ComboBox>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Button x:Name="btCancelar" Content="CANCELAR" Margin="185, 0, 185, 0" HorizontalAlignment="Left" Height="30"  Width="120" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial" FontSize="16" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2"/>
+            <Button x:Name="btSalvar" Content="SALVAR" HorizontalAlignment="Left" Width="120" Height="30" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial" FontSize="16" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2"/>
+        </WrapPanel>
+    </Grid>
+</Window>

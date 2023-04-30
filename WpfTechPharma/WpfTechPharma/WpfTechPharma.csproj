@@ -66,6 +66,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Janelas\JanCadastrarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanCadastrarFornecedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanCadastrarFuncionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanCadastrarLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanCadastrarMedicamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanCadastrarProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanCadastrarServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +101,27 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Janelas\JanCadastrarCliente.xaml.cs">
+      <DependentUpon>JanCadastrarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanCadastrarFornecedor.xaml.cs">
+      <DependentUpon>JanCadastrarFornecedor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanCadastrarFuncionario.xaml.cs">
+      <DependentUpon>JanCadastrarFuncionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanCadastrarLogin.xaml.cs">
+      <DependentUpon>JanCadastrarLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanCadastrarMedicamento.xaml.cs">
+      <DependentUpon>JanCadastrarMedicamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanCadastrarProduto.xaml.cs">
+      <DependentUpon>JanCadastrarProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanCadastrarServico.xaml.cs">
+      <DependentUpon>JanCadastrarServico.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

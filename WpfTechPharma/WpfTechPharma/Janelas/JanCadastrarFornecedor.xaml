@@ -1,0 +1,123 @@
+﻿<Window x:Class="WpfTechPharma.Janelas.JanCadastrarFornecedor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        mc:Ignorable="d"
+        Title="Cadastrar Fornecedores"
+        WindowStartupLocation="CenterScreen"
+        Height="800" Width="800"
+        MinHeight="800" MinWidth="800"
+        FontFamily="Arial"
+        FontSize="16">
+    <!--Tela Pedro Henrique-->
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210"></ColumnDefinition>
+
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+
+        <StackPanel Grid.Column="0" Margin="10">
+            <Label Content="Razão Social:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+
+            <Label Content="Nome Fantasia:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+
+            <Label Content="Telefone:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+
+            <Label Content="CNPJ:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+
+            <Label Content="Email:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+
+            <Label Content="Inscrição Estadual:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+
+            <Label Content="Endereço:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+
+            <Label Content="Cidade:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+
+            <Label Content="CEP:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+
+            <Label Content="UF:" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="10"></Label>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="14">
+            <TextBox x:Name="edRazaoSocial" Margin="14"></TextBox>
+
+            <TextBox x:Name="edNomeFantasia" Margin="14"></TextBox>
+
+            <TextBox x:Name="edTelefone" Margin="14"></TextBox>
+
+            <TextBox x:Name="edCNPJ" Margin="14"></TextBox>
+
+            <TextBox x:Name="edEmail" Margin="14"></TextBox>
+
+            <TextBox x:Name="edInscricaoEstadual" Margin="14"></TextBox>
+
+            <TextBox x:Name="edEndereco" Margin="14"></TextBox>
+
+            <TextBox x:Name="edCidade" Margin="14"></TextBox>
+
+            <TextBox x:Name="edCep" Margin="14"></TextBox>
+
+            <TextBox x:Name="edUf" Margin="14"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="20" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Button x:Name="btCancelar" Width="100" Height="20" Content="Cancelar">
+
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+
+
+            <Button x:Name="btSalvar" Width="100" Height="20" Content="Salvar">
+
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
