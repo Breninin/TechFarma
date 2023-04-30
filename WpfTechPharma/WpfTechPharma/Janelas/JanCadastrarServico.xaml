@@ -28,12 +28,12 @@
 
             <Grid Grid.Column="0">
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Nome"/>
-                <TextBox x:Name="tbNome" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
+                <TextBox x:Name="edNome" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
             </Grid>
 
             <Grid Grid.Column="1">
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Valor"/>
-                <TextBox x:Name="tbValor" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
+                <TextBox x:Name="edValor" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
             </Grid>
         </Grid>
 
@@ -45,18 +45,18 @@
 
             <Grid Grid.Column="0">
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Tipo"/>
-                <TextBox x:Name="tbTipo" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
+                <TextBox x:Name="edTipo" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
             </Grid>
 
             <Grid Grid.Column="1">
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Fabricante "/>
-                <TextBox x:Name="tbFabricante" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
+                <TextBox x:Name="edFabricante" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
             </Grid>
         </Grid>
 
         <Grid Grid.Row="2" Margin="150,5,150,5">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Duração"/>
-            <TextBox x:Name="tbDuracao" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
+            <TextBox x:Name="edDuracao" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
         </Grid>
 
         <Grid Grid.Row="3">
