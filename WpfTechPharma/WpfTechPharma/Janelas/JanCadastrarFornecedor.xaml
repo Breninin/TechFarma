@@ -5,119 +5,108 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTechPharma.Janelas"
         mc:Ignorable="d"
-        Title="Cadastrar Fornecedores"
+        Title="Cadastrar Fornecedores" 
+        Height="450" Width="800"
+        MinHeight="450" MinWidth="800"
         WindowStartupLocation="CenterScreen"
-        Height="800" Width="800"
-        MinHeight="800" MinWidth="800"
         FontFamily="Arial"
         FontSize="16">
-    <!--Tela Pedro Henrique-->
     <Grid>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="210"></ColumnDefinition>
+        <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="RAZÃO SOCIAL" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edRazaoSocial" TextWrapping="Wrap" Margin="20 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="530"/>
+        </WrapPanel>
 
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="NOME FANTASIA" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edNomeFantasia" TextWrapping="Wrap" Margin="20 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="520"/>
+        </WrapPanel>
 
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="CONTATO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edContato" TextWrapping="Wrap" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="242"/>
 
+            <Label Content="CNPJ" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edCnpj" TextWrapping="Wrap" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="242"/>
+        </WrapPanel>
 
-        <StackPanel Grid.Column="0" Margin="10">
-            <Label Content="Razão Social:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
+        <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="EMAIL" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edEmail" TextWrapping="Wrap" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="602"/>
+        </WrapPanel>
 
-            <Label Content="Nome Fantasia:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
+        <WrapPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="INSCRIÇÃO ESTADUAL" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edInscricaoEstadual" TextWrapping="Wrap" Margin="20 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="473"/>
+        </WrapPanel>
 
-            <Label Content="Telefone:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
+        <WrapPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="ENDEREÇO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edEndereco" TextWrapping="Wrap" Margin="20 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="562"/>
+        </WrapPanel>
 
-            <Label Content="CNPJ:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
+        <WrapPanel Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="CIDADE" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edCidade" TextWrapping="Wrap" Margin="20 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="375"/>
 
-            <Label Content="Email:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
+            <Label Content="UF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold"/>
+            <ComboBox x:Name="cbUF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="150">
+                <ComboBoxItem>AC</ComboBoxItem>
+                <ComboBoxItem>AL</ComboBoxItem>
+                <ComboBoxItem>AP</ComboBoxItem>
+                <ComboBoxItem>AM</ComboBoxItem>
+                <ComboBoxItem>BA</ComboBoxItem>
+                <ComboBoxItem>CE</ComboBoxItem>
+                <ComboBoxItem>DF</ComboBoxItem>
+                <ComboBoxItem>ES</ComboBoxItem>
+                <ComboBoxItem>GO</ComboBoxItem>
+                <ComboBoxItem>MA</ComboBoxItem>
+                <ComboBoxItem>MT</ComboBoxItem>
+                <ComboBoxItem>MS</ComboBoxItem>
+                <ComboBoxItem>MG</ComboBoxItem>
+                <ComboBoxItem>PA</ComboBoxItem>
+                <ComboBoxItem>PB</ComboBoxItem>
+                <ComboBoxItem>PR</ComboBoxItem>
+                <ComboBoxItem>PE</ComboBoxItem>
+                <ComboBoxItem>PI</ComboBoxItem>
+                <ComboBoxItem>RJ</ComboBoxItem>
+                <ComboBoxItem>RN</ComboBoxItem>
+                <ComboBoxItem>RS</ComboBoxItem>
+                <ComboBoxItem>RO</ComboBoxItem>
+                <ComboBoxItem>RR</ComboBoxItem>
+                <ComboBoxItem>SC</ComboBoxItem>
+                <ComboBoxItem>SP</ComboBoxItem>
+                <ComboBoxItem>SE</ComboBoxItem>
+                <ComboBoxItem>TO</ComboBoxItem>
+            </ComboBox>
+        </WrapPanel>
 
-            <Label Content="Inscrição Estadual:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
+        <WrapPanel Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="CEP" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edCep" TextWrapping="Wrap" Margin="20 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="625"/>
+        </WrapPanel>
 
-            <Label Content="Endereço:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <Label Content="Cidade:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
+            <Button x:Name="btCancelar" Grid.Column="0" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CANCELAR"/>
 
-            <Label Content="CEP:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
-
-            <Label Content="UF:" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Margin="10"></Label>
-        </StackPanel>
-
-        <StackPanel Grid.Column="1" Margin="14">
-            <TextBox x:Name="edRazaoSocial" Margin="14"></TextBox>
-
-            <TextBox x:Name="edNomeFantasia" Margin="14"></TextBox>
-
-            <TextBox x:Name="edTelefone" Margin="14"></TextBox>
-
-            <TextBox x:Name="edCNPJ" Margin="14"></TextBox>
-
-            <TextBox x:Name="edEmail" Margin="14"></TextBox>
-
-            <TextBox x:Name="edInscricaoEstadual" Margin="14"></TextBox>
-
-            <TextBox x:Name="edEndereco" Margin="14"></TextBox>
-
-            <TextBox x:Name="edCidade" Margin="14"></TextBox>
-
-            <TextBox x:Name="edCep" Margin="14"></TextBox>
-
-            <TextBox x:Name="edUf" Margin="14"></TextBox>
-        </StackPanel>
-
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="20" HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-            <Button x:Name="btCancelar" Width="100" Height="20" Content="Cancelar">
-
-            </Button>
-        </StackPanel>
-
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
-
-
-
-            <Button x:Name="btSalvar" Width="100" Height="20" Content="Salvar">
-
-            </Button>
-        </StackPanel>
-
+            <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
+        </Grid>
     </Grid>
 </Window>
