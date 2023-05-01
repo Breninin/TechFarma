@@ -34,13 +34,13 @@
             <Label Content="RG" Margin="20, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             <TextBox x:Name="edRG" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
 
-            <Label Content="CELULAR" Margin="20, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edCelular" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+            <Label Content="CONTATO" Margin="20, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edContato" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
             <Label Margin="50, 0, 0, 0" Content="ENDEREÇO" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edEndereco" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="550"/>
+            <TextBox x:Name="edEndereco" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="560"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
@@ -51,7 +51,7 @@
             <TextBox x:Name="edCEP" Margin="20, 0, 0, 0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
 
             <Label Content="UF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold"/>
-            <ComboBox x:Name="cbUF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="150">
+            <ComboBox x:Name="cbUF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="140">
                 <ComboBoxItem>AC</ComboBoxItem>
                 <ComboBoxItem>AL</ComboBoxItem>
                 <ComboBoxItem>AP</ComboBoxItem>
@@ -84,7 +84,7 @@
 
         <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
             <Label  Content="NASCIMENTO" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50, 0, 0, 0" FontWeight="Bold" Width="120"/>
-            <DatePicker x:Name="dpDataNascimento" Margin="20, 0, 0, 0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="dpDataNascimento" Margin="20, 0, 0, 0" VerticalAlignment="Top" Width="120"/>
 
             <Label Content="SEXO" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             <ComboBox x:Name="cbSexo" Margin="20, 0, 0, 0" VerticalAlignment="Top" Width="150">
