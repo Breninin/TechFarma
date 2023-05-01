@@ -1,29 +1,23 @@
 # TechPharma
-Sistema TechFarma para farmácias.
+
+O sistema TechPharma é um software de controle de compras e vendas para farmácias.
+
+### Equipe de Desenvolvedores:
+
+- Andrey Medeiros Gois
+- Breno Alcides Paio de Medeiros [Líder]
+- Giulia Novais Vieira
+- Mailon Camargo Gonçalves
+- Pedro Henrique dos Santos Xavier Araujo
+- Thayna Albuquerque Silva
+- Vinicius de Nano Holanda
 
 Tarefas da equipe:
 
-- Cadastrar Cliente - Thayna
-- Cadastrar Funcionário - Giulia
-- Cadastrar Fornecedor - Henrique
-- Cadastrar Medicamento - Mailon
-- Cadastrar Produto - Nano
-- Cadastrar Login - Breno
-- Cadastrar Serviço (exceto manipulação) - Andrey
-
-Sendo todas as telas seguindo o padrão do documento TechPharma.
-
-REGRA GERAL
-
-- Todas as telas de cadastro perderão o botão Alterar. Os botões serão: Salvar e Cancelar;
-- Título (se houver): Arial, tamanho 14 e negrito;
-- Textos (labels, textbox, etc): Arial, tamanho 12;
-- Cor de fundo e de letra padrão.
-
-OBS: A tela de Cadastrar Serviço só tem no arquivo do Fabulos Farma e está incompleta. Quem escolher adicione os seguintes campos além dos que já estão lá:
-
-- Fabricante;
-- Duração;
-- Excluir o quadro Descrição
-
-Data de entrega: quarta-feira 26/04
+    ➔ Tela Cadastrar Cliente | Thayna
+    ➔ Tela Cadastrar Funcionário | Giulia
+    ➔ Tela Cadastrar Fornecedor | Pedro H.
+    ➔ Tela Cadastrar Medicamento | Mailon
+    ➔ Tela Cadastrar Produto | Vinicius
+    ➔ Tela Cadastrar Login | Breno A.
+    ➔ Tela Cadastrar Serviço | Andrey
