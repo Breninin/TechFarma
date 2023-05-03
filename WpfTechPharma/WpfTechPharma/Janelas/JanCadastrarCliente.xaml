@@ -47,7 +47,7 @@
             <Label Content="CIDADE" Margin="75, 0, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox x:Name="edCidade" Margin="10, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
 
-            <Label Content="CEP" Margin="20, 0, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="CEP" Margin="30, 0, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
             <TextBox x:Name="edCEP" Margin="10, 0, 0, 0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
 
             <Label Content="UF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold"/>

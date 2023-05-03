@@ -51,12 +51,27 @@
             <TextBox x:Name="edCodigoBarras" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="250" Margin="10,10"/>
             
             <Label Content="TIPO" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold" Margin="10,10"/>
-            <ComboBox x:Name="edTipo" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="215" Margin="10,10"/>
+            <ComboBox x:Name="edTipo" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="215" Margin="10,10">
+                <ComboBoxItem>Fitoterápico</ComboBoxItem>
+                <ComboBoxItem>Alopático</ComboBoxItem>
+                <ComboBoxItem>Homeopático</ComboBoxItem>
+                <ComboBoxItem>Similar</ComboBoxItem>
+                <ComboBoxItem>Genérico</ComboBoxItem>
+                <ComboBoxItem>de Referência</ComboBoxItem>
+            </ComboBox>
         </WrapPanel>
 
         <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
-            <Label Content="RECEITA" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold" Margin="130,10, 0, 0"/>
-            <ComboBox x:Name="cbReceita" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="335" Margin="10,10"/>
+            <Label Content="CONTROLE" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold" Margin="95, 10, 0, 0"/>
+            <ComboBox x:Name="cbReceita" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="335" Margin="10, 10, 0, 0">
+                <ComboBoxItem>Não Tarjado</ComboBoxItem>
+                <ComboBoxItem>Tarja Amarela</ComboBoxItem>
+                <ComboBoxItem>Tarja Vermelha</ComboBoxItem>
+                <ComboBoxItem>Tarja Preta</ComboBoxItem>
+            </ComboBox>
+
+            <Label Content="VALOR" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold" Margin="10, 10, 0 ,0"/>
+            <TextBox x:Name="edValor" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="130" Margin="10,10"/>
         </WrapPanel>
 
         <Grid Grid.Row="5">
