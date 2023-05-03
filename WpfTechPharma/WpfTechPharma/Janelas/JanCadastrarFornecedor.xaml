@@ -48,10 +48,10 @@
         </WrapPanel>
 
         <WrapPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="INSCRIÇÃO ESTADUAL" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="-18 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edInscricaoEstadual" TextWrapping="Wrap" Margin="28 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="281"/>
-            <Label Content="CEP" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edCep" TextWrapping="Wrap" Margin="20 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="187"/>
+            <Label Content="CEP" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="130 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edCep" TextWrapping="Wrap" Margin="30 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="170"/>
+            <Label Content="INSCRIÇÃO ESTADUAL" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edInscricaoEstadual" TextWrapping="Wrap" Margin="10, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">

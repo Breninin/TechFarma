@@ -54,7 +54,6 @@
             <ComboBox x:Name="edTipo" HorizontalAlignment="Left" VerticalAlignment="Top" MinWidth="215" Margin="10,10">
                 <ComboBoxItem>Fitoterápico</ComboBoxItem>
                 <ComboBoxItem>Alopático</ComboBoxItem>
-                <ComboBoxItem>Homeopático</ComboBoxItem>
                 <ComboBoxItem>Similar</ComboBoxItem>
                 <ComboBoxItem>Genérico</ComboBoxItem>
                 <ComboBoxItem>de Referência</ComboBoxItem>
