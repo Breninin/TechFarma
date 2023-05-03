@@ -18,33 +18,42 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="NOME" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="50,0,0,0" FontWeight="Bold"/>
-            <TextBox x:Name="edNome" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Width="245" Margin ="20,0,0,0"/>
-            
-            <Label Content="CÓDIGO DE BARRAS" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="20,0,0,0" FontWeight="Bold"/>
-            <TextBox x:Name="edCodigoBarras" VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Width="150" Margin ="20,0,0,0"/>
+            <Label Content="NOME" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="145,0,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="edNome" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Width="545" Margin ="10,0,0,0"/>
+
         </WrapPanel>
 
         <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="FORNECEDOR" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="50,0,0,0" FontWeight="Bold"/>
-            <ComboBox x:Name="cbFornecedor" VerticalAlignment="Center" HorizontalAlignment="Left" Width="295" Margin ="20,0,0,0"/>
 
-            <Label Content="VALIDADE" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="20,0,0,0" FontWeight="Bold"/>
-            <DatePicker x:Name="dpValidade" VerticalAlignment="Center" HorizontalAlignment="Left" Width="120" Margin ="20,0,0,0"/>
+            <Label Content="CÓDIGO DE BARRAS" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="30,0,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="edCodigoBarras" VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Width="250" Margin ="10,0,0,0"/>
+
+            <Label Content="VALIDADE" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="10,0,0,0" FontWeight="Bold"/>
+            <DatePicker x:Name="dpValidade" VerticalAlignment="Center" HorizontalAlignment="Left" Width="185" Margin ="10,0,0,0"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="TIPO" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="50,0,0,0" FontWeight="Bold" />
-            <ComboBox x:Name="cbTipo" VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" Margin ="20,0,0,0"/>
+           
+            <Label Content="FORNECEDOR" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="80,0,0,0" FontWeight="Bold"/>
+            <ComboBox x:Name="cbFornecedor" VerticalAlignment="Center" HorizontalAlignment="Left" Width="335" Margin ="10,0,0,0"/>
 
-            <Label Content="PESO/VOLUME" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="20,0,0,0" FontWeight="Bold"/>
-            <TextBox x:Name="edPesoVolume" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Width="200" Margin ="20,0,0,0"/>
+            <Label Content="ESTOQUE" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="10,0,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="edEstoque" VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Width="100" Margin ="10,0,0,0"/>
         </WrapPanel>
 
-        <Grid Grid.Row="3">
+        <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="TIPO" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="150,0,0,0" FontWeight="Bold" />
+            <ComboBox x:Name="cbTipo" VerticalAlignment="Center" HorizontalAlignment="Left" Width="280" Margin ="10,0,0,0"/>
+
+            <Label Content="PESO/VOLUME" VerticalAlignment="Center" HorizontalAlignment="Right" Margin ="20,0,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="edPesoVolume" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Width="115" Margin ="10,0,0,0"/>
+        </WrapPanel>
+
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
