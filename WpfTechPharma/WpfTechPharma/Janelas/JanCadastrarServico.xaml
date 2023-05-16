@@ -52,55 +52,5 @@
 
             <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
         </Grid>
-
-        <!--<Grid Grid.Row="0" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Nome"/>
-                <TextBox x:Name="edNome" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-
-            <Grid Grid.Column="1">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Valor"/>
-                <TextBox x:Name="edValor" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Row="1" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Tipo"/>
-                <TextBox x:Name="edTipo" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-
-            <Grid Grid.Column="1">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Fabricante "/>
-                <TextBox x:Name="edFabricante" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Row="2" Margin="150,5,150,5">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Duração"/>
-            <TextBox x:Name="edDuracao" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-        </Grid>
-
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Button x:Name="btCancelar" Grid.Column="0" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CANCELAR"/>
-
-            <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
-        </Grid>-->
     </Grid>
 </Window>
