@@ -19,7 +19,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
@@ -43,46 +42,7 @@
             <TextBox x:Name="edEndereco" Margin="0, 0, 30, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="600"/>
         </WrapPanel>
 
-        <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="CIDADE" Margin="75, 0, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox x:Name="edCidade" Margin="10, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
-
-            <Label Content="CEP" Margin="30, 0, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox x:Name="edCEP" Margin="10, 0, 0, 0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
-
-            <Label Content="UF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold"/>
-            <ComboBox x:Name="cbUF" Margin="10, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="155">
-                <ComboBoxItem>AC</ComboBoxItem>
-                <ComboBoxItem>AL</ComboBoxItem>
-                <ComboBoxItem>AP</ComboBoxItem>
-                <ComboBoxItem>AM</ComboBoxItem>
-                <ComboBoxItem>BA</ComboBoxItem>
-                <ComboBoxItem>CE</ComboBoxItem>
-                <ComboBoxItem>DF</ComboBoxItem>
-                <ComboBoxItem>ES</ComboBoxItem>
-                <ComboBoxItem>GO</ComboBoxItem>
-                <ComboBoxItem>MA</ComboBoxItem>
-                <ComboBoxItem>MT</ComboBoxItem>
-                <ComboBoxItem>MS</ComboBoxItem>
-                <ComboBoxItem>MG</ComboBoxItem>
-                <ComboBoxItem>PA</ComboBoxItem>
-                <ComboBoxItem>PB</ComboBoxItem>
-                <ComboBoxItem>PR</ComboBoxItem>
-                <ComboBoxItem>PE</ComboBoxItem>
-                <ComboBoxItem>PI</ComboBoxItem>
-                <ComboBoxItem>RJ</ComboBoxItem>
-                <ComboBoxItem>RN</ComboBoxItem>
-                <ComboBoxItem>RS</ComboBoxItem>
-                <ComboBoxItem>RO</ComboBoxItem>
-                <ComboBoxItem>RR</ComboBoxItem>
-                <ComboBoxItem>SC</ComboBoxItem>
-                <ComboBoxItem>SP</ComboBoxItem>
-                <ComboBoxItem>SE</ComboBoxItem>
-                <ComboBoxItem>TO</ComboBoxItem>
-            </ComboBox>
-        </WrapPanel>
-
-        <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
             <Label  Content="NASCIMENTO" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30, 0, 10, 0" FontWeight="Bold" Width="120"/>
             <DatePicker x:Name="dpDataNascimento" Margin="0, 0, 0, 0" VerticalAlignment="Top" Width="150"/>
 
@@ -95,7 +55,7 @@
             </ComboBox>
         </WrapPanel>
 
-        <Grid Grid.Row="5">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
