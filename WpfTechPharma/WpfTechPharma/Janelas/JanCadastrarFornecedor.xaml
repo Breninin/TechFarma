@@ -19,7 +19,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
 
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
@@ -48,55 +47,16 @@
         </WrapPanel>
 
         <WrapPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="CEP" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="130 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edCep" TextWrapping="Wrap" Margin="30 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="170"/>
-            <Label Content="INSCRIÇÃO ESTADUAL" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edInscricaoEstadual" TextWrapping="Wrap" Margin="10, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200"/>
-        </WrapPanel>
-
-        <WrapPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
             <Label Content="ENDEREÇO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="70 0 0 0" FontWeight="Bold"/>
             <TextBox x:Name="edEndereco" TextWrapping="Wrap" Margin="28 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="580"/>
         </WrapPanel>
 
-        <WrapPanel Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="CIDADE" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="94 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edCidade" TextWrapping="Wrap" Margin="32 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="375"/>
-
-            <Label Content="UF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold"/>
-            <ComboBox x:Name="cbUF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="136">
-                <ComboBoxItem>AC</ComboBoxItem>
-                <ComboBoxItem>AL</ComboBoxItem>
-                <ComboBoxItem>AP</ComboBoxItem>
-                <ComboBoxItem>AM</ComboBoxItem>
-                <ComboBoxItem>BA</ComboBoxItem>
-                <ComboBoxItem>CE</ComboBoxItem>
-                <ComboBoxItem>DF</ComboBoxItem>
-                <ComboBoxItem>ES</ComboBoxItem>
-                <ComboBoxItem>GO</ComboBoxItem>
-                <ComboBoxItem>MA</ComboBoxItem>
-                <ComboBoxItem>MT</ComboBoxItem>
-                <ComboBoxItem>MS</ComboBoxItem>
-                <ComboBoxItem>MG</ComboBoxItem>
-                <ComboBoxItem>PA</ComboBoxItem>
-                <ComboBoxItem>PB</ComboBoxItem>
-                <ComboBoxItem>PR</ComboBoxItem>
-                <ComboBoxItem>PE</ComboBoxItem>
-                <ComboBoxItem>PI</ComboBoxItem>
-                <ComboBoxItem>RJ</ComboBoxItem>
-                <ComboBoxItem>RN</ComboBoxItem>
-                <ComboBoxItem>RS</ComboBoxItem>
-                <ComboBoxItem>RO</ComboBoxItem>
-                <ComboBoxItem>RR</ComboBoxItem>
-                <ComboBoxItem>SC</ComboBoxItem>
-                <ComboBoxItem>SP</ComboBoxItem>
-                <ComboBoxItem>SE</ComboBoxItem>
-                <ComboBoxItem>TO</ComboBoxItem>
-            </ComboBox>
+        <WrapPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="INSCRIÇÃO ESTADO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5 0 0 0" FontWeight="Bold"/>
+            <TextBox x:Name="edInscricaoEstadual" TextWrapping="Wrap" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200"/>
         </WrapPanel>
 
-
-        <Grid Grid.Row="7">
+        <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
