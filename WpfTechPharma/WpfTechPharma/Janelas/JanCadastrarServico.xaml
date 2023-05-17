@@ -8,7 +8,7 @@
         Title="Cadastrar Serviços" 
         WindowStartupLocation="CenterScreen"
         Height="450" Width="800"
-        MinHeight="350" MinWidth="450"
+        MinHeight="450" MinWidth="800"
         FontFamily="Arial"
         FontSize="16">
     <!--Tela Andrey-->
@@ -20,46 +20,29 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Row="0" Width="800" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="60,0, 0, 0" FontWeight="Bold" Content="NOME"/>
+            <TextBox x:Name="edNome" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="400"/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0, 0, 0" FontWeight="Bold" Content="DURAÇÂO"/>
+            <TextBox x:Name="edDuracao" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="100"/>
+        </WrapPanel>
 
-            <Grid Grid.Column="0">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Nome"/>
-                <TextBox x:Name="edNome" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
+        <WrapPanel Grid.Row="1" Width="800" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="65, 0, 0, 0" FontWeight="Bold" Content="TIPO"/>
+            <TextBox x:Name="edTipo" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="400"/>
 
-            <Grid Grid.Column="1">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Valor"/>
-                <TextBox x:Name="edValor" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-        </Grid>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" FontWeight="Bold" Content="VALOR"/>
+            <TextBox x:Name="edValor" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="140"/>
+        </WrapPanel>
 
-        <Grid Grid.Row="1" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Row="2" Width="800" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="35, 0, 0, 0" FontWeight="Bold" Content="INSUMOS "/>
+            <TextBox x:Name="edInsumos" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="600"/>
 
-            <Grid Grid.Column="0">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Tipo"/>
-                <TextBox x:Name="edTipo" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
 
-            <Grid Grid.Column="1">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Fabricante "/>
-                <TextBox x:Name="edFabricante" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-        </Grid>
+        </WrapPanel>
 
-        <Grid Grid.Row="2" Margin="150,5,150,5">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Duração"/>
-            <TextBox x:Name="edDuracao" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-        </Grid>
-
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -69,5 +52,6 @@
 
             <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
         </Grid>
+
     </Grid>
 </Window>
