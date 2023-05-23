@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Cadastrar Login"
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="800"
-        MinHeight="425" MinWidth="425"
+        Height="470" Width="840"
+        MinHeight="470" MinWidth="840"
         FontFamily="Arial"
         FontSize="16">
     <!--Tela Breno-->
