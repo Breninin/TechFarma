@@ -1,0 +1,94 @@
+﻿<Window x:Class="WpfTechPharma.Janelas.JanCadastrarEndereco"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        mc:Ignorable="d"
+        Title="Cadastrar Endereço"
+        WindowStartupLocation="CenterScreen"
+        Height="470" Width="840"
+        MinHeight="470" MinWidth="840"
+        FontFamily="Arial"
+        FontSize="16">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <WrapPanel Grid.Row="0"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Margin="95, 0, 0, 0" Content="RUA" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edRua" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="585"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Margin="65, 0, 0, 0" Content="BAIRRO" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edBairro" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="340"/>
+            <Label Margin="20, 0, 0, 0" Content="Nº" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edNumer" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="175"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="CIDADE" Margin="65, 0, 0, 0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox x:Name="edCidade" Margin="20, 0, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+
+            <Label Content="CEP" Margin="20, 0, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox x:Name="edCEP" Margin="20, 0, 0, 0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+
+            <Label Content="UF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" FontWeight="Bold"/>
+            <ComboBox x:Name="cbUF" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Top" Width="135">
+                <ComboBoxItem>AC</ComboBoxItem>
+                <ComboBoxItem>AL</ComboBoxItem>
+                <ComboBoxItem>AP</ComboBoxItem>
+                <ComboBoxItem>AM</ComboBoxItem>
+                <ComboBoxItem>BA</ComboBoxItem>
+                <ComboBoxItem>CE</ComboBoxItem>
+                <ComboBoxItem>DF</ComboBoxItem>
+                <ComboBoxItem>ES</ComboBoxItem>
+                <ComboBoxItem>GO</ComboBoxItem>
+                <ComboBoxItem>MA</ComboBoxItem>
+                <ComboBoxItem>MT</ComboBoxItem>
+                <ComboBoxItem>MS</ComboBoxItem>
+                <ComboBoxItem>MG</ComboBoxItem>
+                <ComboBoxItem>PA</ComboBoxItem>
+                <ComboBoxItem>PB</ComboBoxItem>
+                <ComboBoxItem>PR</ComboBoxItem>
+                <ComboBoxItem>PE</ComboBoxItem>
+                <ComboBoxItem>PI</ComboBoxItem>
+                <ComboBoxItem>RJ</ComboBoxItem>
+                <ComboBoxItem>RN</ComboBoxItem>
+                <ComboBoxItem>RS</ComboBoxItem>
+                <ComboBoxItem>RO</ComboBoxItem>
+                <ComboBoxItem>RR</ComboBoxItem>
+                <ComboBoxItem>SC</ComboBoxItem>
+                <ComboBoxItem>SP</ComboBoxItem>
+                <ComboBoxItem>SE</ComboBoxItem>
+                <ComboBoxItem>TO</ComboBoxItem>
+            </ComboBox>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Margin="0, 0, 0, 0" Content="COMPLEMENTO" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edComplemento" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="580"/>
+        </WrapPanel>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btCancelar" Grid.Column="0" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CANCELAR"/>
+
+            <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
+        </Grid>
+
+
+
+    </Grid>
+</Window>

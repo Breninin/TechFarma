@@ -67,5 +67,11 @@ namespace WpfTechPharma
             JanCadastrarLogin Jan = new JanCadastrarLogin();
             Jan.Show();
         }
+
+        private void btCadastrarEndereco_Click(object sender, RoutedEventArgs e)
+        {
+            var Jan = new JanCadastrarEndereco();
+            Jan.Show();
+        }
     }
 }

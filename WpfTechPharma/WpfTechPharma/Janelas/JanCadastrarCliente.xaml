@@ -4,12 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="Cadastrar Clientes" 
         WindowStartupLocation="CenterScreen"
         Height="470" Width="840"
         MinHeight="470" MinWidth="840"
-        FontFamily="Arial"
+        ResizeMode="NoResize"
+        TextElement.FontWeight="Medium"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         FontSize="16">
     <!--Tela Thayna-->
     <Grid>
@@ -19,35 +23,79 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <WrapPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
-            <Label Content="NOME" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="85, 0, 10, 0" FontWeight="Bold"/>
-            <TextBox x:Name="edNome" TextWrapping="Wrap" Margin="0, 0, 30, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="600"/>
+        <!--<Grid Grid.Row="0" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="8.*" />
+            </Grid.ColumnDefinitions>
+
+
+            <Label Content="NOME" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold" Margin="0 0 10 0"/>
+            <TextBox Grid.Column="1" x:Name="edNome" TextWrapping="Wrap"  VerticalAlignment="Center"
+                     materialDesign:HintAssist.Hint="Informe o nome completo do cliente"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFilledTextBox}" />
+        </Grid>-->
+
+        <WrapPanel Grid.Row="0"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Content="NOME" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="80, 0, 10, 0" FontWeight="Bold"/>
+            <TextBox x:Name="edNome" TextWrapping="Wrap" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="600"
+                    materialDesign:HintAssist.Hint="Informe o nome completo do cliente"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="CONTATO" Margin="55, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edContato" Margin="0, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="160"/>
+            <Label Content="CELULAR" Margin="55, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edCelular" Margin="0, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="160" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
             <Label Content="CPF" Margin="20, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edCPF" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="155"/>
+            <xctk:MaskedTextBox  Mask="000,000,000-00"  x:Name="edCPF" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="155" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+
+
 
             <Label Content="RG" Margin="20, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edRG" Margin="0, 0, 30, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="155"/>
+            <TextBox x:Name="edRG" Margin="0, 0, 30, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="160" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Margin="45, 0, 10, 0" Content="ENDEREÇO" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edEndereco" Margin="0, 0, 30, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="600"/>
+            <Label Content="EMAIL" Margin="80, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="edEmail" Margin="0, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="600"
+                    materialDesign:HintAssist.Hint="Informe o email do cliente"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>
 
-        <WrapPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
-            <Label  Content="NASCIMENTO" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30, 0, 10, 0" FontWeight="Bold" Width="120"/>
-            <DatePicker x:Name="dpDataNascimento" Margin="0, 0, 0, 0" VerticalAlignment="Top" Width="150"/>
+        <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
+            <Label Margin="45, 0, 10, 0" Content="ENDEREÇO" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
+            <ComboBox x:Name="cbEndereco" Margin="0, 0, 0, 0" VerticalAlignment="Top" Width="600"
+                      materialDesign:HintAssist.Hint="Selecione ou cadastre seu endereço"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      IsEditable="True"
+                      ItemsSource="{Binding ShortStringList}"
+                      Style="{StaticResource MaterialDesignFilledComboBox}">
+                <ComboBoxItem>Não informado</ComboBoxItem>
+            </ComboBox>
+           
+                
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="800">
+            <Label  Content="NASCIMENTO" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="25, 0, 10, 0" FontWeight="Bold"/>
+            <DatePicker x:Name="dpDataNascimento" Margin="0, 0, 0, 0" VerticalAlignment="Center" Width="280"
+            materialDesign:HintAssist.Hint="Escolha sua data de nascimento"
+            Style="{StaticResource MaterialDesignFilledDatePicker}"/>
 
             <Label Content="SEXO" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <ComboBox x:Name="cbSexo" Margin="10, 0, 0, 0" VerticalAlignment="Top" Width="150">
+            <ComboBox x:Name="cbSexo" Margin="10, 0, 0, 0" VerticalAlignment="Center" Width="240"
+                      materialDesign:HintAssist.Hint="Selecione seu sexo"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      IsEditable="True"
+                      ItemsSource="{Binding ShortStringList}"
+                      Style="{StaticResource MaterialDesignFilledComboBox}">>
                 <ComboBoxItem>Feminino</ComboBoxItem>
                 <ComboBoxItem>Masculino</ComboBoxItem>
                 <ComboBoxItem>Intersexo</ComboBoxItem>
@@ -55,7 +103,7 @@
             </ComboBox>
         </WrapPanel>
 
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
