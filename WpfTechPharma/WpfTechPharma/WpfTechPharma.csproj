@@ -85,6 +85,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\JanCadastrarEndereco.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\JanCadastrarFornecedor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +117,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\JanListarEndereco.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanListarLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanListarServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -123,6 +139,9 @@
     </Compile>
     <Compile Include="Janelas\JanCadastrarCliente.xaml.cs">
       <DependentUpon>JanCadastrarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanCadastrarEndereco.xaml.cs">
+      <DependentUpon>JanCadastrarEndereco.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\JanCadastrarFornecedor.xaml.cs">
       <DependentUpon>JanCadastrarFornecedor.xaml</DependentUpon>
@@ -144,6 +163,15 @@
     </Compile>
     <Compile Include="Janelas\JanListarCliente.xaml.cs">
       <DependentUpon>JanListarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanListarEndereco.xaml.cs">
+      <DependentUpon>JanListarEndereco.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanListarLogin.xaml.cs">
+      <DependentUpon>JanListarLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanListarServico.xaml.cs">
+      <DependentUpon>JanListarServico.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
