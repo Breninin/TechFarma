@@ -1,4 +1,6 @@
-﻿namespace WpfTechPharma.Modelos
+﻿using System;
+
+namespace WpfTechPharma.Modelos
 {
     class Cliente
     {

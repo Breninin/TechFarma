@@ -1,6 +1,12 @@
-﻿using WpfTechPharma.Auxiliares;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using WpfTechPharma.BancoDados;
 using WpfTechPharma.Interfaces;
+using WpfTechPharma.Auxiliares;
+using MySql.Data.MySqlClient;
 
 namespace WpfTechPharma.Modelos
 {
@@ -159,13 +165,13 @@ namespace WpfTechPharma.Modelos
                 while (reader.Read())
                 {
                     Cliente.Id = reader.GetInt32("clie_id");
-                    Cliente.Nome = AuxiliarDAO.GetString("clie_nome");
-                    Cliente.Sexo = AuxiliarDAO.GetString("clie_sexo");
-                    Cliente.Nascimento = AuxiliarDAO.GetDateTime("clie_nascimento");
-                    Cliente.RG = AuxiliarDAO.GetString("clie_rg");
-                    Cliente.CPF = AuxiliarDAO.GetString("clie_cpf");
-                    Cliente.Email = AuxiliarDAO.GetString("clie_email");
-                    Cliente.Contato = AuxiliarDAO.GetString("clie_contato");
+                    Cliente.Nome = AuxiliarDAO.GetString(reader, "clie_nome");
+                    Cliente.Sexo = AuxiliarDAO.GetString(reader, "clie_sexo");
+                    Cliente.Nascimento = AuxiliarDAO.GetDateTime(reader, "clie_nascimento");
+                    Cliente.RG = AuxiliarDAO.GetString(reader, "clie_rg");
+                    Cliente.CPF = AuxiliarDAO.GetString(reader, "clie_cpf");
+                    Cliente.Email = AuxiliarDAO.GetString(reader, "clie_email");
+                    Cliente.Contato = AuxiliarDAO.GetString(reader, "clie_contato");
                     Cliente.Endereco = reader.GetInt32("fk_ende_id");
                 }
 
@@ -202,13 +208,13 @@ namespace WpfTechPharma.Modelos
                     listaCliente.Add(new Cliente()
                     {
                         Id = reader.GetInt32("clie_id"),
-                        Nome = AuxiliarDAO.GetString("clie_nome"),
-                        Sexo = AuxiliarDAO.GetString("clie_sexo"),
-                        Nascimento = AuxiliarDAO.GetDateTime("clie_nascimento"),
-                        RG = AuxiliarDAO.GetString("clie_rg"),
-                        CPF = AuxiliarDAO.GetString("clie_cpf"),
-                        Email = AuxiliarDAO.GetString("clie_email"),
-                        Contato = AuxiliarDAO.GetString("clie_contato"),
+                        Nome = AuxiliarDAO.GetString(reader, "clie_nome"),
+                        Sexo = AuxiliarDAO.GetString(reader, "clie_sexo"),
+                        Nascimento = AuxiliarDAO.GetDateTime(reader, "clie_nascimento"),
+                        RG = AuxiliarDAO.GetString(reader, "clie_rg"),
+                        CPF = AuxiliarDAO.GetString(reader, "clie_cpf"),
+                        Email = AuxiliarDAO.GetString(reader, "clie_email"),
+                        Contato = AuxiliarDAO.GetString(reader, "clie_contato"),
                         Endereco = reader.GetInt32("fk_ende_id")
                     });
                 }

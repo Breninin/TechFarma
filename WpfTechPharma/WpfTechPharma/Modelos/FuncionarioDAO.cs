@@ -1,6 +1,12 @@
-﻿using WpfTechPharma.Auxiliares;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using WpfTechPharma.BancoDados;
 using WpfTechPharma.Interfaces;
+using WpfTechPharma.Auxiliares;
+using MySql.Data.MySqlClient;
 
 namespace WpfTechPharma.Modelos
 {
@@ -169,15 +175,15 @@ namespace WpfTechPharma.Modelos
                 while (reader.Read())
                 {
                     Funcionario.Id = reader.GetInt32("func_id");
-                    Funcionario.Nome = AuxiliarDAO.GetString("func_nome");
-                    Funcionario.Sexo = AuxiliarDAO.GetString("func_sexo");
-                    Funcionario.Nascimento = AuxiliarDAO.GetDateTime("func_nascimento");
-                    Funcionario.RG = AuxiliarDAO.GetString("func_rg");
-                    Funcionario.CPF = AuxiliarDAO.GetString("func_cpf");
-                    Funcionario.Email = AuxiliarDAO.GetString("func_email");
-                    Funcionario.Contato = AuxiliarDAO.GetString("func_contato");
-                    Funcionario.Funcao = AuxiliarDAO.GetString("func_funcao");
-                    Funcionario.Salario = AuxiliarDAO.GetFloat("func_salario");
+                    Funcionario.Nome = AuxiliarDAO.GetString(reader, "func_nome");
+                    Funcionario.Sexo = AuxiliarDAO.GetString(reader, "func_sexo");
+                    Funcionario.Nascimento = AuxiliarDAO.GetDateTime(reader, "func_nascimento");
+                    Funcionario.RG = AuxiliarDAO.GetString(reader, "func_rg");
+                    Funcionario.CPF = AuxiliarDAO.GetString(reader, "func_cpf");
+                    Funcionario.Email = AuxiliarDAO.GetString(reader, "func_email");
+                    Funcionario.Contato = AuxiliarDAO.GetString(reader, "func_contato");
+                    Funcionario.Funcao = AuxiliarDAO.GetString(reader, "func_funcao");
+                    Funcionario.Salario = reader.GetFloat("func_salario");
                     Funcionario.Endereco = reader.GetInt32("fk_ende_id");
                 }
 
@@ -214,15 +220,15 @@ namespace WpfTechPharma.Modelos
                     listaFuncionario.Add(new Funcionario()
                     {
                         Id = reader.GetInt32("func_id"),
-                        Nome = AuxiliarDAO.GetString("func_nome"),
-                        Sexo = AuxiliarDAO.GetString("func_sexo"),
-                        Nascimento = AuxiliarDAO.GetDateTime("func_nascimento"),
-                        RG = AuxiliarDAO.GetString("func_rg"),
-                        CPF = AuxiliarDAO.GetString("func_cpf"),
-                        Email = AuxiliarDAO.GetString("func_email"),
-                        Contato = AuxiliarDAO.GetString("func_contato"),
-                        Funcao = AuxiliarDAO.GetString("func_funcao"),
-                        Salario = AuxiliarDAO.GetFloat("func_salario"),
+                        Nome = AuxiliarDAO.GetString(reader, "func_nome"),
+                        Sexo = AuxiliarDAO.GetString(reader, "func_sexo"),
+                        Nascimento = AuxiliarDAO.GetDateTime(reader, "func_nascimento"),
+                        RG = AuxiliarDAO.GetString(reader, "func_rg"),
+                        CPF = AuxiliarDAO.GetString(reader, "func_cpf"),
+                        Email = AuxiliarDAO.GetString(reader, "func_email"),
+                        Contato = AuxiliarDAO.GetString(reader, "func_contato"),
+                        Funcao = AuxiliarDAO.GetString(reader, "func_funcao"),
+                        Salario = reader.GetFloat("func_salario"),
                         Endereco = reader.GetInt32("fk_ende_id")
                     });
                 }
