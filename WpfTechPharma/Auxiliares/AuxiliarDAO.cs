@@ -29,6 +29,16 @@ namespace WpfTechPharma.Auxiliares
             return value;
         }
 
+        public static float GetFloat(MySqlDataReader reader, string column_name)
+        {
+            float value = 0.0;
+
+            if (!reader.IsDBNull(reader.GetOrdinal(column_name)))
+                value = reader.GetFloat(column_name);
+
+            return value;
+        }
+
         public static DateTime? GetDateTime(MySqlDataReader reader, string column_name)
         {
             DateTime? value = null;
