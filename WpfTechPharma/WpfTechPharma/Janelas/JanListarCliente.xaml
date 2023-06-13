@@ -4,9 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="JanListarCliente" Height="450" Width="800">
+        Title="Listar Clientes" 
+        WindowStartupLocation="CenterScreen"
+        Height="470" Width="840"
+        MinHeight="470" MinWidth="840"
+        ResizeMode="NoResize"
+        TextElement.FontWeight="Medium"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        FontSize="16">
     <Grid>
-        
+        <DataGrid x:Name="dgvClientes" d:ItemsSource="{d:SampleData ItemCount=5}" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="#00000000" FontSize="16" Margin="10,10,10,10">
+            <DataGrid.RowStyle>
+                <Style/>
+            </DataGrid.RowStyle>
+        </DataGrid>
+
     </Grid>
 </Window>
