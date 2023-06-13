@@ -257,6 +257,8 @@
     <Compile Include="Modelos\EnderecoDAO.cs" />
     <Compile Include="Modelos\Funcionario.cs" />
     <Compile Include="Modelos\FuncionarioDAO.cs" />
+    <Compile Include="Modelos\Login.cs" />
+    <Compile Include="Modelos\LoginDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
