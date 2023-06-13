@@ -161,6 +161,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\JanTeste.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -202,6 +206,9 @@
     </Compile>
     <Compile Include="Janelas\JanListarFuncionario.xaml.cs">
       <DependentUpon>JanListarFuncionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanTeste.xaml.cs">
+      <DependentUpon>JanTeste.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
