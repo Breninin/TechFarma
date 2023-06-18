@@ -58,7 +58,7 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@contato", t.Contato);
                 query.Parameters.AddWithValue("@funcao", t.Funcao);
                 query.Parameters.AddWithValue("@salario", t.Salario);
-                query.Parameters.AddWithValue("@endereco", t.Endereco);
+                query.Parameters.AddWithValue("@endereco", t.Endereco.Id);
 
                 var result = query.ExecuteNonQuery();
 
@@ -108,7 +108,7 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@contato", t.Contato);
                 query.Parameters.AddWithValue("@funcao", t.Funcao);
                 query.Parameters.AddWithValue("@salario", t.Salario);
-                query.Parameters.AddWithValue("@endereco", t.Endereco);
+                query.Parameters.AddWithValue("@endereco", t.Endereco.Id);
                 query.Parameters.AddWithValue("@id", t.Id);
 
                 var result = query.ExecuteNonQuery();
@@ -184,7 +184,7 @@ namespace WpfTechPharma.Modelos
                     Funcionario.Contato = AuxiliarDAO.GetString(reader, "func_contato");
                     Funcionario.Funcao = AuxiliarDAO.GetString(reader, "func_funcao");
                     Funcionario.Salario = reader.GetFloat("func_salario");
-                    Funcionario.Endereco = reader.GetInt32("fk_ende_id");
+                    Funcionario.Endereco = new EnderecoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_ende_id"));
                 }
 
                 return Funcionario;
@@ -229,8 +229,8 @@ namespace WpfTechPharma.Modelos
                         Contato = AuxiliarDAO.GetString(reader, "func_contato"),
                         Funcao = AuxiliarDAO.GetString(reader, "func_funcao"),
                         Salario = reader.GetFloat("func_salario"),
-                        Endereco = reader.GetInt32("fk_ende_id")
-                    });
+                        Endereco = new EnderecoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_ende_id"))
+                });
                 }
 
                 return listaFuncionario;

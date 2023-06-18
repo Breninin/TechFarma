@@ -20,6 +20,6 @@ namespace WpfTechPharma.Modelos
 
         public string Contato { get; set; }
 
-        public int Endereco { get; set; }
+        public Endereco Endereco { get; set; }
     }
 }

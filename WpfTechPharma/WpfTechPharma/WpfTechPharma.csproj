@@ -195,6 +195,7 @@
     </Compile>
     <Compile Include="Auxiliares\AuxiliarDAO.cs" />
     <Compile Include="Auxiliares\Estado.cs" />
+    <Compile Include="Auxiliares\Ultis.cs" />
     <Compile Include="BancoDados\Conexao.cs" />
     <Compile Include="Interfaces\IDAO.cs" />
     <Compile Include="Janelas\JanCadastrarCliente.xaml.cs">

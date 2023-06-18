@@ -264,7 +264,8 @@ fk_medi_id int,
 fk_func_id int,
 fk_vend_id int,
 foreign key (fk_clie_id) references Cliente (clie_id),
-foreign key (fk_medi_id) references Medicamento (medi_id),
+foreign key (fk_medi_id) references Medicamento (medi_id),PRIMARY
 foreign key (fk_func_id) references Funcionario (func_id),
 foreign key (fk_vend_id) references Venda (vend_id)
 );
+

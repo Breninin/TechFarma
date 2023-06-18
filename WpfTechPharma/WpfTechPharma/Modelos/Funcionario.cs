@@ -28,6 +28,6 @@ namespace WpfTechPharma.Modelos
 
         public float Salario { get; set; }
 
-        public int Endereco { get; set; }
+        public Endereco Endereco { get; set; }
     }
 }

@@ -52,7 +52,7 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@cpf", t.CPF);
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@contato", t.Contato);
-                query.Parameters.AddWithValue("@endereco", t.Endereco);
+                query.Parameters.AddWithValue("@endereco", t.Endereco.Id);
 
                 var result = query.ExecuteNonQuery();
 
@@ -98,7 +98,7 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@cpf", t.CPF);
                 query.Parameters.AddWithValue("@email", t.Email);
                 query.Parameters.AddWithValue("@contato", t.Contato);
-                query.Parameters.AddWithValue("@endereco", t.Endereco);
+                query.Parameters.AddWithValue("@endereco", t.Endereco.Id);
                 query.Parameters.AddWithValue("@id", t.Id);
 
                 var result = query.ExecuteNonQuery();
@@ -172,7 +172,7 @@ namespace WpfTechPharma.Modelos
                     Cliente.CPF = AuxiliarDAO.GetString(reader, "clie_cpf");
                     Cliente.Email = AuxiliarDAO.GetString(reader, "clie_email");
                     Cliente.Contato = AuxiliarDAO.GetString(reader, "clie_contato");
-                    Cliente.Endereco = reader.GetInt32("fk_ende_id");
+                    Cliente.Endereco = new EnderecoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_ende_id"));
                 }
 
                 return Cliente;
@@ -215,8 +215,8 @@ namespace WpfTechPharma.Modelos
                         CPF = AuxiliarDAO.GetString(reader, "clie_cpf"),
                         Email = AuxiliarDAO.GetString(reader, "clie_email"),
                         Contato = AuxiliarDAO.GetString(reader, "clie_contato"),
-                        Endereco = reader.GetInt32("fk_ende_id")
-                    });
+                        Endereco = new EnderecoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_ende_id"))
+                });
                 }
 
                 return listaCliente;
