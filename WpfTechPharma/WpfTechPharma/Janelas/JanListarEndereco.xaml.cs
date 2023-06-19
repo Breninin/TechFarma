@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfTechPharma.Modelos;
 
 namespace WpfTechPharma.Janelas
 {
@@ -22,6 +23,21 @@ namespace WpfTechPharma.Janelas
         public JanListarEndereco()
         {
             InitializeComponent();
+            CarregarEnderecos();
+        }
+
+        private void CarregarEnderecos()
+        {
+            try
+            {
+                EnderecoDAO enderecoDAO = new EnderecoDAO();
+                List<Endereco> enderecos = enderecoDAO.List();
+                dgvEnderecos.ItemsSource = enderecos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os endereços: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

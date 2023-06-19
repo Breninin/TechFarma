@@ -23,10 +23,5 @@ namespace WpfTechPharma.Janelas
         {
             InitializeComponent();
         }
-
-        private void btLimpar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfTechPharma.Modelos;
 
 namespace WpfTechPharma.Janelas
 {
@@ -22,6 +23,21 @@ namespace WpfTechPharma.Janelas
         public JanListarLogin()
         {
             InitializeComponent();
+            CarregarUsuarios();
+        }
+
+        private void CarregarUsuarios()
+        {
+            try
+            {
+                UsuarioDAO usuarioDAO = new UsuarioDAO();
+                List<Usuario> usuarios = usuarioDAO.List();
+                dgvUsuarios.ItemsSource = usuarios;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os usuarios: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

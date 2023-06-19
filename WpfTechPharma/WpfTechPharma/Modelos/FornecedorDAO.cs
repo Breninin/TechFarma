@@ -33,7 +33,7 @@ namespace WpfTechPharma.Modelos
                     "forn_cnpj, " +
                     "forn_email, " +
                     "fk_ende_id, " +
-                    "forn_inscricao_estudal) " +
+                    "forn_inscricao_estadual) " +
                     "values " +
                     "(@razaoSocial, " +
                     "@nomeFantasia, " +
@@ -83,7 +83,7 @@ namespace WpfTechPharma.Modelos
                     "forn_cnpj = @cnpj, " +
                     "forn_email = @email, " +
                     "fk_ende_id = @endereco, " +
-                    "forn_inscricao_estudal = @inscricaoEstadual " +
+                    "forn_inscricao_estadual = @inscricaoEstadual " +
                     "where " +
                     "(forn_id = @id)";
 
@@ -166,7 +166,7 @@ namespace WpfTechPharma.Modelos
                     fornecedor.CNPJ = AuxiliarDAO.GetString(reader, "forn_cnpj");
                     fornecedor.Email = AuxiliarDAO.GetString(reader, "forn_email");
                     fornecedor.Endereco = new EnderecoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_ende_id"));
-                    fornecedor.InscrcaoEstadual = AuxiliarDAO.GetString(reader, "forn_inscricao_estudal");
+                    fornecedor.InscrcaoEstadual = AuxiliarDAO.GetString(reader, "forn_inscricao_estadual");
                 }
 
                 return fornecedor;
@@ -208,7 +208,7 @@ namespace WpfTechPharma.Modelos
                         CNPJ = AuxiliarDAO.GetString(reader, "forn_cnpj"),
                         Email = AuxiliarDAO.GetString(reader, "forn_email"),
                         Endereco = new EnderecoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_ende_id")),
-                        InscrcaoEstadual = AuxiliarDAO.GetString(reader, "forn_inscricao_estudal")
+                        InscrcaoEstadual = AuxiliarDAO.GetString(reader, "forn_inscricao_estadual")
                     });
                 }
 

@@ -16,11 +16,17 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         FontSize="16">
     <Grid>
-        <DataGrid x:Name="dgvClientes" d:ItemsSource="{d:SampleData ItemCount=5}" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="#00000000" FontSize="16" Margin="10,10,10,10">
-            <DataGrid.RowStyle>
-                <Style/>
-            </DataGrid.RowStyle>
+        <DataGrid x:Name="dgvEnderecos" AutoGenerateColumns="False" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="Black" FontSize="16" Margin="10,10,10,10" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" />
+                <DataGridTextColumn Header="Cidade" Binding="{Binding Cidade}" />
+                <DataGridTextColumn Header="Bairro" Binding="{Binding Bairro}" />
+                <DataGridTextColumn Header="Rua" Binding="{Binding Rua}" />
+                <DataGridTextColumn Header="Numero" Binding="{Binding Numero}" />
+                <DataGridTextColumn Header="Complemento" Binding="{Binding Complemento}" />
+                <DataGridTextColumn Header="CEP" Binding="{Binding CEP}" />
+            </DataGrid.Columns>
         </DataGrid>
-
     </Grid>
 </Window>

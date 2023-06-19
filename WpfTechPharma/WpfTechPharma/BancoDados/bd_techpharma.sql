@@ -14,10 +14,6 @@ ende_complemento varchar (200),
 ende_cep varchar (20)
 );
 
-insert into Endereco values (null, 'São Paulo', 'São Paulo', 'Bairro Foda', 'Rua Giga', 12, 'Sim', '121212-1212');
-insert into Endereco values (null, 'Rio de Janeiro', 'Rio de Janeiro', 'Bairro Foda', 'Rua Giga', 12, 'Sim', '121212-1212');
-insert into Endereco values (null, 'Minas Gerais', 'Minas Gerais', 'Bairro Foda', 'Rua Giga', 12, 'Sim', '121212-1212');
-
 create table Fornecedor (
 forn_id int primary key not null auto_increment,
 forn_razao_social varchar (100),
@@ -25,7 +21,7 @@ forn_nome_fantasia varchar (100),
 forn_cnpj varchar (20),
 forn_email varchar (50),
 forn_contato varchar (20),
-forn_inscricao_estudal varchar (50),
+forn_inscricao_estadual varchar (50),
 fk_ende_id int,
 foreign key (fk_ende_id) references Endereco (ende_id)
 );
@@ -96,8 +92,8 @@ foreign key (fk_forn_id) references Fornecedor (forn_id)
 create table Insumo (
 insu_id int primary key not null auto_increment,
 insu_nome varchar (50),
-insumo_marca varchar (50),
-insumo_valor_compra float,
+insu_marca varchar (50),
+insu_valor_compra float,
 insu_quantidade int,
 insu_tipo varchar (200),
 insu_codigo_barra varchar (50),
@@ -275,5 +271,3 @@ foreign key (fk_medi_id) references Medicamento (medi_id),
 foreign key (fk_func_id) references Funcionario (func_id),
 foreign key (fk_vend_id) references Venda (vend_id)
 );
-
-

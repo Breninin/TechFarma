@@ -86,6 +86,16 @@ namespace WpfTechPharma.Janelas
             {
                 try
                 {
+                    var usuario = new Usuario
+                    {
+                        Login = edNomeLogin.Text,
+                        Senha = edSenhaLogin.Text,
+                        Funcionario = (Funcionario)cbNomeFuncionario.SelectedItem
+                    };
+
+                    var usuarioDAO = new UsuarioDAO();
+                    usuarioDAO.Insert(usuario);
+
                     MessageBox.Show("Login inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
