@@ -154,6 +154,24 @@ namespace WpfTechPharma.Auxiliares
             }
         }
 
+        //Verificar se texbox são iguais
+        public static bool CheckBoxEqual(Window window, TextBox textBox1, TextBox textBox2)
+        {
+            SaveColors(window);
+            if (textBox1.Text == textBox2.Text && !string.IsNullOrEmpty(textBox2.Text) && !string.IsNullOrEmpty(textBox1.Text))
+            {
+                SetValidColors(textBox1);
+                SetValidColors(textBox2);
+                return true;
+            }
+            else
+            {
+                SetInvalidColors(textBox1);
+                SetInvalidColors(textBox2);
+                return false;
+            }
+        }
+
         // Define as cores de destaque para um controle válido
         private static void SetValidColors(Control control)
         {

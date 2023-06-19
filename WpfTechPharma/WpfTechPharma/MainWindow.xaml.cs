@@ -58,6 +58,12 @@ namespace WpfTechPharma
             Jan.Show();
         }
 
+        private void btCadastrarInsumo_Click(object sender, RoutedEventArgs e)
+        {
+            JanCadastrarInsumo Jan = new JanCadastrarInsumo();
+            Jan.Show();
+        }
+
         private void btCadastrarServiço_Click(object sender, RoutedEventArgs e)
         {
             JanCadastrarServico Jan = new JanCadastrarServico();
@@ -105,6 +111,11 @@ namespace WpfTechPharma
         private void btListarProduto_Click(object sender, RoutedEventArgs e)
         {
             JanListarProduto Jan = new JanListarProduto();
+            Jan.Show();
+        }
+        private void btListarInsumo_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarInsumo Jan = new JanListarInsumo();
             Jan.Show();
         }
 

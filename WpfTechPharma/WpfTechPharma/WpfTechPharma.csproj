@@ -137,6 +137,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\JanCadastrarInsumo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\JanCadastrarLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Janelas\JanListarFuncionario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanListarInsumo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,6 +218,9 @@
     <Compile Include="Janelas\JanCadastrarFuncionario.xaml.cs">
       <DependentUpon>JanCadastrarFuncionario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Janelas\JanCadastrarInsumo.xaml.cs">
+      <DependentUpon>JanCadastrarInsumo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Janelas\JanCadastrarLogin.xaml.cs">
       <DependentUpon>JanCadastrarLogin.xaml</DependentUpon>
     </Compile>
@@ -233,6 +244,9 @@
     </Compile>
     <Compile Include="Janelas\JanListarFuncionario.xaml.cs">
       <DependentUpon>JanListarFuncionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanListarInsumo.xaml.cs">
+      <DependentUpon>JanListarInsumo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\JanListarLogin.xaml.cs">
       <DependentUpon>JanListarLogin.xaml</DependentUpon>

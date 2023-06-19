@@ -54,7 +54,7 @@
             <TextBox x:Name="edConfirmarSenha" VerticalAlignment="Bottom" MaxWidth="325" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </Grid>
 
-        <Grid Grid.Row="3"  Grid.Column="0">
+        <Grid Grid.Row="3"  Grid.Column="0" Cursor="">
 
             <Button
               x:Name="btLimpar" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
@@ -75,7 +75,7 @@
             <Button
               x:Name="btSalvar" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
               Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
-              ToolTip="MaterialDesignFloatingActionDarkButton" Margin="182,29,182,29" Grid.RowSpan="2" Click="btSalvar_Click">
+              ToolTip="MaterialDesignFloatingActionDarkButton" Grid.RowSpan="2" Click="btSalvar_Click" Cursor="Hand">
                 <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="24" Height="24">
                     <Path Fill="White" Data="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
                 </Canvas>
