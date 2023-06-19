@@ -66,7 +66,7 @@ namespace WpfTechPharma.Modelos
                 {
                     throw new Exception("Erro ao salvar o Funcionario. Verifique o Funcionario inserido e tente novamente.");
                 }
-            }
+            }   
             catch (Exception e)
             {
                 throw e;
