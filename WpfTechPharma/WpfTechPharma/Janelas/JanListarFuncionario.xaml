@@ -28,7 +28,7 @@
                 <DataGridTextColumn Header="Contato" Binding="{Binding Contato}" />
                 <DataGridTextColumn Header="Função" Binding="{Binding Funcao}" />
                 <DataGridTextColumn Header="Salário" Binding="{Binding Salario}" />
-                <DataGridTextColumn Header="Endereço" Binding="{Binding Endereco.Id}" />
+                <DataGridTextColumn Header="Endereço" Binding="{Binding Endereco.CEP}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

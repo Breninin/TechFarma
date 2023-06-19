@@ -20,7 +20,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Login" Binding="{Binding Login}" />
-                <DataGridTextColumn Header="Funcionario" Binding="{Binding Funcionario.Id}" />
+                <DataGridTextColumn Header="Funcionario" Binding="{Binding Funcionario.Nome}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

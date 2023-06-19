@@ -20,6 +20,12 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
+                <DataGridTextColumn Header="Marca" Binding="{Binding Marca}" />
+                <DataGridTextColumn Header="Valor Compra" Binding="{Binding ValorCompra}" />
+                <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" />
+                <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" />
+                <DataGridTextColumn Header="Código Barra" Binding="{Binding CodigoBarra}" />
+                <DataGridTextColumn Header="Fornecedor" Binding="{Binding Fornecedor.RazaoSocial}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

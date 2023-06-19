@@ -77,7 +77,7 @@ namespace WpfTechPharma.Janelas
                 cbEndereco.ItemsSource = null;
                 cbEndereco.Items.Clear();
                 cbEndereco.ItemsSource = new EnderecoDAO().List();
-                cbEndereco.DisplayMemberPath = "Id";
+                cbEndereco.DisplayMemberPath = "CEP";
             }
             catch (Exception ex)
             {

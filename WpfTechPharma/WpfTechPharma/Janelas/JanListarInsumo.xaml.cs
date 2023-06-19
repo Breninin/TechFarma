@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfTechPharma.Modelos;
 
 namespace WpfTechPharma.Janelas
 {
@@ -22,6 +23,21 @@ namespace WpfTechPharma.Janelas
         public JanListarInsumo()
         {
             InitializeComponent();
+            CarregarInsumos();
+        }
+
+        private void CarregarInsumos()
+        {
+            try
+            {
+                InsumoDAO insumoDAO = new InsumoDAO();
+                List<Insumo> insumos = insumoDAO.List();
+                dgvClientes.ItemsSource = insumos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os insumos: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
