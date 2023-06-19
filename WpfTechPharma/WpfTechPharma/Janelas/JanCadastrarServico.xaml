@@ -4,14 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Cadastrar Serviços" 
+        Title="Cadastrar Serviço" 
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="800"
-        MinHeight="450" MinWidth="800"
-        FontFamily="Arial"
+        Height="470" Width="840"
+        MinHeight="470" MinWidth="840"
+        ResizeMode="NoResize"
+        TextElement.FontWeight="Medium"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         FontSize="16">
-    <!--Tela Andrey-->
+    <!--Tela Thayna-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -22,85 +26,60 @@
 
         <WrapPanel Grid.Row="0" Width="800" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="60,0, 0, 0" FontWeight="Bold" Content="NOME"/>
-            <TextBox x:Name="edNome" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="400"/>
+            <TextBox x:Name="edNome" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="400"
+                    materialDesign:HintAssist.Hint="Informe o nome completo do serviço"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFilledTextBox}"/>
+
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0, 0, 0" FontWeight="Bold" Content="DURAÇÂO"/>
-            <TextBox x:Name="edDuracao" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="100"/>
+            <TextBox x:Name="edDuracao" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="100" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="1" Width="800" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="65, 0, 0, 0" FontWeight="Bold" Content="TIPO"/>
-            <TextBox x:Name="edTipo" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="400"/>
+            <TextBox x:Name="edTipo" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="400" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" FontWeight="Bold" Content="VALOR"/>
-            <TextBox x:Name="edValor" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="140"/>
+            <TextBox x:Name="edValor" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="140" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="2" Width="800" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="35, 0, 0, 0" FontWeight="Bold" Content="INSUMOS "/>
-            <TextBox x:Name="edInsumos" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="600"/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="35, 0, 0, 0" FontWeight="Bold" Content="INSUMO "/>
 
-
+            <ComboBox x:Name="cbInsumos" Margin="10, 0, 0, 0" VerticalAlignment="Center" Width="600"
+                materialDesign:HintAssist.Hint="Selecione o insumo utilizado no serviço"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      IsEditable="True"
+                      ItemsSource="{Binding ShortStringList}"
+                      Style="{StaticResource MaterialDesignFilledComboBox}">
+            </ComboBox>
         </WrapPanel>
 
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="btCancelar" Grid.Column="0" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CANCELAR"/>
+            <Button
+              x:Name="btLimpar"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+              ToolTip="MaterialDesignFloatingActionDarkButton" Cursor="Hand">
+                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="24" Height="24">
+                    <Path Fill="White" Data="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
+                </Canvas>
+            </Button>
 
-            <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
+            <Button Grid.Column="1"
+              x:Name="btSalvar"
+              IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+              ToolTip="MaterialDesignFloatingActionDarkButton">
+                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="24" Height="24">
+                    <Path Fill="White" Data="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                </Canvas>
+            </Button>
         </Grid>
-
-        <!--<Grid Grid.Row="0" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Nome"/>
-                <TextBox x:Name="edNome" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-
-            <Grid Grid.Column="1">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Valor"/>
-                <TextBox x:Name="edValor" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Row="1" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Tipo"/>
-                <TextBox x:Name="edTipo" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-
-            <Grid Grid.Column="1">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Fabricante "/>
-                <TextBox x:Name="edFabricante" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Row="2" Margin="150,5,150,5">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 20" FontWeight="Bold" Content="Duração"/>
-            <TextBox x:Name="edDuracao" VerticalAlignment="Center" Margin="10, 20, 10, 5"/>
-        </Grid>
-
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Button x:Name="btCancelar" Grid.Column="0" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CANCELAR"/>
-
-            <Button x:Name="btSalvar" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
-        </Grid>-->
     </Grid>
 </Window>

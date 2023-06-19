@@ -4,14 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Cadastrar Login"
+        Title="Cadastrar Logins" 
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="800"
-        MinHeight="425" MinWidth="425"
-        FontFamily="Arial"
+        Height="470" Width="840"
+        MinHeight="470" MinWidth="840"
+        ResizeMode="NoResize"
+        TextElement.FontWeight="Medium"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         FontSize="16">
-    <!--Tela Breno-->
+    <!--Tela Thayna-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -26,27 +30,56 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="10" Grid.ColumnSpan="2">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 40" FontWeight="Bold" Content="SELECIONE O USUÁRIO"/>
-            <ComboBox x:Name="cbNomeLogin" VerticalAlignment="Center" MaxWidth="1000" Margin="10, 20, 10, 5"/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 50" FontWeight="Bold" Content="NOME DO FUNCIONÁRIO"/>
+            <ComboBox x:Name="cbNomeFuncionario" VerticalAlignment="Bottom" MaxWidth="1000" Margin="10, 20, 10, 5"
+                      materialDesign:HintAssist.Hint="Informe o nome completo do funcionário"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      IsEditable="True"
+                      ItemsSource="{Binding ShortStringList}"
+                      Style="{StaticResource MaterialDesignFilledComboBox}"/>
         </Grid>
 
         <Grid Grid.Row="1" Margin="10" Grid.ColumnSpan="2">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 40" FontWeight="Bold" Content="NOME DO LOGIN"/>
-            <TextBox x:Name="edNomeLogin" VerticalAlignment="Center" MaxWidth="1000" Margin="10, 20, 10, 5"/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 50" FontWeight="Bold" Content="NOME DO LOGIN"/>
+            <TextBox x:Name="edNomeLogin" VerticalAlignment="Bottom" MaxWidth="1000" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="0">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 40" FontWeight="Bold" Content="SENHA DO LOGIN"/>
-            <TextBox x:Name="edSenhaLogin" VerticalAlignment="Center" MaxWidth="325" Margin="10, 20, 10, 5"/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 50" FontWeight="Bold" Content="SENHA DO LOGIN"/>
+            <TextBox x:Name="edSenhaLogin" VerticalAlignment="Bottom" MaxWidth="325" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="1">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 40" FontWeight="Bold" Content="CONFIRMAR SENHA"/>
-            <TextBox x:Name="edConfirmarSenha" VerticalAlignment="Center" MaxWidth="325" Margin="10, 20, 10, 5"/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 40" FontWeight="Bold" Content="CONFIRMAR SENHA"/>
+            <TextBox x:Name="edConfirmarSenha" VerticalAlignment="Bottom" MaxWidth="325" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </Grid>
 
-        <Button x:Name="btCancelar" Grid.Row="3" Grid.Column="0" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="CANCELAR"/>
+        <Grid Grid.Row="3"  Grid.Column="0" Cursor="">
 
-        <Button x:Name="btSalvar" Grid.Row="3" Grid.Column="1" MaxHeight="60" MaxWidth="200" Margin="20, 15" Foreground="Black" Background="#fff0f0" BorderBrush="#bd0f0f" BorderThickness="2" FontWeight="Bold" Content="SALVAR"/>
+            <Button
+              x:Name="btLimpar" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+              ToolTip="MaterialDesignFloatingActionDarkButton" Cursor="Hand" Click="BtLimpar_Click">
+                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="24" Height="24">
+                    <Path Fill="White" Data="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
+                </Canvas>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="3"  Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="78*"/>
+            </Grid.RowDefinitions>
+
+            <Button
+              x:Name="btSalvar" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+              ToolTip="MaterialDesignFloatingActionDarkButton" Grid.RowSpan="2" Click="btSalvar_Click" Cursor="Hand">
+                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="24" Height="24">
+                    <Path Fill="White" Data="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                </Canvas>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

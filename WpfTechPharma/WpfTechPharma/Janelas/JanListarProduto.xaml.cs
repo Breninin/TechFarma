@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace WpfTechPharma.Janelas
 {
     /// <summary>
-    /// Lógica interna para JanCadastrarFornecedor.xaml
+    /// Lógica interna para JanListarProduto.xaml
     /// </summary>
-    public partial class JanCadastrarFornecedor : Window
+    public partial class JanListarProduto : Window
     {
-        public JanCadastrarFornecedor()
+        public JanListarProduto()
         {
             InitializeComponent();
-        }
-
-        private void btLimpar_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

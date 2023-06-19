@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfTechPharma.Janelas.JanListarFuncionario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Listar Funcionários" 
+        WindowStartupLocation="CenterScreen"
+        Height="470" Width="840"
+        MinHeight="470" MinWidth="840"
+        ResizeMode="NoResize"
+        TextElement.FontWeight="Medium"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        FontSize="16">
+    <Grid>
+        <DataGrid x:Name="dgvFuncionarios" AutoGenerateColumns="False" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="Black" FontSize="16" Margin="10,10,10,10" IsReadOnly="True" ScrollViewer.CanContentScroll="False" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
+                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}" />
+                <DataGridTextColumn Header="Nascimento" Binding="{Binding Nascimento}" />
+                <DataGridTextColumn Header="RG" Binding="{Binding RG}" />
+                <DataGridTextColumn Header="CPF" Binding="{Binding CPF}" />
+                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" />
+                <DataGridTextColumn Header="Contato" Binding="{Binding Contato}" />
+                <DataGridTextColumn Header="Função" Binding="{Binding Funcao}" />
+                <DataGridTextColumn Header="Salário" Binding="{Binding Salario}" />
+                <DataGridTextColumn Header="Endereço" Binding="{Binding Endereco.Id}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
+

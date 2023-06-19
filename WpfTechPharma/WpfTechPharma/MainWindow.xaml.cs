@@ -26,6 +26,8 @@ namespace WpfTechPharma
             InitializeComponent();
         }
 
+        //CADASTRAR
+
         private void btCadastrarCliente_Click(object sender, RoutedEventArgs e)
         {
             JanCadastrarCliente Jan = new JanCadastrarCliente();
@@ -56,15 +58,82 @@ namespace WpfTechPharma
             Jan.Show();
         }
 
+        private void btCadastrarInsumo_Click(object sender, RoutedEventArgs e)
+        {
+            JanCadastrarInsumo Jan = new JanCadastrarInsumo();
+            Jan.Show();
+        }
+
         private void btCadastrarServiço_Click(object sender, RoutedEventArgs e)
         {
             JanCadastrarServico Jan = new JanCadastrarServico();
             Jan.Show();
         }
 
+        private void btCadastrarEndereco_Click(object sender, RoutedEventArgs e)
+        {
+            JanCadastrarEndereco Jan = new JanCadastrarEndereco();
+            Jan.Show();
+        }
+
         private void btCadastrarLogin_Click(object sender, RoutedEventArgs e)
         {
             JanCadastrarLogin Jan = new JanCadastrarLogin();
+            Jan.Show();
+        }
+
+        //LISTAR
+
+        private void btListarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarCliente Jan = new JanListarCliente();
+            Jan.Show();
+        }
+
+        private void btListarFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarFuncionario Jan = new JanListarFuncionario();
+            Jan.Show();
+        }
+
+        private void btListarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarFornecedor Jan = new JanListarFornecedor();
+            Jan.Show();
+        }
+
+        private void btListarMedicamento_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarMedicamento Jan = new JanListarMedicamento();
+            Jan.Show();
+        }
+
+        private void btListarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarProduto Jan = new JanListarProduto();
+            Jan.Show();
+        }
+        private void btListarInsumo_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarInsumo Jan = new JanListarInsumo();
+            Jan.Show();
+        }
+
+        private void btListarServiço_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarServico Jan = new JanListarServico();
+            Jan.Show();
+        }
+
+        private void btListarEndereco_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarEndereco Jan = new JanListarEndereco();
+            Jan.Show();
+        }
+
+        private void btListarLogin_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarLogin Jan = new JanListarLogin();
             Jan.Show();
         }
     }
