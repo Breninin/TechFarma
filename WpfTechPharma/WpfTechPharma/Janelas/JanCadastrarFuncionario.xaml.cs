@@ -39,25 +39,25 @@ namespace WpfTechPharma.Janelas
 
         private void EdCPF_LostFocus(object sender, RoutedEventArgs e)
         {
-            Ultis.check(edCPF, 11);
+            Ultis.Check(this, edCPF, 11);
         }
 
         private void ComboBox_LostFocus(object sender, RoutedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.check(comboBox);
+            Ultis.Check(this, edNome);
         }
 
         private void DatePicker_LostFocus(object sender, RoutedEventArgs e)
         {
             DatePicker datePicker = (DatePicker)sender;
-            Ultis.check(datePicker);
+            Ultis.Check(this, edNome);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.check(textBox);
+            Ultis.Check(this, edNome);
         }
 
         private void LoadData()
@@ -96,16 +96,16 @@ namespace WpfTechPharma.Janelas
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             List<bool> check = new List<bool>();
-            check.Add(Ultis.check(edNome));
-            check.Add(Ultis.check(edContato));
-            check.Add(Ultis.check(edCPF, 11));
-            check.Add(Ultis.check(edRG));
-            check.Add(Ultis.check(edEmail));
-            check.Add(Ultis.check(cbEndereco));
-            check.Add(Ultis.check(cbSexo));
-            check.Add(Ultis.check(dpDataNascimento));
-            check.Add(Ultis.check(edfuncao));
-            check.Add(Ultis.check(edsalario));
+            check.Add(Ultis.Check(this, edNome));
+            check.Add(Ultis.Check(this, edNome));
+            check.Add(Ultis.Check(this, edCPF, 11));
+            check.Add(Ultis.Check(this, edNome));
+            check.Add(Ultis.Check(this, edNome));
+            check.Add(Ultis.Check(this, edNome  ));
+            check.Add(Ultis.Check(this, edNome));
+            check.Add(Ultis.Check(this, edNome));
+            check.Add(Ultis.Check(this, edNome));
+            check.Add(Ultis.Check(this, edNome));
 
 
             if (check.All(c => c == true))
