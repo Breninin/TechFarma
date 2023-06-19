@@ -28,8 +28,8 @@ namespace WpfTechPharma.Modelos
                     "insert into " +
                     "Insumo " +
                     "(insu_nome, " +
-                    "insu_marca, " +
-                    "insu_valor_compra, " +
+                    "insumo_marca, " +
+                    "insumo_valor_compra, " +
                     "insu_quantidade, " +
                     "insu_tipo, " +
                     "insu_codigo_barra, " +
@@ -78,8 +78,8 @@ namespace WpfTechPharma.Modelos
                     "Insumo " +
                     "set " +
                     "insu_nome = @nome, " +
-                    "insu_marca = @marca, " +
-                    "insu_valor_compra = @valorCompra, " +
+                    "insumo_marca = @marca, " +
+                    "insumo_valor_compra = @valorCompra, " +
                     "insu_quantidade = @quantidade, " +
                     "insu_tipo = @tipo, " +
                     "insu_codigo_barra = @codigoBarra, " +
@@ -161,8 +161,8 @@ namespace WpfTechPharma.Modelos
                 {
                     insumo.Id = AuxiliarDAO.GetInt(reader, "insu_id");
                     insumo.Nome = AuxiliarDAO.GetString(reader, "insu_nome");
-                    insumo.Marca = AuxiliarDAO.GetString(reader, "insu_marca");
-                    insumo.ValorCompra = AuxiliarDAO.GetFloat(reader, "insu_valor_compra");
+                    insumo.Marca = AuxiliarDAO.GetString(reader, "insumo_marca");
+                    insumo.ValorCompra = AuxiliarDAO.GetFloat(reader, "insumo_valor_compra");
                     insumo.Quantidade = AuxiliarDAO.GetInt(reader, "insu_quantidade");
                     insumo.Tipo = AuxiliarDAO.GetString(reader, "insu_tipo");
                     insumo.CodigoBarra = AuxiliarDAO.GetString(reader, "insu_codigo_barra");
@@ -203,8 +203,8 @@ namespace WpfTechPharma.Modelos
                     {
                         Id = AuxiliarDAO.GetInt(reader, "insu_id"),
                         Nome = AuxiliarDAO.GetString(reader, "insu_nome"),
-                        Marca = AuxiliarDAO.GetString(reader, "insu_marca"),
-                        ValorCompra = AuxiliarDAO.GetFloat(reader, "insu_valor_compra"),
+                        Marca = AuxiliarDAO.GetString(reader, "insumo_marca"),
+                        ValorCompra = AuxiliarDAO.GetFloat(reader, "insumo_valor_compra"),
                         Quantidade = AuxiliarDAO.GetInt(reader, "insu_quantidade"),
                         Tipo = AuxiliarDAO.GetString(reader, "insu_tipo"),
                         CodigoBarra = AuxiliarDAO.GetString(reader, "insu_codigo_barra"),
