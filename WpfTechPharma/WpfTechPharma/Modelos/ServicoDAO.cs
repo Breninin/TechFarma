@@ -37,7 +37,7 @@ namespace WpfTechPharma.Modelos
                     "@valorVenda, " +
                     "@duracao, " +
                     "@tipo, " +
-                    "@endereco)";
+                    "@insumo)";
 
                 query.Parameters.AddWithValue("@nome", t.Nome);
                 query.Parameters.AddWithValue("@valorVenda", t.ValorVenda);

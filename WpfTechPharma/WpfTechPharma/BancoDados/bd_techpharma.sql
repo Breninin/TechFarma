@@ -276,4 +276,3 @@ foreign key (fk_func_id) references Funcionario (func_id),
 foreign key (fk_vend_id) references Venda (vend_id)
 );
 
-
