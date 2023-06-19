@@ -140,7 +140,7 @@ namespace WpfTechPharma.Modelos
 
                 while (reader.Read())
                 {
-                    Usuario.Id = reader.GetInt32("usua_id");
+                    Usuario.Id = AuxiliarDAO.GetInt(reader, "usua_id");
                     Usuario.Login = AuxiliarDAO.GetString(reader, "usua_login");
                     Usuario.Senha = AuxiliarDAO.GetString(reader, "usua_senha");
                     
@@ -182,7 +182,7 @@ namespace WpfTechPharma.Modelos
 
                    listaUsuario.Add(new Usuario()
                     {
-                        Id = reader.GetInt32("usua_id"),
+                        Id = AuxiliarDAO.GetInt(reader, "usua_id"),
                         Login = AuxiliarDAO.GetString(reader, "usua_login"),
                         Senha = AuxiliarDAO.GetString(reader, "usua_senha"),
 

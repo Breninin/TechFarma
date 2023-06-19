@@ -195,6 +195,7 @@
     </Compile>
     <Compile Include="Auxiliares\AuxiliarDAO.cs" />
     <Compile Include="Auxiliares\Estado.cs" />
+    <Compile Include="Auxiliares\Utils.cs" />
     <Compile Include="BancoDados\Conexao.cs" />
     <Compile Include="Interfaces\IDAO.cs" />
     <Compile Include="Janelas\JanCadastrarCliente.xaml.cs">
@@ -257,8 +258,8 @@
     <Compile Include="Modelos\EnderecoDAO.cs" />
     <Compile Include="Modelos\Funcionario.cs" />
     <Compile Include="Modelos\FuncionarioDAO.cs" />
-    <Compile Include="Modelos\Login.cs" />
-    <Compile Include="Modelos\LoginDAO.cs" />
+    <Compile Include="Modelos\Usuario.cs" />
+    <Compile Include="Modelos\UsuarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -161,14 +161,14 @@ namespace WpfTechPharma.Modelos
 
                 while (reader.Read())
                 {
-                    endereco.Id = reader.GetInt32("ende_id");
-                    endereco.Estado = reader.GetString("ende_estado");
-                    endereco.Cidade = reader.GetString("ende_cidade");
-                    endereco.Bairro = reader.GetString("ende_bairro");
-                    endereco.Rua = reader.GetString("ende_rua");
-                    endereco.Numero = reader.GetInt32("ende_numero");
-                    endereco.Complemento = reader.GetString("ende_complemento");
-                    endereco.CEP = reader.GetString("ende_cep");
+                    endereco.Id = AuxiliarDAO.GetInt(reader, "ende_id");
+                    endereco.Estado = AuxiliarDAO.GetString(reader, "ende_estado");
+                    endereco.Cidade = AuxiliarDAO.GetString(reader, "ende_cidade");
+                    endereco.Bairro = AuxiliarDAO.GetString(reader, "ende_bairro");
+                    endereco.Rua = AuxiliarDAO.GetString(reader, "ende_rua");
+                    endereco.Numero = AuxiliarDAO.GetInt(reader, "ende_numero");
+                    endereco.Complemento = AuxiliarDAO.GetString(reader,"ende_complemento");
+                    endereco.CEP = AuxiliarDAO.GetString(reader,"ende_cep");
                 }
 
                 return endereco;
@@ -203,14 +203,14 @@ namespace WpfTechPharma.Modelos
                 {
                     listaEndereco.Add(new Endereco()
                     {
-                        Id = reader.GetInt32("ende_id"),
-                        Estado = reader.GetString("ende_estado"),
-                        Cidade = reader.GetString("ende_cidade"),
-                        Bairro = reader.GetString("ende_bairro"),
-                        Rua = reader.GetString("ende_rua"),
-                        Numero = reader.GetInt32("ende_numero"),
-                        Complemento = reader.GetString("ende_complemento"),
-                        CEP = reader.GetString("ende_cep")
+                        Id = AuxiliarDAO.GetInt(reader, "ende_id"),
+                        Estado = AuxiliarDAO.GetString(reader, "ende_estado"),
+                        Cidade = AuxiliarDAO.GetString(reader, "ende_cidade"),
+                        Bairro = AuxiliarDAO.GetString(reader, "ende_bairro"),
+                        Rua = AuxiliarDAO.GetString(reader, "ende_rua"),
+                        Numero = AuxiliarDAO.GetInt(reader, "ende_numero"),
+                        Complemento = AuxiliarDAO.GetString(reader, "ende_complemento"),
+                        CEP = AuxiliarDAO.GetString(reader, "ende_cep")
                     });
                 }
 

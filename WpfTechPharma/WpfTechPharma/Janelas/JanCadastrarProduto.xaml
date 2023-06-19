@@ -87,6 +87,7 @@
             </Grid.ColumnDefinitions>
 
             <Button
+              x:Name="btLimpar"
               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
               Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
               ToolTip="MaterialDesignFloatingActionDarkButton" Cursor="Hand">
@@ -96,6 +97,7 @@
             </Button>
 
             <Button Grid.Column="1"
+              x:Name="btSalvar"
               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
               Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
               ToolTip="MaterialDesignFloatingActionDarkButton">
