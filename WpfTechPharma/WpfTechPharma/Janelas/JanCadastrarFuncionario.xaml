@@ -37,7 +37,7 @@
             <TextBox x:Name="edContato" Margin="0, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="160" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
             <Label Content="CPF" Margin="20, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edCPF" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="155" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <xctk:MaskedTextBox  Mask="000,000,000-00"  x:Name="edCPF" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="155" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
             <Label Content="RG" Margin="20, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             <TextBox x:Name="edRG" Margin="0, 0, 30, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="155" Style="{StaticResource MaterialDesignFilledTextBox}"/>

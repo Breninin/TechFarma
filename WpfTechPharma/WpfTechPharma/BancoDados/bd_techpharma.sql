@@ -14,10 +14,15 @@ ende_complemento varchar (200),
 ende_cep varchar (20)
 );
 
+insert into Endereco values (null, 'São Paulo', 'São Paulo', 'Bairro Foda', 'Rua Giga', 12, 'Sim', '121212-1212');
+insert into Endereco values (null, 'Rio de Janeiro', 'Rio de Janeiro', 'Bairro Foda', 'Rua Giga', 12, 'Sim', '121212-1212');
+insert into Endereco values (null, 'Minas Gerais', 'Minas Gerais', 'Bairro Foda', 'Rua Giga', 12, 'Sim', '121212-1212');
+
 create table Fornecedor (
 forn_id int primary key not null auto_increment,
 forn_razao_social varchar (100),
 forn_nome_fantasia varchar (100),
+forn_cnpj varchar (20),
 forn_email varchar (50),
 forn_contato varchar (20),
 forn_inscricao_estudal varchar (50),
@@ -107,7 +112,7 @@ serv_valor_venda float,
 serv_duracao time,
 serv_tipo varchar (50),
 fk_insu_id int,
-foreign key (fk_insu_id) references Insumo (forn_id)
+foreign key (fk_insu_id) references Insumo (insu_id)
 );
 
 create table Insumo_Servico (

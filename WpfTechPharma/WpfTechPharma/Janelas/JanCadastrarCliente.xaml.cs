@@ -24,44 +24,54 @@ namespace WpfTechPharma.Janelas
         public JanCadastrarCliente()
         {
             InitializeComponent();
+            InicializarManipuladoresEventos();
             LoadData();
+        }
 
+        // Inicializa os manipuladores de eventos
+        private void InicializarManipuladoresEventos()
+        {
             edNome.TextChanged += TextBox_TextChanged;
             edContato.TextChanged += TextBox_TextChanged;
             edRG.TextChanged += TextBox_TextChanged;
             edEmail.TextChanged += TextBox_TextChanged;
-            cbEndereco.LostFocus += ComboBox_LostFocus;
-            cbSexo.LostFocus += ComboBox_LostFocus;
-            edCPF.LostFocus += EdCPF_LostFocus;
-            dpDataNascimento.LostFocus += DatePicker_LostFocus;
+            cbEndereco.SelectionChanged += ComboBox_SelectionChanged;
+            cbSexo.SelectionChanged += ComboBox_SelectionChanged;
+            edCPF.TextChanged += TextBox_TextChanged_CPF;
+            dpDataNascimento.SelectedDateChanged += DatePicker_SelectedDateChanged;
         }
 
-        private void EdCPF_LostFocus(object sender, RoutedEventArgs e)
-        {
-            Ultis.check(edCPF, 11);
-        }
-
-        private void ComboBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
-            Ultis.check(comboBox);
-        }
-
-        private void DatePicker_LostFocus(object sender, RoutedEventArgs e)
-        {
-            DatePicker datePicker = (DatePicker)sender;
-            Ultis.check(datePicker);
-        }
-
+        // Manipulador de eventos para o evento TextChanged dos controles TextBox
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.check(textBox);
+            Ultis.Check(this, textBox);
         }
 
+        // Manipulador de evento para a alteração do texto de CPF
+        private void TextBox_TextChanged_CPF(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            Ultis.Check(this, textBox, 11);
+        }
+
+        // Manipulador de eventos para o evento SelectionChanged dos controles ComboBox
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            Ultis.Check(this, comboBox);
+        }
+
+        // Manipulador de eventos para o evento SelectedDateChanged dos controles DatePicker
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DatePicker datePicker = (DatePicker)sender;
+            Ultis.Check(this, datePicker);
+        }
+
+        // Carrega os dados iniciais
         private void LoadData()
         {
-            dpDataNascimento.SelectedDate = DateTime.Now;
             try
             {
                 cbEndereco.ItemsSource = null;
@@ -77,47 +87,42 @@ namespace WpfTechPharma.Janelas
 
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Deseja Realmente Limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
-                edNome.Clear();
-                edContato.Clear();
-                edRG.Clear();
-                edEmail.Clear();
-                cbEndereco.SelectedIndex = -1;
-                cbSexo.SelectedIndex = -1;
-                edCPF.Clear();
-                dpDataNascimento.SelectedDate = DateTime.Today;
-            }
+            if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                Ultis.ResetControls(this);
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-            List<bool> check = new List<bool>();
-            check.Add(Ultis.check(edNome));
-            check.Add(Ultis.check(edContato));
-            check.Add(Ultis.check(edCPF, 11));
-            check.Add(Ultis.check(edRG));
-            check.Add(Ultis.check(edEmail));
-            check.Add(Ultis.check(cbEndereco));
-            check.Add(Ultis.check(cbSexo));
-            check.Add(Ultis.check(dpDataNascimento));
-
-            if (check.All(c => c == true))
+            List<bool> check = new List<bool>
             {
-                var Cliente = new Cliente();
-                Cliente.Nome = edNome.Text;
-                Cliente.Email = edEmail.Text;
-                Cliente.Contato = edContato.Text;
-                Cliente.RG = edRG.Text;
-                Cliente.CPF = edCPF.Text;
-                Cliente.Nascimento = (DateTime)dpDataNascimento.SelectedDate;
-                Cliente.Sexo = cbSexo.Text;
-                Cliente.Endereco = (Endereco)cbEndereco.SelectedItem;
+                Ultis.Check(this, edNome),
+                Ultis.Check(this, edContato),
+                Ultis.Check(this, edCPF, 11),
+                Ultis.Check(this, edRG),
+                Ultis.Check(this, edEmail),
+                Ultis.Check(this, cbEndereco),
+                Ultis.Check(this, cbSexo),
+                Ultis.Check(this, dpDataNascimento)
+            };
 
+            if (check.All(c => c))
+            {
                 try
                 {
+                    var cliente = new Cliente
+                    {
+                        Nome = edNome.Text,
+                        Email = edEmail.Text,
+                        Contato = edContato.Text,
+                        RG = edRG.Text,
+                        CPF = edCPF.Text,
+                        Nascimento = (DateTime)dpDataNascimento.SelectedDate,
+                        Sexo = cbSexo.Text,
+                        Endereco = (Endereco)cbEndereco.SelectedItem
+                    };
+
                     var clienteDAO = new ClienteDAO();
-                    clienteDAO.Insert(Cliente);
+                    clienteDAO.Insert(cliente);
                     MessageBox.Show("Cliente inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
@@ -125,7 +130,8 @@ namespace WpfTechPharma.Janelas
                     MessageBox.Show("Erro ao inserir o cliente: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                Close();
+                Ultis.ResetControls(this);
+
             }
             else
             {

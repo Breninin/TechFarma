@@ -21,5 +21,7 @@ namespace WpfTechPharma.Modelos
         public string Tipo { get; set; }
 
         public string CodigoBarra { get; set; }
+
+        public Fornecedor Fornecedor { get; set; }
     }
 }

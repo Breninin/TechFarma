@@ -256,8 +256,14 @@
     <Compile Include="Modelos\ClienteDAO.cs" />
     <Compile Include="Modelos\Endereco.cs" />
     <Compile Include="Modelos\EnderecoDAO.cs" />
+    <Compile Include="Modelos\Fornecedor.cs" />
+    <Compile Include="Modelos\FornecedorDAO.cs" />
     <Compile Include="Modelos\Funcionario.cs" />
     <Compile Include="Modelos\FuncionarioDAO.cs" />
+    <Compile Include="Modelos\Insumo.cs" />
+    <Compile Include="Modelos\InsumoDAO.cs" />
+    <Compile Include="Modelos\Servico.cs" />
+    <Compile Include="Modelos\ServicoDAO.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\UsuarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

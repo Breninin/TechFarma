@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfTechPharma.Modelos;
 
 namespace WpfTechPharma.Janelas
 {
@@ -22,6 +23,20 @@ namespace WpfTechPharma.Janelas
         public JanListarFuncionario()
         {
             InitializeComponent();
+            CarregarFuncionarios();
+        }
+
+        private void CarregarFuncionarios()
+        {
+            try
+            {
+                List<Funcionario> funcionarios = new FuncionarioDAO().List();
+                dgvFuncionarios.ItemsSource = funcionarios;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os funcionários: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
