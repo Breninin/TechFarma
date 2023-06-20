@@ -91,7 +91,7 @@
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
-                      Style="{StaticResource MaterialDesignFilledComboBox}">>
+                      Style="{StaticResource MaterialDesignFilledComboBox}">
                 <ComboBoxItem>Feminino</ComboBoxItem>
                 <ComboBoxItem>Masculino</ComboBoxItem>
                 <ComboBoxItem>Intersexo</ComboBoxItem>

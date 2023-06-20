@@ -105,7 +105,7 @@ create table Servico (
 serv_id int primary key not null auto_increment,
 serv_nome varchar (50),
 serv_valor_venda float,
-serv_duracao time,
+serv_duracao varchar (50),
 serv_tipo varchar (50),
 fk_insu_id int,
 foreign key (fk_insu_id) references Insumo (insu_id)

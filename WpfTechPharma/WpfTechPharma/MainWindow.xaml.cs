@@ -76,9 +76,9 @@ namespace WpfTechPharma
             Jan.Show();
         }
 
-        private void btCadastrarLogin_Click(object sender, RoutedEventArgs e)
+        private void btCadastrarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            JanCadastrarLogin Jan = new JanCadastrarLogin();
+            JanCadastrarUsuario Jan = new JanCadastrarUsuario();
             Jan.Show();
         }
 
@@ -131,9 +131,9 @@ namespace WpfTechPharma
             Jan.Show();
         }
 
-        private void btListarLogin_Click(object sender, RoutedEventArgs e)
+        private void btListarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            JanListarLogin Jan = new JanListarLogin();
+            JanListarUsuario Jan = new JanListarUsuario();
             Jan.Show();
         }
     }

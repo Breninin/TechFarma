@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfTechPharma.Modelos;
 
 namespace WpfTechPharma.Janelas
 {
@@ -22,6 +23,21 @@ namespace WpfTechPharma.Janelas
         public JanListarServico()
         {
             InitializeComponent();
+            CarregarServicos();
+        }
+
+        private void CarregarServicos()
+        {
+            try
+            {
+                ServicoDAO servicoDAO = new ServicoDAO();
+                List<Servico> servicos = servicoDAO.List();
+                dgvServicos.ItemsSource = servicos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os serviços: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

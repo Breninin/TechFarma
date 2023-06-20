@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfTechPharma.Janelas.JanCadastrarLogin"
+﻿<Window x:Class="WpfTechPharma.Janelas.JanCadastrarUsuario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Cadastrar Logins" 
+        Title="Cadastrar Usuários" 
         WindowStartupLocation="CenterScreen"
         Height="470" Width="840"
         MinHeight="470" MinWidth="840"
@@ -40,13 +40,13 @@
         </Grid>
 
         <Grid Grid.Row="1" Margin="10" Grid.ColumnSpan="2">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 50" FontWeight="Bold" Content="NOME DO LOGIN"/>
-            <TextBox x:Name="edNomeLogin" VerticalAlignment="Bottom" MaxWidth="1000" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 50" FontWeight="Bold" Content="NOME DO USUÁRIO"/>
+            <TextBox x:Name="edNomeUsuario" VerticalAlignment="Bottom" MaxWidth="1000" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="0">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 50" FontWeight="Bold" Content="SENHA DO LOGIN"/>
-            <TextBox x:Name="edSenhaLogin" VerticalAlignment="Bottom" MaxWidth="325" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 50" FontWeight="Bold" Content="SENHA DO USUÁRIO"/>
+            <TextBox x:Name="edSenhaUsuario" VerticalAlignment="Bottom" MaxWidth="325" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="1">

@@ -18,9 +18,9 @@ namespace WpfTechPharma.Janelas
     /// <summary>
     /// Lógica interna para JanListarLogin.xaml
     /// </summary>
-    public partial class JanListarLogin : Window
+    public partial class JanListarUsuario : Window
     {
-        public JanListarLogin()
+        public JanListarUsuario()
         {
             InitializeComponent();
             CarregarUsuarios();

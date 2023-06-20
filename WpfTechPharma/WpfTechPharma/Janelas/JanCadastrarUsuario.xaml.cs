@@ -19,9 +19,9 @@ namespace WpfTechPharma.Janelas
     /// <summary>
     /// Lógica interna para JanCadastrarLogin.xaml
     /// </summary>
-    public partial class JanCadastrarLogin : Window
+    public partial class JanCadastrarUsuario : Window
     {
-        public JanCadastrarLogin()
+        public JanCadastrarUsuario()
         {
             InitializeComponent();
             InicializarManipuladoresEventos();
@@ -31,9 +31,9 @@ namespace WpfTechPharma.Janelas
         // Inicializa os manipuladores de eventos para os controles da janela
         private void InicializarManipuladoresEventos()
         {
-            edSenhaLogin.TextChanged += TextBox_TextChanged_Dual_2;
+            edSenhaUsuario.TextChanged += TextBox_TextChanged_Dual_2;
             edConfirmarSenha.TextChanged += TextBox_TextChanged_Dual_1;
-            edNomeLogin.TextChanged += TextBox_TextChanged;
+            edNomeUsuario.TextChanged += TextBox_TextChanged;
             cbNomeFuncionario.SelectionChanged += ComboBox_SelectionChanged;
         }
 
@@ -48,7 +48,7 @@ namespace WpfTechPharma.Janelas
         private void TextBox_TextChanged_Dual_1(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.CheckBoxEqual(this, textBox, edSenhaLogin);
+            Ultis.CheckBoxEqual(this, textBox, edSenhaUsuario);
         }
 
         // Manipulador de evento para alterações de texto em TextBoxes (comparação de duas TextBoxes)
@@ -77,9 +77,9 @@ namespace WpfTechPharma.Janelas
         {
             List<bool> check = new List<bool>
             {
-                Ultis.Check(this, edNomeLogin),
+                Ultis.Check(this, edNomeUsuario),
                 Ultis.Check(this, cbNomeFuncionario),
-                Ultis.CheckBoxEqual(this, edSenhaLogin, edConfirmarSenha)
+                Ultis.CheckBoxEqual(this, edSenhaUsuario, edConfirmarSenha)
             };
 
             if (check.All(c => c))
@@ -88,8 +88,8 @@ namespace WpfTechPharma.Janelas
                 {
                     var usuario = new Usuario
                     {
-                        Login = edNomeLogin.Text,
-                        Senha = edSenhaLogin.Text,
+                        NomeUsuario = edNomeUsuario.Text,
+                        Senha = edSenhaUsuario.Text,
                         Funcionario = (Funcionario)cbNomeFuncionario.SelectedItem
                     };
 

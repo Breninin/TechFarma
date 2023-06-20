@@ -26,7 +26,6 @@ namespace WpfTechPharma.Janelas
             InitializeComponent();
             InitializeEventHandlers();
             LoadData();
-            Ultis.SaveColors(this);
         }
 
         // Inicializa os manipuladores de eventos

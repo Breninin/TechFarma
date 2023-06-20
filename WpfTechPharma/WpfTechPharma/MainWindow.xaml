@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfTechPharma"
         mc:Ignorable="d"
-        Title="TechPharma v0.1.0"
+        Title="TechPharma v0.2.0"
         WindowStartupLocation="CenterScreen"
         Height="500" Width="800"
         MinHeight="400" MinWidth="300"
@@ -29,7 +29,7 @@
                 <Button x:Name="btCadastrarInsumo" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" FontWeight="Bold" Content="CADASTRAR INSUMO" Click="btCadastrarInsumo_Click"/>
                 <Button x:Name="btCadastrarServiço" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" FontWeight="Bold" Content="CADASTRAR SERVIÇO" Click="btCadastrarServiço_Click"/>
                 <Button x:Name="btCadastrarEndereco" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" FontWeight="Bold" Content="CADASTRAR ENDEREÇO" Click="btCadastrarEndereco_Click"/>
-                <Button x:Name="btCadastrarLogin" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" FontWeight="Bold" Content="CADASTRAR LOGIN" Click="btCadastrarLogin_Click"/>
+                <Button x:Name="btCadastrarUsuario" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="MaterialDesignRaisedDarkButton with Round Corners" FontWeight="Bold" Content="CADASTRAR USUÁRIO" Click="btCadastrarUsuario_Click"/>
             </StackPanel>
         </Grid>
 
@@ -43,7 +43,7 @@
                 <Button x:Name="btListarInsumo" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" ToolTip="MaterialDesignRaisedSecondaryButton with Round Corners" FontWeight="Bold" Content="LISTAR INSUMOS" Click="btListarInsumo_Click"/>
                 <Button x:Name="btListarServiço" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" ToolTip="MaterialDesignRaisedSecondaryButton with Round Corners" FontWeight="Bold" Content="LISTAR SERVIÇOS" Click="btListarServiço_Click"/>
                 <Button x:Name="btListarEndereco" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" ToolTip="MaterialDesignRaisedSecondaryButton with Round Corners" FontWeight="Bold" Content="LISTAR ENDEREÇOS" Click="btListarEndereco_Click"/>
-                <Button x:Name="btListarLogin" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" ToolTip="MaterialDesignRaisedSecondaryButton with Round Corners" FontWeight="Bold" Content="LISTAR LOGINS" Click="btListarLogin_Click"/>
+                <Button x:Name="btListarUsuario" MaxHeight="60" MaxWidth="250" Margin="10" materialDesign:ButtonAssist.CornerRadius="25" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignRaisedSecondaryButton}" ToolTip="MaterialDesignRaisedSecondaryButton with Round Corners" FontWeight="Bold" Content="LISTAR USUÁRIOS" Click="btListarUsuario_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

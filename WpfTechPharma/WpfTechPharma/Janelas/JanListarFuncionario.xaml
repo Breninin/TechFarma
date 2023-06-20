@@ -21,7 +21,7 @@
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
                 <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}" />
-                <DataGridTextColumn Header="Nascimento" Binding="{Binding Nascimento}" />
+                <DataGridTextColumn Header="Nascimento" Binding="{Binding Nascimento, ConverterCulture='pt-BR', StringFormat=dd/MM/yyyy}" />
                 <DataGridTextColumn Header="RG" Binding="{Binding RG}" />
                 <DataGridTextColumn Header="CPF" Binding="{Binding CPF}" />
                 <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" />

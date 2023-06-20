@@ -36,7 +36,7 @@ namespace WpfTechPharma.Modelos
                     "@senha, " +
                     "@funcionarioId)";
 
-                query.Parameters.AddWithValue("@usuario", t.Login);
+                query.Parameters.AddWithValue("@usuario", t.NomeUsuario);
                 query.Parameters.AddWithValue("@senha", t.Senha);
                 query.Parameters.AddWithValue("@funcionarioId", t.Funcionario.Id);
 
@@ -72,7 +72,7 @@ namespace WpfTechPharma.Modelos
                     "where " +
                     "(usua_id = @id)";
 
-                query.Parameters.AddWithValue("@usuario", t.Login);
+                query.Parameters.AddWithValue("@usuario", t.NomeUsuario);
                 query.Parameters.AddWithValue("@senha", t.Senha);
                 query.Parameters.AddWithValue("@funcionarioId", t.Funcionario.Id);
                 query.Parameters.AddWithValue("@id", t.Id);
@@ -141,7 +141,7 @@ namespace WpfTechPharma.Modelos
                 while (reader.Read())
                 {
                     Usuario.Id = AuxiliarDAO.GetInt(reader, "usua_id");
-                    Usuario.Login = AuxiliarDAO.GetString(reader, "usua_login");
+                    Usuario.NomeUsuario = AuxiliarDAO.GetString(reader, "usua_login");
                     Usuario.Senha = AuxiliarDAO.GetString(reader, "usua_senha");
                     
                     var id_func = AuxiliarDAO.GetInt(reader, "fk_func_id");
@@ -183,7 +183,7 @@ namespace WpfTechPharma.Modelos
                    listaUsuario.Add(new Usuario()
                     {
                         Id = AuxiliarDAO.GetInt(reader, "usua_id"),
-                        Login = AuxiliarDAO.GetString(reader, "usua_login"),
+                        NomeUsuario = AuxiliarDAO.GetString(reader, "usua_login"),
                         Senha = AuxiliarDAO.GetString(reader, "usua_senha"),
 
                         Funcionario = new FuncionarioDAO().GetById(id_func)

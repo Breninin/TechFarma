@@ -37,7 +37,7 @@ namespace WpfTechPharma.Modelos
                     "@valorVenda, " +
                     "@duracao, " +
                     "@tipo, " +
-                    "@endereco)";
+                    "@insumo)";
 
                 query.Parameters.AddWithValue("@nome", t.Nome);
                 query.Parameters.AddWithValue("@valorVenda", t.ValorVenda);
@@ -190,7 +190,7 @@ namespace WpfTechPharma.Modelos
                     listaServico.Add(new Servico()
                     {
                         Id = AuxiliarDAO.GetInt(reader, "serv_id"),
-                        Nome = AuxiliarDAO.GetString(reader, "clie_nome"),
+                        Nome = AuxiliarDAO.GetString(reader, "serv_nome"),
                         ValorVenda = AuxiliarDAO.GetFloat(reader, "serv_valor_venda"),
                         Duracao = AuxiliarDAO.GetString(reader, "serv_duracao"),
                         Tipo = AuxiliarDAO.GetString(reader, "serv_tipo"),
