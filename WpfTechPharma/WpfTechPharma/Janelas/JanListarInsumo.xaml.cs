@@ -32,7 +32,7 @@ namespace WpfTechPharma.Janelas
             {
                 InsumoDAO insumoDAO = new InsumoDAO();
                 List<Insumo> insumos = insumoDAO.List();
-                dgvClientes.ItemsSource = insumos;
+                dgvInsumos.ItemsSource = insumos;
             }
             catch (Exception ex)
             {

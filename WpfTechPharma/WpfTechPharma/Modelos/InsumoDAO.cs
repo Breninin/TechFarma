@@ -31,7 +31,6 @@ namespace WpfTechPharma.Modelos
                     "insu_marca, " +
                     "insu_valor_compra, " +
                     "insu_quantidade, " +
-                    "insu_tipo, " +
                     "insu_codigo_barra, " +
                     "fk_forn_id) " +
                     "values " +
@@ -39,7 +38,6 @@ namespace WpfTechPharma.Modelos
                     "@marca, " +
                     "@valorCompra, " +
                     "@quantidade, " +
-                    "@tipo, " +
                     "@codigoBarra, " +
                     "@fornecedor)";
 
@@ -47,7 +45,6 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@marca", t.Marca);
                 query.Parameters.AddWithValue("@valorCompra", t.ValorCompra);
                 query.Parameters.AddWithValue("@quantidade", t.Quantidade);
-                query.Parameters.AddWithValue("@tipo", t.Tipo);
                 query.Parameters.AddWithValue("@codigoBarra", t.CodigoBarra);
                 query.Parameters.AddWithValue("@fornecedor", t.Fornecedor.Id);
 
@@ -81,7 +78,6 @@ namespace WpfTechPharma.Modelos
                     "insu_marca = @marca, " +
                     "insu_valor_compra = @valorCompra, " +
                     "insu_quantidade = @quantidade, " +
-                    "insu_tipo = @tipo, " +
                     "insu_codigo_barra = @codigoBarra, " +
                     "fk_forn_id = @fornecedor, " +
                     "where " +
@@ -91,7 +87,6 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@marca", t.Marca);
                 query.Parameters.AddWithValue("@valorCompra", t.ValorCompra);
                 query.Parameters.AddWithValue("@quantidade", t.Quantidade);
-                query.Parameters.AddWithValue("@tipo", t.Tipo);
                 query.Parameters.AddWithValue("@codigoBarra", t.CodigoBarra);
                 query.Parameters.AddWithValue("@fornecedor", t.Fornecedor.Id);
                 query.Parameters.AddWithValue("@id", t.Id);
@@ -164,7 +159,6 @@ namespace WpfTechPharma.Modelos
                     insumo.Marca = AuxiliarDAO.GetString(reader, "insu_marca");
                     insumo.ValorCompra = AuxiliarDAO.GetFloat(reader, "insu_valor_compra");
                     insumo.Quantidade = AuxiliarDAO.GetInt(reader, "insu_quantidade");
-                    insumo.Tipo = AuxiliarDAO.GetString(reader, "insu_tipo");
                     insumo.CodigoBarra = AuxiliarDAO.GetString(reader, "insu_codigo_barra");
                     insumo.Fornecedor = new FornecedorDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_forn_id"));
                 }
@@ -206,7 +200,6 @@ namespace WpfTechPharma.Modelos
                         Marca = AuxiliarDAO.GetString(reader, "insu_marca"),
                         ValorCompra = AuxiliarDAO.GetFloat(reader, "insu_valor_compra"),
                         Quantidade = AuxiliarDAO.GetInt(reader, "insu_quantidade"),
-                        Tipo = AuxiliarDAO.GetString(reader, "insu_tipo"),
                         CodigoBarra = AuxiliarDAO.GetString(reader, "insu_codigo_barra"),
                         Fornecedor = new FornecedorDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_forn_id"))
                     });

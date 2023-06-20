@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfTechPharma.Modelos
 {
-    class Insumo
+    internal class Produto
     {
         public int Id { get; set; }
 
@@ -16,7 +16,11 @@ namespace WpfTechPharma.Modelos
 
         public float ValorCompra { get; set; }
 
+        public float ValorVenda { get; set; }
+
         public int Quantidade { get; set; }
+
+        public string Tipo { get; set; }
 
         public string CodigoBarra { get; set; }
 

@@ -90,8 +90,7 @@ namespace WpfTechPharma.Janelas
                         CodigoBarra = edCodigoBarras.Text,
                         Marca = edMarca.Text,
                         Nome = edNome.Text,
-                        Fornecedor = (Fornecedor)edFornecedor.SelectedItem,
-                        Tipo = edTipo.Text
+                        Fornecedor = (Fornecedor)edFornecedor.SelectedItem
                     };
 
                     // Cria uma instância do InsumoDAO e insere o insumo no banco de dados

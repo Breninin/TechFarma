@@ -16,14 +16,13 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         FontSize="16">
     <Grid>
-        <DataGrid x:Name="dgvClientes" AutoGenerateColumns="False" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="Black" FontSize="16" Margin="10,10,10,10" IsReadOnly="True">
+        <DataGrid x:Name="dgvInsumos" AutoGenerateColumns="False" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="Black" FontSize="16" Margin="10,10,10,10" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
                 <DataGridTextColumn Header="Marca" Binding="{Binding Marca}" />
                 <DataGridTextColumn Header="Valor Compra" Binding="{Binding ValorCompra}" />
                 <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" />
-                <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" />
                 <DataGridTextColumn Header="Código Barra" Binding="{Binding CodigoBarra}" />
                 <DataGridTextColumn Header="Fornecedor" Binding="{Binding Fornecedor.RazaoSocial}" />
             </DataGrid.Columns>
