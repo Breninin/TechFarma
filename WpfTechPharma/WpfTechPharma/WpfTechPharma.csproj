@@ -276,6 +276,10 @@
     <Compile Include="Modelos\FuncionarioDAO.cs" />
     <Compile Include="Modelos\Insumo.cs" />
     <Compile Include="Modelos\InsumoDAO.cs" />
+    <Compile Include="Modelos\Medicamento.cs" />
+    <Compile Include="Modelos\MedicamentoDAO.cs" />
+    <Compile Include="Modelos\Produto.cs" />
+    <Compile Include="Modelos\ProdutoDAO.cs" />
     <Compile Include="Modelos\Servico.cs" />
     <Compile Include="Modelos\ServicoDAO.cs" />
     <Compile Include="Modelos\Usuario.cs" />

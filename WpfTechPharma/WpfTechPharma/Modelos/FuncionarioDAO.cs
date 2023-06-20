@@ -170,21 +170,11 @@ namespace WpfTechPharma.Modelos
                     throw new Exception("Nenhum Funcionario foi encotrado!");
                 }
 
-                var Funcionario = new Funcionario();
+                var Medicamento = new Medicamento();
 
                 while (reader.Read())
                 {
-                    Funcionario.Id = AuxiliarDAO.GetInt(reader, "func_id");
-                    Funcionario.Nome = AuxiliarDAO.GetString(reader, "func_nome");
-                    Funcionario.Sexo = AuxiliarDAO.GetString(reader, "func_sexo");
-                    Funcionario.Nascimento = AuxiliarDAO.GetDateTime(reader, "func_nascimento");
-                    Funcionario.RG = AuxiliarDAO.GetString(reader, "func_rg");
-                    Funcionario.CPF = AuxiliarDAO.GetString(reader, "func_cpf");
-                    Funcionario.Email = AuxiliarDAO.GetString(reader, "func_email");
-                    Funcionario.Contato = AuxiliarDAO.GetString(reader, "func_contato");
-                    Funcionario.Funcao = AuxiliarDAO.GetString(reader, "func_funcao");
-                    Funcionario.Salario = AuxiliarDAO.GetFloat(reader, "func_salario");
-                    Funcionario.Endereco = new EnderecoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_ende_id"));
+                    
                 }
 
                 return Funcionario;
