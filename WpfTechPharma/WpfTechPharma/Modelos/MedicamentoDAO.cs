@@ -106,7 +106,7 @@ namespace WpfTechPharma.Modelos
 
                 if (result == 0)
                 {
-                    throw new NotImplementedException("Erro ao atualizar o Medicamento.");
+                    throw new NotImplementedException("Erro ao atualizar o medicamento.");
                 }
 
             }
@@ -132,7 +132,7 @@ namespace WpfTechPharma.Modelos
 
                 if (result == 0)
                 {
-                    throw new Exception("Erro ao remover o Medicamento. Verifique e tente novamente.");
+                    throw new Exception("Erro ao remover o medicamento. Verifique e tente novamente.");
                 }
             }
             catch (Exception e)
@@ -158,26 +158,26 @@ namespace WpfTechPharma.Modelos
 
                 if (!reader.HasRows)
                 {
-                    throw new Exception("Nenhum Medicamento foi encotrado!");
+                    throw new Exception("Nenhum medicamento foi encontrado!");
                 }
 
                 var Medicamento = new Medicamento();
 
                 while (reader.Read())
                 {
-                    Medicamento.Id = reader.GetInt32("func_id");
-                    Medicamento.Nome = AuxiliarDAO.GetString(reader, "func_nome");
-                    Medicamento.Marca = AuxiliarDAO.GetString(reader, "func_sexo");
-                    Medicamento.Peso_Volume = AuxiliarDAO.GetDateTime( "func_nascimento");
-                    Medicamento.Valor_Compra = AuxiliarDAO.GetString("func_rg");
-                    Medicamento.Valor_Venda = AuxiliarDAO.GetString("func_cpf");
-                    Funcionario.Quantidade = AuxiliarDAO.GetString("func_email");
-                    Funcionario.Tarja = AuxiliarDAO.GetString(reader, "func_contato");
-                    Funcionario.Codigo_Barra = AuxiliarDAO.GetString(reader, "func_funcao");
-                    Funcionario.Fornecedor = reader.GetFloat("func_salario");
+                    Medicamento.Id = reader.GetInt32("medi_id");
+                    Medicamento.Nome = AuxiliarDAO.GetString(reader, "medi_nome");
+                    Medicamento.Marca = AuxiliarDAO.GetString(reader, "medi_marca");
+                    Medicamento.Peso_Volume = AuxiliarDAO.GetString(reader, "medi_peso_volume");
+                    Medicamento.Valor_Compra = reader.GetFloat("medi_valor_compra");
+                    Medicamento.Valor_Venda = reader.GetFloat("medi_valor_venda");
+                    Medicamento.Quantidade = AuxiliarDAO.GetInt(reader, "medi_quantidade");
+                    Medicamento.Tarja = AuxiliarDAO.GetString(reader, "medi_tarja");
+                    Medicamento.Codigo_Barra = AuxiliarDAO.GetString(reader, "medi_codigo_barra");
+                    Medicamento.Fornecedor = new FornecedorDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_forn_id"));
                 }
 
-                return Funcionario;
+                return Medicamento;
             }
             catch (Exception e)
             {
@@ -192,11 +192,50 @@ namespace WpfTechPharma.Modelos
 
         public List<Medicamento> List()
         {
-            throw new NotImplementedException();
-        }
 
+            try
+            {
+                List<Medicamento> listaMedicamento = new List<Medicamento>();
 
+                var query = conexao.Query();
+                query.CommandText = "select * from medicamento";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Nenhum medicamento foi encotrado!");
+                }
+
+                while (reader.Read())
+                {
+                    listaMedicamento.Add(new Medicamento()
+                    {
+                        Id = reader.GetInt32("medi_id"),
+                        Nome = AuxiliarDAO.GetString(reader, "medi_nome"),
+                        Marca = AuxiliarDAO.GetString(reader, "medi_marca"),    
+                        Peso_Volume = AuxiliarDAO.GetString(reader, "medi_peso_volume"),
+                        Valor_Compra = AuxiliarDAO.GetFloat(reader, "medi_valor_compra"),
+                        Valor_Venda = AuxiliarDAO.GetFloat(reader, "medi_valor_venda"),
+                        Quantidade = AuxiliarDAO.GetInt(reader, "medi_quantidade"),
+                        Tarja = AuxiliarDAO.GetString(reader, "medi_tarja"),
+                        Codigo_Barra = AuxiliarDAO.GetString(reader, "medi_codigo_barra"),
+                        Fornecedor = new FornecedorDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_forn_id"))
+                    });
+                }
+
+                return listaMedicamento;
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            } 
+            finally
+            {
+                conexao.Close();
+            }
+    }
         //fim do MedicamentoDAO
     }
-}
 }
