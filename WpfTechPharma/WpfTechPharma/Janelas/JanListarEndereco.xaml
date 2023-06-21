@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfTechPharma.Janelas.JanListarEndereco"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTechPharma.Janelas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Listar Endereços" 
+        WindowStartupLocation="CenterScreen"
+        Height="470" Width="840"
+        MinHeight="470" MinWidth="840"
+        ResizeMode="NoResize"
+        TextElement.FontWeight="Medium"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        FontSize="16">
+    <Grid>
+        <DataGrid x:Name="dgvEnderecos" AutoGenerateColumns="False" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="Black" FontSize="16" Margin="10,10,10,10" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" />
+                <DataGridTextColumn Header="Cidade" Binding="{Binding Cidade}" />
+                <DataGridTextColumn Header="Bairro" Binding="{Binding Bairro}" />
+                <DataGridTextColumn Header="Rua" Binding="{Binding Rua}" />
+                <DataGridTextColumn Header="Numero" Binding="{Binding Numero}" />
+                <DataGridTextColumn Header="Complemento" Binding="{Binding Complemento}" />
+                <DataGridTextColumn Header="CEP" Binding="{Binding CEP}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
