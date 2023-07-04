@@ -52,6 +52,7 @@
         </WrapPanel>
 
         <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            
             <materialDesign:PackIcon Kind="Phone" Height="50" Width="50" Foreground="#320b86"/>
 
         </WrapPanel>
