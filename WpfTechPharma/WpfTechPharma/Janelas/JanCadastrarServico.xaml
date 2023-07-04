@@ -55,8 +55,8 @@
         <WrapPanel Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
             <TextBox x:Name="edTipo" VerticalAlignment="Center" Width="440" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Tipo"/>
 
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30, 0, 10, 0" FontWeight="Bold" Content="VALOR"/>
-            <TextBox x:Name="edValor" VerticalAlignment="Center" Width="160" Style="{StaticResource MaterialDesignFilledTextBox}"  materialDesign:HintAssist.Hint="Valor"/>
+            <materialDesign:PackIcon Kind="CurrencyUsd" Margin="30, 0, 10, 0" Height="50" Width="50" Foreground="#320b86"/>
+            <TextBox x:Name="edValor" VerticalAlignment="Center" Width="170" Style="{StaticResource MaterialDesignFilledTextBox}"  materialDesign:HintAssist.Hint="Valor"/>
 
         </WrapPanel>
 
