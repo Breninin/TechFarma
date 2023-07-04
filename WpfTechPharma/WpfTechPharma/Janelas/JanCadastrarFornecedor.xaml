@@ -27,32 +27,60 @@
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
 
-        <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="RAZÃO SOCIAL" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="50 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edRazaoSocial" TextWrapping="Wrap" Margin="20 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="580" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <WrapPanel Grid.Row="0"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
+
+            <materialDesign:PackIcon Kind="FileDocument" Height="50" Width="50" Foreground="#320b86"/>
+
+        </WrapPanel>
+        <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
+
+            <TextBox x:Name="edRazaoSocial" TextWrapping="Wrap" Margin="0 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="700" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Razão Social"/>
         </WrapPanel>
 
-        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="NOME FANTASIA" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="40 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edNomeFantasia" TextWrapping="Wrap" Margin="20 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="580" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Domain" HorizontalAlignment="Right" VerticalAlignment="Center" Height="50" Width="50" Foreground="#320b86" />
         </WrapPanel>
 
-        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="CONTATO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="90 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edContato" TextWrapping="Wrap" Margin="25, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="249" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
+
+            <TextBox x:Name="edNomeFantasia" TextWrapping="Wrap" Margin="0 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="700" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Nome Fantasia"/>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Phone" Height="50" Width="50" Foreground="#320b86"/>
+
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
+            <TextBox x:Name="edContato" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center"  Width="300" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Celular"/>
 
             <Label Content="CNPJ" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edCnpj" TextWrapping="Wrap" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="240" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <TextBox x:Name="edCnpj" TextWrapping="Wrap" Margin="20, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="310" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="CNPJ"/>
+
         </WrapPanel>
 
-        <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="EMAIL" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="113 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edEmail" TextWrapping="Wrap" Margin="27, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="580" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Email" Height="50" Width="50" Foreground="#320b86"/>
+
         </WrapPanel>
 
-        <WrapPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="ENDEREÇO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="70 0 0 0" FontWeight="Bold"/>
-            <ComboBox x:Name="cbEndereco" Margin="30, 0, 0, 0" VerticalAlignment="Top" Width="590"
+        <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
+            <TextBox x:Name="edEmail" TextWrapping="Wrap" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="700" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Email"/>
+        </WrapPanel>
+
+
+        <WrapPanel Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
+            <materialDesign:PackIcon Kind="MapMarker" Height="50" Width="50" Foreground="#320b86"/>
+
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
+            <ComboBox x:Name="cbEndereco" Margin="0, 0, 0, 0" VerticalAlignment="Top" Width="700"
                       materialDesign:HintAssist.Hint="Selecione ou cadastre seu endereço"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
@@ -60,14 +88,22 @@
                       Style="{StaticResource MaterialDesignFilledComboBox}">
                 <ComboBoxItem>Não informado</ComboBoxItem>
             </ComboBox>
+
         </WrapPanel>
 
-        <WrapPanel Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
-            <Label Content="INSCRIÇÃO ESTADO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5 0 0 0" FontWeight="Bold"/>
-            <TextBox x:Name="edInscricaoEstadual" TextWrapping="Wrap" Margin="25, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="200" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+        <WrapPanel Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0">
+            <materialDesign:PackIcon Kind="FileDocument" Height="50" Width="50" Foreground="#320b86" />
+
         </WrapPanel>
 
-        <Grid Grid.Row="6">
+        <WrapPanel Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
+            <TextBox x:Name="edInscricaoEstadual" TextWrapping="Wrap" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="700" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Inscrição Estadual"/>
+
+
+        </WrapPanel>
+
+
+        <Grid Grid.Row="6" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -77,7 +113,7 @@
               IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
               Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
               ToolTip="MaterialDesignFloatingActionDarkButton" Cursor="Hand">
-                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="24" Height="24">
+                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="24" Height="24" >
                     <Path Fill="White" Data="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
                 </Canvas>
             </Button>
