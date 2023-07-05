@@ -15,7 +15,7 @@
         TextElement.FontWeight="Medium"
         FontFamily="{materialDesign:MaterialDesignFont}"
         FontSize="16">
-    <!--Tela Modelo-->
+    <!--Tela Thayna-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -91,7 +91,7 @@
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
-                      Style="{StaticResource MaterialDesignFilledComboBox}">
+                      Style="{StaticResource MaterialDesignFilledComboBox}">>
                 <ComboBoxItem>Feminino</ComboBoxItem>
                 <ComboBoxItem>Masculino</ComboBoxItem>
                 <ComboBoxItem>Intersexo</ComboBoxItem>

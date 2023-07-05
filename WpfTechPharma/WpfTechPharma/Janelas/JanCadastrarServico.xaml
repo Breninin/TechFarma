@@ -30,7 +30,7 @@
                     materialDesign:HintAssist.Hint="Informe o nome completo do serviço"
                     AcceptsReturn="True"
                     Style="{StaticResource MaterialDesignFilledTextBox}"/>
-            
+
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0, 0, 0" FontWeight="Bold" Content="DURAÇÂO"/>
             <TextBox x:Name="edDuracao" VerticalAlignment="Center" Margin="10, 0, 0, 0" Width="100" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>

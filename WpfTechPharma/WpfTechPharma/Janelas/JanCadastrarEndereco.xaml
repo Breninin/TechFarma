@@ -37,7 +37,7 @@
         <WrapPanel Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="800">
             <Label Margin="65, 0, 0, 0" Content="BAIRRO" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             <TextBox x:Name="edBairro" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="340" Style="{StaticResource MaterialDesignFilledTextBox}"/>
-            
+
             <Label Margin="20, 0, 0, 0" Content="Nº" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             <TextBox x:Name="edNumer" Margin="20, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="175" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>
