@@ -31,7 +31,7 @@
 
         <Grid Grid.Row="0" Margin="10" Grid.ColumnSpan="2">
             <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 50" FontWeight="Bold" Content="NOME DO FUNCIONÁRIO"/>
-            <ComboBox x:Name="cbNomeFuncionario" VerticalAlignment="Bottom" MaxWidth="1000" Margin="10, 20, 10, 5"
+            <ComboBox x:Name="cbNomeFuncionario" VerticalAlignment="Bottom" MaxWidth="760" Margin="10, 20, 10, 5"
                       materialDesign:HintAssist.Hint="Informe o nome completo do funcionário"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
@@ -41,7 +41,7 @@
 
         <Grid Grid.Row="1" Margin="10" Grid.ColumnSpan="2">
             <Label HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 0, 0, 50" FontWeight="Bold" Content="NOME DO LOGIN"/>
-            <TextBox x:Name="edNomeLogin" VerticalAlignment="Bottom" MaxWidth="1000" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <TextBox x:Name="edNomeLogin" VerticalAlignment="Bottom" MaxWidth="760" Margin="10, 20, 10, 5" Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="0">
