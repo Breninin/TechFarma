@@ -58,7 +58,7 @@
 
             <materialDesign:PackIcon Kind="FileDocumentCheck" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
             <ComboBox x:Name="cbTarja" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="260"
-                      materialDesign:HintAssist.Hint="Selecione a tarja, caso haja"
+                      materialDesign:HintAssist.Hint="Selecione a tarja"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
@@ -91,12 +91,11 @@
         <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
             <materialDesign:PackIcon Kind="Barcode" Height="50" Width="50" Foreground="#320b86"/>
 
-
         </WrapPanel>
 
         <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
 
-            <TextBox x:Name="edCodigoBarras" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="210" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Codigo de Barras"/>
+            <TextBox x:Name="edCodigoBarras" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="210" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Código de Barras"/>
 
             <materialDesign:PackIcon Kind="Pill" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
 
@@ -118,14 +117,13 @@
         <WrapPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
             <materialDesign:PackIcon Kind="CartArrowDown"  Height="50" Width="50" Foreground="#320b86"/>
 
-
         </WrapPanel>
 
         <WrapPanel Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
-            <TextBox x:Name="edValorCompra" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="300" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor Compra"/>
+            <TextBox x:Name="edValorCompra" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="300" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor de Compra"/>
 
             <materialDesign:PackIcon Kind="CurrencyUsd" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
-            <TextBox x:Name="edValorVenda" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="310" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor Venda"/>
+            <TextBox x:Name="edValorVenda" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="310" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor de Venda"/>
         </WrapPanel>
 
         <Grid Grid.Row="5" Grid.ColumnSpan="2">

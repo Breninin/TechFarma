@@ -66,7 +66,7 @@
         <WrapPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
 
 
-            <TextBox x:Name="edTipo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="700" 
+            <TextBox x:Name="edTipo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="700" 
                     materialDesign:HintAssist.Hint="Informe o tipo do insumo"
                     AcceptsReturn="True"
                     Style="{StaticResource MaterialDesignFilledTextBox}"/>

@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Cadastrar Fornecedores" 
+        Title="Cadastrar Fornecedor" 
         WindowStartupLocation="CenterScreen"
         Height="470" Width="840"
         MinHeight="470" MinWidth="840"
@@ -23,7 +23,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
 
@@ -82,7 +81,7 @@
 
         <WrapPanel Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
             <ComboBox x:Name="cbEndereco" Margin="0, 0, 0, 0" VerticalAlignment="Top" Width="700"
-                      materialDesign:HintAssist.Hint="Selecione ou cadastre seu endereço"
+                      materialDesign:HintAssist.Hint="Selecione ou cadastre um endereço"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"

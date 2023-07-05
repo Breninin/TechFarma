@@ -95,10 +95,10 @@
 
         <WrapPanel Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
 
-            <TextBox x:Name="edCodigoBarras" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="340"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Codigo de Barras" />
+            <TextBox x:Name="edCodigoBarras" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="340"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Código de Barras"/>
 
             <materialDesign:PackIcon Kind="PackageVariant" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
-            <TextBox x:Name="edEstoque" HorizontalAlignment="Right" VerticalAlignment="Center" Width="270"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Estoque"/>
+            <TextBox x:Name="edEstoque" HorizontalAlignment="Right" VerticalAlignment="Center" Width="270"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Estoque"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
@@ -108,13 +108,11 @@
 
         <WrapPanel Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
 
-            <TextBox x:Name="edValorCompra" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor Compra"/>
+            <TextBox x:Name="edValorCompra" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor de Compra"/>
 
             <materialDesign:PackIcon Kind="CurrencyUsd" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
-            <TextBox x:Name="edValorVenda" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="310"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor Venda"/>
+            <TextBox x:Name="edValorVenda" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="310" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor de Venda"/>
         </WrapPanel>
-
-
 
         <Grid Grid.Row="5" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>

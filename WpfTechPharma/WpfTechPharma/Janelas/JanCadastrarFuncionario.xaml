@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Cadastrar Funcionários" 
+        Title="Cadastrar Funcionário" 
         WindowStartupLocation="CenterScreen"
         Height="470" Width="840"
         MinHeight="470" MinWidth="840"
@@ -41,19 +41,14 @@
         <WrapPanel Grid.Row="0"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
 
             <TextBox x:Name="edNome" TextWrapping="Wrap" Margin="0, 0, 0, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="700"
-                    materialDesign:HintAssist.Hint="Informe o nome completo do cliente"
+                    materialDesign:HintAssist.Hint="Informe o nome completo do funcionário"
                     AcceptsReturn="True"
                     Style="{StaticResource MaterialDesignFilledTextBox}"/>
-
         </WrapPanel>
-
-
-
-
+        
         <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
 
             <materialDesign:PackIcon Kind="Phone" Height="50" Width="50" Foreground="#320b86"/>
-
 
         </WrapPanel>
 
@@ -61,20 +56,18 @@
 
             <TextBox x:Name="edContato" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="260" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Celular"/>
             <Label Content="CPF" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <xctk:MaskedTextBox  Mask="000,000,000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="140" Style="{StaticResource MaterialDesignFilledTextBox}" />
+            <xctk:MaskedTextBox  Mask="000.000000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="140" Style="{StaticResource MaterialDesignFilledTextBox}" />
 
             <Label Content="RG" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             <TextBox x:Name="edRG" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Style="{StaticResource MaterialDesignFilledTextBox}" />
 
         </WrapPanel>
+
         <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
 
             <materialDesign:PackIcon Kind="AccountCog" Height="50" Width="50" Foreground="#320b86"/>
 
-
         </WrapPanel>
-
-        
 
         <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
 
@@ -91,10 +84,9 @@
 
         <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
             <TextBox x:Name="edEmail" Margin="0, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="700"
-                    materialDesign:HintAssist.Hint="Informe o email do cliente"
+                    materialDesign:HintAssist.Hint="Informe o email do funcionário"
                     AcceptsReturn="True"
                     Style="{StaticResource MaterialDesignFilledTextBox}"/>
-
         </WrapPanel>
 
 
@@ -105,7 +97,7 @@
 
         <WrapPanel Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
             <ComboBox x:Name="cbEndereco" Margin="0, 0, 0, 0" VerticalAlignment="Top" Width="700"
-                      materialDesign:HintAssist.Hint="Selecione ou cadastre seu endereço"
+                      materialDesign:HintAssist.Hint="Selecione ou cadastre um endereço"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
@@ -122,17 +114,17 @@
 
         <WrapPanel Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
             <DatePicker x:Name="dpDataNascimento" Margin="0, 0, 0, 0" VerticalAlignment="Center" Width="300"
-            materialDesign:HintAssist.Hint="Escolha sua data de nascimento"
+            materialDesign:HintAssist.Hint="Escolha uma data de nascimento"
             Style="{StaticResource MaterialDesignFilledDatePicker}"/>
 
-            <materialDesign:PackIcon Kind="GenderTransgender" Margin="10, 0, 10, 0" Height="30" Width="30" Foreground="#320b86" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <materialDesign:PackIcon Kind="GenderTransgender" Margin="30, 0, 10, 0" Height="50" Width="50" Foreground="#320b86" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-            <ComboBox x:Name="cbSexo" Margin="10, 0, 0, 0" VerticalAlignment="Center" Width="340"
-                      materialDesign:HintAssist.Hint="Selecione seu sexo"
+            <ComboBox x:Name="cbSexo" Margin="0, 0, 0, 0" VerticalAlignment="Center" Width="310"
+                      materialDesign:HintAssist.Hint="Selecione o sexo do funcionário"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
-                      Style="{StaticResource MaterialDesignFilledComboBox}">>
+                      Style="{StaticResource MaterialDesignFilledComboBox}">
                 <ComboBoxItem>Feminino</ComboBoxItem>
                 <ComboBoxItem>Masculino</ComboBoxItem>
                 <ComboBoxItem>Intersexo</ComboBoxItem>
