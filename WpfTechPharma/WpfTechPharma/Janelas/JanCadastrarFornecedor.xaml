@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Cadastrar Fornecedor" 
         WindowStartupLocation="CenterScreen"
-        Height="470" Width="840"
+        Height="500" Width="840"
         MinHeight="470" MinWidth="840"
         ResizeMode="NoResize"
         TextElement.FontWeight="Medium"
@@ -23,11 +23,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.135*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 

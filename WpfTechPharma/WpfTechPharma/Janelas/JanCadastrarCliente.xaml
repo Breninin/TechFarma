@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Cadastrar Cliente" 
         WindowStartupLocation="CenterScreen"
-        Height="470" Width="840"
+        Height="500" Width="840"
         MinHeight="470" MinWidth="840"
         ResizeMode="NoResize"
         TextElement.FontWeight="Medium"
@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.135*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -71,12 +71,12 @@
 
         <WrapPanel Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
 
-            <TextBox x:Name="edCelular" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Celular"/>
+            <TextBox x:Name="edCelular" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="260" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Celular"/>
             <Label Content="CPF" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <xctk:MaskedTextBox  Mask="000.000.000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="170" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <xctk:MaskedTextBox  Mask="000.000.000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="140" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
             <Label Content="RG" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edRG" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <TextBox x:Name="edRG" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
         </WrapPanel>
         

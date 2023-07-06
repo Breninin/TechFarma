@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Cadastrar Funcionário" 
         WindowStartupLocation="CenterScreen"
-        Height="470" Width="840"
+        Height="500" Width="840"
         MinHeight="470" MinWidth="840"
         ResizeMode="NoResize"
         TextElement.FontWeight="Medium"
@@ -24,11 +24,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.135*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -56,7 +56,7 @@
 
             <TextBox x:Name="edContato" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="260" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Celular"/>
             <Label Content="CPF" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <xctk:MaskedTextBox  Mask="000.000000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="140" Style="{StaticResource MaterialDesignFilledTextBox}" />
+            <xctk:MaskedTextBox  Mask="000.000.000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="140" Style="{StaticResource MaterialDesignFilledTextBox}" />
 
             <Label Content="RG" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
             <TextBox x:Name="edRG" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Style="{StaticResource MaterialDesignFilledTextBox}" />

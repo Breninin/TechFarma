@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Cadastrar Login" 
         WindowStartupLocation="CenterScreen"
-        Height="470" Width="840"
+        Height="500" Width="840"
         MinHeight="470" MinWidth="840"
         ResizeMode="NoResize"
         TextElement.FontWeight="Medium"

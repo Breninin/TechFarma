@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Cadastrar Medicamento" 
         WindowStartupLocation="CenterScreen"
-        Height="470" Width="840"
+        Height="500" Width="840"
         MinHeight="470" MinWidth="840"
         ResizeMode="NoResize"
         TextElement.FontWeight="Medium"
@@ -28,7 +28,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.135*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
