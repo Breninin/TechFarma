@@ -137,7 +137,7 @@ create table Despesa (
 desp_id int primary key not null auto_increment,
 desp_data date,
 desp_valor float,
-desp_desc varchar (100),
+desp_descricao varchar (100),
 desp_tipo varchar (20),
 desp_quantidade_parcelas int
 );
@@ -233,9 +233,9 @@ foreign key (fk_prod_id) references Produto (prod_id)
 );
 
 create table Compra_Medicamento (
-camo_id int primary key not null auto_increment,
-camo_quantidade_item int,
-campo_valor_item float,
+camp_id int primary key not null auto_increment,
+camp_quantidade_item int,
+camp_valor_item float,
 fk_comp_id int,
 fk_medi_id int,
 foreign key (fk_comp_id) references Compra (comp_id),
