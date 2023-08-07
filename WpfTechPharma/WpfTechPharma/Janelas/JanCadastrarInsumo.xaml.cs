@@ -37,7 +37,7 @@ namespace WpfTechPharma.Janelas
             edMarca.TextChanged += TextBox_TextChanged;
             edNome.TextChanged += TextBox_TextChanged;
             edFornecedor.SelectionChanged += ComboBox_SelectionChanged;
-            edTipo.SelectionChanged += ComboBox_SelectionChanged;
+            
         }
 
         // Manipulador de evento para alterações em caixas de texto
@@ -73,8 +73,7 @@ namespace WpfTechPharma.Janelas
                 Ultis.Check(this, edCodigoBarras),
                 Ultis.Check(this, edMarca),
                 Ultis.Check(this, edNome),
-                Ultis.Check(this, edFornecedor),
-                Ultis.Check(this, edTipo)
+                Ultis.Check(this, edFornecedor)
             };
 
             // Verifica se todos os campos foram preenchidos corretamente
