@@ -7,15 +7,14 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Cadastrar Clientes" 
+        Title="Cadastrar Cliente" 
         WindowStartupLocation="CenterScreen"
-        Height="470" Width="840"
+        Height="500" Width="840"
         MinHeight="470" MinWidth="840"
         ResizeMode="NoResize"
         TextElement.FontWeight="Medium"
         FontFamily="{materialDesign:MaterialDesignFont}"
         FontSize="16">
-    <!--Tela Thayna-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -27,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.135*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -62,30 +61,25 @@
                     materialDesign:HintAssist.Hint="Informe o nome completo do cliente"
                     AcceptsReturn="True"
                     Style="{StaticResource MaterialDesignFilledTextBox}"/>
-
         </WrapPanel>
-
-
-
 
         <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
 
             <materialDesign:PackIcon Kind="Phone" Height="50" Width="50" Foreground="#320b86"/>
 
-
         </WrapPanel>
 
         <WrapPanel Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
 
-            <TextBox x:Name="edCelular" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Celular"/>
+            <TextBox x:Name="edCelular" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="260" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Celular"/>
             <Label Content="CPF" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <xctk:MaskedTextBox  Mask="000,000,000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="170" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <xctk:MaskedTextBox  Mask="000.000.000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="140" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
             <Label Content="RG" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edRG" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="RG" />
+            <TextBox x:Name="edRG" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
         </WrapPanel>
-        
+
         <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
             <materialDesign:PackIcon Kind="Email" Height="50" Width="50" Foreground="#320b86"/>
         </WrapPanel>
@@ -95,18 +89,16 @@
                     materialDesign:HintAssist.Hint="Informe o email do cliente"
                     AcceptsReturn="True"
                     Style="{StaticResource MaterialDesignFilledTextBox}"/>
-
         </WrapPanel>
 
 
         <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
             <materialDesign:PackIcon Kind="MapMarker" Height="50" Width="50" Foreground="#320b86"/>
-
         </WrapPanel>
 
         <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
             <ComboBox x:Name="cbEndereco" Margin="0, 0, 0, 0" VerticalAlignment="Top" Width="700"
-                      materialDesign:HintAssist.Hint="Selecione ou cadastre seu endereço"
+                      materialDesign:HintAssist.Hint="Selecione ou cadastre um endereço"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
@@ -118,22 +110,22 @@
 
         <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0">
             <materialDesign:PackIcon Kind="CalendarRange" Height="50" Width="50" Foreground="#320b86" />
-            
+
         </WrapPanel>
 
         <WrapPanel Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
             <DatePicker x:Name="dpDataNascimento" Margin="0, 0, 0, 0" VerticalAlignment="Center" Width="290"
-            materialDesign:HintAssist.Hint="Escolha sua data de nascimento"
+            materialDesign:HintAssist.Hint="Escolha uma data de nascimento"
             Style="{StaticResource MaterialDesignFilledDatePicker}"/>
 
             <materialDesign:PackIcon Kind="GenderTransgender" Margin="30, 0, 10, 0" Height="50" Width="50" Foreground="#320b86" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-            
+
             <ComboBox x:Name="cbSexo"  VerticalAlignment="Center" Width="320"
-                      materialDesign:HintAssist.Hint="Selecione seu sexo"
+                      materialDesign:HintAssist.Hint="Selecione o sexo do cliente"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
-                      Style="{StaticResource MaterialDesignFilledComboBox}">>
+                      Style="{StaticResource MaterialDesignFilledComboBox}">
                 <ComboBoxItem>Feminino</ComboBoxItem>
                 <ComboBoxItem>Masculino</ComboBoxItem>
                 <ComboBoxItem>Intersexo</ComboBoxItem>
@@ -141,7 +133,6 @@
             </ComboBox>
 
         </WrapPanel>
-
 
         <Grid Grid.Row="5" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>

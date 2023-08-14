@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Cadastrar Endereço" 
         WindowStartupLocation="CenterScreen"
-        Height="470" Width="840"
+        Height="500" Width="840"
         MinHeight="470" MinWidth="840"
         ResizeMode="NoResize"
         TextElement.FontWeight="Medium"
@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.15*"/>
+            <ColumnDefinition Width="0.135*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -36,7 +36,7 @@
         </WrapPanel>
 
         <WrapPanel Grid.Row="0"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
-            
+
             <TextBox x:Name="edRua" Margin="0, 0, 0, 0" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="700"
                     materialDesign:HintAssist.Hint="Informe o nome completo da rua"
                     AcceptsReturn="True"
@@ -59,7 +59,7 @@
         <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
 
             <materialDesign:PackIcon Kind="HomeCity" Height="50" Width="50" Foreground="#320b86"/>
-       
+
         </WrapPanel>
 
         <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
@@ -108,7 +108,7 @@
 
         <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
             <materialDesign:PackIcon Kind="Stairs" Height="50" Width="50" Foreground="#320b86"/>
-            
+
         </WrapPanel>
 
         <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
