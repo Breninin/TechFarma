@@ -266,8 +266,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelos\Caixa.cs" />
+    <Compile Include="Modelos\CaixaDAO.cs" />
     <Compile Include="Modelos\Cliente.cs" />
     <Compile Include="Modelos\ClienteDAO.cs" />
+    <Compile Include="Modelos\Compra.cs" />
+    <Compile Include="Modelos\CompraDAO.cs" />
+    <Compile Include="Modelos\CompraInsumo.cs" />
+    <Compile Include="Modelos\CompraInsumoDAO.cs" />
+    <Compile Include="Modelos\CompraMedicamento.cs" />
+    <Compile Include="Modelos\CompraMedicamentoDAO.cs" />
+    <Compile Include="Modelos\CompraProduto.cs" />
+    <Compile Include="Modelos\CompraProdutoDAO.cs" />
+    <Compile Include="Modelos\Despesa.cs" />
+    <Compile Include="Modelos\DespesaDAO.cs" />
     <Compile Include="Modelos\Endereco.cs" />
     <Compile Include="Modelos\EnderecoDAO.cs" />
     <Compile Include="Modelos\Fornecedor.cs" />
@@ -276,14 +288,30 @@
     <Compile Include="Modelos\FuncionarioDAO.cs" />
     <Compile Include="Modelos\Insumo.cs" />
     <Compile Include="Modelos\InsumoDAO.cs" />
+    <Compile Include="Modelos\InsumoServico.cs" />
+    <Compile Include="Modelos\InsumoServicoDAO.cs" />
     <Compile Include="Modelos\Medicamento.cs" />
     <Compile Include="Modelos\MedicamentoDAO.cs" />
+    <Compile Include="Modelos\Pagamento.cs" />
+    <Compile Include="Modelos\PagamentoDAO.cs" />
+    <Compile Include="Modelos\Prescricao.cs" />
+    <Compile Include="Modelos\PrescricaoDAO.cs" />
     <Compile Include="Modelos\Produto.cs" />
     <Compile Include="Modelos\ProdutoDAO.cs" />
+    <Compile Include="Modelos\Recebimento.cs" />
+    <Compile Include="Modelos\RecebimentoDAO.cs" />
     <Compile Include="Modelos\Servico.cs" />
     <Compile Include="Modelos\ServicoDAO.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modelos\UsuarioDAO.cs" />
+    <Compile Include="Modelos\Venda.cs" />
+    <Compile Include="Modelos\VendaDAO.cs" />
+    <Compile Include="Modelos\VendaMedicamento.cs" />
+    <Compile Include="Modelos\VendaMedicamentoDAO.cs" />
+    <Compile Include="Modelos\VendaProduto.cs" />
+    <Compile Include="Modelos\VendaProdutoDAO.cs" />
+    <Compile Include="Modelos\VendaServico.cs" />
+    <Compile Include="Modelos\VendaServicoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
