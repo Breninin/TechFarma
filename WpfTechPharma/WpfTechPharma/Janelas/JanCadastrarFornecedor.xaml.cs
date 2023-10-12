@@ -70,7 +70,6 @@ namespace WpfTechPharma.Janelas
             }
         }
 
-        // Limpa os campos quando o botão "Limpar" é clicado
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -121,5 +120,8 @@ namespace WpfTechPharma.Janelas
                 check.Clear();
             }
         }
+
+        // Limpa os campos quando o botão "Limpar" é clicado
+
     }
 }

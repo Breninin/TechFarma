@@ -85,6 +85,10 @@ namespace WpfTechPharma.Janelas
             }
         }
 
+
+
+
+
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
