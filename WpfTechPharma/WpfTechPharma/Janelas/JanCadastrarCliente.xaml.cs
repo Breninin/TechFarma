@@ -202,5 +202,10 @@ namespace WpfTechPharma.Janelas
                 check.Clear();
             }
         }
+
+        private void edEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
