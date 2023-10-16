@@ -39,5 +39,35 @@ namespace WpfTechPharma.Janelas
                 MessageBox.Show("Erro ao carregar os Medicamentos: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btEditar_Click(object sender, RoutedEventArgs e)
+        {
+            var medicamentoSelected = dgvMedicamentos.SelectedItem as Medicamento;
+
+            var jan = new JanCadastrarMedicamento(medicamentoSelected.Id);
+            jan.ShowDialog();
+            CarregarMedicamentos();
+        }
+
+        private void btExluir_Click(object sender, RoutedEventArgs e)
+        {
+            var medicamentoSelected = dgvMedicamentos.SelectedItem as Medicamento;
+
+            var result = MessageBox.Show($"Deseja mesmo remover o medicamento {medicamentoSelected.Nome}?", "Excluir", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var medicamentoDAO = new MedicamentoDAO();
+                    medicamentoDAO.Delete(medicamentoSelected);
+                    CarregarMedicamentos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir o medicamento: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

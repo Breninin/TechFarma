@@ -17,7 +17,5 @@ namespace WpfTechPharma.Modelos
         public string Tipo { get; set; }
 
         public float ValorVenda { get; set; }
-
-        public Insumo Insumo { get; set; }
     }
 }

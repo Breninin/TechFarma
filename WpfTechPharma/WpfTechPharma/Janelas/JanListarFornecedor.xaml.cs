@@ -39,5 +39,35 @@ namespace WpfTechPharma.Janelas
                 MessageBox.Show("Erro ao carregar os fornecedores: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btEditar_Click(object sender, RoutedEventArgs e)
+        {
+            var fornecedorSelected = dgvFornecedores.SelectedItem as Fornecedor;
+
+            var jan = new JanCadastrarFornecedor(fornecedorSelected.Id);
+            jan.ShowDialog();
+            CarregarFornecedores();
+        }
+
+        private void btExluir_Click(object sender, RoutedEventArgs e)
+        {
+            var fornecedorSelected = dgvFornecedores.SelectedItem as Fornecedor;
+
+            var result = MessageBox.Show($"Deseja mesmo remover o fornecedor {fornecedorSelected.NomeFantasia}?", "Excluir", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var fornecedorDAO = new FornecedorDAO();
+                    fornecedorDAO.Delete(fornecedorSelected);
+                    CarregarFornecedores();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir o fornecedor: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

@@ -21,7 +21,5 @@ namespace WpfTechPharma.Modelos
         public string Email { get; set; }
 
         public Endereco Endereco { get; set; }
-
-        public string InscrcaoEstadual { get; set; }
     }
 }

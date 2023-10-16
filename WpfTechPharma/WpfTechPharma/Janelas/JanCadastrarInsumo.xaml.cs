@@ -21,11 +21,25 @@ namespace WpfTechPharma.Janelas
     /// </summary>
     public partial class JanCadastrarInsumo : Window
     {
+        private int _id = 0;
+        private Insumo _insumo = new Insumo();
+        private bool _update = false;
+
         public JanCadastrarInsumo()
         {
             InitializeComponent();
             InicializarManipuladoresEventos();
             LoadData();
+        }
+
+        public JanCadastrarInsumo(int id)
+        {
+            _id = id;
+
+            InitializeComponent();
+            InicializarManipuladoresEventos();
+            LoadData();
+            FillForm();
         }
 
         // Inicializa os manipuladores de eventos para os controles de entrada de texto e combobox
@@ -54,12 +68,33 @@ namespace WpfTechPharma.Janelas
             Ultis.Check(this, comboBox);
         }
 
+        private void FillForm()
+        {
+            var insumoDAO = new InsumoDAO();
+            _insumo = insumoDAO.GetById(_id);
+
+            var fornecedorDAO = new FornecedorDAO();
+            var fornecedor = fornecedorDAO.GetById(_insumo.Fornecedor.Id);
+
+            edValorCompra.Text = _insumo.ValorCompra.ToString();
+            edEstoque.Text = _insumo.Quantidade.ToString();
+            edCodigoBarras.Text = _insumo.CodigoBarra;
+            edMarca.Text = _insumo.Marca;
+            edNome.Text = _insumo.Nome;
+            edFornecedor.SelectedIndex = (fornecedor.Id - 1);
+
+            _update = true;
+        }
+
         // Manipulador de evento para o botão "Limpar"
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             // Exibe uma caixa de diálogo de confirmação antes de limpar os controles
             if (MessageBox.Show("Deseja realmente cancelar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Ultis.ResetControls(this);
+                _update = false;
+            }
         }
 
         // Manipulador de evento para o botão "Salvar"
@@ -81,21 +116,48 @@ namespace WpfTechPharma.Janelas
             {
                 try
                 {
-                    // Cria um objeto Insumo com base nos valores inseridos nos campos
-                    var insumo = new Insumo
+                    if (_update)
                     {
-                        ValorCompra = float.Parse(edValorCompra.Text),
-                        Quantidade = Convert.ToInt32(edEstoque.Text),
-                        CodigoBarra = edCodigoBarras.Text,
-                        Marca = edMarca.Text,
-                        Nome = edNome.Text,
-                        Fornecedor = (Fornecedor)edFornecedor.SelectedItem
-                    };
+                        var fornecedorDAO = new FornecedorDAO();
 
-                    // Cria uma instância do InsumoDAO e insere o insumo no banco de dados
-                    var insumoDAO = new InsumoDAO();
-                    insumoDAO.Insert(insumo);
-                    MessageBox.Show("Insumo inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        // Cria um objeto Insumo com base nos valores inseridos nos campos
+                        var insumo = new Insumo
+                        {
+                            Id = _id,
+                            ValorCompra = float.Parse(edValorCompra.Text),
+                            Quantidade = Convert.ToInt32(edEstoque.Text),
+                            CodigoBarra = edCodigoBarras.Text,
+                            Marca = edMarca.Text,
+                            Nome = edNome.Text,
+                            Fornecedor = fornecedorDAO.GetById(edFornecedor.SelectedIndex + 1)
+                        };
+
+                        // Cria uma instância do InsumoDAO e insere o insumo no banco de dados
+                        var insumoDAO = new InsumoDAO();
+
+                        insumoDAO.Update(insumo);
+                        MessageBox.Show("Insumo atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _update = false;
+                    }
+                    else
+                    {
+                        // Cria um objeto Insumo com base nos valores inseridos nos campos
+                        var insumo = new Insumo
+                        {
+                            ValorCompra = float.Parse(edValorCompra.Text),
+                            Quantidade = Convert.ToInt32(edEstoque.Text),
+                            CodigoBarra = edCodigoBarras.Text,
+                            Marca = edMarca.Text,
+                            Nome = edNome.Text,
+                            Fornecedor = (Fornecedor)edFornecedor.SelectedItem
+                        };
+
+                        // Cria uma instância do InsumoDAO e insere o insumo no banco de dados
+                        var insumoDAO = new InsumoDAO();
+
+                        insumoDAO.Insert(insumo);
+                        MessageBox.Show("Insumo inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -104,6 +166,7 @@ namespace WpfTechPharma.Janelas
 
                 // Após a inserção do insumo, redefine os controles para o estado inicial
                 Ultis.ResetControls(this);
+                this.Close();
             }
             else
             {

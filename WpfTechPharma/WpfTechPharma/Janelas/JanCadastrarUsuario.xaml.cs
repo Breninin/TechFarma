@@ -66,7 +66,25 @@ namespace WpfTechPharma.Janelas
         }
 
         // Manipulador de evento para o botão "Limpar"
-        private void BtLimpar_Click(object sender, RoutedEventArgs e)
+       
+
+        // Carrega os dados para o ComboBox "cbNomeFuncionario"
+        private void LoadData()
+        {
+            try
+            {
+                cbNomeFuncionario.ItemsSource = null;
+                cbNomeFuncionario.Items.Clear();
+                cbNomeFuncionario.ItemsSource = new FuncionarioDAO().List();
+                cbNomeFuncionario.DisplayMemberPath = "Nome";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente cancelar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 Ultis.ResetControls(this);
@@ -108,22 +126,6 @@ namespace WpfTechPharma.Janelas
             else
             {
                 check.Clear();
-            }
-        }
-
-        // Carrega os dados para o ComboBox "cbNomeFuncionario"
-        private void LoadData()
-        {
-            try
-            {
-                cbNomeFuncionario.ItemsSource = null;
-                cbNomeFuncionario.Items.Clear();
-                cbNomeFuncionario.ItemsSource = new FuncionarioDAO().List();
-                cbNomeFuncionario.DisplayMemberPath = "Nome";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

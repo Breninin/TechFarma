@@ -21,11 +21,25 @@ namespace WpfTechPharma.Janelas
     /// </summary>
     public partial class JanCadastrarCliente : Window
     {
+        private int _id = 0;
+        private Cliente _cliente = new Cliente();
+        private bool _update = false;
+
         public JanCadastrarCliente()
         {
             InitializeComponent();
             InicializarManipuladoresEventos();
             LoadData();
+        }
+
+        public JanCadastrarCliente(int id)
+        {
+            _id = id;
+
+            InitializeComponent();
+            InicializarManipuladoresEventos();
+            LoadData();
+            FillForm();
         }
 
         // Inicializa os manipuladores de eventos
@@ -69,6 +83,26 @@ namespace WpfTechPharma.Janelas
             Ultis.Check(this, datePicker);
         }
 
+        private void FillForm()
+        {
+            var clienteDAO = new ClienteDAO();
+            _cliente = clienteDAO.GetById(_id);
+
+            var enderecoDAO = new EnderecoDAO();
+            var endereco = enderecoDAO.GetById(_cliente.Endereco.Id);
+
+            edNome.Text = _cliente.Nome;
+            edEmail.Text = _cliente.Email;
+            edContato.Text = _cliente.Contato;
+            edRG.Text = _cliente.RG;
+            edCPF.Text = _cliente.CPF.Replace("_", "").Replace(".", "").Replace("-", "").Replace(",", "");
+            dpDataNascimento.SelectedDate = (DateTime)_cliente.Nascimento;
+            cbEndereco.SelectedIndex = (endereco.Id-1);
+            cbSexo.Text = _cliente.Sexo;
+
+            _update = true;
+        }
+
         // Carrega os dados iniciais
         private void LoadData()
         {
@@ -88,7 +122,10 @@ namespace WpfTechPharma.Janelas
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Ultis.ResetControls(this);
+                _update = false;
+            }
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -109,21 +146,48 @@ namespace WpfTechPharma.Janelas
             {
                 try
                 {
-                    var cliente = new Cliente
+                    if (_update)
                     {
-                        Nome = edNome.Text,
-                        Email = edEmail.Text,
-                        Contato = edContato.Text,
-                        RG = edRG.Text,
-                        CPF = edCPF.Text,
-                        Nascimento = (DateTime)dpDataNascimento.SelectedDate,
-                        Sexo = cbSexo.Text,
-                        Endereco = (Endereco)cbEndereco.SelectedItem
-                    };
+                        var enderecoDAO = new EnderecoDAO();
 
-                    var clienteDAO = new ClienteDAO();
-                    clienteDAO.Insert(cliente);
-                    MessageBox.Show("Cliente inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var cliente = new Cliente
+                        {
+                            Id = _id,
+                            Nome = edNome.Text,
+                            Email = edEmail.Text,
+                            Contato = edContato.Text,
+                            RG = edRG.Text,
+                            CPF = edCPF.Text.Replace(",", "."),
+                            Nascimento = (DateTime)dpDataNascimento.SelectedDate,
+                            Sexo = cbSexo.Text,
+                            Endereco = enderecoDAO.GetById(cbEndereco.SelectedIndex+1)
+                        };
+
+                        var clienteDAO = new ClienteDAO();
+
+                        clienteDAO.Update(cliente);
+                        MessageBox.Show("Cliente atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _update = false;
+                    }
+                    else
+                    {
+                        var cliente = new Cliente
+                        {
+                            Nome = edNome.Text,
+                            Email = edEmail.Text,
+                            Contato = edContato.Text,
+                            RG = edRG.Text,
+                            CPF = edCPF.Text.Replace(",","."),
+                            Nascimento = (DateTime)dpDataNascimento.SelectedDate,
+                            Sexo = cbSexo.Text,
+                            Endereco = (Endereco)cbEndereco.SelectedItem
+                        };
+
+                        var clienteDAO = new ClienteDAO();
+
+                        clienteDAO.Insert(cliente);
+                        MessageBox.Show("Cliente inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -131,7 +195,7 @@ namespace WpfTechPharma.Janelas
                 }
 
                 Ultis.ResetControls(this);
-
+                this.Close();
             }
             else
             {

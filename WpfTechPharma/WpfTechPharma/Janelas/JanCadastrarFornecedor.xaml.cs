@@ -21,11 +21,25 @@ namespace WpfTechPharma.Janelas
     /// </summary>
     public partial class JanCadastrarFornecedor : Window
     {
+        private int _id = 0;
+        private Fornecedor _fornecedor = new Fornecedor();
+        private bool _update = false;
+
         public JanCadastrarFornecedor()
         {
             InitializeComponent();
             InitializeEventHandlers();
             LoadData();
+        }
+
+        public JanCadastrarFornecedor(int id)
+        {
+            _id = id;
+
+            InitializeComponent();
+            InitializeEventHandlers();
+            LoadData();
+            FillForm();
         }
 
         // Inicializa os manipuladores de eventos para os campos de texto e seleção
@@ -37,7 +51,6 @@ namespace WpfTechPharma.Janelas
             edContato.TextChanged += TextBox_TextChanged;
             edEmail.TextChanged += TextBox_TextChanged;
             cbEndereco.SelectionChanged += ComboBox_SelectionChanged;
-            edInscricaoEstadual.TextChanged += TextBox_TextChanged;
         }
 
         // Manipulador de evento para a alteração do texto nos campos TextBox
@@ -52,6 +65,24 @@ namespace WpfTechPharma.Janelas
         {
             ComboBox comboBox = (ComboBox)sender;
             Ultis.Check(this, comboBox);
+        }
+
+        private void FillForm()
+        {
+            var fornecedorDAO = new FornecedorDAO();
+            _fornecedor = fornecedorDAO.GetById(_id);
+
+            var enderecoDAO = new EnderecoDAO();
+            var endereco = enderecoDAO.GetById(_fornecedor.Endereco.Id);
+
+            edRazaoSocial.Text = _fornecedor.RazaoSocial;
+            edNomeFantasia.Text = _fornecedor.NomeFantasia;
+            edCnpj.Text = _fornecedor.CNPJ;
+            edContato.Text = _fornecedor.Contato;
+            edEmail.Text = _fornecedor.Email;
+            cbEndereco.SelectedIndex = (endereco.Id - 1);
+
+            _update = true;
         }
 
         // Carrega os dados iniciais do ComboBox cbEndereco
@@ -70,11 +101,13 @@ namespace WpfTechPharma.Janelas
             }
         }
 
-        // Limpa os campos quando o botão "Limpar" é clicado
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Ultis.ResetControls(this);
+                _update = false;
+            }
         }
 
         // Salva os dados do fornecedor quando o botão "Salvar" é clicado
@@ -87,27 +120,51 @@ namespace WpfTechPharma.Janelas
                 Ultis.Check(this, edCnpj),
                 Ultis.Check(this, edContato),
                 Ultis.Check(this, edEmail),
-                Ultis.Check(this, cbEndereco),
-                Ultis.Check(this, edInscricaoEstadual)
+                Ultis.Check(this, cbEndereco)
             };
 
             if (check.All(c => c))
             {
                 try
                 {
-                    var fornecedor = new Fornecedor
+                    if (_update)
                     {
-                        RazaoSocial = edRazaoSocial.Text,
-                        NomeFantasia = edNomeFantasia.Text,
-                        CNPJ = edCnpj.Text,
-                        Contato = edContato.Text,
-                        Email = edEmail.Text,
-                        Endereco = (Endereco)cbEndereco.SelectedItem,
-                        InscrcaoEstadual = edInscricaoEstadual.Text
-                    };
-                    var fornecedorDAO = new FornecedorDAO();
-                    fornecedorDAO.Insert(fornecedor);
-                    MessageBox.Show("Fornecedor inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var enderecoDAO = new EnderecoDAO();
+
+                        var fornecedor = new Fornecedor
+                        {
+                            Id = _id,
+                            RazaoSocial = edRazaoSocial.Text,
+                            NomeFantasia = edNomeFantasia.Text,
+                            CNPJ = edCnpj.Text,
+                            Contato = edContato.Text,
+                            Email = edEmail.Text,
+                            Endereco = enderecoDAO.GetById(cbEndereco.SelectedIndex + 1)
+                        };
+
+                        var fornecedorDAO = new FornecedorDAO();
+
+                        fornecedorDAO.Update(fornecedor);
+                        MessageBox.Show("Fornecedor atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _update = false;
+                    }
+                    else
+                    {
+                        var fornecedor = new Fornecedor
+                        {
+                            RazaoSocial = edRazaoSocial.Text,
+                            NomeFantasia = edNomeFantasia.Text,
+                            CNPJ = edCnpj.Text,
+                            Contato = edContato.Text,
+                            Email = edEmail.Text,
+                            Endereco = (Endereco)cbEndereco.SelectedItem
+                        };
+
+                        var fornecedorDAO = new FornecedorDAO();
+
+                        fornecedorDAO.Insert(fornecedor);
+                        MessageBox.Show("Fornecedor inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -115,11 +172,15 @@ namespace WpfTechPharma.Janelas
                 }
 
                 Ultis.ResetControls(this);
+                this.Close();
             }
             else
             {
                 check.Clear();
             }
         }
+
+        // Limpa os campos quando o botão "Limpar" é clicado
+
     }
 }

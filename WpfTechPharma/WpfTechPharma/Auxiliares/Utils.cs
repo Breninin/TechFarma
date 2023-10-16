@@ -92,7 +92,7 @@ namespace WpfTechPharma.Auxiliares
         public static bool Check(Window window, TextBox e, int length)
         {
             SaveColors(window);
-            string text = e.Text.Replace("_", "").Replace(".", "").Replace("-", "");
+            string text = e.Text.Replace("_", "").Replace(".", "").Replace("-", "").Replace(",","");
 
             if (text.Length == length)
             {
