@@ -73,10 +73,10 @@
 
             <TextBox x:Name="edContato" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="260" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Celular"/>
             <Label Content="CPF" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <xctk:MaskedTextBox  Mask="000.000.000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="140" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <xctk:MaskedTextBox  Mask="000.000.000-00"  x:Name="edCPF"  HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap" Width="150" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
             <Label Content="RG" Margin="30, 0, 10, 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="edRG" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="150" Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <TextBox x:Name="edRG" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Center" Width="140" Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
         </WrapPanel>
 
@@ -128,6 +128,7 @@
                       Style="{StaticResource MaterialDesignFilledComboBox}">
                 <ComboBoxItem>Feminino</ComboBoxItem>
                 <ComboBoxItem>Masculino</ComboBoxItem>
+                <ComboBoxItem>Não-Binário</ComboBoxItem>
                 <ComboBoxItem>Intersexo</ComboBoxItem>
                 <ComboBoxItem>Não informado</ComboBoxItem>
             </ComboBox>

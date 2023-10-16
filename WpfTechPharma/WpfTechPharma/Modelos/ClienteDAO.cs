@@ -7,6 +7,7 @@ using WpfTechPharma.BancoDados;
 using WpfTechPharma.Interfaces;
 using WpfTechPharma.Auxiliares;
 using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace WpfTechPharma.Modelos
 {
@@ -24,6 +25,7 @@ namespace WpfTechPharma.Modelos
             try
             {
                 var query = conexao.Query();
+
                 query.CommandText =
                     "insert into " +
                     "Cliente " +
@@ -76,6 +78,7 @@ namespace WpfTechPharma.Modelos
             try
             {
                 var query = conexao.Query();
+
                 query.CommandText =
                     "update " +
                     "Cliente " +

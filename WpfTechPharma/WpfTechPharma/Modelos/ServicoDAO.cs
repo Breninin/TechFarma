@@ -30,20 +30,17 @@ namespace WpfTechPharma.Modelos
                     "(serv_nome, " +
                     "serv_valor_venda, " +
                     "serv_duracao, " +
-                    "serv_tipo, " +
-                    "fk_insu_id) " +
+                    "serv_tipo) " +
                     "values " +
                     "(@nome, " +
                     "@valorVenda, " +
                     "@duracao, " +
-                    "@tipo, " +
-                    "@insumo)";
+                    "@tipo)";
 
                 query.Parameters.AddWithValue("@nome", t.Nome);
                 query.Parameters.AddWithValue("@valorVenda", t.ValorVenda);
                 query.Parameters.AddWithValue("@duracao", t.Duracao);
                 query.Parameters.AddWithValue("@tipo", t.Tipo);
-                query.Parameters.AddWithValue("@insumo", t.Insumo.Id);
 
                 var result = query.ExecuteNonQuery();
 
@@ -75,7 +72,6 @@ namespace WpfTechPharma.Modelos
                     "serv_valor_venda = @valorVenda, " +
                     "serv_duracao = @duracao, " +
                     "serv_tipo = @tipo, " +
-                    "fk_insu_id = @insumo " +
                     "where " +
                     "(clie_id = @id)";
 
@@ -83,7 +79,6 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@valorVenda", t.ValorVenda);
                 query.Parameters.AddWithValue("@duracao", t.Duracao);
                 query.Parameters.AddWithValue("@tipo", t.Tipo);
-                query.Parameters.AddWithValue("@insumo", t.Insumo.Id);
                 query.Parameters.AddWithValue("@id", t.Id);
 
                 var result = query.ExecuteNonQuery();
@@ -154,7 +149,6 @@ namespace WpfTechPharma.Modelos
                     servico.ValorVenda = AuxiliarDAO.GetFloat(reader, "serv_valor_venda");
                     servico.Duracao = AuxiliarDAO.GetString(reader, "serv_duracao");
                     servico.Tipo = AuxiliarDAO.GetString(reader, "serv_tipo");
-                    servico.Insumo = new InsumoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_insu_id"));
                 }
 
                 return servico;
@@ -193,8 +187,7 @@ namespace WpfTechPharma.Modelos
                         Nome = AuxiliarDAO.GetString(reader, "serv_nome"),
                         ValorVenda = AuxiliarDAO.GetFloat(reader, "serv_valor_venda"),
                         Duracao = AuxiliarDAO.GetString(reader, "serv_duracao"),
-                        Tipo = AuxiliarDAO.GetString(reader, "serv_tipo"),
-                        Insumo = new InsumoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_insu_id"))
+                        Tipo = AuxiliarDAO.GetString(reader, "serv_tipo")
                     });
                 }
 

@@ -37,7 +37,6 @@ namespace WpfTechPharma.Janelas
             edContato.TextChanged += TextBox_TextChanged;
             edEmail.TextChanged += TextBox_TextChanged;
             cbEndereco.SelectionChanged += ComboBox_SelectionChanged;
-            edInscricaoEstadual.TextChanged += TextBox_TextChanged;
         }
 
         // Manipulador de evento para a alteração do texto nos campos TextBox
@@ -86,8 +85,7 @@ namespace WpfTechPharma.Janelas
                 Ultis.Check(this, edCnpj),
                 Ultis.Check(this, edContato),
                 Ultis.Check(this, edEmail),
-                Ultis.Check(this, cbEndereco),
-                Ultis.Check(this, edInscricaoEstadual)
+                Ultis.Check(this, cbEndereco)
             };
 
             if (check.All(c => c))
@@ -101,8 +99,7 @@ namespace WpfTechPharma.Janelas
                         CNPJ = edCnpj.Text,
                         Contato = edContato.Text,
                         Email = edEmail.Text,
-                        Endereco = (Endereco)cbEndereco.SelectedItem,
-                        InscrcaoEstadual = edInscricaoEstadual.Text
+                        Endereco = (Endereco)cbEndereco.SelectedItem
                     };
                     var fornecedorDAO = new FornecedorDAO();
                     fornecedorDAO.Insert(fornecedor);

@@ -20,7 +20,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -60,11 +60,9 @@
 
         </WrapPanel>
 
-        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
-            <materialDesign:PackIcon Kind="HeartPulse" Height="50" Width="50" Foreground="#320b86"/>
-
+        <!-- <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
+        <materialDesign:PackIcon Kind="HeartPulse" Height="50" Width="50" Foreground="#320b86"/>
         </WrapPanel>
-
         <WrapPanel Grid.Row="2" Width="700" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1">
             <ComboBox x:Name="cbInsumos" VerticalAlignment="Center" Width="700"
                 materialDesign:HintAssist.Hint="Selecione todos os insumos"
@@ -74,8 +72,8 @@
                       Style="{StaticResource MaterialDesignFilledComboBox}">
             </ComboBox>
 
-        </WrapPanel>
-
+        </WrapPanel>-->
+        
         <Grid Grid.Row="5" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

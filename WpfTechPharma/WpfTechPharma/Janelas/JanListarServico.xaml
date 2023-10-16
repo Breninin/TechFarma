@@ -23,7 +23,6 @@
                 <DataGridTextColumn Header="Duração" Binding="{Binding Duracao}" />
                 <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" />
                 <DataGridTextColumn Header="Valor de Venda" Binding="{Binding ValorVenda}" />
-                <DataGridTextColumn Header="Insumo" Binding="{Binding Insumo.Nome}" />
                 <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

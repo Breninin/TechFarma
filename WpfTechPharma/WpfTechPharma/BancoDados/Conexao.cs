@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace WpfTechPharma.BancoDados
 {
@@ -31,7 +32,6 @@ namespace WpfTechPharma.BancoDados
             {
                 connection = new MySqlConnection($"server={host};database={dbname};port={port};user={user};password={password}");
                 connection.Open();
-
             }
             catch (Exception)
             {
