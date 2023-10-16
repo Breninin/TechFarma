@@ -38,9 +38,9 @@ begin
 end;
 $$ delimiter ;
 
-call cadastrar_endereco('Rondônia', 'Ji-Paraná', 'Jardim Presidencial', 'Rua Rondônia', 101, 'Residência', '76901-082');
-call cadastrar_endereco('Rondônia', 'Ji-Paraná', 'Jorge Teixeira', 'Rua Nova Iguaçú', 202, 'Residência', '76912-647');
-call cadastrar_endereco('Rondônia', 'Ji-Paraná', 'Milão', 'Rua Trinta de Abril', 303, 'Residência', '76901-658');
+call cadastrar_endereco('RO', 'Ji-Paraná', 'Jardim Presidencial', 'Rua Rondônia', 101, 'Residência', '76901-082');
+call cadastrar_endereco('RO', 'Ji-Paraná', 'Jorge Teixeira', 'Rua Nova Iguaçú', 202, 'Residência', '76912-647');
+call cadastrar_endereco('RO', 'Ji-Paraná', 'Milão', 'Rua Trinta de Abril', 303, 'Residência', '76901-658');
 
 create table Fornecedor (
 forn_id int primary key not null auto_increment,

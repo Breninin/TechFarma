@@ -21,11 +21,25 @@ namespace WpfTechPharma.Janelas
     /// </summary>
     public partial class JanCadastrarFuncionario : Window
     {
+        private int _id = 0;
+        private Funcionario _funcionario = new Funcionario();
+        private bool _update = false;
+
         public JanCadastrarFuncionario()
         {
             InitializeComponent();
             InitializeEventHandlers();
             LoadData();
+        }
+
+        public JanCadastrarFuncionario(int id)
+        {
+            _id = id;
+
+            InitializeComponent();
+            InitializeEventHandlers();
+            LoadData();
+            FillForm();
         }
 
         // Inicializa os manipuladores de eventos
@@ -71,6 +85,28 @@ namespace WpfTechPharma.Janelas
             Ultis.Check(this, datePicker);
         }
 
+        private void FillForm()
+        {
+            var funcionarioDAO = new FuncionarioDAO();
+            var _funcionario = funcionarioDAO.GetById(_id);
+
+            var enderecoDAO = new EnderecoDAO();
+            var endereco = enderecoDAO.GetById(_funcionario.Endereco.Id);
+
+            edNome.Text = _funcionario.Nome;
+            cbSexo.Text = _funcionario.Sexo;
+            dpDataNascimento.SelectedDate = (DateTime)_funcionario.Nascimento;
+            edRG.Text = _funcionario.RG;
+            edCPF.Text = _funcionario.CPF.Replace("_", "").Replace(".", "").Replace("-", "").Replace(",", "");
+            edEmail.Text = _funcionario.Email;
+            edContato.Text = _funcionario.Contato;
+            edfuncao.Text = _funcionario.Funcao;
+            edsalario.Text = _funcionario.Salario.ToString();
+            cbEndereco.SelectedIndex = (endereco.Id - 1);
+
+            _update = true;
+        }
+
         // Carrega os dados iniciais
         private void LoadData()
         {
@@ -90,7 +126,10 @@ namespace WpfTechPharma.Janelas
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Ultis.ResetControls(this);
+                _update = false;
+            }
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -113,22 +152,52 @@ namespace WpfTechPharma.Janelas
             {
                 try
                 {
-                    var funcionario = new Funcionario
+                    if (_update)
                     {
-                        Nome = edNome.Text,
-                        Sexo = cbSexo.Text,
-                        Nascimento = (DateTime)dpDataNascimento.SelectedDate,
-                        RG = edRG.Text,
-                        CPF = edCPF.Text,
-                        Email = edEmail.Text,
-                        Contato = edContato.Text,
-                        Funcao = edfuncao.Text,
-                        Salario = float.Parse(edsalario.Text),
-                        Endereco = (Endereco)cbEndereco.SelectedItem
-                    };
-                    var funcionarioDAO = new FuncionarioDAO();
-                    funcionarioDAO.Insert(funcionario);
-                    MessageBox.Show("Funcionario inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var enderecoDAO = new EnderecoDAO();
+
+                        var funcionario = new Funcionario
+                        {
+                            Id = _id,
+                            Nome = edNome.Text,
+                            Sexo = cbSexo.Text,
+                            Nascimento = (DateTime)dpDataNascimento.SelectedDate,
+                            RG = edRG.Text,
+                            CPF = edCPF.Text.Replace(",", "."),
+                            Email = edEmail.Text,
+                            Contato = edContato.Text,
+                            Funcao = edfuncao.Text,
+                            Salario = float.Parse(edsalario.Text),
+                            Endereco = enderecoDAO.GetById(cbEndereco.SelectedIndex + 1)
+                        };
+
+                        var funcionarioDAO = new FuncionarioDAO();
+
+                        funcionarioDAO.Update(funcionario);
+                        MessageBox.Show("Funcionario atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _update = false;
+                    }
+                    else
+                    {
+                        var funcionario = new Funcionario
+                        {
+                            Nome = edNome.Text,
+                            Sexo = cbSexo.Text,
+                            Nascimento = (DateTime)dpDataNascimento.SelectedDate,
+                            RG = edRG.Text,
+                            CPF = edCPF.Text.Replace(",", "."),
+                            Email = edEmail.Text,
+                            Contato = edContato.Text,
+                            Funcao = edfuncao.Text,
+                            Salario = float.Parse(edsalario.Text),
+                            Endereco = (Endereco)cbEndereco.SelectedItem
+                        };
+
+                        var funcionarioDAO = new FuncionarioDAO();
+
+                        funcionarioDAO.Insert(funcionario);
+                        MessageBox.Show("Funcionario inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -136,6 +205,7 @@ namespace WpfTechPharma.Janelas
                 }
 
                 Ultis.ResetControls(this);
+                this.Close();
             }
             else
             {

@@ -38,5 +38,35 @@ namespace WpfTechPharma.Janelas
                 MessageBox.Show("Erro ao carregar os funcionários: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btEditar_Click(object sender, RoutedEventArgs e)
+        {
+            var funcionarioSelected = dgvFuncionarios.SelectedItem as Funcionario;
+
+            var jan = new JanCadastrarFuncionario(funcionarioSelected.Id);
+            jan.ShowDialog();
+            CarregarFuncionarios();
+        }
+
+        private void btExluir_Click(object sender, RoutedEventArgs e)
+        {
+            var funcionarioSelected = dgvFuncionarios.SelectedItem as Funcionario;
+
+            var result = MessageBox.Show($"Deseja mesmo remover o funcionario {funcionarioSelected.Nome}?", "Excluir", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var FuncionarioDAO = new FuncionarioDAO();
+                    FuncionarioDAO.Delete(funcionarioSelected);
+                    CarregarFuncionarios();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir o funcionario: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

@@ -21,10 +21,23 @@ namespace WpfTechPharma.Janelas
     /// </summary>
     public partial class JanCadastrarEndereco : Window
     {
+        private int _id = 0;
+        private Endereco _endereco = new Endereco();
+        private bool _update = false;
+
         public JanCadastrarEndereco()
         {
             InitializeComponent();
             InicializarManipuladoresEventos();
+        }
+
+        public JanCadastrarEndereco(int id)
+        {
+            _id = id;
+
+            InitializeComponent();
+            InicializarManipuladoresEventos();
+            FillForm();
         }
 
         private void InicializarManipuladoresEventos()
@@ -53,10 +66,29 @@ namespace WpfTechPharma.Janelas
             Ultis.Check(this, comboBox); // Executa a verificação da lista suspensa (ComboBox) usando a classe Ultis
         }
 
+        private void FillForm()
+        {
+            var enderecoDAO = new EnderecoDAO();
+            _endereco = enderecoDAO.GetById(_id);
+
+            edCEP.Text = _endereco.CEP;
+            edCidade.Text = _endereco.Cidade;
+            edComplemento.Text = _endereco.Complemento;
+            cbUF.Text = _endereco.Estado;
+            edBairro.Text = _endereco.Bairro;
+            edNumer.Text = _endereco.Numero.ToString();
+            edRua.Text = _endereco.Rua;
+
+            _update = true;
+        }
+
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente cancelar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Ultis.ResetControls(this); // Limpa os campos usando a classe Ultis caso o usuário confirme o cancelamento
+                _update = false;
+            }
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -77,21 +109,45 @@ namespace WpfTechPharma.Janelas
             {
                 try
                 {
-                    // Cria um novo objeto de Endereco com base nos valores dos campos preenchidos
-                    var endereco = new Endereco
+                    if (_update)
                     {
-                        CEP = edCEP.Text,
-                        Cidade = edCidade.Text,
-                        Complemento = edComplemento.Text,
-                        Estado = cbUF.Text,
-                        Bairro = edBairro.Text,
-                        Numero = Convert.ToInt32(edNumer.Text),
-                        Rua = edRua.Text
-                    };
+                        // Cria um novo objeto de Endereco com base nos valores dos campos preenchidos
+                        var endereco = new Endereco
+                        {
+                            Id = _id,
+                            CEP = edCEP.Text,
+                            Cidade = edCidade.Text,
+                            Complemento = edComplemento.Text,
+                            Estado = cbUF.Text,
+                            Bairro = edBairro.Text,
+                            Numero = Convert.ToInt32(edNumer.Text),
+                            Rua = edRua.Text
+                        };
 
-                    var enderecoDAO = new EnderecoDAO();
-                    enderecoDAO.Insert(endereco); // Insere o objeto de Endereco no banco de dados usando a classe EnderecoDAO
-                    MessageBox.Show("Endereço inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var enderecoDAO = new EnderecoDAO();
+
+                        enderecoDAO.Update(endereco); // Insere o objeto de Endereco no banco de dados usando a classe EnderecoDAO
+                        MessageBox.Show("Endereço atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _update = false;
+                    }
+                    else
+                    {
+                        // Cria um novo objeto de Endereco com base nos valores dos campos preenchidos
+                        var endereco = new Endereco
+                        {
+                            CEP = edCEP.Text,
+                            Cidade = edCidade.Text,
+                            Complemento = edComplemento.Text,
+                            Estado = cbUF.Text,
+                            Bairro = edBairro.Text,
+                            Numero = Convert.ToInt32(edNumer.Text),
+                            Rua = edRua.Text
+                        };
+
+                        var enderecoDAO = new EnderecoDAO();
+                        enderecoDAO.Insert(endereco); // Insere o objeto de Endereco no banco de dados usando a classe EnderecoDAO
+                        MessageBox.Show("Endereço inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    } 
                 }
                 catch (Exception ex)
                 {
@@ -99,6 +155,7 @@ namespace WpfTechPharma.Janelas
                 }
 
                 Ultis.ResetControls(this); // Limpa os campos usando a classe Ult
+                this.Close();
             }
             else
             {

@@ -23,7 +23,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -58,26 +57,25 @@
 
         </WrapPanel>
 
+        <!--
         <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
-
             <materialDesign:PackIcon Kind="HeartPulse" Height="50" Width="50" Foreground="#320b86"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
-
-
             <TextBox x:Name="edTipo" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="700" 
                     materialDesign:HintAssist.Hint="Informe o tipo do insumo"
                     AcceptsReturn="True"
                     Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>
+        -->
 
-        <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" >
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" >
             <materialDesign:PackIcon Kind="AccountTie" Height="50" Width="50" Foreground="#320b86"/>
 
         </WrapPanel>
 
-        <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="700">
             <ComboBox x:Name="edFornecedor" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="700" 
                       materialDesign:HintAssist.Hint="Selecione o fornecedor"
                       materialDesign:TextFieldAssist.HasClearButton="True"
@@ -86,12 +84,12 @@
                       Style="{StaticResource MaterialDesignFilledComboBox}"/>
         </WrapPanel>
 
-        <WrapPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0">
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0">
             <materialDesign:PackIcon Kind="Barcode" Height="50" Width="50" Foreground="#320b86"/>
 
         </WrapPanel>
 
-        <WrapPanel Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Width="700">
+        <WrapPanel Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Width="700">
             <TextBox x:Name="edCodigoBarras" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="310" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Codigo de Barras" />
 
             <materialDesign:PackIcon Kind="CartArrowDown"  Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>

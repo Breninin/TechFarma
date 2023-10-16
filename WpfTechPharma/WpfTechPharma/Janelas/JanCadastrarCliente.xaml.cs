@@ -86,7 +86,7 @@ namespace WpfTechPharma.Janelas
         private void FillForm()
         {
             var clienteDAO = new ClienteDAO();
-            var _cliente = clienteDAO.GetById(_id);
+            _cliente = clienteDAO.GetById(_id);
 
             var enderecoDAO = new EnderecoDAO();
             var endereco = enderecoDAO.GetById(_cliente.Endereco.Id);
@@ -122,7 +122,10 @@ namespace WpfTechPharma.Janelas
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Ultis.ResetControls(this);
+                _update = false;
+            }
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -168,8 +171,6 @@ namespace WpfTechPharma.Janelas
                     }
                     else
                     {
-                        var clienteDAO = new ClienteDAO();
-
                         var cliente = new Cliente
                         {
                             Nome = edNome.Text,
@@ -181,6 +182,8 @@ namespace WpfTechPharma.Janelas
                             Sexo = cbSexo.Text,
                             Endereco = (Endereco)cbEndereco.SelectedItem
                         };
+
+                        var clienteDAO = new ClienteDAO();
 
                         clienteDAO.Insert(cliente);
                         MessageBox.Show("Cliente inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);

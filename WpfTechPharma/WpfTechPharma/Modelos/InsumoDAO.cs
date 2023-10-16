@@ -79,7 +79,7 @@ namespace WpfTechPharma.Modelos
                     "insu_valor_compra = @valorCompra, " +
                     "insu_quantidade = @quantidade, " +
                     "insu_codigo_barra = @codigoBarra, " +
-                    "fk_forn_id = @fornecedor, " +
+                    "fk_forn_id = @fornecedor " +
                     "where " +
                     "(insu_id = @id)";
 
