@@ -193,6 +193,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\JanTelaInicial.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Janelas\TelaInicial.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -259,6 +267,12 @@
     </Compile>
     <Compile Include="Janelas\JanListarServico.xaml.cs">
       <DependentUpon>JanListarServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanTelaInicial.xaml.cs">
+      <DependentUpon>JanTelaInicial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\TelaInicial.xaml.cs">
+      <DependentUpon>TelaInicial.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -338,6 +352,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BancoDados\bd_techpharma.sql" />
+    <Resource Include="Janelas\TechPharma logo.png" />
+    <Resource Include="Janelas\3432e88e75ac97b18fa7788bf0dfec83.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.8.0\build\MaterialDesignThemes.targets')" />
