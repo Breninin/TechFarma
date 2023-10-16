@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using WpfTechPharma.Auxiliares;
 using WpfTechPharma.BancoDados;
 using WpfTechPharma.Interfaces;
+using System.Windows;
 
 namespace WpfTechPharma.Modelos
 {
@@ -74,19 +75,20 @@ namespace WpfTechPharma.Modelos
             try
             {
                 var query = conexao.Query();
-                query.CommandText = "Update" +
+
+                query.CommandText = "Update " +
                     "Medicamento " +
-                    "set" +
-                    "(medi_nome = @nome, " +
+                    "set " +
+                    "medi_nome = @nome, " +
                     "medi_marca = @marca, " +
                     "medi_valor_compra = @valor_compra, " +
                     "medi_valor_venda = @valor_venda, " +
                     "medi_quantidade = @quantidade," +
                     "medi_tarja = @tarja, " +
                     "medi_codigo_barra = @codigo_barra, " +
-                    "fk_forn_id = @fornecedorId)" +
+                    "fk_forn_id = @fornecedorId " +
                     "where " +
-                    "medi_id = @id";
+                    "(medi_id = @id)";
 
                 query.Parameters.AddWithValue("@nome", t.Nome);
                 query.Parameters.AddWithValue("@marca", t.Marca);
@@ -96,6 +98,7 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@tarja", t.Tarja);
                 query.Parameters.AddWithValue("@codigo_barra", t.CodigoBarra);
                 query.Parameters.AddWithValue("@fornecedorId", t.Fornecedor.Id);
+                query.Parameters.AddWithValue("@id", t.Id);
 
                 var result = query.ExecuteNonQuery();
 
@@ -103,7 +106,6 @@ namespace WpfTechPharma.Modelos
                 {
                     throw new NotImplementedException("Erro ao atualizar o medicamento.");
                 }
-
             }
             catch (Exception e)
             {

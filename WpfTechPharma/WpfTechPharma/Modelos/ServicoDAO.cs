@@ -71,9 +71,9 @@ namespace WpfTechPharma.Modelos
                     "serv_nome = @nome, " +
                     "serv_valor_venda = @valorVenda, " +
                     "serv_duracao = @duracao, " +
-                    "serv_tipo = @tipo, " +
+                    "serv_tipo = @tipo " +
                     "where " +
-                    "(clie_id = @id)";
+                    "(serv_id = @id)";
 
                 query.Parameters.AddWithValue("@nome", t.Nome);
                 query.Parameters.AddWithValue("@valorVenda", t.ValorVenda);
