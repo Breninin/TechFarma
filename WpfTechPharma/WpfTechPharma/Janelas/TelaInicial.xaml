@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:WpfTechPharma.Janelas"
         mc:Ignorable="d"
         Title="TelaInicial" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="0,100,86" RenderTransformOrigin="1.233,0.597">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Janelas/TechPharma logo.png"/>
+        </Grid.Background>
+
     </Grid>
 </Window>
