@@ -197,10 +197,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Janelas\TelaInicial.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -270,9 +266,6 @@
     </Compile>
     <Compile Include="Janelas\JanTelaInicial.xaml.cs">
       <DependentUpon>JanTelaInicial.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\TelaInicial.xaml.cs">
-      <DependentUpon>TelaInicial.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
