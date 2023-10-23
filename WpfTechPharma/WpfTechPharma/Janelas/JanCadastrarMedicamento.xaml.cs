@@ -46,7 +46,6 @@ namespace WpfTechPharma.Janelas
             edMarca.TextChanged += TextBox_TextChanged;
             edEstoque.TextChanged += TextBox_TextChanged;
             edCodigoBarras.TextChanged += TextBox_TextChanged;
-            edTipo.SelectionChanged += ComboBox_SelectionChanged;
             edValorVenda.TextChanged += TextBox_TextChanged;
             edValorCompra.TextChanged += TextBox_TextChanged;
             edFornecedor.SelectionChanged += ComboBox_SelectionChanged;
@@ -115,7 +114,6 @@ namespace WpfTechPharma.Janelas
             List<bool> check = new List<bool>
             {
                 Ultis.Check(this, edNome),
-                Ultis.Check(this, edTipo),
                 Ultis.Check(this, edCodigoBarras),
                 Ultis.Check(this, edMarca),
                 Ultis.Check(this, edFornecedor),
@@ -133,7 +131,7 @@ namespace WpfTechPharma.Janelas
                     {
                         var fornecedorDAO = new FornecedorDAO();
 
-                        var Medicamento = new Medicamento
+                        var medicamento = new Medicamento
                         {
                             Id = _id,
                             Nome = edNome.Text,
@@ -148,8 +146,9 @@ namespace WpfTechPharma.Janelas
 
                         var MedicamentoDAO = new MedicamentoDAO();
 
-                        MedicamentoDAO.Update(Medicamento);
+                        MedicamentoDAO.Update(medicamento);
                         MessageBox.Show("Medicamento atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _update = false;
                     }
                     else
                     {

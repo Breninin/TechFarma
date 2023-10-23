@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlX.XDevAPI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +22,24 @@ namespace WpfTechPharma.Janelas
     /// </summary>
     public partial class JanCadastrarServico : Window
     {
+        private int _id = 0;
+        private Servico _servico = new Servico();
+        private bool _update = false;
+
         public JanCadastrarServico()
         {
             InitializeComponent();
             InitializeEventHandlers();
+            //LoadData();
+        }
+
+        public JanCadastrarServico(int id)
+        {
+            _id = id;
+
+            InitializeComponent();
+            InitializeEventHandlers();
+            FillForm();
             //LoadData();
         }
 
@@ -51,6 +66,19 @@ namespace WpfTechPharma.Janelas
             Ultis.Check(this, comboBox);
         }
 
+        private void FillForm()
+        {
+            var servicoDAO = new ServicoDAO();
+            _servico = servicoDAO.GetById(_id);
+
+            edNome.Text = _servico.Nome;
+            edDuracao.Text = _servico.Duracao;
+            edTipo.Text = _servico.Tipo;
+            edValor.Text = _servico.ValorVenda.ToString();
+
+            _update = true;
+        }
+
         /*
         // Carrega os dados iniciais
         private void LoadData()
@@ -73,7 +101,10 @@ namespace WpfTechPharma.Janelas
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Ultis.ResetControls(this);
+                _update = false;
+            }
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -90,16 +121,38 @@ namespace WpfTechPharma.Janelas
             {
                 try
                 {
-                    var servico = new Servico
+                    if (_update)
                     {
-                        Nome = edNome.Text,
-                        Duracao = edDuracao.Text,
-                        Tipo = edTipo.Text,
-                        ValorVenda = float.Parse(edValor.Text),
-                    };
-                    var servicoDAO = new ServicoDAO();
-                    servicoDAO.Insert(servico);
-                    MessageBox.Show("Serviço inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var servico = new Servico
+                        {
+                            Id = _id,
+                            Nome = edNome.Text,
+                            Duracao = edDuracao.Text,
+                            Tipo = edTipo.Text,
+                            ValorVenda = float.Parse(edValor.Text),
+                        };
+
+                        var servicoDAO = new ServicoDAO();
+
+                        servicoDAO.Update(servico);
+                        MessageBox.Show("Serviço atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _update = false;
+                    }
+                    else
+                    {
+                        var servico = new Servico
+                        {
+                            Nome = edNome.Text,
+                            Duracao = edDuracao.Text,
+                            Tipo = edTipo.Text,
+                            ValorVenda = float.Parse(edValor.Text),
+                        };
+
+                        var servicoDAO = new ServicoDAO();
+
+                        servicoDAO.Insert(servico);
+                        MessageBox.Show("Serviço inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -107,6 +160,7 @@ namespace WpfTechPharma.Janelas
                 }
 
                 Ultis.ResetControls(this);
+                this.Close();
             }
             else
             {

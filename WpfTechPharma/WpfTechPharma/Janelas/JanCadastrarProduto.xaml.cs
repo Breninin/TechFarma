@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlX.XDevAPI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,25 @@ namespace WpfTechPharma.Janelas
 {
     public partial class JanCadastrarProduto : Window
     {
+        private int _id = 0;
+        private Produto _produto = new Produto();
+        private bool _update = false;
+
         public JanCadastrarProduto()
         {
             InitializeComponent();
             InicializarManipuladoresEventos();
             LoadData();
+        }
+
+        public JanCadastrarProduto(int id)
+        {
+            _id = id;
+
+            InitializeComponent();
+            InicializarManipuladoresEventos();
+            LoadData();
+            FillForm();
         }
 
         private void InicializarManipuladoresEventos()
@@ -49,6 +64,26 @@ namespace WpfTechPharma.Janelas
             Ultis.Check(this, comboBox);
         }
 
+        private void FillForm()
+        {
+            var produtoDAO = new ProdutoDAO();
+            _produto = produtoDAO.GetById(_id);
+
+            var fornecedorDAO = new FornecedorDAO();
+            var fornecedor = fornecedorDAO.GetById(_produto.Fornecedor.Id);
+
+            edNome.Text = _produto.Nome;
+            edMarca.Text = _produto.Marca;
+            edValorCompra.Text = _produto.ValorCompra.ToString();
+            edValorVenda.Text = _produto.ValorVenda.ToString();
+            edTipo.Text = _produto.Tipo;
+            edEstoque.Text = _produto.Quantidade.ToString();
+            edCodigoBarras.Text = _produto.CodigoBarra;
+            edFornecedor.SelectedIndex = (fornecedor.Id - 1);
+
+            _update = true;
+        }
+
         private void LoadData()
         {
             try
@@ -67,7 +102,10 @@ namespace WpfTechPharma.Janelas
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Ultis.ResetControls(this);
+                _update = false;
+            }
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -89,21 +127,48 @@ namespace WpfTechPharma.Janelas
             {
                 try
                 {
-                    var Produto = new Produto
+                    if (_update)
                     {
-                        Nome = edNome.Text,
-                        Marca = edMarca.Text,
-                        ValorCompra = float.Parse(edValorCompra.Text),
-                        ValorVenda = float.Parse(edValorVenda.Text),
-                        Tipo = edTipo.Text,
-                        Quantidade = int.Parse(edEstoque.Text),
-                        CodigoBarra = edCodigoBarras.Text,
-                        Fornecedor = (Fornecedor)edFornecedor.SelectedItem
-                    };
+                        var fornecedorDAO = new FornecedorDAO();
 
-                    var ProdutoDAO = new ProdutoDAO();
-                    ProdutoDAO.Insert(Produto);
-                    MessageBox.Show("Produto inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var Produto = new Produto
+                        {
+                            Id = _id,
+                            Nome = edNome.Text,
+                            Marca = edMarca.Text,
+                            ValorCompra = float.Parse(edValorCompra.Text),
+                            ValorVenda = float.Parse(edValorVenda.Text),
+                            Tipo = edTipo.Text,
+                            Quantidade = int.Parse(edEstoque.Text),
+                            CodigoBarra = edCodigoBarras.Text,
+                            Fornecedor = fornecedorDAO.GetById(edFornecedor.SelectedIndex + 1)
+                        };
+
+                        var ProdutoDAO = new ProdutoDAO();
+
+                        ProdutoDAO.Update(Produto);
+                        MessageBox.Show("Produto atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _update = false;
+                    }
+                    else
+                    {
+                        var Produto = new Produto
+                        {
+                            Nome = edNome.Text,
+                            Marca = edMarca.Text,
+                            ValorCompra = float.Parse(edValorCompra.Text),
+                            ValorVenda = float.Parse(edValorVenda.Text),
+                            Tipo = edTipo.Text,
+                            Quantidade = int.Parse(edEstoque.Text),
+                            CodigoBarra = edCodigoBarras.Text,
+                            Fornecedor = (Fornecedor)edFornecedor.SelectedItem
+                        };
+
+                        var ProdutoDAO = new ProdutoDAO();
+
+                        ProdutoDAO.Insert(Produto);
+                        MessageBox.Show("Produto inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -111,7 +176,7 @@ namespace WpfTechPharma.Janelas
                 }
 
                 Ultis.ResetControls(this);
-
+                this.Close();
             }
             else
             {

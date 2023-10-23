@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlX.XDevAPI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,25 @@ namespace WpfTechPharma.Janelas
     /// </summary>
     public partial class JanCadastrarUsuario : Window
     {
+        private int _id = 0;
+        private Usuario _usuario = new Usuario();
+        private bool _update = false;
+
         public JanCadastrarUsuario()
         {
             InitializeComponent();
             InicializarManipuladoresEventos();
             LoadData();
+        }
+
+        public JanCadastrarUsuario(int id)
+        {
+            _id = id;
+
+            InitializeComponent();
+            InicializarManipuladoresEventos();
+            LoadData();
+            FillForm();
         }
 
         // Inicializa os manipuladores de eventos para os controles da janela
@@ -65,8 +80,20 @@ namespace WpfTechPharma.Janelas
             Ultis.Check(this, comboBox);
         }
 
-        // Manipulador de evento para o botão "Limpar"
-       
+        private void FillForm()
+        {
+            var usuarioDAO = new UsuarioDAO();
+            _usuario = usuarioDAO.GetById(_id);
+
+            var funcionarioDAO = new FuncionarioDAO();
+            var funcionario = funcionarioDAO.GetById(_usuario.Funcionario.Id);
+
+            edNomeUsuario.Text = _usuario.NomeUsuario;
+            edSenhaUsuario.Text = _usuario.Senha;
+            cbNomeFuncionario.SelectedIndex = (funcionario.Id - 1);
+
+            _update = true;
+        }
 
         // Carrega os dados para o ComboBox "cbNomeFuncionario"
         private void LoadData()
@@ -84,10 +111,14 @@ namespace WpfTechPharma.Janelas
             }
         }
 
+        // Manipulador de evento para o botão "Limpar"
         private void btLimpar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente cancelar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
                 Ultis.ResetControls(this);
+                _update = false;
+            }
         }
 
         // Manipulador de evento para o botão "Salvar"
@@ -104,17 +135,38 @@ namespace WpfTechPharma.Janelas
             {
                 try
                 {
-                    var usuario = new Usuario
+                    if (_update)
                     {
-                        NomeUsuario = edNomeUsuario.Text,
-                        Senha = edSenhaUsuario.Text,
-                        Funcionario = (Funcionario)cbNomeFuncionario.SelectedItem
-                    };
+                        var funcionarioDAO = new FuncionarioDAO();
 
-                    var usuarioDAO = new UsuarioDAO();
-                    usuarioDAO.Insert(usuario);
+                        var usuario = new Usuario
+                        {
+                            Id = _id,
+                            NomeUsuario = edNomeUsuario.Text,
+                            Senha = edSenhaUsuario.Text,
+                            Funcionario = funcionarioDAO.GetById(cbNomeFuncionario.SelectedIndex +1)
+                        };
 
-                    MessageBox.Show("Login inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var usuarioDAO = new UsuarioDAO();
+
+                        usuarioDAO.Update(usuario);
+                        MessageBox.Show("Login atualizado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        _update = false;
+                    }
+                    else
+                    {
+                        var usuario = new Usuario
+                        {
+                            NomeUsuario = edNomeUsuario.Text,
+                            Senha = edSenhaUsuario.Text,
+                            Funcionario = (Funcionario)cbNomeFuncionario.SelectedItem
+                        };
+
+                        var usuarioDAO = new UsuarioDAO();
+                        usuarioDAO.Insert(usuario);
+
+                        MessageBox.Show("Login inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -122,6 +174,7 @@ namespace WpfTechPharma.Janelas
                 }
 
                 Ultis.ResetControls(this);
+                this.Close();
             }
             else
             {

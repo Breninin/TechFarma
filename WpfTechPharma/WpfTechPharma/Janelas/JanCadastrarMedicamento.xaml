@@ -76,42 +76,23 @@
         </WrapPanel>
 
         <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
-            <ComboBox x:Name="edFornecedor" HorizontalAlignment="Left" VerticalAlignment="Center" Width="500"
+            <ComboBox x:Name="edFornecedor" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700"
                       materialDesign:HintAssist.Hint="Selecione o fornecedor"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
                       Style="{StaticResource MaterialDesignFilledComboBox}"/>
-
-            <materialDesign:PackIcon Kind="PackageVariant" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
-            <TextBox x:Name="edEstoque" HorizontalAlignment="Right" VerticalAlignment="Center" Width="110" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Estoque"/>
-
         </WrapPanel>
 
         <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
             <materialDesign:PackIcon Kind="Barcode" Height="50" Width="50" Foreground="#320b86"/>
-
         </WrapPanel>
 
         <WrapPanel Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Grid.Column="1">
-
-            <TextBox x:Name="edCodigoBarras" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="210" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Código de Barras"/>
-
-            <materialDesign:PackIcon Kind="Pill" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
-
-            <ComboBox x:Name="edTipo" HorizontalAlignment="Left" VerticalAlignment="Center" Width="400"
-                      materialDesign:HintAssist.Hint="Selecione o tipo"
-                      materialDesign:TextFieldAssist.HasClearButton="True"
-                      IsEditable="True"
-                      ItemsSource="{Binding ShortStringList}"
-                      Style="{StaticResource MaterialDesignFilledComboBox}">
-                <ComboBoxItem>Fitoterápico</ComboBoxItem>
-                <ComboBoxItem>Alopático</ComboBoxItem>
-                <ComboBoxItem>Similar</ComboBoxItem>
-                <ComboBoxItem>Genérico</ComboBoxItem>
-                <ComboBoxItem>de Referência</ComboBoxItem>
-            </ComboBox>
-
+            <TextBox x:Name="edCodigoBarras" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="340" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Código de Barras"/>
+            
+            <materialDesign:PackIcon Kind="PackageVariant" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
+            <TextBox x:Name="edEstoque" HorizontalAlignment="Right" VerticalAlignment="Center" Width="270" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Estoque"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">

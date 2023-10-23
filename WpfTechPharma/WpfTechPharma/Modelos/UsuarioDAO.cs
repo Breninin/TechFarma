@@ -68,7 +68,7 @@ namespace WpfTechPharma.Modelos
                     "set " +
                     "usua_login = @usuario, " +
                     "usua_senha = @senha, " +
-                    "fk_func_id = @funcionarioId, " +
+                    "fk_func_id = @funcionarioId " +
                     "where " +
                     "(usua_id = @id)";
 

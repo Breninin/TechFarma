@@ -75,19 +75,19 @@ namespace WpfTechPharma.Modelos
             try
             {
                 var query = conexao.Query();
-                query.CommandText = "Update" +
+                query.CommandText = "Update " +
                     "Produto " +
-                    "set" +
-                    "(prod_nome = @nome, " +
+                    "set " +
+                    "prod_nome = @nome, " +
                     "prod_marca = @marca, " +
                     "prod_valor_compra = @valor_compra, " +
                     "prod_valor_venda = @valor_venda, " +
                     "prod_tipo = @tipo, " +
                     "prod_quantidade = @quantidade," +
                     "prod_codigo_barra = @codigo_barra, " +
-                    "fk_forn_id = @fornecedorId)" +
+                    "fk_forn_id = @fornecedorId " +
                     "where " +
-                    "prod_id = @id";
+                    "(prod_id = @id)";
 
                 query.Parameters.AddWithValue("@nome", t.Nome);
                 query.Parameters.AddWithValue("@marca", t.Marca);
@@ -97,6 +97,7 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@quantidade", t.Quantidade);
                 query.Parameters.AddWithValue("@codigo_barra", t.CodigoBarra);
                 query.Parameters.AddWithValue("@fornecedorId", t.Fornecedor.Id);
+                query.Parameters.AddWithValue("@id", t.Id);
 
                 var result = query.ExecuteNonQuery();
 
@@ -115,6 +116,7 @@ namespace WpfTechPharma.Modelos
                 conexao.Close();
             }
         }
+
         public void Delete(Produto t)
         {
             try
