@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 namespace WpfTechPharma.Modelos
 {
     //Breno
-    internal class EnderecoDAO : IDAO<Endereco>
+    internal class EnderecoDAO //: IDAO<Endereco>
     {
         private static Conexao conexao;
 
@@ -20,22 +20,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Endereco t)
+        public string Insert(Endereco t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText = 
-                    "insert into " +
-                    "Endereco " +
-                    "(ende_estado, " +
-                    "ende_cidade, " +
-                    "ende_bairro, " +
-                    "ende_rua, " +
-                    "ende_numero, " +
-                    "ende_complemento, " +
-                    "ende_cep) " +
-                    "values " +
+                    "call cadastrar_endereco " +
                     "(@estado, " +
                     "@cidade, " +
                     "@bairro, " +
@@ -52,12 +43,16 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@complemento", t.Complemento);
                 query.Parameters.AddWithValue("@cep", t.CEP);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
+                return result;
+
+                /*
                 if (result == 0)
                 {
                     throw new Exception("Erro ao salvar o endereço. Verifique o endereço inserido e tente novamente.");
                 }
+                */
             }
             catch (Exception e)
             {
