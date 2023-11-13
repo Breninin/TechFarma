@@ -240,6 +240,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Auxiliares\AuxiliarDAO.cs" />
+    <Compile Include="Auxiliares\AuxiliarFluentValidation.cs" />
     <Compile Include="Auxiliares\Estado.cs" />
     <Compile Include="Auxiliares\Utils.cs" />
     <Compile Include="BancoDados\Conexao.cs" />
