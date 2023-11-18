@@ -154,9 +154,8 @@ namespace WpfTechPharma.Janelas
 
                         // Cria uma instância do InsumoDAO e insere o insumo no banco de dados
                         var insumoDAO = new InsumoDAO();
-
-                        insumoDAO.Insert(insumo);
-                        MessageBox.Show("Insumo inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = insumoDAO.Insert(insumo);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)

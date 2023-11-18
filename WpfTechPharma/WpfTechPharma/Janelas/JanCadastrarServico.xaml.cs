@@ -149,9 +149,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var servicoDAO = new ServicoDAO();
-
-                        servicoDAO.Insert(servico);
-                        MessageBox.Show("Serviço inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = servicoDAO.Insert(servico);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)

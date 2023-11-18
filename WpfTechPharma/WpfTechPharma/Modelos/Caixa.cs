@@ -18,6 +18,8 @@ namespace WpfTechPharma.Modelos
 
         public string HorarioFinal { get; set; }
 
+        public string Status { get; set; }
+
         public float SaldoInicial { get; set; }
 
         public float SaldoFinal { get; set; }

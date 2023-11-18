@@ -19,20 +19,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Despesa t)
+        public string Insert(Despesa t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Despesa " +
-                    "(desp_data, " +
-                    "desp_valor, " +
-                    "desp_descricao, " +
-                    "desp_tipo, " +
-                    "desp_quantidade_parcelas) " +
-                    "values " +
+                    "call cadastrar_despesa " +
                     "(@data, " +
                     "@valor, " +
                     "@descricao, " +
@@ -45,12 +38,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@tipo", t.Tipo);
                 query.Parameters.AddWithValue("@quantidade_parcelas", t.QuantidadeParcelas);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar a Despesa. Verifique a Despesa inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

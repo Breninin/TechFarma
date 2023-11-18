@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 namespace WpfTechPharma.Modelos
 {
     //Breno
-    internal class EnderecoDAO //: IDAO<Endereco>
+    internal class EnderecoDAO : IDAO<Endereco>
     {
         private static Conexao conexao;
 

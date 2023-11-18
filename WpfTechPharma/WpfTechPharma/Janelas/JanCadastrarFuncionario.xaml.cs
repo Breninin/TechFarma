@@ -194,9 +194,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var funcionarioDAO = new FuncionarioDAO();
-
-                        funcionarioDAO.Insert(funcionario);
-                        MessageBox.Show("Funcionario inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = funcionarioDAO.Insert(funcionario);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)

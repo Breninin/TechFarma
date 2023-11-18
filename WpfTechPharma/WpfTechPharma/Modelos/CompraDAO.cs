@@ -19,35 +19,26 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Compra t)
+        public string Insert(Compra t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Compra " +
-                    "(comp_data, " +
-                    "comp_valor, " +
-                    "fk_desp_id, " +
-                    "fk_forn_id) " +
-                    "values " +
+                    "call cadastrar_compra " +
                     "(@data, " +
                     "@valor, " +
-                    "@despesa," +
-                    "@fornecedor)";
+                    "@fornecedor," +
+                    "@despesa)";
 
                 query.Parameters.AddWithValue("@data", t.Data?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@valor", t.Valor);
-                query.Parameters.AddWithValue("@despesa", t.Despesa.Id);
                 query.Parameters.AddWithValue("@fornecedor", t.Fornecedor.Id);
+                query.Parameters.AddWithValue("@despesa", t.Despesa.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar a Compra. Verifique a Compra inserida e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

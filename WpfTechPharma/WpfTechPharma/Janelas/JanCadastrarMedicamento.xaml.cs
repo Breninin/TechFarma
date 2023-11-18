@@ -165,9 +165,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var MedicamentoDAO = new MedicamentoDAO();
-
-                        MedicamentoDAO.Insert(Medicamento);
-                        MessageBox.Show("Medicamento inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = MedicamentoDAO.Insert(Medicamento);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)

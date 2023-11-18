@@ -19,25 +19,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Prescricao t)
+        public string Insert(Prescricao t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Prescricao " +
-                    "(pres_data, " +
-                    "pres_patologia, " +
-                    "pres_vencimento, " +
-                    "pres_nome_emissor, " +
-                    "pres_clinica_emissora, " +
-                    "pres_scan_documento, " +
-                    "fk_clie_id, " +
-                    "fk_medi_id, " +
-                    "fk_func_id, " +
-                    "fk_vend_id) " +
-                    "values " +
+                    "call cadastrar_prescricao " +
                     "(@data, " +
                     "@patologia, " +
                     "@vencimento, " +
@@ -60,12 +48,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@Funcionario", t.Funcionario.Id);
                 query.Parameters.AddWithValue("@Venda", t.Venda.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar a Prescricao. Verifique a Prescricao inserida e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

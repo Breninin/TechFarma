@@ -20,18 +20,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Usuario t)
+        public string Insert(Usuario t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Usuario " +
-                    "(usua_login, " +
-                    "usua_senha, " +
-                    "fk_func_id) " +
-                    "values " +
+                    "call cadastrar_usuario " +
                     "(@usuario, " +
                     "@senha, " +
                     "@funcionarioId)";
@@ -40,12 +35,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@senha", t.Senha);
                 query.Parameters.AddWithValue("@funcionarioId", t.Funcionario.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o usuário. Verifique o usuário inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

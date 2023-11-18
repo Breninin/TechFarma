@@ -19,25 +19,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Funcionario t)
+        public string Insert(Funcionario t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Funcionario " +
-                    "(func_nome, " +
-                    "func_sexo, " +
-                    "func_nascimento, " +
-                    "func_rg, " +
-                    "func_cpf, " +
-                    "func_email, " +
-                    "func_contato," +
-                    "func_funcao, " +
-                    "func_salario, " +
-                    "fk_ende_id) " +
-                    "values " +
+                    "call cadastrar_funcionario " +
                     "(@nome, " +
                     "@sexo, " +
                     "@nascimento, " +
@@ -60,12 +48,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@salario", t.Salario);
                 query.Parameters.AddWithValue("@endereco", t.Endereco.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o Funcionario. Verifique o Funcionario inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

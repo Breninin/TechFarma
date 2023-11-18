@@ -163,9 +163,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var usuarioDAO = new UsuarioDAO();
-                        usuarioDAO.Insert(usuario);
-
-                        MessageBox.Show("Login inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = usuarioDAO.Insert(usuario);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)

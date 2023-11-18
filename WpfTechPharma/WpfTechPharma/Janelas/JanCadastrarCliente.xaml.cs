@@ -184,9 +184,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var clienteDAO = new ClienteDAO();
-
-                        clienteDAO.Insert(cliente);
-                        MessageBox.Show("Cliente inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = clienteDAO.Insert(cliente);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)

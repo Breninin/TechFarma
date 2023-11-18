@@ -18,28 +18,20 @@ namespace WpfTechPharma.Modelos
         {
             conexao = new Conexao();
         }
-        public void Insert(Produto t)
+
+        public string Insert(Produto t)
         {
             try
             {
                 var query = conexao.Query();
-                query.CommandText = "insert into " +
-                    "Produto " +
-                    "(prod_nome, " +
-                    "prod_marca, " +
-                    "prod_valor_compra, " +
-                    "prod_valor_venda, " +
-                    "prod_tipo, " +
-                    "prod_quantidade," +
-                    "prod_codigo_barra, " +
-                    "fk_forn_id) " +
-                    "values " +
+                query.CommandText = 
+                    "call cadastrar_produto " +
                     "(@nome, " +
                     "@marca, " +
                     "@valor_compra, " +
                     "@valor_venda, " +
-                    "@tipo, " +
                     "@quantidade, " +
+                    "@tipo, " +
                     "@codigo_barra, " +
                     "@fornecedorId)";
 
@@ -47,18 +39,14 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@marca", t.Marca);
                 query.Parameters.AddWithValue("@valor_compra", t.ValorCompra);
                 query.Parameters.AddWithValue("@valor_venda", t.ValorVenda);
-                query.Parameters.AddWithValue("@tipo", t.Tipo);
                 query.Parameters.AddWithValue("@quantidade", t.Quantidade);
+                query.Parameters.AddWithValue("@tipo", t.Tipo);
                 query.Parameters.AddWithValue("@codigo_barra", t.CodigoBarra);
                 query.Parameters.AddWithValue("@fornecedorId", t.Fornecedor.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new NotImplementedException("Erro ao salvar o produto.");
-                }
-
+                return result;
             }
             catch (Exception e)
             {

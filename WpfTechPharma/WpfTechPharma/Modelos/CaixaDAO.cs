@@ -14,27 +14,18 @@ namespace WpfTechPharma.Modelos
     {
         private static Conexao conexao;
 
-        public void Insert(Caixa t)
+        public string Insert(Caixa t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Caixa " +
-                    "(caix_numero, " +
-                    "caix_data, " +
-                    "caix_horario_inicial, " +
-                    "caix_horario_final, " +
-                    "caix_saldo_inicial, " +
-                    "caix_saldo_final, " +
-                    "caix_total_entrada, " +
-                    "caix_total_saida) " +
-                    "values " +
+                    "call cadastrar_caixa " +
                     "(@numero, " +
                     "@data, " +
                     "@horario_inicial, " +
                     "@horario_final, " +
+                    "@status, " +
                     "@saldo_inicial, " +
                     "@saldo_final, " +
                     "@total_entrada," +
@@ -44,17 +35,15 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@data", t.Data?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@horario_inicial", t.HorarioInicial);
                 query.Parameters.AddWithValue("@horario_final", t.HorarioFinal);
+                query.Parameters.AddWithValue("@status", t.Status);
                 query.Parameters.AddWithValue("@saldo_inicial", t.SaldoInicial);
                 query.Parameters.AddWithValue("@saldo_final", t.SaldoFinal);
                 query.Parameters.AddWithValue("@total_entrada", t.TotalEntrada);
                 query.Parameters.AddWithValue("@total_saida", t.TotalSaida);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o Caixa. Verifique o Caixa inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {
@@ -79,6 +68,7 @@ namespace WpfTechPharma.Modelos
                     "caix_data = @data, " +
                     "caix_horario_inicial = @horario_inicial, " +
                     "caix_horario_final = @horario_final, " +
+                    "caix_status = @status, " +
                     "caix_saldo_inicial = @saldo_inicial, " +
                     "caix_saldo_final = @saldo_final, " +
                     "caix_total_entrada = @total_entrada, " +
@@ -90,6 +80,7 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@data", t.Data?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@horario_inicial", t.HorarioInicial);
                 query.Parameters.AddWithValue("@horario_final", t.HorarioFinal);
+                query.Parameters.AddWithValue("@status", t.Status);
                 query.Parameters.AddWithValue("@saldo_inicial", t.SaldoInicial);
                 query.Parameters.AddWithValue("@saldo_final", t.SaldoFinal);
                 query.Parameters.AddWithValue("@total_entrada", t.TotalEntrada);
@@ -164,6 +155,7 @@ namespace WpfTechPharma.Modelos
                     Caixa.Data = AuxiliarDAO.GetDateTime(reader, "caix_data");
                     Caixa.HorarioInicial = AuxiliarDAO.GetString(reader, "caix_horario_incial");
                     Caixa.HorarioFinal = AuxiliarDAO.GetString(reader, "caix_horario_final");
+                    Caixa.Status = AuxiliarDAO.GetString(reader, "caix_status");
                     Caixa.SaldoInicial = AuxiliarDAO.GetFloat(reader, "caix_saldo_inicial");
                     Caixa.SaldoFinal = AuxiliarDAO.GetFloat(reader, "caix_saldo_final");
                     Caixa.TotalEntrada = AuxiliarDAO.GetFloat(reader, "caix_total_entrada");
@@ -207,6 +199,7 @@ namespace WpfTechPharma.Modelos
                         Data = AuxiliarDAO.GetDateTime(reader, "caix_data"),
                         HorarioInicial = AuxiliarDAO.GetString(reader, "caix_horario_incial"),
                         HorarioFinal = AuxiliarDAO.GetString(reader, "caix_horario_final"),
+                        Status = AuxiliarDAO.GetString(reader, "caix_status"),
                         SaldoInicial = AuxiliarDAO.GetFloat(reader, "caix_saldo_inicial"),
                         SaldoFinal = AuxiliarDAO.GetFloat(reader, "caix_saldo_final"),
                         TotalEntrada = AuxiliarDAO.GetFloat(reader, "caix_total_entrada"),
