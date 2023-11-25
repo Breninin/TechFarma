@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace WpfTechPharma.Janelas
 {
     /// <summary>
-    /// Lógica interna para JanRealizarCompra.xaml
+    /// Lógica interna para JanRealizarVenda.xaml
     /// </summary>
-    public partial class JanRealizarCompra : Window
+    public partial class JanRealizarVenda : Window
     {
-        public JanRealizarCompra()
+        public JanRealizarVenda()
         {
             InitializeComponent();
-        }
-
-        private void cbFuncionaio_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

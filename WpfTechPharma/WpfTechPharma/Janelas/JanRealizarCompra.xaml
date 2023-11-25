@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="Realizar Compra" 
         WindowStartupLocation="CenterScreen"
-        Height="500" Width="840"
+        Height="850" Width="840"
         MinHeight="470" MinWidth="840"
         ResizeMode="NoResize"
         TextElement.FontWeight="Medium"
@@ -19,11 +19,10 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -35,30 +34,28 @@
 
         <WrapPanel Grid.Row="0"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
 
-            <materialDesign:PackIcon Kind="Numeric" Height="50" Width="50" Foreground="#320b86"/>
+            <materialDesign:PackIcon Kind="CalendarRange" Height="50" Width="50" Foreground="#320b86"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
 
-            <TextBox x:Name="edNome" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"  Width="130"
-                    materialDesign:HintAssist.Hint="Id da Compra"
-                    AcceptsReturn="True"
-                    Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            
 
-            <materialDesign:PackIcon Kind="CalendarRange" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
-
-            <DatePicker x:Name="dpDataNascimento" Margin="0, 0, 0, 0" VerticalAlignment="Center" Width="180"
+            <DatePicker x:Name="dpCompra" Margin="0, 0, 0, 0" VerticalAlignment="Center" Width="210"
             materialDesign:HintAssist.Hint="Data Compra"
             Style="{StaticResource MaterialDesignFilledDatePicker}"/>
 
-            <materialDesign:PackIcon Kind="AccountTie" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
 
-            <ComboBox x:Name="cbFuncionaio" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="210"
-                      materialDesign:HintAssist.Hint="Funcionário"
-                      materialDesign:TextFieldAssist.HasClearButton="True"
-                      IsEditable="True"
-                      ItemsSource="{Binding ShortStringList}"
-                      Style="{StaticResource MaterialDesignFilledComboBox}"/>
+
+            <materialDesign:PackIcon Kind="ClockOutline" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0" />
+            <TextBox x:Name="edHorarioCompra" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"  Width="180"
+                    materialDesign:HintAssist.Hint="Horario"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFilledTextBox}"/>
+
+
+
+
         </WrapPanel>
 
 
@@ -69,67 +66,139 @@
 
         <WrapPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
 
-            <TextBox x:Name="edMarca" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="210"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Cliente"/>
-
-            <materialDesign:PackIcon Kind="ClockOutline" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0" />
-            <ComboBox x:Name="edTipo" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" 
-                      materialDesign:HintAssist.Hint="Selecione o tipo"
+            <ComboBox x:Name="cbFornecedor" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="305"
+                      materialDesign:HintAssist.Hint="Fornecedor"
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
-                      Style="{StaticResource MaterialDesignFilledComboBox}">
-                <ComboBoxItem>Fitoterápico</ComboBoxItem>
-                <ComboBoxItem>Alopático</ComboBoxItem>
-                <ComboBoxItem>Similar</ComboBoxItem>
-                <ComboBoxItem>Genérico</ComboBoxItem>
-                <ComboBoxItem>de Referência</ComboBoxItem>
-            </ComboBox>
-            
-            
+                      Style="{StaticResource MaterialDesignFilledComboBox}"/>
+
+            <materialDesign:PackIcon Kind="AccountTie" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
+
+            <ComboBox x:Name="cbFuncionaio" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="305"
+                      materialDesign:HintAssist.Hint="Funcionário"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      IsEditable="True"
+                      ItemsSource="{Binding ShortStringList}"
+                      Style="{StaticResource MaterialDesignFilledComboBox}"/>
+
         </WrapPanel>
 
 
         <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
 
-            <materialDesign:PackIcon Kind="AccountTie" Height="50" Width="50" Foreground="#320b86"/>
+            <materialDesign:PackIcon Kind="CreditCard" Height="50" Width="50" Foreground="#320b86"/>
 
         </WrapPanel>
 
         <WrapPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
 
-            <ComboBox x:Name="edFornecedor" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="700"
-                      materialDesign:HintAssist.Hint="Selecione o fornecedor"
-                      materialDesign:TextFieldAssist.HasClearButton="True"
-                      IsEditable="True"
-                      ItemsSource="{Binding ShortStringList}"
-                      Style="{StaticResource MaterialDesignFilledComboBox}"/>
+            <TextBox x:Name="edFormaPag" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="250" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Forma de Pagamento"/>
+
+            <materialDesign:PackIcon Kind="FractionOneHalf" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0" />
+            <TextBox x:Name="edParcelas" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"  Width="120"
+                    materialDesign:HintAssist.Hint="Parcelas"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFilledTextBox}"/>
+
+            <materialDesign:PackIcon Kind="Cash" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0" />
+            <TextBox x:Name="edValorParcelas" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"  Width="150"
+                    materialDesign:HintAssist.Hint="Valor Parcelas"
+                    AcceptsReturn="True"
+                    Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
 
-            <materialDesign:PackIcon Kind="CalendarRange" Height="50" Width="50" Foreground="#320b86"/>
+            <materialDesign:PackIcon Kind="Shopping" Height="50" Width="50" Foreground="#320b86"/>
         </WrapPanel>
 
         <WrapPanel Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
 
-            <TextBox x:Name="edCodigoBarras" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="340"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Código de Barras"/>
+            <ComboBox x:Name="cbProduto" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="220"
+                      materialDesign:HintAssist.Hint="Produto"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      IsEditable="True"
+                      ItemsSource="{Binding ShortStringList}"
+                      Style="{StaticResource MaterialDesignFilledComboBox}"/>
 
-            <materialDesign:PackIcon Kind="PackageVariant" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
-            <TextBox x:Name="edEstoque" HorizontalAlignment="Right" VerticalAlignment="Center" Width="270"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Estoque"/>
-        </WrapPanel>
-
-        <WrapPanel Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
-
-            <materialDesign:PackIcon Kind="CartArrowDown"  Height="50" Width="50" Foreground="#320b86"/>
-        </WrapPanel>
-
-        <WrapPanel Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
-
-            <TextBox x:Name="edValorCompra" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="300" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor de Compra"/>
+            <materialDesign:PackIcon Kind="Counter" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
+            <TextBox x:Name="edQuant" HorizontalAlignment="Right" VerticalAlignment="Center" Width="110"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Quantidade"/>
 
             <materialDesign:PackIcon Kind="CurrencyUsd" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
-            <TextBox x:Name="edValorVenda" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="310" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint=" Valor de Venda"/>
+            <TextBox x:Name="edValorUnitario" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Valor Unit."/>
+
+            
         </WrapPanel>
+
+        <Grid Grid.Row="4" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+
+            <DataGrid Grid.RowSpan="2" Grid.ColumnSpan="2" Width="660" Height="250" Margin="30,0,0,0" x:Name="dgvProdutos" AutoGenerateColumns="False" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="Black" FontSize="16"  IsReadOnly="True" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
+                    <DataGridTextColumn Header="Quantidade" Binding="{Binding Nome}" />
+                    <DataGridTextColumn Header="Valor Unitario" Binding="{Binding ValorVenda}" />
+                    <DataGridTextColumn Header="Valor Item" Binding="{Binding Fornecedor.RazaoSocial}" />
+
+                    <DataGridTemplateColumn Header="Excluir">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <CheckBox x:Name="checkbExcluir">
+                                        
+                                    </CheckBox>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Grid.RowSpan="2" Grid.Column='1'>
+
+                
+
+                <Button x:Name="btAdd" Height="70" Width="70" Margin=" 0,0,0,20" HorizontalAlignment="Center"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}">
+                    <materialDesign:PackIcon Kind="BasketPlus" Height="30" Width="30"/>
+                </Button>
+                
+                <Button x:Name="btExcluir" Margin=" 0,0,0,20" Width="70" Height="70"  HorizontalAlignment="Center" 
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}">
+                    <materialDesign:PackIcon Kind="TrashCanOutline" Height="30" Width="30"/>
+                </Button>
+
+                <Button x:Name="btFinalizar" Margin=" 0,0,0,10" Width="70" Height="70"  HorizontalAlignment="Center" 
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}">
+                    <materialDesign:PackIcon Kind="CartArrowRight" Height="30" Width="30"/>
+                </Button>
+            </StackPanel>
+
+
+
+            <WrapPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 0" FontWeight="Bold" Content="VALOR TOTAL: R$"/>
+
+            </WrapPanel>
+
+        </Grid>
+
 
 
     </Grid>

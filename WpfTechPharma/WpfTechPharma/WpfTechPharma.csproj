@@ -231,6 +231,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\JanRealizarVenda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\JanTelaInicial.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -305,6 +309,9 @@
     </Compile>
     <Compile Include="Janelas\JanRealizarCompra.xaml.cs">
       <DependentUpon>JanRealizarCompra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanRealizarVenda.xaml.cs">
+      <DependentUpon>JanRealizarVenda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\JanTelaInicial.xaml.cs">
       <DependentUpon>JanTelaInicial.xaml</DependentUpon>
