@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace WpfTechPharma.Auxiliares
@@ -92,7 +89,7 @@ namespace WpfTechPharma.Auxiliares
         public static bool Check(Window window, TextBox e, int length)
         {
             SaveColors(window);
-            string text = e.Text.Replace("_", "").Replace(".", "").Replace("-", "").Replace(",","");
+            string text = e.Text.Replace("_", "").Replace(".", "").Replace("-", "").Replace(",", "");
 
             if (text.Length == length)
             {
@@ -170,6 +167,26 @@ namespace WpfTechPharma.Auxiliares
                 SetInvalidColors(textBox2);
                 return false;
             }
+        }
+
+        // Adicione esse método à classe Ultis
+        public static void AddNumericMask(TextBox textBox)
+        {
+            textBox.PreviewTextInput += NumericTextBox_PreviewTextInput;
+        }
+        // Verifique se o texto inserido é um número
+        private static void NumericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!IsNumeric(e.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        // Verifique se o texto é numérico
+        private static bool IsNumeric(string text)
+        {
+            return double.TryParse(text, out _);
         }
 
         // Define as cores de destaque para um controle válido

@@ -145,7 +145,6 @@
             <DataGrid Grid.RowSpan="2" Grid.ColumnSpan="2" Width="660" Height="250" Margin="30,0,0,0" x:Name="dgvProdutos" AutoGenerateColumns="False" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="Black" FontSize="16"  IsReadOnly="True" VerticalAlignment="Top" HorizontalAlignment="Left">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
                     <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
                     <DataGridTextColumn Header="Quantidade" Binding="{Binding Nome}" />
                     <DataGridTextColumn Header="Valor Unitario" Binding="{Binding ValorVenda}" />
@@ -156,9 +155,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <CheckBox x:Name="checkbExcluir">
-                                        
                                     </CheckBox>
-
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -173,7 +170,7 @@
 
                 <Button x:Name="btAdd" Height="70" Width="70" Margin=" 0,0,0,20" HorizontalAlignment="Center"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-              Style="{StaticResource MaterialDesignFloatingActionDarkButton}">
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Click="btAdd_Click">
                     <materialDesign:PackIcon Kind="BasketPlus" Height="30" Width="30"/>
                 </Button>
                 
