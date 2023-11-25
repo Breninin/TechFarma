@@ -19,31 +19,21 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Pagamento t)
+        public string Insert(Pagamento t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Pagamento " +
-                    "(paga_data, " +
-                    "paga_valor, " +
-                    "paga_forma_pagamento, " +
-                    "paga_status, " +
-                    "paga_vencimento, " +
-                    "paga_numero_parcela, " +
-                    "fk_desp_id, " +
-                    "fk_caix_id) " +
-                    "values " +
+                    "call cadastrar_pagamento " +
                     "(@data, " +
                     "@valor, " +
                     "@forma_pagamento, " +
                     "@status, " +
                     "@vencimento, " +
                     "@numero_parcela, " +
-                    "@despesa," +
-                    "@caixa)";
+                    "@caixa," +
+                    "@despesa)";
 
                 query.Parameters.AddWithValue("@data", t.Data?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@valor", t.Valor);
@@ -51,15 +41,12 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@status", t.Status);
                 query.Parameters.AddWithValue("@vencimento", t.Vencimento?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@numero_parcela", t.NumeroParcela);
-                query.Parameters.AddWithValue("@despesa", t.Despesa.Id);
                 query.Parameters.AddWithValue("@caixa", t.Caixa.Id);
+                query.Parameters.AddWithValue("@despesa", t.Despesa.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o Pagamento. Verifique o Pagamento inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

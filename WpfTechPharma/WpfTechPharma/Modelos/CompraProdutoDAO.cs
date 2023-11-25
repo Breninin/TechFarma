@@ -19,19 +19,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(CompraProduto t)
+        public string Insert(CompraProduto t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Compra_Produto " +
-                    "(capo_quantidade_item, " +
-                    "capo_valor_item, " +
-                    "fk_comp_id, " +
-                    "fk_prod_id) " +
-                    "values " +
+                    "call cadastrar_compra_produto " +
                     "(@quantidade_item, " +
                     "@valor_item, " +
                     "@compra," +
@@ -42,12 +36,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@compra", t.Compra.Id);
                 query.Parameters.AddWithValue("@produto", t.Produto.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o registro. Verifique o registro inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

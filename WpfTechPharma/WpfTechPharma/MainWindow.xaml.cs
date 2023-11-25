@@ -10,131 +10,188 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfTechPharma.Janelas;
 
 namespace WpfTechPharma
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Lógica interna para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+
+            var timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Tick += Timer_Tick;
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Start();
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Atualize o TextBlock com a data e a hora atual
+            UpdateDateTime();
+        }
+
+        // Método para atualizar a data e a hora
+        private void UpdateDateTime()
+        {
+            DateTimeTextBlock.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            UpdateDateTime();
+        }
+
+        private void Expander_1_Expanded(object sender, RoutedEventArgs e)
+        {
+            Expander_2.IsExpanded = false;
+        }
+
+        private void Expander_2_Expanded(object sender, RoutedEventArgs e)
+        {
+            Expander_1.IsExpanded = false;
+        }
+
+        // MOMENTO DIVERSIDADE
+
+        private void Caixa_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Compra_Click(object sender, RoutedEventArgs e)
+        {
+            JanRealizarCompra Jan = new JanRealizarCompra();
+            Jan.Show();
+        }
+
+        private void Venda_Click(object sender, RoutedEventArgs e)
+        {
+            JanRealizarVenda Jan = new JanRealizarVenda();
+            Jan.Show();
+        }
+
+        private void Relatorio_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         //CADASTRAR
 
-        private void btCadastrarCliente_Click(object sender, RoutedEventArgs e)
+        private void CadastroCliente_Click(object sender, RoutedEventArgs e)
         {
             JanCadastrarCliente Jan = new JanCadastrarCliente();
-            Jan.Show();
+            Jan.ShowDialog();
         }
 
-        private void btCadastrarFuncionario_Click(object sender, RoutedEventArgs e)
-        {
-            JanCadastrarFuncionario Jan = new JanCadastrarFuncionario();
-            Jan.Show();
-        }
-
-        private void btCadastrarFornecedor_Click(object sender, RoutedEventArgs e)
-        {
-            JanCadastrarFornecedor Jan = new JanCadastrarFornecedor();
-            Jan.Show();
-        }
-
-        private void btCadastrarMedicamento_Click(object sender, RoutedEventArgs e)
-        {
-            JanCadastrarMedicamento Jan = new JanCadastrarMedicamento();
-            Jan.Show();
-        }
-
-        private void btCadastrarProduto_Click(object sender, RoutedEventArgs e)
-        {
-            JanCadastrarProduto Jan = new JanCadastrarProduto();
-            Jan.Show();
-        }
-
-        private void btCadastrarInsumo_Click(object sender, RoutedEventArgs e)
-        {
-            JanCadastrarInsumo Jan = new JanCadastrarInsumo();
-            Jan.Show();
-        }
-
-        private void btCadastrarServiço_Click(object sender, RoutedEventArgs e)
-        {
-            JanCadastrarServico Jan = new JanCadastrarServico();
-            Jan.Show();
-        }
-
-        private void btCadastrarEndereco_Click(object sender, RoutedEventArgs e)
+        private void CadastroEndereco_Click(object sender, RoutedEventArgs e)
         {
             JanCadastrarEndereco Jan = new JanCadastrarEndereco();
-            Jan.Show();
+            Jan.ShowDialog();
         }
 
-        private void btCadastrarUsuario_Click(object sender, RoutedEventArgs e)
+        private void CadastroFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            JanCadastrarFornecedor Jan = new JanCadastrarFornecedor();
+            Jan.ShowDialog();
+        }
+
+        private void CadastroFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            JanCadastrarFuncionario Jan = new JanCadastrarFuncionario();
+            Jan.ShowDialog();
+        }
+
+        private void CadastroInsumo_Click(object sender, RoutedEventArgs e)
+        {
+            JanCadastrarInsumo Jan = new JanCadastrarInsumo();
+            Jan.ShowDialog();
+        }
+
+        private void CadastroMedicamento_Click(object sender, RoutedEventArgs e)
+        {
+            JanCadastrarMedicamento Jan = new JanCadastrarMedicamento();
+            Jan.ShowDialog();
+        }
+
+        private void CadastroProduto_Click(object sender, RoutedEventArgs e)
+        {
+            JanCadastrarProduto Jan = new JanCadastrarProduto();
+            Jan.ShowDialog();
+        }
+
+        private void CadastroServico_Click(object sender, RoutedEventArgs e)
+        {
+            JanCadastrarServico Jan = new JanCadastrarServico();
+            Jan.ShowDialog();
+        }
+
+        private void CadastroUsuario_Click(object sender, RoutedEventArgs e)
         {
             JanCadastrarUsuario Jan = new JanCadastrarUsuario();
-            Jan.Show();
+            Jan.ShowDialog();
         }
 
         //LISTAR
 
-        private void btListarCliente_Click(object sender, RoutedEventArgs e)
+        private void ConsultaCliente_Click(object sender, RoutedEventArgs e)
         {
             JanListarCliente Jan = new JanListarCliente();
-            Jan.Show();
+            Jan.ShowDialog();
         }
 
-        private void btListarFuncionario_Click(object sender, RoutedEventArgs e)
-        {
-            JanListarFuncionario Jan = new JanListarFuncionario();
-            Jan.Show();
-        }
-
-        private void btListarFornecedor_Click(object sender, RoutedEventArgs e)
-        {
-            JanListarFornecedor Jan = new JanListarFornecedor();
-            Jan.Show();
-        }
-
-        private void btListarMedicamento_Click(object sender, RoutedEventArgs e)
-        {
-            JanListarMedicamento Jan = new JanListarMedicamento();
-            Jan.Show();
-        }
-
-        private void btListarProduto_Click(object sender, RoutedEventArgs e)
-        {
-            JanListarProduto Jan = new JanListarProduto();
-            Jan.Show();
-        }
-        private void btListarInsumo_Click(object sender, RoutedEventArgs e)
-        {
-            JanListarInsumo Jan = new JanListarInsumo();
-            Jan.Show();
-        }
-
-        private void btListarServiço_Click(object sender, RoutedEventArgs e)
-        {
-            JanListarServico Jan = new JanListarServico();
-            Jan.Show();
-        }
-
-        private void btListarEndereco_Click(object sender, RoutedEventArgs e)
+        private void ConsultaEndereco_Click(object sender, RoutedEventArgs e)
         {
             JanListarEndereco Jan = new JanListarEndereco();
-            Jan.Show();
+            Jan.ShowDialog();
         }
 
-        private void btListarUsuario_Click(object sender, RoutedEventArgs e)
+        private void ConsultaFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarFornecedor Jan = new JanListarFornecedor();
+            Jan.ShowDialog();
+        }
+
+        private void ConsultaFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarFuncionario Jan = new JanListarFuncionario();
+            Jan.ShowDialog();
+        }
+
+        private void ConsultaInsumo_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarInsumo Jan = new JanListarInsumo();
+            Jan.ShowDialog();
+        }
+
+        private void ConsultaMedicamento_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarMedicamento Jan = new JanListarMedicamento();
+            Jan.ShowDialog();
+        }
+
+        private void ConsultaProduto_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarProduto Jan = new JanListarProduto();
+            Jan.ShowDialog();
+        }
+
+        private void ConsultaServico_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarServico Jan = new JanListarServico();
+            Jan.ShowDialog();
+        }
+
+        private void ConsultaUsuario_Click(object sender, RoutedEventArgs e)
         {
             JanListarUsuario Jan = new JanListarUsuario();
-            Jan.Show();
+            Jan.ShowDialog();
         }
     }
 }

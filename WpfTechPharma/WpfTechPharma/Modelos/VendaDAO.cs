@@ -19,21 +19,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Venda t)
+        public string Insert(Venda t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Venda " +
-                    "(vend_data, " +
-                    "vend_valor, " +
-                    "vend_desconto, " +
-                    "vend_quantidade_parcelas, " +
-                    "fk_clie_id, " +
-                    "fk_func_id) " +
-                    "values " +
+                    "call cadastrar_venda " +
                     "(@data, " +
                     "@valor, " +
                     "@desconto, " +
@@ -48,12 +40,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@Cliente", t.Cliente.Id);
                 query.Parameters.AddWithValue("@Funcionario", t.Funcionario.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar a Venda. Verifique a Venda inserida e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

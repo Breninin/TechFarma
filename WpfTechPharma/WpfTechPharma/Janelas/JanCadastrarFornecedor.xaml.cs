@@ -161,9 +161,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var fornecedorDAO = new FornecedorDAO();
-
-                        fornecedorDAO.Insert(fornecedor);
-                        MessageBox.Show("Fornecedor inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = fornecedorDAO.Insert(fornecedor);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)

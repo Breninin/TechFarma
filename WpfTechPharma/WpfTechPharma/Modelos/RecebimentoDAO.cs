@@ -19,23 +19,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Recebimento t)
+        public string Insert(Recebimento t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Recebimento " +
-                    "(rece_data, " +
-                    "rece_valor, " +
-                    "rece_forma_recebimento, " +
-                    "rece_status, " +
-                    "rece_vencimento, " +
-                    "rece_numero_parcela, " +
-                    "fk_caix_id, " +
-                    "fk_vend_id) " +
-                    "values " +
+                    "call cadastrar_recebimento " +
                     "(@data, " +
                     "@valor, " +
                     "@forma_recebimento, " +
@@ -54,12 +44,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@Caixa", t.Caixa.Id);
                 query.Parameters.AddWithValue("@Venda", t.Venda.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o Recebimento. Verifique o Recebimento inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

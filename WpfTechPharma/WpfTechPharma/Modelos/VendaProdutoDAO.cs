@@ -19,35 +19,26 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(VendaProduto t)
+        public string Insert(VendaProduto t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Venda_Produto " +
-                    "(vapo_quantidade_item, " +
-                    "vapo_valor_item, " +
-                    "fk_vend_id, " +
-                    "fk_prod_id) " +
-                    "values " +
+                    "cadastrar_venda_produto " +
                     "(@quantidade_item, " +
                     "@valor_item, " +
-                    "@Venda," +
-                    "@produto)";
+                    "@produto," +
+                    "@Venda)";
 
                 query.Parameters.AddWithValue("@quantidade_item", t.QuantidadeItem);
                 query.Parameters.AddWithValue("@valor_item", t.ValorItem);
-                query.Parameters.AddWithValue("@Venda", t.Venda.Id);
                 query.Parameters.AddWithValue("@produto", t.Produto.Id);
+                query.Parameters.AddWithValue("@Venda", t.Venda.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o registro. Verifique o registro inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

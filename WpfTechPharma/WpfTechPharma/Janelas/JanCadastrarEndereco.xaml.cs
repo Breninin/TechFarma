@@ -145,8 +145,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var enderecoDAO = new EnderecoDAO();
-                        enderecoDAO.Insert(endereco); // Insere o objeto de Endereco no banco de dados usando a classe EnderecoDAO
-                        MessageBox.Show("Endereço inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = enderecoDAO.Insert(endereco); // Insere o objeto de Endereco no banco de dados usando a classe EnderecoDAO
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     } 
                 }
                 catch (Exception ex)

@@ -186,7 +186,6 @@ create table Medicamento (
 medi_id int primary key not null auto_increment,
 medi_nome varchar (50),
 medi_marca varchar (20),
-medi_peso_volume varchar (10),
 medi_valor_compra float,
 medi_valor_venda float,
 medi_quantidade int,
@@ -197,10 +196,10 @@ foreign key (fk_forn_id) references Fornecedor (forn_id)
 );
 
 delimiter $$
-create procedure cadastrar_medicamento (nome varchar(50), marca varchar(50), peso_volume varchar(10), valor_compra float, valor_venda float, quantidade int, tarja varchar(50), codigo_barra varchar(50), fornecedor int)
+create procedure cadastrar_medicamento (nome varchar(50), marca varchar(50), valor_compra float, valor_venda float, quantidade int, tarja varchar(50), codigo_barra varchar(50), fornecedor int)
 begin
 	if (nome <> '') and (nome is not null) then
-		insert into medicamento values (null, nome, marca, peso_volume, valor_compra, valor_venda, quantidade, tarja, codigo_barra, fornecedor);
+		insert into medicamento values (null, nome, marca, valor_compra, valor_venda, quantidade, tarja, codigo_barra, fornecedor);
 		select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
 		select 'Não foi possível cadastrar os dados! Verifique as informaçõs dentro do campo.' as Erro;
@@ -208,9 +207,9 @@ begin
 end;
 $$ delimiter ;
 
-call cadastrar_medicamento('Tylenol', 'Tylenol', '15ml', 30.0, 40.0, 6, 'Sem tarja', '1235398890', 1);
-call cadastrar_medicamento('Rivotril', 'Roche', '0,25mg', 55.0, 75.0, 4, 'Tarja Preta', '9874517890', 1);
-call cadastrar_medicamento('Ivermectina', 'Vitamedi', '6mg', 40.0, 60.0, 8, 'Tarja Vermelha', '1234569347', 1);
+call cadastrar_medicamento('Tylenol', 'Tylenol', 30.0, 40.0, 6, 'Sem tarja', '1235398890', 1);
+call cadastrar_medicamento('Rivotril', 'Roche', 55.0, 75.0, 4, 'Tarja Preta', '9874517890', 1);
+call cadastrar_medicamento('Ivermectina', 'Vitamedi', 40.0, 60.0, 8, 'Tarja Vermelha', '1234569347', 1);
 
 create table Insumo (
 insu_id int primary key not null auto_increment,
