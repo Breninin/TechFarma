@@ -23,21 +23,28 @@ namespace WpfTechPharma.Janelas
         private void InitializeEventHandlers()
         {
             edHorarioCompra.TextChanged += TextBox_TextChanged;
-            edFormaPag.TextChanged += TextBox_TextChanged;
             edParcelas.TextChanged += TextBox_TextChanged;
-            edValorParcelas.TextChanged += TextBox_TextChanged;
             edParcelas.TextChanged += TextBox_TextChanged;
             edQuant.TextChanged += TextBox_TextChanged;
-            edValorUnitario.TextChanged += TextBox_TextChanged;
             cbFuncionaio.SelectionChanged += ComboBox_SelectionChanged;
             cbFornecedor.SelectionChanged += ComboBox_SelectionChanged;
             cbProduto.SelectionChanged += ComboBox_SelectionChanged;
+            cbFormaPag.SelectionChanged += cbFormaPag_SelectionChanged;
             dpCompra.SelectedDateChanged += DatePicker_SelectedDateChanged;
 
+            edValorParcelas.IsEnabled = false;
+            edValorUnitario.IsEnabled = false;
+
+            edParcelas.Visibility = Visibility.Collapsed;
+            edValorParcelas.Visibility = Visibility.Collapsed;
+            iconValorParcela.Visibility = Visibility.Collapsed;
+            iconParcela.Visibility = Visibility.Collapsed;
+
+            cbFormaPag.HorizontalAlignment = HorizontalAlignment.Center;
+            cbFormaPag.Width = 400;
+
             Ultis.AddNumericMask(edParcelas);
-            Ultis.AddNumericMask(edValorParcelas);
             Ultis.AddNumericMask(edQuant);
-            Ultis.AddNumericMask(edValorUnitario);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -74,12 +81,47 @@ namespace WpfTechPharma.Janelas
 
                 cbProduto.ItemsSource = null;
                 cbProduto.Items.Clear();
-                cbProduto.ItemsSource = new ProdutoDAO().List();
-                cbProduto.DisplayMemberPath = "Nome";
+
+                List<TipoObjeto> produtos = new List<TipoObjeto>();
+
+                produtos.AddRange(new ProdutoDAO().List().Select(p => new TipoObjeto { Objeto = p }));
+                produtos.AddRange(new MedicamentoDAO().List().Select(m => new TipoObjeto { Objeto = m }));
+                produtos.AddRange(new InsumoDAO().List().Select(i => new TipoObjeto { Objeto = i }));
+
+                cbProduto.ItemsSource = produtos;
+                cbProduto.DisplayMemberPath = "Objeto.Nome";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void InserirProduto()
+        {
+            TipoObjeto itemSelecionado = cbProduto.SelectedItem as TipoObjeto;
+
+            if (itemSelecionado != null)
+            {
+                string tipo = itemSelecionado.ObterTipo();
+
+                switch (tipo)
+                {
+                    case nameof(Produto):
+                        new ProdutoDAO().Insert(itemSelecionado.Objeto as Produto);
+                        break;
+
+                    case nameof(Medicamento):
+                        new MedicamentoDAO().Insert(itemSelecionado.Objeto as Medicamento);
+                        break;
+
+                    case nameof(Insumo):
+                        new InsumoDAO().Insert(itemSelecionado.Objeto as Insumo);
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
 
@@ -92,11 +134,9 @@ namespace WpfTechPharma.Janelas
                 Ultis.Check(this, cbFuncionaio),
                 Ultis.Check(this, cbProduto),
                 Ultis.Check(this, edHorarioCompra),
-                Ultis.Check(this, edFormaPag),
+                Ultis.Check(this, cbFormaPag),
                 Ultis.Check(this, edParcelas),
-                Ultis.Check(this, edValorParcelas),
                 Ultis.Check(this, edQuant),
-                Ultis.Check(this, edValorUnitario)
             };
 
             if (check.All(c => c))
@@ -117,5 +157,62 @@ namespace WpfTechPharma.Janelas
                 check.Clear();
             }
         }
+
+        private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TipoObjeto itemSelecionado = cbProduto.SelectedItem as TipoObjeto;
+            if (itemSelecionado != null)
+            {
+                dynamic objeto = itemSelecionado.Objeto;
+
+                if (objeto != null && objeto.ValorCompra != null)
+                {
+                    edValorUnitario.Text = (objeto.ValorCompra).ToString("0.00");
+                }
+            }
+            else
+            {
+                edValorUnitario.Text = string.Empty;
+            }
+        }
+
+        private void edParcelas_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void cbFormaPag_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            Ultis.Check(this, comboBox);
+
+            bool isCartaoCreditoSelected = cbFormaPag.SelectedItem != null && ((ComboBoxItem)cbFormaPag.SelectedItem).Content.ToString() == "Cartão de Crédito";
+            if (isCartaoCreditoSelected)
+            {
+                cbFormaPag.HorizontalAlignment = HorizontalAlignment.Left;
+                cbFormaPag.Width = 250;
+            }
+            else
+            {
+                cbFormaPag.HorizontalAlignment = HorizontalAlignment.Center;
+                cbFormaPag.Width = 400;   
+            }
+
+            edParcelas.Visibility = isCartaoCreditoSelected ? Visibility.Visible : Visibility.Collapsed;
+            edValorParcelas.Visibility = isCartaoCreditoSelected ? Visibility.Visible : Visibility.Collapsed;
+            iconParcela.Visibility = isCartaoCreditoSelected ? Visibility.Visible : Visibility.Collapsed;
+            iconValorParcela.Visibility = isCartaoCreditoSelected ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+    }
+}
+
+public class TipoObjeto
+{
+    public object Objeto { get; set; }
+
+    public string ObterTipo()
+    {
+        return Objeto?.GetType().Name;
     }
 }

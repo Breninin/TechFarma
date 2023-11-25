@@ -85,28 +85,32 @@
         </WrapPanel>
 
 
-        <WrapPanel Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
-
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
             <materialDesign:PackIcon Kind="CreditCard" Height="50" Width="50" Foreground="#320b86"/>
-
         </WrapPanel>
 
         <WrapPanel Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="700" Grid.Column="1">
+            <ComboBox x:Name="cbFormaPag" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Forma de Pagamento" SelectionChanged="cbFormaPag_SelectionChanged">
+                <ComboBoxItem Content="Cartão de Crédito" />
+                <ComboBoxItem Content="Cartão de Débito" />
+                <ComboBoxItem Content="Pix" />
+                <ComboBoxItem Content="Dinheiro" />
+            </ComboBox>
 
-            <TextBox x:Name="edFormaPag" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="250" Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Forma de Pagamento"/>
-
-            <materialDesign:PackIcon Kind="FractionOneHalf" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0" />
+            <materialDesign:PackIcon x:Name="iconParcela" Kind="FractionOneHalf" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0" />
             <TextBox x:Name="edParcelas" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"  Width="120"
                     materialDesign:HintAssist.Hint="Parcelas"
                     AcceptsReturn="True"
                     Style="{StaticResource MaterialDesignFilledTextBox}"/>
 
-            <materialDesign:PackIcon Kind="Cash" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0" />
-            <TextBox x:Name="edValorParcelas" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"  Width="150"
-                    materialDesign:HintAssist.Hint="Valor Parcelas"
-                    AcceptsReturn="True"
-                    Style="{StaticResource MaterialDesignFilledTextBox}"/>
+            <materialDesign:PackIcon x:Name="iconValorParcela" Kind="Cash" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0" />
+
+            <TextBox x:Name="edValorParcelas" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"
+             materialDesign:HintAssist.Hint="Valor Parcelas"
+             AcceptsReturn="True"
+             Style="{StaticResource MaterialDesignFilledTextBox}"/>
         </WrapPanel>
+
 
         <WrapPanel Grid.Row="3"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0">
 
@@ -120,7 +124,7 @@
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       ItemsSource="{Binding ShortStringList}"
-                      Style="{StaticResource MaterialDesignFilledComboBox}"/>
+                      Style="{StaticResource MaterialDesignFilledComboBox}" SelectionChanged="cbProduto_SelectionChanged"/>
 
             <materialDesign:PackIcon Kind="Counter" Height="50" Width="50" Foreground="#320b86" Margin="30,0,10,0"/>
             <TextBox x:Name="edQuant" HorizontalAlignment="Right" VerticalAlignment="Center" Width="110"  Style="{StaticResource MaterialDesignFilledTextBox}" materialDesign:HintAssist.Hint="Quantidade"/>
