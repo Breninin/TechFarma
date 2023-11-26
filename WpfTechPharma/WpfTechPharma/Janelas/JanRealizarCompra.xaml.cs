@@ -45,32 +45,32 @@ namespace WpfTechPharma.Janelas
 
             edValorTotal.Content = "VALOR TOTAL: 0 R$";
 
-            Ultis.AddNumericMask(edParcelas);
-            Ultis.AddNumericMask(edQuant);
+            Utils.AddNumericMask(edParcelas);
+            Utils.AddNumericMask(edQuant);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox);
+            Utils.Check(this, textBox);
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox);
+            Utils.Check(this, comboBox);
         }
 
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             DatePicker datePicker = (DatePicker)sender;
-            Ultis.Check(this, datePicker);
+            Utils.Check(this, datePicker);
         }
 
         private void edParcelas_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox);
+            Utils.Check(this, textBox);
             if (int.TryParse(textBox.Text, out int numeroParcelas) && numeroParcelas > 0)
             {
                 double valorParcela = ValorTotal / numeroParcelas;
@@ -130,8 +130,8 @@ namespace WpfTechPharma.Janelas
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
             List<bool> check = new List<bool> {
-        Ultis.Check(this, cbProduto),
-        Ultis.Check(this, edQuant),
+        Utils.Check(this, cbProduto),
+        Utils.Check(this, edQuant),
     };
 
             if (check.All(c => c))
@@ -168,7 +168,7 @@ namespace WpfTechPharma.Janelas
                         MessageBox.Show("A quantidade deve ser um número válido maior que zero.", "Erro de Entrada", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
 
-                    Ultis.ResetControls(this);
+                    Utils.ResetControls(this);
                 }
                 catch (Exception ex)
                 {
@@ -201,7 +201,7 @@ namespace WpfTechPharma.Janelas
         private void cbFormaPag_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox);
+            Utils.Check(this, comboBox);
 
             bool isCartaoCreditoSelected = cbFormaPag.SelectedItem != null && ((ComboBoxItem)cbFormaPag.SelectedItem).Content.ToString() == "Cartão de Crédito";
             if (isCartaoCreditoSelected)

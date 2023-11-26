@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using WpfTechPharma.Auxiliares;
 using WpfTechPharma.BancoDados;
 using WpfTechPharma.Interfaces;
-using MySql.Data.MySqlClient;
 
 namespace WpfTechPharma.Modelos
 {

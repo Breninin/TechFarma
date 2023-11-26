@@ -14,6 +14,11 @@ namespace WpfTechPharma.Modelos
     {
         private static Conexao conexao;
 
+        public CaixaDAO()
+        {
+            conexao = new Conexao();
+        }
+
         public string Insert(Caixa t)
         {
             try
@@ -153,7 +158,7 @@ namespace WpfTechPharma.Modelos
                     Caixa.Id = AuxiliarDAO.GetInt(reader, "caix_id");
                     Caixa.Numero = AuxiliarDAO.GetInt(reader, "caix_numero");
                     Caixa.Data = AuxiliarDAO.GetDateTime(reader, "caix_data");
-                    Caixa.HorarioInicial = AuxiliarDAO.GetString(reader, "caix_horario_incial");
+                    Caixa.HorarioInicial = AuxiliarDAO.GetString(reader, "caix_horario_inicial");
                     Caixa.HorarioFinal = AuxiliarDAO.GetString(reader, "caix_horario_final");
                     Caixa.Status = AuxiliarDAO.GetString(reader, "caix_status");
                     Caixa.SaldoInicial = AuxiliarDAO.GetFloat(reader, "caix_saldo_inicial");
@@ -197,7 +202,7 @@ namespace WpfTechPharma.Modelos
                         Id = AuxiliarDAO.GetInt(reader, "caix_id"),
                         Numero = AuxiliarDAO.GetInt(reader, "caix_numero"),
                         Data = AuxiliarDAO.GetDateTime(reader, "caix_data"),
-                        HorarioInicial = AuxiliarDAO.GetString(reader, "caix_horario_incial"),
+                        HorarioInicial = AuxiliarDAO.GetString(reader, "caix_horario_inicial"),
                         HorarioFinal = AuxiliarDAO.GetString(reader, "caix_horario_final"),
                         Status = AuxiliarDAO.GetString(reader, "caix_status"),
                         SaldoInicial = AuxiliarDAO.GetFloat(reader, "caix_saldo_inicial"),

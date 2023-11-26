@@ -155,7 +155,7 @@ namespace WpfTechPharma.Modelos
                     Pagamento.Data = AuxiliarDAO.GetDateTime(reader, "paga_data");
                     Pagamento.Valor = AuxiliarDAO.GetFloat(reader, "paga_valor");
                     Pagamento.FormaPagamento = AuxiliarDAO.GetString(reader, "paga_forma_pagamento");
-                    Pagamento.Status = AuxiliarDAO.GetString(reader, "paga_stauts");
+                    Pagamento.Status = AuxiliarDAO.GetString(reader, "paga_status");
                     Pagamento.Vencimento = AuxiliarDAO.GetDateTime(reader, "paga_vencimento");
                     Pagamento.NumeroParcela = AuxiliarDAO.GetInt(reader, "paga_numero_parcela");
                     Pagamento.Despesa = new DespesaDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_desp_id"));
@@ -198,7 +198,7 @@ namespace WpfTechPharma.Modelos
                         Data = AuxiliarDAO.GetDateTime(reader, "paga_data"),
                         Valor = AuxiliarDAO.GetFloat(reader, "paga_valor"),
                         FormaPagamento = AuxiliarDAO.GetString(reader, "paga_forma_pagamento"),
-                        Status = AuxiliarDAO.GetString(reader, "paga_stauts"),
+                        Status = AuxiliarDAO.GetString(reader, "paga_status"),
                         Vencimento = AuxiliarDAO.GetDateTime(reader, "paga_vencimento"),
                         NumeroParcela = AuxiliarDAO.GetInt(reader, "paga_numero_parcela"),
                         Despesa = new DespesaDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_desp_id")),

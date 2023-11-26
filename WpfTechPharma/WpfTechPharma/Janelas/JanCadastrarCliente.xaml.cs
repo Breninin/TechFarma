@@ -59,28 +59,28 @@ namespace WpfTechPharma.Janelas
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox);
+            Utils.Check(this, textBox);
         }
 
         // Manipulador de evento para a alteração do texto de CPF
         private void TextBox_TextChanged_CPF(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox, 11);
+            Utils.Check(this, textBox, 11);
         }
 
         // Manipulador de eventos para o evento SelectionChanged dos controles ComboBox
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox);
+            Utils.Check(this, comboBox);
         }
 
         // Manipulador de eventos para o evento SelectedDateChanged dos controles DatePicker
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             DatePicker datePicker = (DatePicker)sender;
-            Ultis.Check(this, datePicker);
+            Utils.Check(this, datePicker);
         }
 
         private void FillForm()
@@ -97,7 +97,7 @@ namespace WpfTechPharma.Janelas
             edRG.Text = _cliente.RG;
             edCPF.Text = _cliente.CPF.Replace("_", "").Replace(".", "").Replace("-", "").Replace(",", "");
             dpDataNascimento.SelectedDate = (DateTime)_cliente.Nascimento;
-            cbEndereco.SelectedIndex = (endereco.Id-1);
+            cbEndereco.Text = endereco.CEP;
             cbSexo.Text = _cliente.Sexo;
 
             _update = true;
@@ -123,7 +123,7 @@ namespace WpfTechPharma.Janelas
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 _update = false;
             }
         }
@@ -132,14 +132,14 @@ namespace WpfTechPharma.Janelas
         {
             List<bool> check = new List<bool>
             {
-                Ultis.Check(this, edNome),
-                Ultis.Check(this, edContato),
-                Ultis.Check(this, edCPF, 11),
-                Ultis.Check(this, edRG),
-                Ultis.Check(this, edEmail),
-                Ultis.Check(this, cbEndereco),
-                Ultis.Check(this, cbSexo),
-                Ultis.Check(this, dpDataNascimento)
+                Utils.Check(this, edNome),
+                Utils.Check(this, edContato),
+                Utils.Check(this, edCPF, 11),
+                Utils.Check(this, edRG),
+                Utils.Check(this, edEmail),
+                Utils.Check(this, cbEndereco),
+                Utils.Check(this, cbSexo),
+                Utils.Check(this, dpDataNascimento)
             };
 
             if (check.All(c => c))
@@ -193,7 +193,7 @@ namespace WpfTechPharma.Janelas
                     MessageBox.Show("Erro ao inserir o cliente: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 this.Close();
             }
             else

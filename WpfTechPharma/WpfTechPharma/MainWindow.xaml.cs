@@ -31,6 +31,19 @@ namespace WpfTechPharma
             timer.Start();
         }
 
+        public MainWindow(string nomeUsuario)
+        {
+            InitializeComponent();
+            Loaded += MainWindow_Loaded;
+
+            var timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Tick += Timer_Tick;
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Start();
+
+            UsuarioLogin.Content = nomeUsuario;
+        }
+
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             // Atualize o TextBlock com a data e a hora atual
@@ -59,6 +72,13 @@ namespace WpfTechPharma
         }
 
         // MOMENTO DIVERSIDADE
+
+        private void LoginLogout_Click(object sender, RoutedEventArgs e)
+        {
+            JanTelaInicial Jan = new JanTelaInicial();
+            Jan.Show();
+            this.Close();
+        }
 
         private void Caixa_Click(object sender, RoutedEventArgs e)
         {
@@ -193,5 +213,31 @@ namespace WpfTechPharma
             JanListarUsuario Jan = new JanListarUsuario();
             Jan.ShowDialog();
         }
+
+        private void ConsultaCompra_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarCompra Jan = new JanListarCompra();
+            Jan.ShowDialog();
+        }
+
+        private void ConsultaVenda_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarVenda Jan = new JanListarVenda();
+            Jan.ShowDialog();
+        }
+
+        
+        private void ConsultaPagamento_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarPagamento Jan = new JanListarPagamento();
+            Jan.ShowDialog();
+        }
+
+        private void ConsultaRecebimento_Click(object sender, RoutedEventArgs e)
+        {
+            JanListarRecebimento Jan = new JanListarRecebimento();
+            Jan.ShowDialog();
+        }
+        
     }
 }

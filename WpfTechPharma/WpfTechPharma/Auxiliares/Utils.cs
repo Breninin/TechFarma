@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 namespace WpfTechPharma.Auxiliares
 {
-    static class Ultis
+    static class Utils
     {
         private static Dictionary<Control, Brush> originalBorderBrushes;
         private static Dictionary<Control, Brush> originalForegroundBrushes;
@@ -151,6 +151,23 @@ namespace WpfTechPharma.Auxiliares
             }
         }
 
+        // Verifica se um PasswordBox possui texto
+        public static bool Check(Window window, PasswordBox e)
+        {
+            SaveColors(window);
+
+            if (e.Password != null)
+            {
+                SetValidColors(e);
+                return true;
+            }
+            else
+            {
+                SetInvalidColors(e);
+                return false;
+            }
+        }
+
         //Verificar se texbox são iguais
         public static bool CheckBoxEqual(Window window, TextBox textBox1, TextBox textBox2)
         {
@@ -165,6 +182,24 @@ namespace WpfTechPharma.Auxiliares
             {
                 SetInvalidColors(textBox1);
                 SetInvalidColors(textBox2);
+                return false;
+            }
+        }
+
+        //Verificar se PasswordBox são iguais
+        public static bool CheckBoxEqual(Window window, PasswordBox passwordBox1, PasswordBox passwordBox2)
+        {
+            SaveColors(window);
+            if (passwordBox1.Password == passwordBox2.Password && !string.IsNullOrEmpty(passwordBox2.Password) && !string.IsNullOrEmpty(passwordBox1.Password))
+            {
+                SetValidColors(passwordBox1);
+                SetValidColors(passwordBox2);
+                return true;
+            }
+            else
+            {
+                SetInvalidColors(passwordBox1);
+                SetInvalidColors(passwordBox2);
                 return false;
             }
         }

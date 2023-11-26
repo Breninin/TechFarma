@@ -195,6 +195,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\JanListarCompra.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Janelas\JanListarEndereco.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -211,6 +215,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\JanListarPagamento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Janelas\JanListarRecebimento.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Janelas\JanListarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,6 +238,10 @@
     <Page Include="Janelas\JanListarServico.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\JanListarVenda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Janelas\JanRealizarCompra.xaml">
       <SubType>Designer</SubType>
@@ -283,6 +299,9 @@
     <Compile Include="Janelas\JanListarCliente.xaml.cs">
       <DependentUpon>JanListarCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Janelas\JanListarCompra.xaml.cs">
+      <DependentUpon>JanListarCompra.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Janelas\JanListarEndereco.xaml.cs">
       <DependentUpon>JanListarEndereco.xaml</DependentUpon>
     </Compile>
@@ -295,6 +314,12 @@
     <Compile Include="Janelas\JanListarInsumo.xaml.cs">
       <DependentUpon>JanListarInsumo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Janelas\JanListarPagamento.xaml.cs">
+      <DependentUpon>JanListarPagamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanListarRecebimento.xaml.cs">
+      <DependentUpon>JanListarRecebimento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Janelas\JanListarUsuario.xaml.cs">
       <DependentUpon>JanListarUsuario.xaml</DependentUpon>
     </Compile>
@@ -306,6 +331,9 @@
     </Compile>
     <Compile Include="Janelas\JanListarServico.xaml.cs">
       <DependentUpon>JanListarServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\JanListarVenda.xaml.cs">
+      <DependentUpon>JanListarVenda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\JanRealizarCompra.xaml.cs">
       <DependentUpon>JanRealizarCompra.xaml</DependentUpon>

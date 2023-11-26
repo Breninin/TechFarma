@@ -193,5 +193,50 @@ namespace WpfTechPharma.Modelos
                 conexao.Close();
             }
         }
+
+        public Usuario Login(string login, string senha)
+        {
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText =
+                    "select * from Usuario " +
+                    "where" +
+                    "((usua_login = @login) and " +
+                    "(usua_senha = @senha)) ";
+
+                query.Parameters.AddWithValue("@login", login);
+                query.Parameters.AddWithValue("@senha", senha);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Usuario ou Senha incorretos!");
+                }
+
+                Usuario usuario = new Usuario();
+
+                while (reader.Read())
+                {
+                    usuario.Id = AuxiliarDAO.GetInt(reader, "usua_id");
+                    usuario.NomeUsuario = AuxiliarDAO.GetString(reader, "usua_login");
+                    usuario.Senha = AuxiliarDAO.GetString(reader, "usua_senha");
+
+                    var id_func = AuxiliarDAO.GetInt(reader, "fk_func_id");
+                    usuario.Funcionario = new FuncionarioDAO().GetById(id_func);
+                }
+
+                return usuario;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally 
+            { 
+                conexao.Close(); 
+            }
+        }
     }
 }

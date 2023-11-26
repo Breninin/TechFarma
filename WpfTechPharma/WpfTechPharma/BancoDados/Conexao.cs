@@ -18,7 +18,7 @@ namespace WpfTechPharma.BancoDados
 
         private static string user = "root";
 
-        private static string password = "deyzinho123";
+        private static string password = "root";
 
         private static string dbname = "bd_techpharma";
 

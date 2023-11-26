@@ -52,6 +52,10 @@
                         <Button x:Name="ConsultaProduto" Content="PRODUTO" HorizontalAlignment="Center" Foreground="White" Click="ConsultaProduto_Click"/>
                         <Button x:Name="ConsultaServico" Content="SERVIÇO" HorizontalAlignment="Center" Foreground="White" Click="ConsultaServico_Click"/>
                         <Button x:Name="ConsultaUsuario" Content="USUÁRIO" HorizontalAlignment="Center" Foreground="White" Click="ConsultaUsuario_Click"/>
+                        <Button x:Name="ConsultaCompra" Content="COMPRA" HorizontalAlignment="Center" Foreground="White" Click="ConsultaCompra_Click"/>
+                        <Button x:Name="ConsultaVenda" Content="VENDA" HorizontalAlignment="Center" Foreground="White" Click="ConsultaVenda_Click"/>
+                        <Button x:Name="ConsultaPagamento" Content="PAGAMENTO" HorizontalAlignment="Center" Foreground="White" Click="ConsultaPagamento_Click"/>
+                        <Button x:Name="ConsultaRecebimento" Content="RECEBIMENTO" HorizontalAlignment="Center" Foreground="White" Click="ConsultaRecebimento_Click"/>
                     </StackPanel>
                 </Expander>
             </StackPanel>
@@ -64,7 +68,7 @@
         </Image>
         <WrapPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Label x:Name="UsuarioLogin" Grid.Column="1" Content="USUÁRIO" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Foreground="#d50000" FontSize="16" FontWeight="Bold"/>
-            <Button x:Name="LoginLogout" Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Top"  Margin="10" Foreground="White" Click="ConsultaUsuario_Click" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" ToolTip="MaterialDesignFloatingActionDarkButton" Cursor="Hand">
+            <Button x:Name="LoginLogout" Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Top"  Margin="10" Foreground="White" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" ToolTip="MaterialDesignFloatingActionDarkButton" Cursor="Hand" Click="LoginLogout_Click">
                 <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="24" Height="24">
                     <Path Fill="White" Data="M14.08,15.59L16.67,13H7V11H16.67L14.08,8.41L15.5,7L20.5,12L15.5,17L14.08,15.59M19,3A2,2 0 0,1 21,5V9.67L19,7.67V5H5V19H19V16.33L21,14.33V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H19Z" />
                 </Canvas>

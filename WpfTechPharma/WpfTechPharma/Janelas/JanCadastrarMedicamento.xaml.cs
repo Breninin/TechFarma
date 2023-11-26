@@ -55,13 +55,13 @@ namespace WpfTechPharma.Janelas
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox);
+            Utils.Check(this, textBox);
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox);
+            Utils.Check(this, comboBox);
         }
 
         private void FillForm()
@@ -79,7 +79,7 @@ namespace WpfTechPharma.Janelas
             edEstoque.Text = _medicamento.Quantidade.ToString();
             cbTarja.Text = _medicamento.Tarja;
             edCodigoBarras.Text = _medicamento.CodigoBarra;
-            edFornecedor.SelectedIndex = (fornecedor.Id - 1);
+            edFornecedor.Text = fornecedor.RazaoSocial;
                 
             _update = true;
         }
@@ -103,7 +103,7 @@ namespace WpfTechPharma.Janelas
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 _update = false;
             }
         }
@@ -113,14 +113,14 @@ namespace WpfTechPharma.Janelas
 
             List<bool> check = new List<bool>
             {
-                Ultis.Check(this, edNome),
-                Ultis.Check(this, edCodigoBarras),
-                Ultis.Check(this, edMarca),
-                Ultis.Check(this, edFornecedor),
-                Ultis.Check(this, edEstoque),
-                Ultis.Check(this, cbTarja),
-                Ultis.Check(this, edValorCompra),
-                Ultis.Check(this, edValorVenda)
+                Utils.Check(this, edNome),
+                Utils.Check(this, edCodigoBarras),
+                Utils.Check(this, edMarca),
+                Utils.Check(this, edFornecedor),
+                Utils.Check(this, edEstoque),
+                Utils.Check(this, cbTarja),
+                Utils.Check(this, edValorCompra),
+                Utils.Check(this, edValorVenda)
             };
 
             if (check.All(c => c))
@@ -174,7 +174,7 @@ namespace WpfTechPharma.Janelas
                     MessageBox.Show("Erro ao inserir o Medicamento: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 this.Close();
             }
             else
