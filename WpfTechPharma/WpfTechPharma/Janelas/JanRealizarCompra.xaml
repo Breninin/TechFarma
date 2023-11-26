@@ -110,20 +110,18 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="0.2*"/>
             </Grid.ColumnDefinitions>
-
-            <DataGrid Width="512" Height="250" x:Name="dgvProdutos" AutoGenerateColumns="False" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="Black" FontSize="16"  IsReadOnly="True" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <DataGrid Width="581" Height="250" x:Name="dgvProdutos" AutoGenerateColumns="False" BorderThickness="3" BorderBrush="#FF320B86" HorizontalGridLinesBrush="#FFDA1010" GridLinesVisibility="All" Foreground="Black" FontSize="16"  IsReadOnly="True" VerticalAlignment="Top" HorizontalAlignment="Center">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
-                    <DataGridTextColumn Header="Quantidade" Binding="{Binding Nome}" />
-                    <DataGridTextColumn Header="Valor Unitario" Binding="{Binding ValorVenda}" />
-                    <DataGridTextColumn Header="Valor Item" Binding="{Binding Fornecedor.RazaoSocial}" />
+                    <DataGridTextColumn Header="Nome" Binding="{Binding TipoObjeto.Objeto.Nome}" Width="165"/>
+                    <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" Width="165"/>
+                    <DataGridTextColumn Header="Valor Unitario" Binding="{Binding TipoObjeto.Objeto.ValorCompra}" Width="165"/>
 
                     <DataGridTemplateColumn Header="Excluir">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <CheckBox x:Name="checkbExcluir">
+                                    <CheckBox x:Name="checkbExcluir" IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                     </CheckBox>
                                 </StackPanel>
                             </DataTemplate>
@@ -132,6 +130,7 @@
 
                 </DataGrid.Columns>
             </DataGrid>
+
 
             <StackPanel Grid.RowSpan="2" Grid.Column='1'>
 
@@ -145,7 +144,7 @@
 
                 <Button x:Name="btExcluir" Margin=" 0,0,0,20" Width="70" Height="70"  HorizontalAlignment="Center" 
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-              Style="{StaticResource MaterialDesignFloatingActionDarkButton}">
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Click="btExcluir_Click">
                     <materialDesign:PackIcon Kind="TrashCanOutline" Height="30" Width="30"/>
                 </Button>
 
@@ -158,8 +157,8 @@
 
 
 
-            <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="28" Width="138">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 0, 0, 0" FontWeight="Bold" Content="VALOR TOTAL: R$"/>
+            <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="28" Width="323">
+                <Label x:Name="edValorTotal" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Content="VALOR TOTAL: R$"/>
 
             </WrapPanel>
 

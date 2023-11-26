@@ -63,7 +63,7 @@ namespace WpfTechPharma.Modelos
                     "set " +
                     "desp_data = @data, " +
                     "desp_valor = @valor, " +
-                    "desp_descricao = @descricao, " +
+                    "desp_desc = @descricao, " +
                     "desp_tipo = @tipo, " +
                     "desp_quantidade_parcelas = @quantidade_parcelas, " +
                     "where " +
@@ -142,7 +142,7 @@ namespace WpfTechPharma.Modelos
                     Despesa.Id = AuxiliarDAO.GetInt(reader, "desp_id");
                     Despesa.Data = AuxiliarDAO.GetDateTime(reader, "desp_data");
                     Despesa.Valor = AuxiliarDAO.GetFloat(reader, "desp_valor");
-                    Despesa.Descricao = AuxiliarDAO.GetString(reader, "desp_descricao");
+                    Despesa.Descricao = AuxiliarDAO.GetString(reader, "desp_desc");
                     Despesa.Tipo = AuxiliarDAO.GetString(reader, "desp_tipo");
                     Despesa.QuantidadeParcelas = AuxiliarDAO.GetInt(reader, "desp_quantidade_parcelas");
                 }
@@ -182,7 +182,7 @@ namespace WpfTechPharma.Modelos
                         Id = AuxiliarDAO.GetInt(reader, "desp_id"),
                         Data = AuxiliarDAO.GetDateTime(reader, "desp_data"),
                         Valor = AuxiliarDAO.GetFloat(reader, "desp_valor"),
-                        Descricao = AuxiliarDAO.GetString(reader, "desp_descricao"),
+                        Descricao = AuxiliarDAO.GetString(reader, "desp_desc"),
                         Tipo = AuxiliarDAO.GetString(reader, "desp_tipo"),
                         QuantidadeParcelas = AuxiliarDAO.GetInt(reader, "desp_quantidade_parcelas")
                     });

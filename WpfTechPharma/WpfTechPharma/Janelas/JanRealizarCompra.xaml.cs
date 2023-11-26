@@ -13,6 +13,9 @@ namespace WpfTechPharma.Janelas
     /// </summary>
     public partial class JanRealizarCompra : Window
     {
+
+        private List<CarrinhoItem> carrinho = new List<CarrinhoItem>();
+        private double ValorTotal = 0;
         public JanRealizarCompra()
         {
             InitializeComponent();
@@ -22,7 +25,7 @@ namespace WpfTechPharma.Janelas
 
         private void InitializeEventHandlers()
         {
-            edParcelas.TextChanged += TextBox_TextChanged;
+            edParcelas.TextChanged += edParcelas_TextChanged;
             edParcelas.TextChanged += TextBox_TextChanged;
             edQuant.TextChanged += TextBox_TextChanged;
             cbProduto.SelectionChanged += ComboBox_SelectionChanged;
@@ -39,6 +42,8 @@ namespace WpfTechPharma.Janelas
 
             cbFormaPag.HorizontalAlignment = HorizontalAlignment.Center;
             cbFormaPag.Width = 400;
+
+            edValorTotal.Content = "VALOR TOTAL: 0 R$";
 
             Ultis.AddNumericMask(edParcelas);
             Ultis.AddNumericMask(edQuant);
@@ -60,6 +65,17 @@ namespace WpfTechPharma.Janelas
         {
             DatePicker datePicker = (DatePicker)sender;
             Ultis.Check(this, datePicker);
+        }
+
+        private void edParcelas_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            Ultis.Check(this, textBox);
+            if (int.TryParse(textBox.Text, out int numeroParcelas) && numeroParcelas > 0)
+            {
+                double valorParcela = ValorTotal / numeroParcelas;
+                edValorParcelas.Text = valorParcela.ToString();
+            }
         }
 
         private void LoadData()
@@ -111,36 +127,58 @@ namespace WpfTechPharma.Janelas
                 }
             }
         }
-
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            List<bool> check = new List<bool>
-            {
-                Ultis.Check(this, dpCompra),
-                Ultis.Check(this, cbProduto),
-                Ultis.Check(this, cbFormaPag),
-                Ultis.Check(this, edParcelas),
-                Ultis.Check(this, edQuant),
-            };
+            List<bool> check = new List<bool> {
+        Ultis.Check(this, cbProduto),
+        Ultis.Check(this, edQuant),
+    };
 
             if (check.All(c => c))
             {
                 try
                 {
+                    TipoObjeto objetoSelecionado = cbProduto.SelectedItem as TipoObjeto;
 
+                    if (int.TryParse(edQuant.Text, out int quantidade) && quantidade > 0)
+                    {
+                        CarrinhoItem itemExistente = carrinho.FirstOrDefault(item => item.TipoObjeto == objetoSelecionado);
+
+                        if (itemExistente != null)
+                        {
+                            itemExistente.Quantidade += quantidade;
+                        }
+                        else
+                        {
+                            CarrinhoItem novoItem = new CarrinhoItem
+                            {
+                                TipoObjeto = objetoSelecionado,
+                                Quantidade = quantidade,
+                            };
+
+                            carrinho.Add(novoItem);
+                        }
+
+                        dgvProdutos.ItemsSource = null;
+                        dgvProdutos.ItemsSource = carrinho;
+                        AtualizarValorTotalCarrinho();
+                    }
+                    else
+                    {
+                        MessageBox.Show("A quantidade deve ser um número válido maior que zero.", "Erro de Entrada", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+                    Ultis.ResetControls(this);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao inserir o fornecedor: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Erro ao adicionar item ao carrinho: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Console.WriteLine(ex.ToString());
                 }
-
-                Ultis.ResetControls(this);
-            }
-            else
-            {
-                check.Clear();
             }
         }
+
+
 
         private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -151,18 +189,13 @@ namespace WpfTechPharma.Janelas
 
                 if (objeto != null && objeto.ValorCompra != null)
                 {
-                    edValorUnitario.Text = (objeto.ValorCompra).ToString("0.00");
+                    edValorUnitario.Text = objeto.ValorCompra.ToString("0.00");
                 }
             }
             else
             {
                 edValorUnitario.Text = string.Empty;
             }
-        }
-
-        private void edParcelas_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         private void cbFormaPag_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -179,7 +212,9 @@ namespace WpfTechPharma.Janelas
             else
             {
                 cbFormaPag.HorizontalAlignment = HorizontalAlignment.Center;
-                cbFormaPag.Width = 400;   
+                cbFormaPag.Width = 400;
+                edParcelas.Clear();
+                edValorParcelas.Clear();
             }
 
             edParcelas.Visibility = isCartaoCreditoSelected ? Visibility.Visible : Visibility.Collapsed;
@@ -187,16 +222,62 @@ namespace WpfTechPharma.Janelas
             iconParcela.Visibility = isCartaoCreditoSelected ? Visibility.Visible : Visibility.Collapsed;
             iconValorParcela.Visibility = isCartaoCreditoSelected ? Visibility.Visible : Visibility.Collapsed;
         }
+        public void AtualizarValorTotalCarrinho()
+        {
+            double total = 0;
+            foreach (var item in carrinho)
+            {
+                dynamic objeto = item.TipoObjeto.Objeto;
+                total += objeto.ValorCompra * item.Quantidade;
+            }
+            edValorTotal.Content = "VALOR TOTAL: " + total + " R$";
+            ValorTotal = total;
+        }
 
+        private void btExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            List<CarrinhoItem> itensSelecionados = carrinho.Where(item => item.IsSelected).ToList();
+
+            if (itensSelecionados.Count > 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Tem certeza que deseja excluir os itens selecionados?", "Confirmação de Exclusão", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    foreach (CarrinhoItem item in itensSelecionados)
+                    {
+                        carrinho.Remove(item);
+                    }
+
+                    dgvProdutos.ItemsSource = null;
+                    dgvProdutos.ItemsSource = carrinho;
+                    AtualizarValorTotalCarrinho();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhum item selecionado para exclusão.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
     }
 }
 
 public class TipoObjeto
 {
     public object Objeto { get; set; }
-
     public string ObterTipo()
     {
         return Objeto?.GetType().Name;
+    }
+}
+
+public class CarrinhoItem
+{
+    public TipoObjeto TipoObjeto { get; set; }
+    public int Quantidade { get; set; }
+    public bool IsSelected { get; set; }
+    public CarrinhoItem()
+    {
+        IsSelected = false;
     }
 }
