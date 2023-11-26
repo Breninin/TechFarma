@@ -22,12 +22,9 @@ namespace WpfTechPharma.Janelas
 
         private void InitializeEventHandlers()
         {
-            edHorarioCompra.TextChanged += TextBox_TextChanged;
             edParcelas.TextChanged += TextBox_TextChanged;
             edParcelas.TextChanged += TextBox_TextChanged;
             edQuant.TextChanged += TextBox_TextChanged;
-            cbFuncionaio.SelectionChanged += ComboBox_SelectionChanged;
-            cbFornecedor.SelectionChanged += ComboBox_SelectionChanged;
             cbProduto.SelectionChanged += ComboBox_SelectionChanged;
             cbFormaPag.SelectionChanged += cbFormaPag_SelectionChanged;
             dpCompra.SelectedDateChanged += DatePicker_SelectedDateChanged;
@@ -69,16 +66,6 @@ namespace WpfTechPharma.Janelas
         {
             try
             {
-                cbFornecedor.ItemsSource = null;
-                cbFornecedor.Items.Clear();
-                cbFornecedor.ItemsSource = new FornecedorDAO().List();
-                cbFornecedor.DisplayMemberPath = "NomeFantasia";
-
-                cbFuncionaio.ItemsSource = null;
-                cbFuncionaio.Items.Clear();
-                cbFuncionaio.ItemsSource = new FuncionarioDAO().List();
-                cbFuncionaio.DisplayMemberPath = "Nome";
-
                 cbProduto.ItemsSource = null;
                 cbProduto.Items.Clear();
 
@@ -130,10 +117,7 @@ namespace WpfTechPharma.Janelas
             List<bool> check = new List<bool>
             {
                 Ultis.Check(this, dpCompra),
-                Ultis.Check(this, cbFornecedor),
-                Ultis.Check(this, cbFuncionaio),
                 Ultis.Check(this, cbProduto),
-                Ultis.Check(this, edHorarioCompra),
                 Ultis.Check(this, cbFormaPag),
                 Ultis.Check(this, edParcelas),
                 Ultis.Check(this, edQuant),
