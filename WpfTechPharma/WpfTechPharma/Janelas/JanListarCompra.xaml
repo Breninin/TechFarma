@@ -21,7 +21,6 @@
                 <DataGridTextColumn Header="Data" Binding="{Binding Data, ConverterCulture='pt-BR', StringFormat=dd/MM/yyyy}" />
                 <DataGridTextColumn Header="Valor Total" Binding="{Binding Valor}"/>
                 <DataGridTextColumn Header="Parcelas" Binding="{Binding Despesa.QuantidadeParcelas}"/>
-                <DataGridTextColumn Header="Fornecedor" Binding="{Binding Fornecedor.NomeFantasia}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

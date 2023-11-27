@@ -265,6 +265,7 @@
     </Compile>
     <Compile Include="Auxiliares\AuxiliarDAO.cs" />
     <Compile Include="Auxiliares\AuxiliarFluentValidation.cs" />
+    <Compile Include="Auxiliares\AuxliarClass.cs" />
     <Compile Include="Auxiliares\Estado.cs" />
     <Compile Include="Auxiliares\Utils.cs" />
     <Compile Include="BancoDados\Conexao.cs" />
@@ -421,7 +422,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BancoDados\bd_techpharma.sql" />
     <Resource Include="TechPharmalogoslogan.png" />
     <Resource Include="Janelas\TechPharma logo.png" />
     <Resource Include="Janelas\3432e88e75ac97b18fa7788bf0dfec83.png" />

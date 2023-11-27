@@ -164,6 +164,39 @@ namespace WpfTechPharma.Modelos
             }
         }
 
+        public int GetLastInsertID()
+        {
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "SELECT * FROM Venda WHERE ((SELECT MAX(vend_id) FROM Despesa) = vend_id)";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Nenhuma Despesa foi encontrada!");
+                }
+
+                int lastInsertID = 0;
+
+                while (reader.Read())
+                {
+                    lastInsertID = AuxiliarDAO.GetInt(reader, "vend_id");
+                }
+
+                return lastInsertID;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
         public List<Venda> List()
         {
             try

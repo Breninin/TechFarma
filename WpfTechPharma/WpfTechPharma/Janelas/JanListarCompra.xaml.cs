@@ -39,6 +39,6 @@ namespace WpfTechPharma.Janelas
                 MessageBox.Show("Erro ao carregar os Compras: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+
     }
 }

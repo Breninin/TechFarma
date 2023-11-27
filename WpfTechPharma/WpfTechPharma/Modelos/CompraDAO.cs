@@ -28,12 +28,10 @@ namespace WpfTechPharma.Modelos
                     "call cadastrar_compra " +
                     "(@data, " +
                     "@valor, " +
-                    "@fornecedor," +
                     "@despesa)";
 
                 query.Parameters.AddWithValue("@data", t.Data?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@valor", t.Valor);
-                query.Parameters.AddWithValue("@fornecedor", t.Fornecedor.Id);
                 query.Parameters.AddWithValue("@despesa", t.Despesa.Id);
 
                 var result = (string)query.ExecuteScalar();
@@ -62,14 +60,12 @@ namespace WpfTechPharma.Modelos
                     "comp_data = @data, " +
                     "comp_valor = @valor, " +
                     "fk_desp_id = @despesa, " +
-                    "fk_forn_id = @fornecedor " +
                     "where " +
                     "(comp_id = @id)";
 
                 query.Parameters.AddWithValue("@data", t.Data?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@valor", t.Valor);
                 query.Parameters.AddWithValue("@despesa", t.Despesa.Id);
-                query.Parameters.AddWithValue("@fornecedor", t.Fornecedor.Id);
                 query.Parameters.AddWithValue("@id", t.Id);
 
                 var result = query.ExecuteNonQuery();
@@ -139,10 +135,42 @@ namespace WpfTechPharma.Modelos
                     Compra.Data = AuxiliarDAO.GetDateTime(reader, "comp_data");
                     Compra.Valor = AuxiliarDAO.GetFloat(reader, "comp_valor");
                     Compra.Despesa = new DespesaDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_desp_id"));
-                    Compra.Fornecedor = new FornecedorDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_forn_id"));
                 }
 
                 return Compra;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+        public int GetLastInsertID()
+        {
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "SELECT * FROM Compra WHERE ((SELECT MAX(comp_id) FROM Despesa) = comp_id)";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Nenhuma Despesa foi encontrada!");
+                }
+
+                int lastInsertID = 0;
+
+                while (reader.Read())
+                {
+                    lastInsertID = AuxiliarDAO.GetInt(reader, "comp_id");
+                }
+
+                return lastInsertID;
             }
             catch (Exception e)
             {
@@ -178,7 +206,6 @@ namespace WpfTechPharma.Modelos
                         Data = AuxiliarDAO.GetDateTime(reader, "comp_data"),
                         Valor = AuxiliarDAO.GetFloat(reader, "comp_valor"),
                         Despesa = new DespesaDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_desp_id")),
-                        Fornecedor = new FornecedorDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_forn_id"))
                     });
                 }
 

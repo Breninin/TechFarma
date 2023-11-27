@@ -25,7 +25,7 @@ namespace WpfTechPharma.Modelos
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "call cadastrar compra_insumo " +
+                    "call cadastrar_compra_insumo " +
                     "(@quantidade_item, " +
                     "@valor_item, " +
                     "@compra," +
