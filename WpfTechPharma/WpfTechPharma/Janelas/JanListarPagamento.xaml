@@ -19,6 +19,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Data" Binding="{Binding Data, ConverterCulture='pt-BR', StringFormat=dd/MM/yyyy}" />
+                <DataGridTextColumn Header="Vencimento" Binding="{Binding Vencimento, ConverterCulture='pt-BR', StringFormat=dd/MM/yyyy}" />
                 <DataGridTextColumn Header="Valor Total" Binding="{Binding Valor}"/>
                 <DataGridTextColumn Header="Forma" Binding="{Binding FormaPagamento}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>

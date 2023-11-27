@@ -271,7 +271,7 @@ namespace WpfTechPharma.Janelas
                                 Valor = (float)ValorTotal * fatorDesconto,
                                 FormaRecebimento = cbFormaPag.Text,
                                 Status = "Em Andamento",
-                                NumeroParcela = 1,
+                                NumeroParcela = i,
                                 Vencimento = dataParcela.AddDays(30 * i),
                                 Venda = new VendaDAO().GetById(lastIdVend),
                                 Caixa = new CaixaDAO().GetById(1)

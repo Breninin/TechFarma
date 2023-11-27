@@ -18,11 +18,12 @@
 
         <StackPanel VerticalAlignment="Stretch" Background="#3f51b5">
 
-            <Button x:Name="Caixa"  HorizontalAlignment="Stretch" Content="CAIXA" Click="Caixa_Click"></Button>
             <Button x:Name="Compra"  HorizontalAlignment="Stretch" Content="COMPRA" Click="Compra_Click"></Button>
             <Button x:Name="Venda"  HorizontalAlignment="Stretch" Content="VENDA" Click="Venda_Click"></Button>
-            <Button x:Name="Relatorio"  HorizontalAlignment="Stretch" Content="RELATÓRIO" Click="Relatorio_Click"></Button>
 
+            <!--<Button x:Name="Caixa"  HorizontalAlignment="Stretch" Content="CAIXA" Click="Caixa_Click"></Button>-->
+            <!--<Button x:Name="Relatorio"  HorizontalAlignment="Stretch" Content="RELATÓRIO" Click="Relatorio_Click"></Button>-->
+            
             <StackPanel>
                 <Expander x:Name="Expander_1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Header="CADASTRO" Expanded="Expander_1_Expanded" Background="#3f51b5" Foreground="White" FontWeight="Bold" Style="{StaticResource MaterialDesignExpander}">
 
