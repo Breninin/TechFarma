@@ -150,7 +150,7 @@
 
                 <Button x:Name="btFinalizar" Margin=" 0,0,0,10" Width="70" Height="70"  HorizontalAlignment="Center" 
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-              Style="{StaticResource MaterialDesignFloatingActionDarkButton}">
+              Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Click="btFinalizar_Click">
                     <materialDesign:PackIcon Kind="CartArrowRight" Height="30" Width="30"/>
                 </Button>
             </StackPanel>

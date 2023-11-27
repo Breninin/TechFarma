@@ -259,6 +259,78 @@ namespace WpfTechPharma.Janelas
                 MessageBox.Show("Nenhum item selecionado para exclusão.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+        private void btFinalizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (carrinho.Count != 0)
+            {
+                int parcelas;
+                bool isCartaoCreditoSelected = cbFormaPag.SelectedItem != null && ((ComboBoxItem)cbFormaPag.SelectedItem).Content.ToString() == "Cartão de Crédito";
+                if (!isCartaoCreditoSelected) parcelas = 1;
+                else parcelas = Convert.ToInt32(edParcelas.Text);
+
+                var despesa = new Despesa
+                {
+                    Data = (DateTime)dpCompra.SelectedDate,
+                    Valor = (float)ValorTotal,
+                    Descricao = "reabastecimento do estoque atual",
+                    Tipo = "Compra Estoque",
+                    QuantidadeParcelas = parcelas
+                };
+
+                var despesaDAO = new DespesaDAO();
+                despesaDAO.Insert(despesa);
+
+                if (parcelas == 1)
+                {
+                    DateTime dataParcela = (DateTime)dpCompra.SelectedDate;
+                    dataParcela = dataParcela.AddDays(30);
+                    int lastIdDesp = new DespesaDAO().GetLastInsertID();
+
+                    var pagamento = new Pagamento
+                    {
+                        Data = (DateTime)dpCompra.SelectedDate,
+                        Valor = (float) ValorTotal,
+                        FormaPagamento = cbFormaPag.Text,
+                        Status = "Em Andamento",
+                        NumeroParcela = 1,
+                        Vencimento = dataParcela,
+                        Despesa = new DespesaDAO().GetById(lastIdDesp),
+                        Caixa = new CaixaDAO().GetById(1)
+                    };
+
+                    var pagamentoDAO = new PagamentoDAO();
+                    pagamentoDAO.Insert(pagamento);
+                }
+                else if (parcelas > 1)
+                {
+                    DateTime dataParcela = (DateTime)dpCompra.SelectedDate;
+                    int lastIdDesp = new DespesaDAO().GetLastInsertID();
+
+                    for (int i = 1; i <= parcelas; i++)
+                    {
+                        var pagamento = new Pagamento
+                        {
+                            Data = (DateTime)dpCompra.SelectedDate,
+                            Valor = float.Parse(edValorParcelas.Text),
+                            FormaPagamento = cbFormaPag.Text,
+                            Status = "Em Andamento",
+                            NumeroParcela = i,
+                            Vencimento = dataParcela.AddDays(30 * i),
+                           Despesa = new DespesaDAO().GetById(lastIdDesp),
+                            Caixa = new CaixaDAO().GetById(1)
+                        };
+
+                        var pagamentoDAO = new PagamentoDAO();
+                        pagamentoDAO.Insert(pagamento);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("O carrinho esta vazio.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
     }
 }
 
