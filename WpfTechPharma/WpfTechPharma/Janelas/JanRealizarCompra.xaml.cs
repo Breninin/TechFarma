@@ -99,9 +99,9 @@ namespace WpfTechPharma.Janelas
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
             List<bool> check = new List<bool> {
-        Utils.Check(this, cbProduto),
-        Utils.Check(this, edQuant),
-    };
+                Utils.Check(this, cbProduto),
+                Utils.Check(this, edQuant),
+            };
 
             if (check.All(c => c))
             {
@@ -236,85 +236,66 @@ namespace WpfTechPharma.Janelas
 
         private void btFinalizar_Click(object sender, RoutedEventArgs e)
         {
-            if (carrinho.Count != 0)
+            try
             {
-                bool isCartaoCreditoSelected = cbFormaPag.SelectedItem != null && ((ComboBoxItem)cbFormaPag.SelectedItem).Content.ToString() == "Cartão de Crédito";
-
-                List<bool> check = new List<bool> {
-                 Utils.Check(this, dpCompra),
-                 Utils.Check(this, cbFormaPag),
-                };
-
-                List<bool> checkParcel = new List<bool> {
-                 Utils.Check(this, edParcelas),
-                };
-
-                bool isCheck = false;
-                bool isParcelasValidas = int.TryParse(edParcelas.Text, out int parcelass) && parcelass > 0;
-
-                if (check.All(c => c))
+                if (carrinho.Count != 0)
                 {
-                    isCheck = true;
+                    bool isCartaoCreditoSelected = cbFormaPag.SelectedItem != null && ((ComboBoxItem)cbFormaPag.SelectedItem).Content.ToString() == "Cartão de Crédito";
 
-                    if ((isCartaoCreditoSelected && checkParcel.All(c => c) && !isParcelasValidas) || string.IsNullOrEmpty(edParcelas.Text))
-                    {
-                        isCheck = false;
-                    }
-                }
-
-                if (isCheck)
-                {
-                    int parcelas;
-                    if (!isCartaoCreditoSelected) parcelas = 1;
-                    else parcelas = Convert.ToInt32(edParcelas.Text);
-
-                    var despesa = new Despesa
-                    {
-                        Data = (DateTime)dpCompra.SelectedDate,
-                        Valor = (float)ValorTotal,
-                        Descricao = "reabastecimento do estoque atual",
-                        Tipo = "Compra Estoque",
-                        QuantidadeParcelas = parcelas
+                    List<bool> check = new List<bool> {
+                     Utils.Check(this, dpCompra),
+                     Utils.Check(this, cbFormaPag),
                     };
 
-                    var despesaDAO = new DespesaDAO();
-                    despesaDAO.Insert(despesa);
-                    int lastIdDesp = new DespesaDAO().GetLastInsertID();
+                    List<bool> checkParcel = new List<bool> {
+                     Utils.Check(this, edParcelas),
+                    };
 
-                    if (parcelas == 1)
+                    bool isCheck = false;
+                    bool isParcelasValidas = int.TryParse(edParcelas.Text, out int parcelass) && parcelass > 0;
+
+                    if (check.All(c => c))
                     {
-                        DateTime dataParcela = (DateTime)dpCompra.SelectedDate;
-                        dataParcela = dataParcela.AddDays(30);
+                        isCheck = true;
 
-                        var pagamento = new Pagamento
+                        if ((isCartaoCreditoSelected && checkParcel.All(c => c) && !isParcelasValidas) || string.IsNullOrEmpty(edParcelas.Text))
+                        {
+                            isCheck = false;
+                        }
+                    }
+
+                    if (isCheck)
+                    {
+                        int parcelas;
+                        if (!isCartaoCreditoSelected) parcelas = 1;
+                        else parcelas = Convert.ToInt32(edParcelas.Text);
+
+                        var despesa = new Despesa
                         {
                             Data = (DateTime)dpCompra.SelectedDate,
                             Valor = (float)ValorTotal,
-                            FormaPagamento = cbFormaPag.Text,
-                            Status = "Em Andamento",
-                            NumeroParcela = 1,
-                            Vencimento = dataParcela,
-                            Despesa = new DespesaDAO().GetById(lastIdDesp),
-                            Caixa = new CaixaDAO().GetById(1)
+                            Descricao = "reabastecimento do estoque atual",
+                            Tipo = "Compra Estoque",
+                            QuantidadeParcelas = parcelas
                         };
 
-                        var pagamentoDAO = new PagamentoDAO();
-                        pagamentoDAO.Insert(pagamento);
-                    }
-                    else if (parcelas > 1)
-                    {
-                        DateTime dataParcela = (DateTime)dpCompra.SelectedDate;
+                        var despesaDAO = new DespesaDAO();
+                        despesaDAO.Insert(despesa);
+                        int lastIdDesp = new DespesaDAO().GetLastInsertID();
 
-                        for (int i = 1; i <= parcelas; i++)
+                        if (parcelas == 1)
                         {
+                            DateTime dataParcela = (DateTime)dpCompra.SelectedDate;
+                            dataParcela = dataParcela.AddDays(30);
+
                             var pagamento = new Pagamento
                             {
                                 Data = (DateTime)dpCompra.SelectedDate,
-                                Valor = float.Parse(edValorParcelas.Text),
+                                Valor = (float)ValorTotal,
                                 FormaPagamento = cbFormaPag.Text,
                                 Status = "Em Andamento",
-                                NumeroParcela = i,
-                                Vencimento = dataParcela.AddDays(30 * i),
+                                NumeroParcela = 1,
+                                Vencimento = dataParcela,
                                 Despesa = new DespesaDAO().GetById(lastIdDesp),
                                 Caixa = new CaixaDAO().GetById(1)
                             };
@@ -322,117 +303,144 @@ namespace WpfTechPharma.Janelas
                             var pagamentoDAO = new PagamentoDAO();
                             pagamentoDAO.Insert(pagamento);
                         }
-                    }
-
-
-                    var compra = new Compra
-                    {
-                        Data = (DateTime)dpCompra.SelectedDate,
-                        Valor = (float)ValorTotal,
-                        Despesa = new DespesaDAO().GetById(lastIdDesp)
-                    };
-
-                    var compraDAO = new CompraDAO();
-                    compraDAO.Insert(compra);
-                    int lastIdComp = new CompraDAO().GetLastInsertID();
-
-                    foreach (CarrinhoItem item in carrinho)
-                    {
-                        TipoObjeto itemSelecionado = item.TipoObjeto;
-                        string tipo = itemSelecionado.ObterTipo();
-                        dynamic objetoItem = itemSelecionado.Objeto;
-
-                        switch (tipo)
+                        else if (parcelas > 1)
                         {
-                            case nameof(Produto):
+                            DateTime dataParcela = (DateTime)dpCompra.SelectedDate;
 
-                                Produto objetoProduto = new ProdutoDAO().GetById(objetoItem.Id);
-
-                                var compraProduto = new CompraProduto
+                            for (int i = 1; i <= parcelas; i++)
+                            {
+                                var pagamento = new Pagamento
                                 {
-                                    QuantidadeItem = item.Quantidade,
-                                    ValorItem = item.Quantidade * objetoItem.ValorCompra,
-                                    Compra = new CompraDAO().GetById(lastIdComp),
-                                    Produto = objetoProduto
+                                    Data = (DateTime)dpCompra.SelectedDate,
+                                    Valor = float.Parse(edValorParcelas.Text),
+                                    FormaPagamento = cbFormaPag.Text,
+                                    Status = "Em Andamento",
+                                    NumeroParcela = i,
+                                    Vencimento = dataParcela.AddDays(30 * i),
+                                    Despesa = new DespesaDAO().GetById(lastIdDesp),
+                                    Caixa = new CaixaDAO().GetById(1)
                                 };
 
-                                objetoProduto.Quantidade += item.Quantidade;
-
-                                var compraProdutoDAO = new CompraProdutoDAO();
-                                compraProdutoDAO.Insert(compraProduto);
-
-                                var produtoDAO = new ProdutoDAO();
-                                produtoDAO.Update(objetoProduto);
-
-                                break;
-                            case nameof(Medicamento):
-
-                                Medicamento objetoMedicamento = new MedicamentoDAO().GetById(objetoItem.Id);
-
-                                var compraMedicamento = new CompraMedicamento
-                                {
-                                    QuantidadeItem = item.Quantidade,
-                                    ValorItem = item.Quantidade * objetoItem.ValorCompra,
-                                    Compra = new CompraDAO().GetById(lastIdComp),
-                                    Medicamento = objetoMedicamento
-                                };
-
-                                objetoMedicamento.Quantidade += item.Quantidade;
-
-                                var compraMedicamentoDAO = new CompraMedicamentoDAO();
-                                compraMedicamentoDAO.Insert(compraMedicamento);
-
-                                var medicamentoDAO = new MedicamentoDAO();
-                                medicamentoDAO.Update(objetoMedicamento);
-
-                                break;
-                            case nameof(Insumo):
-
-                                Insumo objetoInsumo = new InsumoDAO().GetById(objetoItem.Id);
-
-                                var compraInsumo = new CompraInsumo
-                                {
-                                    QuantidadeItem = item.Quantidade,
-                                    ValorItem = item.Quantidade * objetoItem.ValorCompra,
-                                    Compra = new CompraDAO().GetById(lastIdComp),
-                                    Insumo = objetoInsumo
-                                };
-
-                                objetoInsumo.Quantidade += item.Quantidade;
-
-                                var compraInsumoDAO = new CompraInsumoDAO();
-                                compraInsumoDAO.Insert(compraInsumo);
-
-                                var insumoDAO = new InsumoDAO();
-                                insumoDAO.Update(objetoInsumo);
-
-                                break;
-                            default:
-                                break;
+                                var pagamentoDAO = new PagamentoDAO();
+                                pagamentoDAO.Insert(pagamento);
+                            }
                         }
-                    }
-                    carrinho.Clear();
-                    AtualizarValorTotalCarrinho();
-                    dgvProdutos.ItemsSource = null;
-                    dgvProdutos.ItemsSource = carrinho;
-                    Utils.ResetControls(this);
-                }
-                else
-                {
-                    if (!isParcelasValidas && isCartaoCreditoSelected && !string.IsNullOrEmpty(edParcelas.Text))
-                    {
-                        MessageBox.Show("O número de parcelas deve ser maior que zero.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+
+                        var compra = new Compra
+                        {
+                            Data = (DateTime)dpCompra.SelectedDate,
+                            Valor = (float)ValorTotal,
+                            Despesa = new DespesaDAO().GetById(lastIdDesp)
+                        };
+
+                        var compraDAO = new CompraDAO();
+                        compraDAO.Insert(compra);
+                        int lastIdComp = new CompraDAO().GetLastInsertID();
+
+                        foreach (CarrinhoItem item in carrinho)
+                        {
+                            TipoObjeto itemSelecionado = item.TipoObjeto;
+                            string tipo = itemSelecionado.ObterTipo();
+                            dynamic objetoItem = itemSelecionado.Objeto;
+
+                            switch (tipo)
+                            {
+                                case nameof(Produto):
+
+                                    Produto objetoProduto = new ProdutoDAO().GetById(objetoItem.Id);
+
+                                    var compraProduto = new CompraProduto
+                                    {
+                                        QuantidadeItem = item.Quantidade,
+                                        ValorItem = item.Quantidade * objetoItem.ValorCompra,
+                                        Compra = new CompraDAO().GetById(lastIdComp),
+                                        Produto = objetoProduto
+                                    };
+
+                                    objetoProduto.Quantidade += item.Quantidade;
+
+                                    var compraProdutoDAO = new CompraProdutoDAO();
+                                    compraProdutoDAO.Insert(compraProduto);
+
+                                    var produtoDAO = new ProdutoDAO();
+                                    produtoDAO.Update(objetoProduto);
+
+                                    break;
+                                case nameof(Medicamento):
+
+                                    Medicamento objetoMedicamento = new MedicamentoDAO().GetById(objetoItem.Id);
+
+                                    var compraMedicamento = new CompraMedicamento
+                                    {
+                                        QuantidadeItem = item.Quantidade,
+                                        ValorItem = item.Quantidade * objetoItem.ValorCompra,
+                                        Compra = new CompraDAO().GetById(lastIdComp),
+                                        Medicamento = objetoMedicamento
+                                    };
+
+                                    objetoMedicamento.Quantidade += item.Quantidade;
+
+                                    var compraMedicamentoDAO = new CompraMedicamentoDAO();
+                                    compraMedicamentoDAO.Insert(compraMedicamento);
+
+                                    var medicamentoDAO = new MedicamentoDAO();
+                                    medicamentoDAO.Update(objetoMedicamento);
+
+                                    break;
+                                case nameof(Insumo):
+
+                                    Insumo objetoInsumo = new InsumoDAO().GetById(objetoItem.Id);
+
+                                    var compraInsumo = new CompraInsumo
+                                    {
+                                        QuantidadeItem = item.Quantidade,
+                                        ValorItem = item.Quantidade * objetoItem.ValorCompra,
+                                        Compra = new CompraDAO().GetById(lastIdComp),
+                                        Insumo = objetoInsumo
+                                    };
+
+                                    objetoInsumo.Quantidade += item.Quantidade;
+
+                                    var compraInsumoDAO = new CompraInsumoDAO();
+                                    compraInsumoDAO.Insert(compraInsumo);
+
+                                    var insumoDAO = new InsumoDAO();
+                                    insumoDAO.Update(objetoInsumo);
+
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        carrinho.Clear();
+                        AtualizarValorTotalCarrinho();
+                        dgvProdutos.ItemsSource = null;
+                        dgvProdutos.ItemsSource = carrinho;
+                        Utils.ResetControls(this);
                     }
                     else
                     {
-                        MessageBox.Show("Preencha todos os campos.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Error);
+                        if (!isParcelasValidas && isCartaoCreditoSelected && !string.IsNullOrEmpty(edParcelas.Text))
+                        {
+                            MessageBox.Show("O número de parcelas deve ser maior que zero.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Preencha todos os campos.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("O carrinho esta vazio.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("O carrinho esta vazio.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
         }
     }
 }

@@ -185,94 +185,75 @@ namespace WpfTechPharma.Janelas
 
         private void btFinalizar_Click(object sender, RoutedEventArgs e)
         {
-            if (carrinho.Count != 0)
+            try
             {
-
-                bool isCartaoCreditoSelected = cbFormaPag.SelectedItem != null && ((ComboBoxItem)cbFormaPag.SelectedItem).Content.ToString() == "Cartão de Crédito";
-
-                List<bool> check = new List<bool> {
-                 Utils.Check(this, dpDataVenda),
-                 Utils.Check(this, cbFormaPag),
-                 Utils.Check(this, cbCliente),
-                 Utils.Check(this, cbFuncionaio ),
-                };
-
-                List<bool> checkParcel = new List<bool> {
-                 Utils.Check(this, edParcelas),
-                };
-
-                bool isCheck = false;
-
-                bool isParcelasValidas = int.TryParse(edParcelas.Text, out int parcelass) && parcelass > 0;
-
-                if (check.All(c => c))
-                {
-                    isCheck = true;
-
-                    if ((isCartaoCreditoSelected && checkParcel.All(c => c) && !isParcelasValidas) || string.IsNullOrEmpty(edParcelas.Text))
-                    {
-                        isCheck = false;
-                    }
-                }
-
-                if (isCheck)
+                if (carrinho.Count != 0)
                 {
 
-                    int parcelas;
-                    if (!isCartaoCreditoSelected) parcelas = 1;
-                    else parcelas = Convert.ToInt32(edParcelas.Text);
+                    bool isCartaoCreditoSelected = cbFormaPag.SelectedItem != null && ((ComboBoxItem)cbFormaPag.SelectedItem).Content.ToString() == "Cartão de Crédito";
 
-                    var venda = new Venda
-                    {
-                        Data = (DateTime)dpDataVenda.SelectedDate,
-                        Valor = (float)ValorTotal,
-                        Desconto = float.Parse(edDesconto.Text),
-                        QuantidadeParcelas = parcelas,
-                        Cliente = (Cliente)cbCliente.SelectedItem,
-                        Funcionario = (Funcionario)cbFuncionaio.SelectedItem
+                    List<bool> check = new List<bool> {
+                     Utils.Check(this, dpDataVenda),
+                     Utils.Check(this, cbFormaPag),
+                     Utils.Check(this, cbCliente),
+                     Utils.Check(this, cbFuncionaio ),
                     };
 
-                    var vendaDAO = new VendaDAO();
-                    vendaDAO.Insert(venda);
+                    List<bool> checkParcel = new List<bool> {
+                     Utils.Check(this, edParcelas),
+                    };
 
-                    int lastIdVend = new VendaDAO().GetLastInsertID();
-                    float desconto = float.Parse(edDesconto.Text);
-                    float fatorDesconto = 1 - (desconto / 100);
+                    bool isCheck = false;
 
-                    if (parcelas == 1)
+                    bool isParcelasValidas = int.TryParse(edParcelas.Text, out int parcelass) && parcelass > 0;
+
+                    if (check.All(c => c))
                     {
-                        DateTime dataParcela = (DateTime)dpDataVenda.SelectedDate;
-                        dataParcela = dataParcela.AddDays(30);
+                        isCheck = true;
 
-                        var recebimento = new Recebimento
+                        if ((isCartaoCreditoSelected && checkParcel.All(c => c) && !isParcelasValidas) || string.IsNullOrEmpty(edParcelas.Text))
+                        {
+                            isCheck = false;
+                        }
+                    }
+
+                    if (isCheck)
+                    {
+
+                        int parcelas;
+                        if (!isCartaoCreditoSelected) parcelas = 1;
+                        else parcelas = Convert.ToInt32(edParcelas.Text);
+
+                        var venda = new Venda
                         {
                             Data = (DateTime)dpDataVenda.SelectedDate,
-                            Valor = (float)ValorTotal * fatorDesconto,
-                            FormaRecebimento = cbFormaPag.Text,
-                            Status = "Em Andamento",
-                            NumeroParcela = 1,
-                            Vencimento = dataParcela,
-                            Venda = new VendaDAO().GetById(lastIdVend),
-                            Caixa = new CaixaDAO().GetById(1)
+                            Valor = (float)ValorTotal,
+                            Desconto = float.Parse(edDesconto.Text),
+                            QuantidadeParcelas = parcelas,
+                            Cliente = (Cliente)cbCliente.SelectedItem,
+                            Funcionario = (Funcionario)cbFuncionaio.SelectedItem
                         };
 
-                        var recebimentoDAO = new RecebimentoDAO();
-                        recebimentoDAO.Insert(recebimento);
-                    }
-                    else if (parcelas > 1)
-                    {
-                        DateTime dataParcela = (DateTime)dpDataVenda.SelectedDate;
+                        var vendaDAO = new VendaDAO();
+                        vendaDAO.Insert(venda);
 
-                        for (int i = 1; i <= parcelas; i++)
+                        int lastIdVend = new VendaDAO().GetLastInsertID();
+                        float desconto = float.Parse(edDesconto.Text);
+                        float fatorDesconto = 1 - (desconto / 100);
+
+                        if (parcelas == 1)
                         {
+                            DateTime dataParcela = (DateTime)dpDataVenda.SelectedDate;
+                            dataParcela = dataParcela.AddDays(30);
+
                             var recebimento = new Recebimento
                             {
                                 Data = (DateTime)dpDataVenda.SelectedDate,
                                 Valor = (float)ValorTotal * fatorDesconto,
                                 FormaRecebimento = cbFormaPag.Text,
                                 Status = "Em Andamento",
-                                NumeroParcela = i,
-                                Vencimento = dataParcela.AddDays(30 * i),
+                                NumeroParcela = 1,
+                                Vencimento = dataParcela,
                                 Venda = new VendaDAO().GetById(lastIdVend),
                                 Caixa = new CaixaDAO().GetById(1)
                             };
@@ -280,84 +261,110 @@ namespace WpfTechPharma.Janelas
                             var recebimentoDAO = new RecebimentoDAO();
                             recebimentoDAO.Insert(recebimento);
                         }
-                    }
-
-                    foreach (CarrinhoItem item in carrinho)
-                    {
-                        TipoObjeto itemSelecionado = item.TipoObjeto;
-                        string tipo = itemSelecionado.ObterTipo();
-                        dynamic objetoItem = itemSelecionado.Objeto;
-
-                        switch (tipo)
+                        else if (parcelas > 1)
                         {
-                            case nameof(Produto):
+                            DateTime dataParcela = (DateTime)dpDataVenda.SelectedDate;
 
-                                Produto objetoProduto = new ProdutoDAO().GetById(objetoItem.Id);
-
-                                var vendaProduto = new VendaProduto
+                            for (int i = 1; i <= parcelas; i++)
+                            {
+                                var recebimento = new Recebimento
                                 {
-                                    QuantidadeItem = item.Quantidade,
-                                    ValorItem = item.Quantidade * objetoItem.ValorCompra,
+                                    Data = (DateTime)dpDataVenda.SelectedDate,
+                                    Valor = (float)ValorTotal * fatorDesconto,
+                                    FormaRecebimento = cbFormaPag.Text,
+                                    Status = "Em Andamento",
+                                    NumeroParcela = i,
+                                    Vencimento = dataParcela.AddDays(30 * i),
                                     Venda = new VendaDAO().GetById(lastIdVend),
-                                    Produto = objetoProduto
+                                    Caixa = new CaixaDAO().GetById(1)
                                 };
 
-                                objetoProduto.Quantidade -= item.Quantidade;
-
-                                var vendaProdutoDAO = new VendaProdutoDAO();
-                                vendaProdutoDAO.Insert(vendaProduto);
-
-                                var produtoDAO = new ProdutoDAO();
-                                produtoDAO.Update(objetoProduto);
-
-                                break;
-                            case nameof(Medicamento):
-
-                                Medicamento objetoMedicamento = new MedicamentoDAO().GetById(objetoItem.Id);
-
-                                var vendaMedicamento = new VendaMedicamento
-                                {
-                                    QuantidadeItem = item.Quantidade,
-                                    ValorItem = item.Quantidade * objetoItem.ValorCompra,
-                                    Venda = new VendaDAO().GetById(lastIdVend),
-                                    Medicamento = objetoMedicamento
-                                };
-
-                                objetoMedicamento.Quantidade -= item.Quantidade;
-
-                                var vendaMedicamentoDAO = new VendaMedicamentoDAO();
-                                vendaMedicamentoDAO.Insert(vendaMedicamento);
-
-                                var medicamentoDAO = new MedicamentoDAO();
-                                medicamentoDAO.Update(objetoMedicamento);
-
-                                break;
-                            default:
-                                break;
+                                var recebimentoDAO = new RecebimentoDAO();
+                                recebimentoDAO.Insert(recebimento);
+                            }
                         }
-                    }
-                    carrinho.Clear();
-                    AtualizarValorTotalCarrinho();
-                    dgvProdutos.ItemsSource = null;
-                    dgvProdutos.ItemsSource = carrinho;
-                    Utils.ResetControls(this);
-                    LoadData();
-                }
-                else
-                {
-                    if (!isParcelasValidas && isCartaoCreditoSelected && !string.IsNullOrEmpty(edParcelas.Text))
-                    {
-                        MessageBox.Show("O número de parcelas deve ser maior que zero.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                        foreach (CarrinhoItem item in carrinho)
+                        {
+                            TipoObjeto itemSelecionado = item.TipoObjeto;
+                            string tipo = itemSelecionado.ObterTipo();
+                            dynamic objetoItem = itemSelecionado.Objeto;
+
+                            switch (tipo)
+                            {
+                                case nameof(Produto):
+
+                                    Produto objetoProduto = new ProdutoDAO().GetById(objetoItem.Id);
+
+                                    var vendaProduto = new VendaProduto
+                                    {
+                                        QuantidadeItem = item.Quantidade,
+                                        ValorItem = item.Quantidade * objetoItem.ValorCompra,
+                                        Venda = new VendaDAO().GetById(lastIdVend),
+                                        Produto = objetoProduto
+                                    };
+
+                                    objetoProduto.Quantidade -= item.Quantidade;
+
+                                    var vendaProdutoDAO = new VendaProdutoDAO();
+                                    vendaProdutoDAO.Insert(vendaProduto);
+
+                                    var produtoDAO = new ProdutoDAO();
+                                    produtoDAO.Update(objetoProduto);
+
+                                    break;
+                                case nameof(Medicamento):
+
+                                    Medicamento objetoMedicamento = new MedicamentoDAO().GetById(objetoItem.Id);
+
+                                    var vendaMedicamento = new VendaMedicamento
+                                    {
+                                        QuantidadeItem = item.Quantidade,
+                                        ValorItem = item.Quantidade * objetoItem.ValorCompra,
+                                        Venda = new VendaDAO().GetById(lastIdVend),
+                                        Medicamento = objetoMedicamento
+                                    };
+
+                                    objetoMedicamento.Quantidade -= item.Quantidade;
+
+                                    var vendaMedicamentoDAO = new VendaMedicamentoDAO();
+                                    vendaMedicamentoDAO.Insert(vendaMedicamento);
+
+                                    var medicamentoDAO = new MedicamentoDAO();
+                                    medicamentoDAO.Update(objetoMedicamento);
+
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        carrinho.Clear();
+                        AtualizarValorTotalCarrinho();
+                        dgvProdutos.ItemsSource = null;
+                        dgvProdutos.ItemsSource = carrinho;
+                        Utils.ResetControls(this);
+                        LoadData();
                     }
                     else
                     {
-                        MessageBox.Show("Preencha todos os campos.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Error);
+                        if (!isParcelasValidas && isCartaoCreditoSelected && !string.IsNullOrEmpty(edParcelas.Text))
+                        {
+                            MessageBox.Show("O número de parcelas deve ser maior que zero.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Preencha todos os campos.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("O carrinho esta vazio.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("O carrinho esta vazio.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -392,9 +399,9 @@ namespace WpfTechPharma.Janelas
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
             List<bool> check = new List<bool> {
-        Utils.Check(this, cbProduto),
-        Utils.Check(this, edQuant),
-    };
+                Utils.Check(this, cbProduto),
+                Utils.Check(this, edQuant),
+            };
 
             if (check.All(c => c))
             {
