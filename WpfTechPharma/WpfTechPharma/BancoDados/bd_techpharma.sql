@@ -1,13 +1,13 @@
 #PROJETO TECHPHARMA
 
-#3°B Informática
+#3Â°B InformÃ¡tica
 
 #Integrantes:
 
 -- Andrey Medeiros Gois
 -- Breno Alcides Paio de Medeiros
 -- Giuila Novais Vieira
--- Mailon Camargo Gonçalves
+-- Mailon Camargo GonÃ§alves
 -- Pedro Henrique dos Santos Xavier Araujo
 -- Thayna Albuquerque Silva
 -- Vinicius de Nano Holanda
@@ -33,14 +33,14 @@ begin
 		insert into Endereco values (null, estado, cidade, bairro, rua, numero, complemento, cep);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
 	else 
-		select 'Não foi possível cadastrar os dados! Verifique as informações dentro do campo.' as Erro;
+		select 'NÃ£o foi possÃ­vel cadastrar os dados! Verifique as informaÃ§Ãµes dentro do campo.' as Erro;
 	end if;
 end;
 $$ delimiter ;
 
-call cadastrar_endereco('RO', 'Ji-Paraná', 'Jardim Presidencial', 'Rua Rondônia', 101, 'Residência', '76901-082');
-call cadastrar_endereco('RO', 'Ji-Paraná', 'Jorge Teixeira', 'Rua Nova Iguaçú', 202, 'Residência', '76912-647');
-call cadastrar_endereco('RO', 'Ji-Paraná', 'Milão', 'Rua Trinta de Abril', 303, 'Residência', '76901-658');
+call cadastrar_endereco('RO', 'Ji-ParanÃ¡', 'Jardim Presidencial', 'Rua RondÃ´nia', 101, 'ResidÃªncia', '76901-082');
+call cadastrar_endereco('RO', 'Ji-ParanÃ¡', 'Jorge Teixeira', 'Rua Nova IguaÃ§Ãº', 202, 'ResidÃªncia', '76912-647');
+call cadastrar_endereco('RO', 'Ji-ParanÃ¡', 'MilÃ£o', 'Rua Trinta de Abril', 303, 'ResidÃªncia', '76901-658');
 
 create table Fornecedor (
 forn_id int primary key not null auto_increment,
@@ -60,14 +60,14 @@ begin
 		insert into Fornecedor values (null, razao_social, nome_fantasia, cnpj, email, contato, endereco);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
 	else
-		select 'Não foi possível cadastrar os dados! Verifique as informaçõs dentro do campo.' as Erro;
+		select 'NÃ£o foi possÃ­vel cadastrar os dados! Verifique as informaÃ§Ãµs dentro do campo.' as Erro;
 	end if;
 end;
 $$ delimiter ;
 
-call cadastrar_fornecedor('Farmácia Preço Baixo', 'Farma Preço Baixo', '81.966.053/0001-63', 'precobaixo@gmail.com', '(69) 2163-0833', 1);
+call cadastrar_fornecedor('FarmÃ¡cia PreÃ§o Baixo', 'Farma PreÃ§o Baixo', '81.966.053/0001-63', 'precobaixo@gmail.com', '(69) 2163-0833', 1);
 call cadastrar_fornecedor('Drogaria Fabulosa', 'Droga Fabulosa', '75.949.526/0001-11', 'drogafabulosa@gmail.com', '(69) 2222-3556', 2);
-call cadastrar_fornecedor('Equipamentos Farmáceuticos', 'Equi Farm', '43.387.110/0001-60', 'equifarm@hotmail.com', '(69) 3926-8996', 3);
+call cadastrar_fornecedor('Equipamentos FarmÃ¡ceuticos', 'Equi Farm', '43.387.110/0001-60', 'equifarm@hotmail.com', '(69) 3926-8996', 3);
 
 create table Cliente (
 clie_id int primary key not null auto_increment,
@@ -89,12 +89,12 @@ begin
 		insert into Cliente values (null, nome, sexo, nascimento, rg, cpf, email, contato, endereco);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
 	else
-		select 'Não foi possível cadastrar os dados! Verifique as informaçõs dentro do campo.' as Erro;
+		select 'NÃ£o foi possÃ­vel cadastrar os dados! Verifique as informaÃ§Ãµs dentro do campo.' as Erro;
 	end if;
 end;
 $$ delimiter ;
 
-call cadastrar_cliente('Thayna Albuquerque', 'Não-Binário', '1987-01-01', '23.041.701-2', '904.573.800-71', 'patata@gmail.com', '(69) 93559-0250', 1);
+call cadastrar_cliente('Thayna Albuquerque', 'NÃ£o-BinÃ¡rio', '1987-01-01', '23.041.701-2', '904.573.800-71', 'patata@gmail.com', '(69) 93559-0250', 1);
 call cadastrar_cliente('Henrique Xavier', 'Masculino', '1996-05-12', '47.563.811-6', '373.472.700-65', 'henryck@gmail.com', '(69) 92233-0163', 2);
 call cadastrar_cliente('Breno Paio', 'Masculino', '2001-10-24', '42.200.858-8', '140.293.830-68', 'breninin@gmail.com', '(69) 93447-4291', 3);
 
@@ -120,7 +120,7 @@ begin
 		insert into Funcionario values (null, nome, sexo, nascimento, rg, cpf, email, contato, funcao, salario, endereco);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
 	else
-		select 'Não foi possível cadastrar os dados! Verifique as informaçõs dentro do campo.' as Erro;
+		select 'NÃ£o foi possÃ­vel cadastrar os dados! Verifique as informaÃ§Ãµs dentro do campo.' as Erro;
 	end if;
 end;
 $$ delimiter ;
@@ -144,7 +144,7 @@ begin
 		insert into Usuario values (null, login, senha, funcionario);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
 	else
-		select 'Não foi possível cadastrar os dados! Verifique as informaçõs dentro do campo.' as Erro;
+		select 'NÃ£o foi possÃ­vel cadastrar os dados! Verifique as informaÃ§Ãµs dentro do campo.' as Erro;
 	end if;
 end;
 $$ delimiter ;
@@ -173,7 +173,7 @@ begin
 		insert into produto values (null, nome, marca, valor_compra, valor_venda, quantidade, tipo, codigo_barra, fornecedor);
 		select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'Não foi possível cadastrar os dados! Verifique as informaçõs dentro do campo.' as Erro;
+		select 'NÃ£o foi possÃ­vel cadastrar os dados! Verifique as informaÃ§Ãµs dentro do campo.' as Erro;
     end if;
 end;
 $$ delimiter ;
@@ -186,7 +186,6 @@ create table Medicamento (
 medi_id int primary key not null auto_increment,
 medi_nome varchar (50),
 medi_marca varchar (20),
-medi_peso_volume varchar (10),
 medi_valor_compra float,
 medi_valor_venda float,
 medi_quantidade int,
@@ -197,20 +196,20 @@ foreign key (fk_forn_id) references Fornecedor (forn_id)
 );
 
 delimiter $$
-create procedure cadastrar_medicamento (nome varchar(50), marca varchar(50), peso_volume varchar(10), valor_compra float, valor_venda float, quantidade int, tarja varchar(50), codigo_barra varchar(50), fornecedor int)
+create procedure cadastrar_medicamento (nome varchar(50), marca varchar(50), valor_compra float, valor_venda float, quantidade int, tarja varchar(50), codigo_barra varchar(50), fornecedor int)
 begin
 	if (nome <> '') and (nome is not null) then
-		insert into medicamento values (null, nome, marca, peso_volume, valor_compra, valor_venda, quantidade, tarja, codigo_barra, fornecedor);
+		insert into medicamento values (null, nome, marca, valor_compra, valor_venda, quantidade, tarja, codigo_barra, fornecedor);
 		select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'Não foi possível cadastrar os dados! Verifique as informaçõs dentro do campo.' as Erro;
+		select 'NÃ£o foi possÃ­vel cadastrar os dados! Verifique as informaÃ§Ãµs dentro do campo.' as Erro;
     end if;
 end;
 $$ delimiter ;
 
-call cadastrar_medicamento('Tylenol', 'Tylenol', '15ml', 30.0, 40.0, 6, 'Sem tarja', '1235398890', 1);
-call cadastrar_medicamento('Rivotril', 'Roche', '0,25mg', 55.0, 75.0, 4, 'Tarja Preta', '9874517890', 1);
-call cadastrar_medicamento('Ivermectina', 'Vitamedi', '6mg', 40.0, 60.0, 8, 'Tarja Vermelha', '1234569347', 1);
+call cadastrar_medicamento('Tylenol', 'Tylenol', 30.0, 40.0, 6, 'Sem tarja', '1235398890', 1);
+call cadastrar_medicamento('Rivotril', 'Roche', 55.0, 75.0, 4, 'Tarja Preta', '9874517890', 1);
+call cadastrar_medicamento('Ivermectina', 'Vitamedi', 40.0, 60.0, 8, 'Tarja Vermelha', '1234569347', 1);
 
 create table Insumo (
 insu_id int primary key not null auto_increment,
@@ -236,19 +235,19 @@ begin
 
             set mensagem = 'Insumo inserido com sucesso';
         else
-            set mensagem = 'A chave estrangeira não existe na tabela Fornecedor';
+            set mensagem = 'A chave estrangeira nÃ£o existe na tabela Fornecedor';
         end if;
     else
-        set mensagem = 'Os campos nome e marca são obrigatórios';
+        set mensagem = 'Os campos nome e marca sÃ£o obrigatÃ³rios';
     end if;
 
     select mensagem as resultado;
 end;
 $$ delimiter ;
 
-CALL cadastrar_insumo('Mascaras descartáveis', 'Fênix', 10.5, 100, 'Tipo X', '1234567890', 1);
+CALL cadastrar_insumo('Mascaras descartÃ¡veis', 'FÃªnix', 10.5, 100, 'Tipo X', '1234567890', 1);
 CALL cadastrar_insumo('Seringa', 'Topfarma', 8.75, 50, 'Tipo Y', '9876543210', 2);
-CALL cadastrar_insumo('Luvas descartáveis', 'Inoven', 12.0, 75, 'Tipo Z', '1357924680', 3);
+CALL cadastrar_insumo('Luvas descartÃ¡veis', 'Inoven', 12.0, 75, 'Tipo Z', '1357924680', 3);
 
 create table Servico (
 serv_id int primary key not null auto_increment,
@@ -268,12 +267,12 @@ begin
             insert into Servico (serv_nome, serv_valor_venda, serv_duracao, serv_tipo)
 			values (nome_servico, valor_venda, duracao_servico, tipo_servico);
 
-			set mensagem = 'Serviço inserido com sucesso';
+			set mensagem = 'ServiÃ§o inserido com sucesso';
         else
             set mensagem = 'O valor de venda deve ser maior que zero';
         end if;
     else
-        set mensagem = 'O campo nome é obrigatório';
+        set mensagem = 'O campo nome Ã© obrigatÃ³rio';
     end if;
 
     select mensagem as resultado;
@@ -282,7 +281,7 @@ $$ delimiter ;
 
 CALL cadastrar_servico('Teste Covid', 50.0, '01:30:00', 'Tipo X');
 CALL cadastrar_servico('Exame de Sangue', 75.0, '02:15:00', 'Tipo Y');
-CALL cadastrar_servico('Vancina Tétano', 60.0, '01:45:00', 'Tipo Z');
+CALL cadastrar_servico('Vancina TÃ©tano', 60.0, '01:45:00', 'Tipo Z');
 
 create table Insumo_Servico (
 ioso_id int primary key not null auto_increment,
@@ -308,12 +307,12 @@ begin
             insert into Insumo_Servico (ioso_quantidade_insumo, fk_serv_id, fk_insu_id)
             values (insumo_quantidade, servico_id, insumo_id);
 
-            set mensagem = 'Relação inserida com sucesso';
+            set mensagem = 'RelaÃ§Ã£o inserida com sucesso';
         else
-            set mensagem = 'A quantidade de insumo não pode ser menor ou igual a zero';
+            set mensagem = 'A quantidade de insumo nÃ£o pode ser menor ou igual a zero';
         end if;
     else
-        set mensagem = 'Uma ou ambas as chaves estrangeiras não existem nas tabelas Servico e Insumo';
+        set mensagem = 'Uma ou ambas as chaves estrangeiras nÃ£o existem nas tabelas Servico e Insumo';
     end if;
     
     select mensagem as resultado;
@@ -352,13 +351,13 @@ begin
 
                 set mensagem = 'Caixa inserido com sucesso';
             else
-                set mensagem = 'A chave estrangeira não existe na tabela Funcionario';
+                set mensagem = 'A chave estrangeira nÃ£o existe na tabela Funcionario';
             end if;
         else
             set mensagem = 'Verifique o status esta preenchido';
         end if;
     else
-        set mensagem = 'O número do caixa não pode ser negativo';
+        set mensagem = 'O nÃºmero do caixa nÃ£o pode ser negativo';
     end if;
 
     select mensagem as resultado;
@@ -390,7 +389,7 @@ begin
 
             set mensagem = 'Despesa inserida com sucesso';
         else
-            set mensagem = 'A descrição não está preenchida';
+            set mensagem = 'A descriÃ§Ã£o nÃ£o estÃ¡ preenchida';
         end if;
     else
         set mensagem = 'O valor da despesa deve ser maior que zero';
@@ -401,31 +400,29 @@ $$ delimiter ;
 
 CALL cadastrar_despesa('2023-09-20', 1000.00, 'Aluguel', 'Fixa', 1);
 CALL cadastrar_despesa('2023-09-21', 500.00, 'Conta de Luz', 'Fixa', 2);
-CALL cadastrar_despesa('2023-09-22', 300.00, 'Material de Escritório', 'Variável', 3);
+CALL cadastrar_despesa('2023-09-22', 300.00, 'Material de EscritÃ³rio', 'VariÃ¡vel', 3);
 
 create table Compra (
 comp_id int primary key not null auto_increment,
 comp_data date,
 comp_valor float,
-fk_forn_id int,
 fk_desp_id int,
-foreign key (fk_forn_id) references Fornecedor (forn_id),
 foreign key (fk_desp_id) references Despesa (desp_id)
 );
 
 delimiter $$
-create procedure cadastrar_compra (data_compra date, valor_compra float, fornecedor_id int, despesa_id int)
+create procedure cadastrar_compra (data_compra date, valor_compra float, despesa_id int)
 begin
     declare mensagem varchar(300);
 
     if (valor_compra <= 0) then
-		set mensagem = 'O valor da compra deve ser maior que zero e não pode ser negativo';
+		set mensagem = 'O valor da compra deve ser maior que zero e nÃ£o pode ser negativo';
 	else 
-		if (fornecedor_id is null) or (despesa_id is null) then
+		if  (despesa_id is null) then
 			set mensagem = 'Verifique as chaves estrangeiras existem na tabela correspondente';
 		else
-			insert into Compra (comp_data, comp_valor, fk_forn_id, fk_desp_id)
-			values (data_compra, valor_compra, fornecedor_id, despesa_id);
+			insert into Compra (comp_data, comp_valor, fk_desp_id)
+			values (data_compra, valor_compra, despesa_id);
 			set mensagem = 'Compra inserida com sucesso';
 		end if;
     end if;
@@ -434,9 +431,9 @@ begin
 end;
 $$ delimiter ;
 
-call cadastrar_compra('2023-09-20', 1000.00, 1, 1);
-call cadastrar_compra('2023-09-21', 500.00, 2, 2);
-call cadastrar_compra('2023-09-22', 300.00, 3, 3);
+call cadastrar_compra('2023-09-20', 1000.00, 1);
+call cadastrar_compra('2023-09-21', 500.00, 2);
+call cadastrar_compra('2023-09-22', 300.00, 3);
 
 create table Pagamento (
 paga_id int primary key not null auto_increment,
@@ -465,13 +462,13 @@ begin
 
                 set mensagem = 'Pagamento inserido com sucesso';
             else
-                set mensagem = 'O campo forma de pagamento não pode estar vazio';
+                set mensagem = 'O campo forma de pagamento nÃ£o pode estar vazio';
             end if;
         else
-            set mensagem = 'As chaves estrangeiras não existe na tabela correspondente';
+            set mensagem = 'As chaves estrangeiras nÃ£o existe na tabela correspondente';
         end if;
     else
-        set mensagem = 'O valor do pagamento deve ser maior que zero e não pode ser negativo';
+        set mensagem = 'O valor do pagamento deve ser maior que zero e nÃ£o pode ser negativo';
     end if;
 
     select mensagem as resultado;
@@ -506,10 +503,10 @@ begin
 
             set mensagem = 'Venda inserida com sucesso';
         else
-            set mensagem = 'As chaves estrangeiras não existe na tabela correspondente';
+            set mensagem = 'As chaves estrangeiras nÃ£o existe na tabela correspondente';
         end if;
     else
-        set mensagem = 'O valor da venda deve ser maior que zero e não pode ser negativo';
+        set mensagem = 'O valor da venda deve ser maior que zero e nÃ£o pode ser negativo';
     end if;
 
     select mensagem as resultado;
@@ -542,14 +539,14 @@ begin
 		insert into recebimento values (null, data_ven, valor, forma_recebimento, status_ven, vencimento, numero_parcela, caixa, venda);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'A venda selecionada é inválida!' as 'Erro!';
+		select 'A venda selecionada Ã© invÃ¡lida!' as 'Erro!';
     end if;
 end;
 $$ delimiter ;
 
-call cadastrar_recebimento('2023-09-20', 50, 'Transferência', 'Recebida', '2023-10-20', 1, 1, 1);
-call cadastrar_recebimento('2023-09-21', 75, 'Transferência', 'Recebida', '2023-10-21', 1, 2, 2);
-call cadastrar_recebimento('2023-09-22', 100, 'Transferência', 'Recebida', '2023-10-22', 1, 3, 3);
+call cadastrar_recebimento('2023-09-20', 50, 'TransferÃªncia', 'Recebida', '2023-10-20', 1, 1, 1);
+call cadastrar_recebimento('2023-09-21', 75, 'TransferÃªncia', 'Recebida', '2023-10-21', 1, 2, 2);
+call cadastrar_recebimento('2023-09-22', 100, 'TransferÃªncia', 'Recebida', '2023-10-22', 1, 3, 3);
 
 create table Venda_Produto (
 vapo_id int primary key not null auto_increment,
@@ -569,7 +566,7 @@ begin
 		insert into venda_produto values (null, quantidade, valor, produto, venda);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'A venda selecionada é inválida!' as 'Erro!';
+		select 'A venda selecionada Ã© invÃ¡lida!' as 'Erro!';
     end if;
 end;
 $$ delimiter ;
@@ -596,7 +593,7 @@ begin
 		insert into venda_medicamento values (null, quantidade, valor, medicamento, venda);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'A venda selecionada é inválida!' as 'Erro!';
+		select 'A venda selecionada Ã© invÃ¡lida!' as 'Erro!';
     end if;
 end;
 $$ delimiter ;
@@ -623,7 +620,7 @@ begin
 		insert into venda_servico values (null, quantidade, valor, servico, venda);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'A venda selecionada é inválida!' as 'Erro!';
+		select 'A venda selecionada Ã© invÃ¡lida!' as 'Erro!';
     end if;
 end;
 $$ delimiter ;
@@ -650,7 +647,7 @@ begin
 		insert into compra_produto values (null, quantidade, valor, compra, produto);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'A compra selecionada é inválida!' as 'Erro!';
+		select 'A compra selecionada Ã© invÃ¡lida!' as 'Erro!';
     end if;
 end;
 $$ delimiter ;
@@ -677,7 +674,7 @@ begin
 		insert into compra_medicamento values (null, quantidade, valor, compra, medicamento);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'A compra selecionada é inválida!' as 'Erro!';
+		select 'A compra selecionada Ã© invÃ¡lida!' as 'Erro!';
     end if;
 end;
 $$ delimiter ;
@@ -704,7 +701,7 @@ begin
 		insert into compra_insumo values (null, quantidade, valor, compra, insumo);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'A compra selecionada é inválida!' as 'Erro!';
+		select 'A compra selecionada Ã© invÃ¡lida!' as 'Erro!';
     end if;
 end;
 $$ delimiter ;
@@ -739,11 +736,11 @@ begin
 		insert into prescricao values (null, data_pre, patologia, vencimento, nome_emissor, clinica_emissora, null, cliente, medicamento, funcionario, venda);
         select 'Cadastro realizado com sucesso!' as 'Sucesso!';
     else
-		select 'O cliente selecionado é inválido!' as 'Erro!';
+		select 'O cliente selecionado Ã© invÃ¡lido!' as 'Erro!';
     end if;
 end;
 $$ delimiter ;
 
-call cadastrar_prescricao('2022-01-01', 'Alergia', '2022-02-01', 'Dra. Giulia Novais', 'Novais Saúde', 1, 1, 1, 1);
+call cadastrar_prescricao('2022-01-01', 'Alergia', '2022-02-01', 'Dra. Giulia Novais', 'Novais SaÃºde', 1, 1, 1, 1);
 call cadastrar_prescricao('2022-01-02', 'Asma', '2022-02-02', 'Dr. Jackson Henrique', 'Sql Health', 2, 2, 2, 2);
-call cadastrar_prescricao('2022-01-03', 'Coronavírus', '2022-02-03', 'Dr. IFRO', 'Ifro Clinic', 3, 3, 3, 3);
+call cadastrar_prescricao('2022-01-03', 'CoronavÃ­rus', '2022-02-03', 'Dr. IFRO', 'Ifro Clinic', 3, 3, 3, 3);

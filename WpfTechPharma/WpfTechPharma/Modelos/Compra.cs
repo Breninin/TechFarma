@@ -15,7 +15,5 @@ namespace WpfTechPharma.Modelos
         public float Valor { get; set; }
 
         public Despesa Despesa { get; set; }
-
-        public Fornecedor Fornecedor { get; set; }
     }
 }

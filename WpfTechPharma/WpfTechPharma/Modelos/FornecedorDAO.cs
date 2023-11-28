@@ -19,41 +19,30 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Fornecedor t)
+        public string Insert(Fornecedor t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Fornecedor " +
-                    "(forn_razao_social, " +
-                    "forn_nome_fantasia, " +
-                    "forn_contato, " +
-                    "forn_cnpj, " +
-                    "forn_email, " +
-                    "fk_ende_id) " +
-                    "values " +
+                    "call cadastrar_fornecedor " +
                     "(@razaoSocial, " +
                     "@nomeFantasia, " +
-                    "@contato, " +
                     "@cnpj, " +
                     "@email, " +
+                    "@contato, " +
                     "@endereco)";
 
                 query.Parameters.AddWithValue("@razaoSocial", t.RazaoSocial);
                 query.Parameters.AddWithValue("@nomeFantasia", t.NomeFantasia);
-                query.Parameters.AddWithValue("@contato", t.Contato);
                 query.Parameters.AddWithValue("@cnpj", t.CNPJ);
                 query.Parameters.AddWithValue("@email", t.Email);
+                query.Parameters.AddWithValue("@contato", t.Contato);
                 query.Parameters.AddWithValue("@endereco", t.Endereco.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o fornecedor. Verifique o fornecedor inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {

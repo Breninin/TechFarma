@@ -61,28 +61,28 @@ namespace WpfTechPharma.Janelas
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox);
+            Utils.Check(this, textBox);
         }
 
         // Manipulador de evento para a alteração do texto de CPF
         private void TextBox_TextChanged_CPF(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox, 11);
+            Utils.Check(this, textBox, 11);
         }
 
         // Manipulador de evento para a alteração da seleção no ComboBox
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox);
+            Utils.Check(this, comboBox);
         }
 
         // Manipulador de evento para a alteração da data selecionada no DatePicker
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             DatePicker datePicker = (DatePicker)sender;
-            Ultis.Check(this, datePicker);
+            Utils.Check(this, datePicker);
         }
 
         private void FillForm()
@@ -102,7 +102,7 @@ namespace WpfTechPharma.Janelas
             edContato.Text = _funcionario.Contato;
             edfuncao.Text = _funcionario.Funcao;
             edsalario.Text = _funcionario.Salario.ToString();
-            cbEndereco.SelectedIndex = (endereco.Id - 1);
+            cbEndereco.Text = endereco.CEP;
 
             _update = true;
         }
@@ -127,7 +127,7 @@ namespace WpfTechPharma.Janelas
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 _update = false;
             }
         }
@@ -136,16 +136,16 @@ namespace WpfTechPharma.Janelas
         {
             List<bool> check = new List<bool>
             {
-                Ultis.Check(this, edNome),
-                Ultis.Check(this, edContato),
-                Ultis.Check(this, edCPF, 11),
-                Ultis.Check(this, edRG),
-                Ultis.Check(this, edEmail),
-                Ultis.Check(this, cbEndereco),
-                Ultis.Check(this, cbSexo),
-                Ultis.Check(this, dpDataNascimento),
-                Ultis.Check(this, edfuncao),
-                Ultis.Check(this, edsalario)
+                Utils.Check(this, edNome),
+                Utils.Check(this, edContato),
+                Utils.Check(this, edCPF, 11),
+                Utils.Check(this, edRG),
+                Utils.Check(this, edEmail),
+                Utils.Check(this, cbEndereco),
+                Utils.Check(this, cbSexo),
+                Utils.Check(this, dpDataNascimento),
+                Utils.Check(this, edfuncao),
+                Utils.Check(this, edsalario)
             };
 
             if (check.All(c => c))
@@ -194,9 +194,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var funcionarioDAO = new FuncionarioDAO();
-
-                        funcionarioDAO.Insert(funcionario);
-                        MessageBox.Show("Funcionario inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = funcionarioDAO.Insert(funcionario);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)
@@ -204,7 +203,7 @@ namespace WpfTechPharma.Janelas
                     MessageBox.Show("Erro ao inserir o funcionário: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 this.Close();
             }
             else

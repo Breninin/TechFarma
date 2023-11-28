@@ -57,14 +57,14 @@ namespace WpfTechPharma.Janelas
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox);
+            Utils.Check(this, textBox);
         }
 
         // Manipulador de evento para a alteração da seleção no ComboBox
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox);
+            Utils.Check(this, comboBox);
         }
 
         private void FillForm()
@@ -80,7 +80,7 @@ namespace WpfTechPharma.Janelas
             edCnpj.Text = _fornecedor.CNPJ;
             edContato.Text = _fornecedor.Contato;
             edEmail.Text = _fornecedor.Email;
-            cbEndereco.SelectedIndex = (endereco.Id - 1);
+            cbEndereco.Text = endereco.CEP;
 
             _update = true;
         }
@@ -105,7 +105,7 @@ namespace WpfTechPharma.Janelas
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 _update = false;
             }
         }
@@ -115,12 +115,12 @@ namespace WpfTechPharma.Janelas
         {
             List<bool> check = new List<bool>
             {
-                Ultis.Check(this, edRazaoSocial),
-                Ultis.Check(this, edNomeFantasia),
-                Ultis.Check(this, edCnpj),
-                Ultis.Check(this, edContato),
-                Ultis.Check(this, edEmail),
-                Ultis.Check(this, cbEndereco)
+                Utils.Check(this, edRazaoSocial),
+                Utils.Check(this, edNomeFantasia),
+                Utils.Check(this, edCnpj),
+                Utils.Check(this, edContato),
+                Utils.Check(this, edEmail),
+                Utils.Check(this, cbEndereco)
             };
 
             if (check.All(c => c))
@@ -161,9 +161,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var fornecedorDAO = new FornecedorDAO();
-
-                        fornecedorDAO.Insert(fornecedor);
-                        MessageBox.Show("Fornecedor inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = fornecedorDAO.Insert(fornecedor);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)
@@ -171,7 +170,7 @@ namespace WpfTechPharma.Janelas
                     MessageBox.Show("Erro ao inserir o fornecedor: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 this.Close();
             }
             else

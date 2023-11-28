@@ -56,14 +56,14 @@ namespace WpfTechPharma.Janelas
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox);
+            Utils.Check(this, textBox);
         }
 
         // Manipulador de evento para a alteração da seleção no ComboBox
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox);
+            Utils.Check(this, comboBox);
         }
 
         private void FillForm()
@@ -102,7 +102,7 @@ namespace WpfTechPharma.Janelas
         {
             if (MessageBox.Show("Deseja realmente limpar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 _update = false;
             }
         }
@@ -111,10 +111,10 @@ namespace WpfTechPharma.Janelas
         {
             List<bool> check = new List<bool>
             {
-                Ultis.Check(this, edNome),
-                Ultis.Check(this, edDuracao),
-                Ultis.Check(this, edTipo),
-                Ultis.Check(this, edValor),
+                Utils.Check(this, edNome),
+                Utils.Check(this, edDuracao),
+                Utils.Check(this, edTipo),
+                Utils.Check(this, edValor),
             };
 
             if (check.All(c => c))
@@ -149,9 +149,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var servicoDAO = new ServicoDAO();
-
-                        servicoDAO.Insert(servico);
-                        MessageBox.Show("Serviço inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = servicoDAO.Insert(servico);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)
@@ -159,7 +158,7 @@ namespace WpfTechPharma.Janelas
                     MessageBox.Show("Erro ao inserir o serviço: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 this.Close();
             }
             else

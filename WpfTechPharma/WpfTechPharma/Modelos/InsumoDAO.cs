@@ -19,21 +19,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Insumo t)
+        public string Insert(Insumo t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Insumo " +
-                    "(insu_nome, " +
-                    "insu_marca, " +
-                    "insu_valor_compra, " +
-                    "insu_quantidade, " +
-                    "insu_codigo_barra, " +
-                    "fk_forn_id) " +
-                    "values " +
+                    "call cadastrar_insumo " +
                     "(@nome, " +
                     "@marca, " +
                     "@valorCompra, " +
@@ -48,12 +40,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@codigoBarra", t.CodigoBarra);
                 query.Parameters.AddWithValue("@fornecedor", t.Fornecedor.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o insumo. Verifique o insumo inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {
@@ -218,3 +207,4 @@ namespace WpfTechPharma.Modelos
         }        
     }
 }
+

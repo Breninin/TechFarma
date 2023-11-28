@@ -57,13 +57,13 @@ namespace WpfTechPharma.Janelas
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox); // Executa a verificação do campo de texto usando a classe Ultis
+            Utils.Check(this, textBox); // Executa a verificação do campo de texto usando a classe Ultis
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox); // Executa a verificação da lista suspensa (ComboBox) usando a classe Ultis
+            Utils.Check(this, comboBox); // Executa a verificação da lista suspensa (ComboBox) usando a classe Ultis
         }
 
         private void FillForm()
@@ -86,7 +86,7 @@ namespace WpfTechPharma.Janelas
         {
             if (MessageBox.Show("Deseja realmente cancelar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Ultis.ResetControls(this); // Limpa os campos usando a classe Ultis caso o usuário confirme o cancelamento
+                Utils.ResetControls(this); // Limpa os campos usando a classe Ultis caso o usuário confirme o cancelamento
                 _update = false;
             }
         }
@@ -96,13 +96,13 @@ namespace WpfTechPharma.Janelas
             List<bool> check = new List<bool>
             {
                 // Executa a verificação de todos os campos usando a classe Ultis e armazena o resultado em uma lista
-                Ultis.Check(this, edCEP),
-                Ultis.Check(this, edCidade),
-                Ultis.Check(this, edComplemento),
-                Ultis.Check(this, cbUF),
-                Ultis.Check(this, edBairro),
-                Ultis.Check(this, edNumer),
-                Ultis.Check(this, edRua)
+                Utils.Check(this, edCEP),
+                Utils.Check(this, edCidade),
+                Utils.Check(this, edComplemento),
+                Utils.Check(this, cbUF),
+                Utils.Check(this, edBairro),
+                Utils.Check(this, edNumer),
+                Utils.Check(this, edRua)
             };
 
             if (check.All(c => c)) // Verifica se todos os campos foram preenchidos corretamente (todos os elementos da lista são verdadeiros)
@@ -145,8 +145,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var enderecoDAO = new EnderecoDAO();
-                        enderecoDAO.Insert(endereco); // Insere o objeto de Endereco no banco de dados usando a classe EnderecoDAO
-                        MessageBox.Show("Endereço inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = enderecoDAO.Insert(endereco); // Insere o objeto de Endereco no banco de dados usando a classe EnderecoDAO
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     } 
                 }
                 catch (Exception ex)
@@ -154,7 +154,7 @@ namespace WpfTechPharma.Janelas
                     MessageBox.Show("Erro ao inserir o endereço: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                Ultis.ResetControls(this); // Limpa os campos usando a classe Ult
+                Utils.ResetControls(this); // Limpa os campos usando a classe Ult
                 this.Close();
             }
             else

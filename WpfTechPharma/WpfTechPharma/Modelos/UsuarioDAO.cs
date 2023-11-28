@@ -20,18 +20,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Usuario t)
+        public string Insert(Usuario t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Usuario " +
-                    "(usua_login, " +
-                    "usua_senha, " +
-                    "fk_func_id) " +
-                    "values " +
+                    "call cadastrar_usuario " +
                     "(@usuario, " +
                     "@senha, " +
                     "@funcionarioId)";
@@ -40,12 +35,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@senha", t.Senha);
                 query.Parameters.AddWithValue("@funcionarioId", t.Funcionario.Id);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o usuário. Verifique o usuário inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {
@@ -199,6 +191,51 @@ namespace WpfTechPharma.Modelos
             finally
             {
                 conexao.Close();
+            }
+        }
+
+        public Usuario Login(string login, string senha)
+        {
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText =
+                    "select * from Usuario " +
+                    "where" +
+                    "((usua_login = @login) and " +
+                    "(usua_senha = @senha)) ";
+
+                query.Parameters.AddWithValue("@login", login);
+                query.Parameters.AddWithValue("@senha", senha);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Usuario ou Senha incorretos!");
+                }
+
+                Usuario usuario = new Usuario();
+
+                while (reader.Read())
+                {
+                    usuario.Id = AuxiliarDAO.GetInt(reader, "usua_id");
+                    usuario.NomeUsuario = AuxiliarDAO.GetString(reader, "usua_login");
+                    usuario.Senha = AuxiliarDAO.GetString(reader, "usua_senha");
+
+                    var id_func = AuxiliarDAO.GetInt(reader, "fk_func_id");
+                    usuario.Funcionario = new FuncionarioDAO().GetById(id_func);
+                }
+
+                return usuario;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally 
+            { 
+                conexao.Close(); 
             }
         }
     }

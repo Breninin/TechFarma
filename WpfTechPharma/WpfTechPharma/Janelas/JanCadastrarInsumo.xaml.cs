@@ -58,14 +58,14 @@ namespace WpfTechPharma.Janelas
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox);
+            Utils.Check(this, textBox);
         }
 
         // Manipulador de evento para alterações em combobox
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox);
+            Utils.Check(this, comboBox);
         }
 
         private void FillForm()
@@ -81,7 +81,7 @@ namespace WpfTechPharma.Janelas
             edCodigoBarras.Text = _insumo.CodigoBarra;
             edMarca.Text = _insumo.Marca;
             edNome.Text = _insumo.Nome;
-            edFornecedor.SelectedIndex = (fornecedor.Id - 1);
+            edFornecedor.Text = fornecedor.RazaoSocial;
 
             _update = true;
         }
@@ -92,7 +92,7 @@ namespace WpfTechPharma.Janelas
             // Exibe uma caixa de diálogo de confirmação antes de limpar os controles
             if (MessageBox.Show("Deseja realmente cancelar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 _update = false;
             }
         }
@@ -103,12 +103,12 @@ namespace WpfTechPharma.Janelas
             // Lista de verificação para verificar se todos os campos foram preenchidos corretamente
             List<bool> check = new List<bool>
             {
-                Ultis.Check(this, edValorCompra),
-                Ultis.Check(this, edEstoque),
-                Ultis.Check(this, edCodigoBarras),
-                Ultis.Check(this, edMarca),
-                Ultis.Check(this, edNome),
-                Ultis.Check(this, edFornecedor)
+                Utils.Check(this, edValorCompra),
+                Utils.Check(this, edEstoque),
+                Utils.Check(this, edCodigoBarras),
+                Utils.Check(this, edMarca),
+                Utils.Check(this, edNome),
+                Utils.Check(this, edFornecedor)
             };
 
             // Verifica se todos os campos foram preenchidos corretamente
@@ -154,9 +154,8 @@ namespace WpfTechPharma.Janelas
 
                         // Cria uma instância do InsumoDAO e insere o insumo no banco de dados
                         var insumoDAO = new InsumoDAO();
-
-                        insumoDAO.Insert(insumo);
-                        MessageBox.Show("Insumo inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = insumoDAO.Insert(insumo);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)
@@ -165,7 +164,7 @@ namespace WpfTechPharma.Janelas
                 }
 
                 // Após a inserção do insumo, redefine os controles para o estado inicial
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 this.Close();
             }
             else

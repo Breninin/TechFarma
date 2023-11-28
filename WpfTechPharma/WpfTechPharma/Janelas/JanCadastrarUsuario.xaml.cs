@@ -56,28 +56,28 @@ namespace WpfTechPharma.Janelas
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.Check(this, textBox);
+            Utils.Check(this, textBox);
         }
 
         // Manipulador de evento para alterações de texto em TextBoxes (comparação de duas TextBoxes)
         private void TextBox_TextChanged_Dual_1(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.CheckBoxEqual(this, textBox, edSenhaUsuario);
+            Utils.CheckBoxEqual(this, textBox, edSenhaUsuario);
         }
 
         // Manipulador de evento para alterações de texto em TextBoxes (comparação de duas TextBoxes)
         private void TextBox_TextChanged_Dual_2(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            Ultis.CheckBoxEqual(this, textBox, edConfirmarSenha);
+            Utils.CheckBoxEqual(this, textBox, edConfirmarSenha);
         }
 
         // Manipulador de evento para alterações de seleção em ComboBoxes
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
-            Ultis.Check(this, comboBox);
+            Utils.Check(this, comboBox);
         }
 
         private void FillForm()
@@ -90,7 +90,7 @@ namespace WpfTechPharma.Janelas
 
             edNomeUsuario.Text = _usuario.NomeUsuario;
             edSenhaUsuario.Text = _usuario.Senha;
-            cbNomeFuncionario.SelectedIndex = (funcionario.Id - 1);
+            cbNomeFuncionario.Text = funcionario.Nome;
 
             _update = true;
         }
@@ -116,7 +116,7 @@ namespace WpfTechPharma.Janelas
         {
             if (MessageBox.Show("Deseja realmente cancelar?", "Aviso", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 _update = false;
             }
         }
@@ -126,9 +126,9 @@ namespace WpfTechPharma.Janelas
         {
             List<bool> check = new List<bool>
             {
-                Ultis.Check(this, edNomeUsuario),
-                Ultis.Check(this, cbNomeFuncionario),
-                Ultis.CheckBoxEqual(this, edSenhaUsuario, edConfirmarSenha)
+                Utils.Check(this, edNomeUsuario),
+                Utils.Check(this, cbNomeFuncionario),
+                Utils.CheckBoxEqual(this, edSenhaUsuario, edConfirmarSenha)
             };
 
             if (check.All(c => c))
@@ -163,9 +163,8 @@ namespace WpfTechPharma.Janelas
                         };
 
                         var usuarioDAO = new UsuarioDAO();
-                        usuarioDAO.Insert(usuario);
-
-                        MessageBox.Show("Login inserido com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var resultado = usuarioDAO.Insert(usuario);
+                        MessageBox.Show(resultado, "Resultado", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (Exception ex)
@@ -173,7 +172,7 @@ namespace WpfTechPharma.Janelas
                     MessageBox.Show("Erro ao inserir o login: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                Ultis.ResetControls(this);
+                Utils.ResetControls(this);
                 this.Close();
             }
             else

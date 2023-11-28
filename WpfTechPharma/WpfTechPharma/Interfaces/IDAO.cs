@@ -9,7 +9,7 @@ namespace WpfTechPharma.Interfaces
 {
     interface IDAO<T>
     {
-        void Insert(T t);
+        string Insert(T t);
 
         void Update(T t);
 

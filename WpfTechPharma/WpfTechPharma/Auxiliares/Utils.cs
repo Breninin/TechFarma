@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace WpfTechPharma.Auxiliares
 {
-    static class Ultis
+    static class Utils
     {
         private static Dictionary<Control, Brush> originalBorderBrushes;
         private static Dictionary<Control, Brush> originalForegroundBrushes;
@@ -92,7 +89,7 @@ namespace WpfTechPharma.Auxiliares
         public static bool Check(Window window, TextBox e, int length)
         {
             SaveColors(window);
-            string text = e.Text.Replace("_", "").Replace(".", "").Replace("-", "").Replace(",","");
+            string text = e.Text.Replace("_", "").Replace(".", "").Replace("-", "").Replace(",", "");
 
             if (text.Length == length)
             {
@@ -154,6 +151,23 @@ namespace WpfTechPharma.Auxiliares
             }
         }
 
+        // Verifica se um PasswordBox possui texto
+        public static bool Check(Window window, PasswordBox e)
+        {
+            SaveColors(window);
+
+            if (e.Password != null)
+            {
+                SetValidColors(e);
+                return true;
+            }
+            else
+            {
+                SetInvalidColors(e);
+                return false;
+            }
+        }
+
         //Verificar se texbox são iguais
         public static bool CheckBoxEqual(Window window, TextBox textBox1, TextBox textBox2)
         {
@@ -170,6 +184,44 @@ namespace WpfTechPharma.Auxiliares
                 SetInvalidColors(textBox2);
                 return false;
             }
+        }
+
+        //Verificar se PasswordBox são iguais
+        public static bool CheckBoxEqual(Window window, PasswordBox passwordBox1, PasswordBox passwordBox2)
+        {
+            SaveColors(window);
+            if (passwordBox1.Password == passwordBox2.Password && !string.IsNullOrEmpty(passwordBox2.Password) && !string.IsNullOrEmpty(passwordBox1.Password))
+            {
+                SetValidColors(passwordBox1);
+                SetValidColors(passwordBox2);
+                return true;
+            }
+            else
+            {
+                SetInvalidColors(passwordBox1);
+                SetInvalidColors(passwordBox2);
+                return false;
+            }
+        }
+
+        // Adicione esse método à classe Ultis
+        public static void AddNumericMask(TextBox textBox)
+        {
+            textBox.PreviewTextInput += NumericTextBox_PreviewTextInput;
+        }
+        // Verifique se o texto inserido é um número
+        private static void NumericTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!IsNumeric(e.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        // Verifique se o texto é numérico
+        private static bool IsNumeric(string text)
+        {
+            return double.TryParse(text, out _);
         }
 
         // Define as cores de destaque para um controle válido

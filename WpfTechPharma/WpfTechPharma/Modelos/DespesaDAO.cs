@@ -19,20 +19,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Despesa t)
+        public string Insert(Despesa t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Despesa " +
-                    "(desp_data, " +
-                    "desp_valor, " +
-                    "desp_descricao, " +
-                    "desp_tipo, " +
-                    "desp_quantidade_parcelas) " +
-                    "values " +
+                    "call cadastrar_despesa " +
                     "(@data, " +
                     "@valor, " +
                     "@descricao, " +
@@ -45,12 +38,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@tipo", t.Tipo);
                 query.Parameters.AddWithValue("@quantidade_parcelas", t.QuantidadeParcelas);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar a Despesa. Verifique a Despesa inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {
@@ -73,7 +63,7 @@ namespace WpfTechPharma.Modelos
                     "set " +
                     "desp_data = @data, " +
                     "desp_valor = @valor, " +
-                    "desp_descricao = @descricao, " +
+                    "desp_desc = @descricao, " +
                     "desp_tipo = @tipo, " +
                     "desp_quantidade_parcelas = @quantidade_parcelas, " +
                     "where " +
@@ -152,12 +142,45 @@ namespace WpfTechPharma.Modelos
                     Despesa.Id = AuxiliarDAO.GetInt(reader, "desp_id");
                     Despesa.Data = AuxiliarDAO.GetDateTime(reader, "desp_data");
                     Despesa.Valor = AuxiliarDAO.GetFloat(reader, "desp_valor");
-                    Despesa.Descricao = AuxiliarDAO.GetString(reader, "desp_descricao");
+                    Despesa.Descricao = AuxiliarDAO.GetString(reader, "desp_desc");
                     Despesa.Tipo = AuxiliarDAO.GetString(reader, "desp_tipo");
                     Despesa.QuantidadeParcelas = AuxiliarDAO.GetInt(reader, "desp_quantidade_parcelas");
                 }
 
                 return Despesa;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+
+        public int GetLastInsertID()
+        {
+            try
+            {
+                var query = conexao.Query();
+                query.CommandText = "SELECT * FROM Despesa WHERE ((SELECT MAX(desp_id) FROM Despesa) = desp_id)";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Nenhuma Despesa foi encontrada!");
+                }
+
+                int lastInsertID = 0;
+
+                while (reader.Read())
+                {
+                    lastInsertID = AuxiliarDAO.GetInt(reader, "desp_id");
+                }
+
+                return lastInsertID;
             }
             catch (Exception e)
             {
@@ -192,7 +215,7 @@ namespace WpfTechPharma.Modelos
                         Id = AuxiliarDAO.GetInt(reader, "desp_id"),
                         Data = AuxiliarDAO.GetDateTime(reader, "desp_data"),
                         Valor = AuxiliarDAO.GetFloat(reader, "desp_valor"),
-                        Descricao = AuxiliarDAO.GetString(reader, "desp_descricao"),
+                        Descricao = AuxiliarDAO.GetString(reader, "desp_desc"),
                         Tipo = AuxiliarDAO.GetString(reader, "desp_tipo"),
                         QuantidadeParcelas = AuxiliarDAO.GetInt(reader, "desp_quantidade_parcelas")
                     });

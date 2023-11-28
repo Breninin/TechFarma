@@ -19,19 +19,13 @@ namespace WpfTechPharma.Modelos
             conexao = new Conexao();
         }
 
-        public void Insert(Servico t)
+        public string Insert(Servico t)
         {
             try
             {
                 var query = conexao.Query();
                 query.CommandText =
-                    "insert into " +
-                    "Servico " +
-                    "(serv_nome, " +
-                    "serv_valor_venda, " +
-                    "serv_duracao, " +
-                    "serv_tipo) " +
-                    "values " +
+                    "call cadastrar_servico " +
                     "(@nome, " +
                     "@valorVenda, " +
                     "@duracao, " +
@@ -42,12 +36,9 @@ namespace WpfTechPharma.Modelos
                 query.Parameters.AddWithValue("@duracao", t.Duracao);
                 query.Parameters.AddWithValue("@tipo", t.Tipo);
 
-                var result = query.ExecuteNonQuery();
+                var result = (string)query.ExecuteScalar();
 
-                if (result == 0)
-                {
-                    throw new Exception("Erro ao salvar o serviço. Verifique o serviço inserido e tente novamente.");
-                }
+                return result;
             }
             catch (Exception e)
             {
